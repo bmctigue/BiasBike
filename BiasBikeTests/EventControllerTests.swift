@@ -17,8 +17,8 @@ class EventControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvent = Event(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "url", photoUrl: "photoUrl", category: .Health)
-        testEvent2 = Event(eventId: "2", title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "url", photoUrl: "photoUrl", category: .News)
+        testEvent = Event(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
+        testEvent2 = Event(eventId: "2", title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", category: .News)
         EventController.sharedInstance.clearEvents()
         EventController.sharedInstance.save()
     }
@@ -49,9 +49,27 @@ class EventControllerTests: XCTestCase {
         events = EventController.sharedInstance.events
         XCTAssertTrue(events.count == 1)
         EventController.sharedInstance.addEvent(event: testEvent2!)
-        events = EventController.sharedInstance.events
         EventController.sharedInstance.save()
+        events = EventController.sharedInstance.events
         XCTAssertTrue(events.count == 2)
+    }
+    
+    func testEmptyClaims() {
+        ClaimController.sharedInstance.loadDefaultClaims()
+        let claims = EventController.sharedInstance.claims(eventId: testEvent2!.eventId)
+        XCTAssertTrue(claims.count == 0)
+    }
+    
+    func testClaims() {
+        ClaimController.sharedInstance.loadDefaultClaims()
+        let claims = EventController.sharedInstance.claims(eventId: testEvent!.eventId)
+        XCTAssertTrue(claims.count == ClaimController.sharedInstance.claims.count)
+    }
+    
+    func testLoadDefaultEvents() {
+        EventController.sharedInstance.loadDefaultEvents()
+        let events = EventController.sharedInstance.events
+        XCTAssertTrue(events.count == 3)
     }
     
 }

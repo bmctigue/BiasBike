@@ -9,11 +9,11 @@
 import Foundation
 
 enum Category: String {
-    case World
-    case News
-    case Myths
-    case Religion
-    case Health
-    case Science
-    case Politics
+    case World = "World"
+    case News = "News"
+    case Myths = "Myths"
+    case Religion = "Religion"
+    case Health = "Health"
+    case Science = "Science"
+    case Politics = "Politics"
 }
