@@ -12,12 +12,12 @@ class Event: NSObject, NSCoding {
     private(set) var eventId: String
     private(set) var title: String
     private(set) var summary: String
-    private(set) var creationDate: NSDate
+    private(set) var creationDate: Date
     private(set) var url: String
     private(set) var photoUrl: String
     private(set) var category: Category
     
-    init(eventId: String, title: String, summary: String, creationDate: NSDate, url: String, photoUrl: String, category: Category) {
+    init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) {
         self.eventId = eventId
         self.title = title
         self.summary = summary
@@ -32,7 +32,7 @@ class Event: NSObject, NSCoding {
         let eventId = aDecoder.decodeObject(forKey: Keys.EventID.rawValue) as! String
         let title = aDecoder.decodeObject(forKey: Keys.Title.rawValue) as! String
         let summary = aDecoder.decodeObject(forKey: Keys.Summary.rawValue) as! String
-        let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! NSDate
+        let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
         let photoUrl = aDecoder.decodeObject(forKey: Keys.PhotoUrl.rawValue) as! String
         let category = Category(rawValue: (aDecoder.decodeObject(forKey: "category") as! String))!

@@ -26,7 +26,7 @@ class EventControllerTests: XCTestCase {
     func testEmptyEvents() {
         let fileManager = FileManager.default
         do {
-            try fileManager.removeItem(atPath: EventController.eventsFilePath)
+            try fileManager.removeItem(atPath: EventController.ArchiveURL.path)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
