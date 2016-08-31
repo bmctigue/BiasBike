@@ -8,47 +8,49 @@
 
 import Foundation
 
-class Event {
-    let id: IntMax
-    let title: String
-    let summary: String
-    let creationDate: Date
-    let url: String
-    let photoUrl: String
-    let category: Category
+class Event: NSObject, NSCoding {
+    private(set) var eventId: String
+    private(set) var title: String
+    private(set) var summary: String
+    private(set) var creationDate: NSDate
+    private(set) var url: String
+    private(set) var photoUrl: String
+    private(set) var category: Category
     
-    init(id: IntMax, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) {
-        self.id = id
+    init(eventId: String, title: String, summary: String, creationDate: NSDate, url: String, photoUrl: String, category: Category) {
+        self.eventId = eventId
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
         self.photoUrl = photoUrl
         self.category = category
+        super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject(forKey: Keys.Id.rawValue) as! IntMax
-        title = aDecoder.decodeObject(forKey: Keys.Title.rawValue) as! String
-        summary = aDecoder.decodeObject(forKey: Keys.Summary.rawValue) as! String
-        creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
-        url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
-        photoUrl = aDecoder.decodeObject(forKey: Keys.PhotoUrl.rawValue) as! String
-        category = aDecoder.decodeObject(forKey: Keys.Category.rawValue) as! Category
+    required convenience init?(coder aDecoder: NSCoder) {
+        let eventId = aDecoder.decodeObject(forKey: Keys.EventID.rawValue) as! String
+        let title = aDecoder.decodeObject(forKey: Keys.Title.rawValue) as! String
+        let summary = aDecoder.decodeObject(forKey: Keys.Summary.rawValue) as! String
+        let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! NSDate
+        let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
+        let photoUrl = aDecoder.decodeObject(forKey: Keys.PhotoUrl.rawValue) as! String
+        let category = Category(rawValue: (aDecoder.decodeObject(forKey: "category") as! String))!
+        self.init(eventId:eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, category: category)
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encode(id, forKey: Keys.Id.rawValue)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(eventId, forKey: Keys.EventID.rawValue)
         aCoder.encode(title, forKey: Keys.Title.rawValue)
         aCoder.encode(summary, forKey: Keys.Summary.rawValue)
         aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
         aCoder.encode(url, forKey: Keys.Url.rawValue)
         aCoder.encode(photoUrl, forKey: Keys.PhotoUrl.rawValue)
-        aCoder.encode(category, forKey: Keys.Category.rawValue)
+        aCoder.encode(category.rawValue, forKey: Keys.Category.rawValue)
     }
     
     enum Keys: String {
-        case Id = "id"
+        case EventID = "eventId"
         case Title = "title"
         case Summary = "summary"
         case CreationDate = "creationDate"
