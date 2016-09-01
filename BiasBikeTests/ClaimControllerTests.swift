@@ -23,6 +23,11 @@ class ClaimControllerTests: XCTestCase {
         ClaimController.sharedInstance.save()
     }
     
+    func testClaimInit() {
+        let claim = Claim(claimId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50)
+        XCTAssertTrue(claim.claimId == "1")
+    }
+    
     func testEmptyclaims() {
         let fileManager = FileManager.default
         do {

@@ -23,6 +23,11 @@ class EventControllerTests: XCTestCase {
         EventController.sharedInstance.save()
     }
     
+    func testEventInit() {
+        let event = Event(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
+        XCTAssertTrue(event.eventId == "1")
+    }
+    
     func testEmptyEvents() {
         let fileManager = FileManager.default
         do {

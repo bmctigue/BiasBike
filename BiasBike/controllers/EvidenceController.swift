@@ -28,7 +28,7 @@ class EvidenceController {
         self.items.removeAll()
     }
     
-    func addClaim(evidence: Evidence) {
+    func addEvidence(evidence: Evidence) {
         self.items.append(evidence)
     }
     
@@ -42,12 +42,10 @@ extension EvidenceController {
     
     func loadDefaultEvidence() {
         clearEvidence()
-        let evidence1 = Evidence(evidenceId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
-        addClaim(evidence: evidence1)
-        let evidence2 = Evidence(evidenceId: "2", title: "High Jacked", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
-        addClaim(evidence: evidence2)
-        let evidence3 = Evidence(evidenceId: "3", title: "The Plane was Stolen", summary: "", creationDate: Date(), url: "", relevance: 85, reliability: 90, aggRR: 70)
-        addClaim(evidence: evidence3)
+        let evidence1 = Evidence(evidenceId: "1", title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
+        addEvidence(evidence: evidence1)
+        let evidence2 = Evidence(evidenceId: "2", title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
+        addEvidence(evidence: evidence2)
         save()
     }
     
