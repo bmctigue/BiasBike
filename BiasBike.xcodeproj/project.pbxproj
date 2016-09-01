@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
+		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8BD6AB81D75E249004FA825 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6AB71D75E249004FA825 /* Category.swift */; };
 		A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6AB91D75E3BF004FA825 /* Event.swift */; };
 		A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
+		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8BD6AB71D75E249004FA825 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A8BD6AB91D75E3BF004FA825 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventControllerTests.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			children = (
 				A8E73E321D777AA90098FAC0 /* ClaimController.swift */,
 				A8E73E301D777A230098FAC0 /* EventController.swift */,
+				A8965F2F1D7882F600349EC1 /* EvidenceController.swift */,
 				A8E4D87C1D74EA2E00AFA1FE /* FirstViewController.swift */,
 				A8E4D87D1D74EA2E00AFA1FE /* SecondViewController.swift */,
 			);
@@ -161,6 +166,7 @@
 				A8BD6AB71D75E249004FA825 /* Category.swift */,
 				A8E73E2E1D7776690098FAC0 /* Claim.swift */,
 				A8BD6AB91D75E3BF004FA825 /* Event.swift */,
+				A8965F2D1D787E4300349EC1 /* Evidence.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -334,6 +340,8 @@
 			files = (
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8E4D87F1D74EA2E00AFA1FE /* SecondViewController.swift in Sources */,
+				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
+				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
 				A8E4D87E1D74EA2E00AFA1FE /* FirstViewController.swift in Sources */,

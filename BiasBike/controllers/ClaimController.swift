@@ -33,8 +33,8 @@ class ClaimController {
     }
     
     func save() {
-        let castedEvents = self.claims as NSArray
-        NSKeyedArchiver.archiveRootObject(castedEvents,toFile: ClaimController.ArchiveURL.path)
+        let castedClaims = self.claims as NSArray
+        NSKeyedArchiver.archiveRootObject(castedClaims,toFile: ClaimController.ArchiveURL.path)
     }
 }
 
