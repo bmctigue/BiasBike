@@ -54,18 +54,6 @@ class EventControllerTests: XCTestCase {
         XCTAssertTrue(events.count == 2)
     }
     
-    func testEmptyClaims() {
-        ClaimController.sharedInstance.loadDefaultClaims()
-        let claims = EventController.sharedInstance.claims(eventId: testEvent2!.eventId)
-        XCTAssertTrue(claims.count == 0)
-    }
-    
-    func testClaims() {
-        ClaimController.sharedInstance.loadDefaultClaims()
-        let claims = EventController.sharedInstance.claims(eventId: testEvent!.eventId)
-        XCTAssertTrue(claims.count == ClaimController.sharedInstance.claims.count)
-    }
-    
     func testLoadDefaultEvents() {
         EventController.sharedInstance.loadDefaultEvents()
         let events = EventController.sharedInstance.events

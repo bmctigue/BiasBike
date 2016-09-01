@@ -24,10 +24,6 @@ class EventController {
         }
     }()
     
-    func claims(eventId: String) -> [Claim] {
-        return ClaimController.sharedInstance.claims.filter{$0.eventId == eventId}
-    }
-    
     func clearEvents() {
         self.events.removeAll()
     }

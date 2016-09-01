@@ -16,9 +16,8 @@ class Claim: NSObject, NSCoding {
     private(set) var url: String
     private(set) var probability: Int
     private(set) var aggProbability: Int
-    private(set) var eventId: String
     
-    init(claimId: String, title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int, eventId: String) {
+    init(claimId: String, title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int) {
         self.claimId = claimId
         self.title = title
         self.summary = summary
@@ -26,7 +25,6 @@ class Claim: NSObject, NSCoding {
         self.url = url
         self.probability = probability
         self.aggProbability = aggProbability
-        self.eventId = eventId
         super.init()
     }
     
@@ -38,8 +36,7 @@ class Claim: NSObject, NSCoding {
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
         let probability = aDecoder.decodeInteger(forKey: Keys.Probability.rawValue)
         let aggProbability = aDecoder.decodeInteger(forKey: Keys.AggProbability.rawValue)
-        let eventId = aDecoder.decodeObject(forKey: Keys.eventId.rawValue) as! String
-        self.init(claimId:claimId, title: title, summary: summary, creationDate: creationDate, url: url, probability: probability, aggProbability: aggProbability, eventId: eventId)
+        self.init(claimId:claimId, title: title, summary: summary, creationDate: creationDate, url: url, probability: probability, aggProbability: aggProbability)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -50,7 +47,6 @@ class Claim: NSObject, NSCoding {
         aCoder.encode(url, forKey: Keys.Url.rawValue)
         aCoder.encode(probability, forKey: Keys.Probability.rawValue)
         aCoder.encode(aggProbability, forKey: Keys.AggProbability.rawValue)
-        aCoder.encode(eventId, forKey: Keys.eventId.rawValue)
     }
     
     enum Keys: String {
@@ -61,6 +57,5 @@ class Claim: NSObject, NSCoding {
         case Url = "url"
         case Probability = "probability"
         case AggProbability = "aggProbability"
-        case eventId = "eventId"
     }
 }

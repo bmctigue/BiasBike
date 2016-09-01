@@ -17,8 +17,8 @@ class ClaimControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testClaim = Claim(claimId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50, eventId: "1")
-        testClaim2 = Claim(claimId: "2", title: "High Jacked", summary: "", creationDate: Date(), url: "", probability: 45, aggProbability: 65, eventId: "1")
+        testClaim = Claim(claimId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50)
+        testClaim2 = Claim(claimId: "2", title: "High Jacked", summary: "", creationDate: Date(), url: "", probability: 45, aggProbability: 65)
         ClaimController.sharedInstance.clearClaims()
         ClaimController.sharedInstance.save()
     }
