@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A81F47071D79CF910025F918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47061D79CF910025F918 /* User.swift */; };
+		A81F47091D79D1630025F918 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47081D79D1630025F918 /* UserController.swift */; };
+		A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F470A1D79D3880025F918 /* UserControllerTests.swift */; };
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
 		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A81F47061D79CF910025F918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A81F47081D79D1630025F918 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		A81F470A1D79D3880025F918 /* UserControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserControllerTests.swift; sourceTree = "<group>"; };
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceControllerTests.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 				A8E73E341D77870F0098FAC0 /* ClaimControllerTests.swift */,
 				A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */,
 				A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */,
+				A81F470A1D79D3880025F918 /* UserControllerTests.swift */,
 			);
 			path = BiasBikeTests;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 				A8965F2F1D7882F600349EC1 /* EvidenceController.swift */,
 				A8E4D87C1D74EA2E00AFA1FE /* FirstViewController.swift */,
 				A8E4D87D1D74EA2E00AFA1FE /* SecondViewController.swift */,
+				A81F47081D79D1630025F918 /* UserController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 				A8E73E2E1D7776690098FAC0 /* Claim.swift */,
 				A8BD6AB91D75E3BF004FA825 /* Event.swift */,
 				A8965F2D1D787E4300349EC1 /* Evidence.swift */,
+				A81F47061D79CF910025F918 /* User.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -347,10 +356,12 @@
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
+				A81F47091D79D1630025F918 /* UserController.swift in Sources */,
 				A8E4D87E1D74EA2E00AFA1FE /* FirstViewController.swift in Sources */,
 				A8BD6AB81D75E249004FA825 /* Category.swift in Sources */,
 				A8E73E311D777A230098FAC0 /* EventController.swift in Sources */,
 				A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */,
+				A81F47071D79CF910025F918 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +371,7 @@
 			files = (
 				A8E73E351D77870F0098FAC0 /* ClaimControllerTests.swift in Sources */,
 				A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */,
+				A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */,
 				A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
