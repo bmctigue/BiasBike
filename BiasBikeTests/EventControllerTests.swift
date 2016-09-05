@@ -14,19 +14,18 @@ class EventControllerTests: XCTestCase {
     var events: [Event] = []
     var testEvent: Event?
     var testEvent2: Event?
-    var claims: [Claim] = []
     let eventFactory: EventFactoryProtocol = EventFactory()
     
     override func setUp() {
         super.setUp()
-        testEvent = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health, claims: claims)
-        testEvent2 = eventFactory.create(eventId: "2", title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", category: .News, claims: claims)
+        testEvent = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
+        testEvent2 = eventFactory.create(eventId: "2", title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", category: .News)
         EventController.sharedInstance.clearEvents()
         EventController.sharedInstance.save()
     }
     
     func testEventInit() {
-        let event = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health, claims: claims)
+        let event = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
         XCTAssertTrue(event.eventId == "1")
     }
     

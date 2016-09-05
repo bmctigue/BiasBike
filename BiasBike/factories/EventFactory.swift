@@ -9,11 +9,11 @@
 import Foundation
 
 protocol EventFactoryProtocol {
-    func create(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category, claims: [Claim]) -> Event
+    func create(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) -> Event
 }
 
 struct EventFactory: EventFactoryProtocol {
-    func create(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category, claims: [Claim]) -> Event {
-        return Event.init(eventId: eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, category: category, claims: claims)
+    func create(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) -> Event {
+        return Event.init(eventId: eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, category: category)
     }
 }
