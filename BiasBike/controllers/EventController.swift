@@ -42,11 +42,11 @@ extension EventController {
     
     func loadDefaultEvents() {
         clearEvents()
-        let event1 = Event(eventId: "1", title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
+        let event1 = Event(eventId: "1", title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World, claims: [])
         addEvent(event: event1)
-        let event2 = Event(eventId: "2", title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
+        let event2 = Event(eventId: "2", title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World, claims: [])
         addEvent(event: event2)
-        let event3 = Event(eventId: "3", title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .Politics)
+        let event3 = Event(eventId: "3", title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .Politics, claims: [])
         addEvent(event: event3)
         save()
     }

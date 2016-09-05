@@ -16,8 +16,9 @@ class Event: NSObject, NSCoding {
     private(set) var url: String
     private(set) var photoUrl: String
     private(set) var category: Category
+    private(set) var claims: [Claim]
     
-    init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) {
+    init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category, claims: [Claim]) {
         self.eventId = eventId
         self.title = title
         self.summary = summary
@@ -25,6 +26,7 @@ class Event: NSObject, NSCoding {
         self.url = url
         self.photoUrl = photoUrl
         self.category = category
+        self.claims = claims
         super.init()
     }
     
@@ -36,7 +38,8 @@ class Event: NSObject, NSCoding {
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
         let photoUrl = aDecoder.decodeObject(forKey: Keys.PhotoUrl.rawValue) as! String
         let category = Category(rawValue: (aDecoder.decodeObject(forKey: "category") as! String))!
-        self.init(eventId:eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, category: category)
+        let claims = aDecoder.decodeObject(forKey: Keys.Claims.rawValue) as! [Claim]
+        self.init(eventId:eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, category: category, claims: claims)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -47,6 +50,7 @@ class Event: NSObject, NSCoding {
         aCoder.encode(url, forKey: Keys.Url.rawValue)
         aCoder.encode(photoUrl, forKey: Keys.PhotoUrl.rawValue)
         aCoder.encode(category.rawValue, forKey: Keys.Category.rawValue)
+        aCoder.encode(claims, forKey: Keys.Claims.rawValue)
     }
     
     enum Keys: String {
@@ -57,5 +61,6 @@ class Event: NSObject, NSCoding {
         case Url = "url"
         case PhotoUrl = "photoUrl"
         case Category = "category"
+        case Claims = "claims"
     }
 }
