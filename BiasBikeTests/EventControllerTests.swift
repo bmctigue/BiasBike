@@ -20,8 +20,7 @@ class EventControllerTests: XCTestCase {
         super.setUp()
         testEvent = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
         testEvent2 = eventFactory.create(eventId: "2", title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", category: .News)
-        EventController.sharedInstance.clearEvents()
-        EventController.sharedInstance.save()
+        EventController.sharedInstance.clear()
     }
     
     func testEventInit() {
@@ -29,40 +28,25 @@ class EventControllerTests: XCTestCase {
         XCTAssertTrue(event.eventId == "1")
     }
     
-    func testEmptyEvents() {
-        let fileManager = FileManager.default
-        do {
-            try fileManager.removeItem(atPath: EventController.ArchiveURL.path)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        events = EventController.sharedInstance.events
-        XCTAssertTrue(events.count == 0)
-    }
-    
     func testClearEvents() {
-        EventController.sharedInstance.addEvent(event: testEvent!)
-        EventController.sharedInstance.save()
-        EventController.sharedInstance.clearEvents()
-        EventController.sharedInstance.save()
-        events = EventController.sharedInstance.events
+        EventController.sharedInstance.add(item: testEvent!)
+        EventController.sharedInstance.clear()
+        events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 0)
     }
     
     func testAddEvent() {
-        EventController.sharedInstance.addEvent(event: testEvent!)
-        EventController.sharedInstance.save()
-        events = EventController.sharedInstance.events
+        EventController.sharedInstance.add(item: testEvent!)
+        events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 1)
-        EventController.sharedInstance.addEvent(event: testEvent2!)
-        EventController.sharedInstance.save()
-        events = EventController.sharedInstance.events
+        EventController.sharedInstance.add(item: testEvent2!)
+        events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 2)
     }
     
     func testLoadDefaultEvents() {
-        EventController.sharedInstance.loadDefaultEvents()
-        let events = EventController.sharedInstance.events
+        EventController.sharedInstance.loadDefault()
+        events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 3)
     }
     

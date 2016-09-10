@@ -12,16 +12,6 @@ class ClaimController: ModelController<Claim> {
     
     static let sharedInstance = ClaimController.init(modelType: ModelType.Claim)
     
-    let modelController = ModelController<Claim>.init(modelType: ModelType.Claim)
-    
-    override func all() -> [Claim] {
-        return modelController.all()
-    }
-    
-    override func add(item: Claim) {
-        modelController.add(item: item)
-    }
-    
     override func loadDefault() {
         clear()
         let claim1 = Claim(claimId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50)

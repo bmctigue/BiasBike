@@ -20,8 +20,7 @@ class EvidenceControllerTests: XCTestCase {
         super.setUp()
         testEvidence = evidenceFactory.create(evidenceId: "1", title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
         testEvidence2 = evidenceFactory.create(evidenceId: "2", title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
-        EvidenceController.sharedInstance.clearEvidence()
-        EvidenceController.sharedInstance.save()
+        EvidenceController.sharedInstance.clear()
     }
     
     func testEvidenceInit() {
@@ -29,40 +28,25 @@ class EvidenceControllerTests: XCTestCase {
         XCTAssertTrue(evidence.evidenceId == "1")
     }
     
-    func testEmptyitems() {
-        let fileManager = FileManager.default
-        do {
-            try fileManager.removeItem(atPath: EvidenceController.ArchiveURL.path)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        items = EvidenceController.sharedInstance.items
-        XCTAssertTrue(items.count == 0)
-    }
-    
     func testClearEvidence() {
-        EvidenceController.sharedInstance.addEvidence(evidence: testEvidence!)
-        EvidenceController.sharedInstance.save()
-        EvidenceController.sharedInstance.clearEvidence()
-        EvidenceController.sharedInstance.save()
+        EvidenceController.sharedInstance.add(item: testEvidence!)
+        EvidenceController.sharedInstance.clear()
         items = EvidenceController.sharedInstance.items
         XCTAssertTrue(items.count == 0)
     }
     
     func testaddEvidence() {
-        EvidenceController.sharedInstance.addEvidence(evidence: testEvidence!)
-        EvidenceController.sharedInstance.save()
-        items = EvidenceController.sharedInstance.items
+        EvidenceController.sharedInstance.add(item: testEvidence!)
+        items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 1)
-        EvidenceController.sharedInstance.addEvidence(evidence: testEvidence2!)
-        EvidenceController.sharedInstance.save()
-        items = EvidenceController.sharedInstance.items
+        EvidenceController.sharedInstance.add(item: testEvidence2!)
+        items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 2)
     }
     
     func testLoadDefaultEvidence() {
-        EvidenceController.sharedInstance.loadDefaultEvidence()
-        let items = EvidenceController.sharedInstance.items
+        EvidenceController.sharedInstance.loadDefault()
+        let items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 2)
     }
     

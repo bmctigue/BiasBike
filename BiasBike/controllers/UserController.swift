@@ -12,16 +12,6 @@ class UserController: ModelController<User> {
     
     static let sharedInstance = UserController.init(modelType: ModelType.User)
     
-    let modelController = ModelController<User>.init(modelType: ModelType.User)
-    
-    override func all() -> [User] {
-        return modelController.all()
-    }
-    
-    override func add(item: User) {
-        modelController.add(item: item)
-    }
-    
     override func loadDefault() {
         clear()
         let user1 = User(userId: "1", firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)

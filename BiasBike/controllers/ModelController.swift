@@ -9,6 +9,7 @@
 import Foundation
 
 enum ModelType: String {
+    case Generic = "generic"
     case Event = "events"
     case Claim = "claims"
     case Evidence = "evidence"
@@ -40,12 +41,12 @@ class ModelController<T> {
     }
     
     func clear() {
-        items.removeAll()
+        self.items.removeAll()
         save()
     }
     
     func add(item: T) {
-        items.append(item)
+        self.items.append(item)
         save()
     }
     
@@ -66,12 +67,5 @@ extension ModelController {
         EvidenceController.sharedInstance.save()
         UserController.sharedInstance.save()
         
-    }
-    
-    class func loadAllModelControllers() {
-        EventController.sharedInstance.loadDefault()
-        ClaimController.sharedInstance.loadDefault()
-        EvidenceController.sharedInstance.loadDefault()
-        UserController.sharedInstance.loadDefault()
     }
 }

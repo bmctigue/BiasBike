@@ -12,16 +12,6 @@ class EventController: ModelController<Event> {
     
     static let sharedInstance = EventController.init(modelType: ModelType.Event)
     
-    let modelController = ModelController<Event>.init(modelType: ModelType.Event)
-    
-    override func all() -> [Event] {
-        return modelController.all()
-    }
-    
-    override func add(item: Event) {
-        modelController.add(item: item)
-    }
-    
     override func loadDefault() {
         clear()
         let event1 = Event(eventId: "1", title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)

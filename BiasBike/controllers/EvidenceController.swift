@@ -12,16 +12,6 @@ class EvidenceController: ModelController<Evidence> {
     
     static let sharedInstance = EvidenceController.init(modelType: ModelType.Evidence)
     
-    let modelController = ModelController<Evidence>.init(modelType: ModelType.Evidence)
-    
-    override func all() -> [Evidence] {
-        return modelController.all()
-    }
-    
-    override func add(item: Evidence) {
-        modelController.add(item: item)
-    }
-    
     override func loadDefault() {
         clear()
         let evidence1 = Evidence(evidenceId: "1", title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)

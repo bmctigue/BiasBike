@@ -20,8 +20,7 @@ class ClaimControllerTests: XCTestCase {
         super.setUp()
         testClaim = claimFactory.create(claimId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50)
         testClaim2 = claimFactory.create(claimId: "2", title: "High Jacked", summary: "", creationDate: Date(), url: "", probability: 45, aggProbability: 65)
-        ClaimController.sharedInstance.clearClaims()
-        ClaimController.sharedInstance.save()
+        ClaimController.sharedInstance.clear()
     }
     
     func testClaimInit() {
@@ -29,40 +28,25 @@ class ClaimControllerTests: XCTestCase {
         XCTAssertTrue(claim.claimId == "1")
     }
     
-    func testEmptyclaims() {
-        let fileManager = FileManager.default
-        do {
-            try fileManager.removeItem(atPath: ClaimController.ArchiveURL.path)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        claims = ClaimController.sharedInstance.claims
-        XCTAssertTrue(claims.count == 0)
-    }
-    
     func testClearClaims() {
-        ClaimController.sharedInstance.addClaim(claim: testClaim!)
-        ClaimController.sharedInstance.save()
-        ClaimController.sharedInstance.clearClaims()
-        ClaimController.sharedInstance.save()
-        claims = ClaimController.sharedInstance.claims
+        ClaimController.sharedInstance.add(item: testClaim!)
+        ClaimController.sharedInstance.clear()
+        claims = ClaimController.sharedInstance.all()
         XCTAssertTrue(claims.count == 0)
     }
     
     func testaddClaim() {
-        ClaimController.sharedInstance.addClaim(claim: testClaim!)
-        ClaimController.sharedInstance.save()
-        claims = ClaimController.sharedInstance.claims
+        ClaimController.sharedInstance.add(item: testClaim!)
+        claims = ClaimController.sharedInstance.all()
         XCTAssertTrue(claims.count == 1)
-        ClaimController.sharedInstance.addClaim(claim: testClaim2!)
-        ClaimController.sharedInstance.save()
-        claims = ClaimController.sharedInstance.claims
+        ClaimController.sharedInstance.add(item: testClaim2!)
+        claims = ClaimController.sharedInstance.all()
         XCTAssertTrue(claims.count == 2)
     }
     
     func testLoadDefaultclaims() {
-        ClaimController.sharedInstance.loadDefaultClaims()
-        let claims = ClaimController.sharedInstance.claims
+        ClaimController.sharedInstance.loadDefault()
+        let claims = ClaimController.sharedInstance.all()
         XCTAssertTrue(claims.count == 3)
     }
 
