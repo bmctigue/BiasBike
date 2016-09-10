@@ -19,6 +19,7 @@
 		A8BD6AB81D75E249004FA825 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6AB71D75E249004FA825 /* Category.swift */; };
 		A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6AB91D75E3BF004FA825 /* Event.swift */; };
 		A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */; };
+		A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4AC721D848D61007F7C31 /* ModelController.swift */; };
 		A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */; };
 		A8E4D84E1D74E56900AFA1FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8E4D84C1D74E56900AFA1FE /* Main.storyboard */; };
 		A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		A8BD6AB71D75E249004FA825 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A8BD6AB91D75E3BF004FA825 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventControllerTests.swift; sourceTree = "<group>"; };
+		A8E4AC721D848D61007F7C31 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		A8E4D8431D74E56900AFA1FE /* BiasBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiasBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8E4D84D1D74E56900AFA1FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		A8E4D8761D74E9B300AFA1FE /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4AC721D848D61007F7C31 /* ModelController.swift */,
 				A8E73E321D777AA90098FAC0 /* ClaimController.swift */,
 				A8E73E301D777A230098FAC0 /* EventController.swift */,
 				A8965F2F1D7882F600349EC1 /* EvidenceController.swift */,
@@ -373,6 +376,7 @@
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8E4D87F1D74EA2E00AFA1FE /* SecondViewController.swift in Sources */,
 				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
+				A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */,
 				A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,

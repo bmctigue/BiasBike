@@ -8,47 +8,31 @@
 
 import Foundation
 
-class EventController {
+class EventController: ModelController<Event> {
     
-    static let sharedInstance = EventController()
-    private init() {}
+    static let sharedInstance = EvidenceController.init(modelType: ModelType.Event)
     
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("events")
+    let modelController = ModelController<Event>.init(modelType: ModelType.Event)
     
-    private(set) var events: [Event] = {
-        if let events = NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL.path) as? [Event] {
-            return events
-        } else {
-            return [Event]()
-        }
-    }()
-    
-    func clearEvents() {
-        self.events.removeAll()
+    override func all() -> [Event] {
+        return modelController.all()
     }
     
-    func addEvent(event: Event) {
-        self.events.append(event)
-    }
-    
-    func save() {
-        let castedEvents = self.events as NSArray
-        NSKeyedArchiver.archiveRootObject(castedEvents,toFile: EventController.ArchiveURL.path)
+    override func add(item: Event) {
+        modelController.add(item: item)
     }
 }
 
 extension EventController {
     
-    func loadDefaultEvents() {
-        clearEvents()
+    func loadDefault() {
+        clear()
         let event1 = Event(eventId: "1", title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
-        addEvent(event: event1)
+        add(item: event1)
         let event2 = Event(eventId: "2", title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
-        addEvent(event: event2)
+        add(item: event2)
         let event3 = Event(eventId: "3", title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .Politics)
-        addEvent(event: event3)
-        save()
+        add(item: event3)
     }
     
 }
