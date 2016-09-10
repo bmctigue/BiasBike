@@ -53,14 +53,25 @@ class ModelController<T> {
         NSKeyedArchiver.archiveRootObject(self.items as NSArray,toFile: archiveURL.path)
     }
     
+    func loadDefault() {
+        // load default items here
+    }
+    
 }
 
 extension ModelController {
-    class func saveAllControllers() {
+    class func saveAllModelControllers() {
         EventController.sharedInstance.save()
         ClaimController.sharedInstance.save()
         EvidenceController.sharedInstance.save()
         UserController.sharedInstance.save()
         
+    }
+    
+    class func loadAllModelControllers() {
+        EventController.sharedInstance.loadDefault()
+        ClaimController.sharedInstance.loadDefault()
+        EvidenceController.sharedInstance.loadDefault()
+        UserController.sharedInstance.loadDefault()
     }
 }

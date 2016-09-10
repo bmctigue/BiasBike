@@ -21,16 +21,12 @@ class UserController: ModelController<User> {
     override func add(item: User) {
         modelController.add(item: item)
     }
-}
-
-extension UserController {
     
-    func loadDefault() {
+    override func loadDefault() {
         clear()
         let user1 = User(userId: "1", firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
         add(item: user1)
         let user2 = User(userId: "2", firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
         add(item: user2)
     }
-    
 }

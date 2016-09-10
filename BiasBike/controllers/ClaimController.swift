@@ -21,11 +21,8 @@ class ClaimController: ModelController<Claim> {
     override func add(item: Claim) {
         modelController.add(item: item)
     }
-}
-
-extension ClaimController {
     
-    func loadDefault() {
+    override func loadDefault() {
         clear()
         let claim1 = Claim(claimId: "1", title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50)
         add(item: claim1)
@@ -34,5 +31,4 @@ extension ClaimController {
         let claim3 = Claim(claimId: "3", title: "The Plane was Stolen", summary: "", creationDate: Date(), url: "", probability: 90, aggProbability: 70)
         add(item: claim3)
     }
-    
 }

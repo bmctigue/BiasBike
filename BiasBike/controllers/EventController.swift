@@ -21,11 +21,8 @@ class EventController: ModelController<Event> {
     override func add(item: Event) {
         modelController.add(item: item)
     }
-}
-
-extension EventController {
     
-    func loadDefault() {
+    override func loadDefault() {
         clear()
         let event1 = Event(eventId: "1", title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
         add(item: event1)
@@ -34,5 +31,4 @@ extension EventController {
         let event3 = Event(eventId: "3", title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .Politics)
         add(item: event3)
     }
-    
 }

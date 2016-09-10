@@ -21,16 +21,12 @@ class EvidenceController: ModelController<Evidence> {
     override func add(item: Evidence) {
         modelController.add(item: item)
     }
-}
-
-extension EvidenceController {
     
-    func loadDefaultEvidence() {
+    override func loadDefault() {
         clear()
         let evidence1 = Evidence(evidenceId: "1", title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
         add(item: evidence1)
         let evidence2 = Evidence(evidenceId: "2", title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
         add(item: evidence2)
     }
-    
 }
