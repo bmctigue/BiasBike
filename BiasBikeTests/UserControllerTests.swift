@@ -20,7 +20,7 @@ class UserControllerTests: XCTestCase {
         super.setUp()
         testUser = userFactory.create(userId: "1", firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
         testUser2 = userFactory.create(userId: "2", firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
-        UserController.sharedInstance.clearUsers()
+        UserController.sharedInstance.clear()
         UserController.sharedInstance.save()
     }
     
@@ -29,23 +29,11 @@ class UserControllerTests: XCTestCase {
         XCTAssertTrue(user.userId == "1")
     }
     
-    func testEmptyusers() {
-        let fileManager = FileManager.default
-        do {
-            try fileManager.removeItem(atPath: UserController.ArchiveURL.path)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        users = UserController.sharedInstance.users
-        XCTAssertTrue(users.count == 0)
-    }
-    
     func testClearUser() {
-        UserController.sharedInstance.addUser(user: testUser!)
+        UserController.sharedInstance.add(item: testUser!)
+        UserController.sharedInstance.clear()
         UserController.sharedInstance.save()
-        UserController.sharedInstance.clearUsers()
-        UserController.sharedInstance.save()
-        users = UserController.sharedInstance.users
+        users = UserController.sharedInstance.items as! [User]
         XCTAssertTrue(users.count == 0)
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 class EventController: ModelController<Event> {
     
-    static let sharedInstance = EvidenceController.init(modelType: ModelType.Event)
+    static let sharedInstance = EventController.init(modelType: ModelType.Event)
     
     let modelController = ModelController<Event>.init(modelType: ModelType.Event)
     

@@ -10,7 +10,7 @@ import Foundation
 
 class UserController: ModelController<User> {
     
-    static let sharedInstance = EvidenceController.init(modelType: ModelType.User)
+    static let sharedInstance = UserController.init(modelType: ModelType.User)
     
     let modelController = ModelController<User>.init(modelType: ModelType.User)
     
