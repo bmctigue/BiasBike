@@ -17,7 +17,18 @@ class Claim: NSObject, NSCoding {
     private(set) var probability: Int
     private(set) var aggProbability: Int
     
-    init(claimId: String, title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int) {
+    init(title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int) {
+        self.claimId = NSUUID().uuidString
+        self.title = title
+        self.summary = summary
+        self.creationDate = creationDate
+        self.url = url
+        self.probability = probability
+        self.aggProbability = aggProbability
+        super.init()
+    }
+    
+    private init(claimId: String, title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int) {
         self.claimId = claimId
         self.title = title
         self.summary = summary

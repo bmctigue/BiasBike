@@ -14,11 +14,12 @@ class EventController: ModelController<Event> {
     
     override func loadDefault() {
         clear()
-        let event1 = Event(eventId: "1", title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
-        add(item: event1)
-        let event2 = Event(eventId: "2", title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .World)
-        add(item: event2)
-        let event3 = Event(eventId: "3", title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", category: .Politics)
-        add(item: event3)
+        let eventFactory = EventFactory()
+        let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", aggProbability: 70, category: .World)
+        update(key: event1.eventId, item: event1)
+        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", aggProbability: 40, category: .World)
+        update(key: event2.eventId, item: event2)
+        let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", aggProbability: 55, category: .Politics)
+        update(key: event3.eventId, item: event3)
     }
 }

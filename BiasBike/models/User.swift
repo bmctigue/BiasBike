@@ -17,7 +17,18 @@ class User: NSObject, NSCoding {
     private(set) var rtRating: Int
     private(set) var aggRR: Int
     
-    init(userId: String, firstName: String, lastName: String, creationDate: Date, url: String, rtRating: Int, aggRR: Int) {
+    init(firstName: String, lastName: String, creationDate: Date, url: String, rtRating: Int, aggRR: Int) {
+        self.userId = NSUUID().uuidString
+        self.firstName = firstName
+        self.lastName = lastName
+        self.creationDate = creationDate
+        self.url = url
+        self.rtRating = rtRating
+        self.aggRR = aggRR
+        super.init()
+    }
+    
+    private init(userId: String, firstName: String, lastName: String, creationDate: Date, url: String, rtRating: Int, aggRR: Int) {
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName

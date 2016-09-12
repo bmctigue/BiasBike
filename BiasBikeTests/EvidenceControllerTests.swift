@@ -18,28 +18,28 @@ class EvidenceControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvidence = evidenceFactory.create(evidenceId: "1", title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
-        testEvidence2 = evidenceFactory.create(evidenceId: "2", title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
+        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
+        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
         EvidenceController.sharedInstance.clear()
     }
     
     func testEvidenceInit() {
-        let evidence = evidenceFactory.create(evidenceId: "1", title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
-        XCTAssertTrue(evidence.evidenceId == "1")
+        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
+        XCTAssertTrue(evidence.relevance == 45)
     }
     
     func testClearEvidence() {
-        EvidenceController.sharedInstance.add(item: testEvidence!)
+        EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
         EvidenceController.sharedInstance.clear()
-        items = EvidenceController.sharedInstance.items
+        items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 0)
     }
     
     func testaddEvidence() {
-        EvidenceController.sharedInstance.add(item: testEvidence!)
+        EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
         items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 1)
-        EvidenceController.sharedInstance.add(item: testEvidence2!)
+        EvidenceController.sharedInstance.update(key: testEvidence2!.evidenceId, item: testEvidence2!)
         items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 2)
     }

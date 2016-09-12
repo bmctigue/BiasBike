@@ -22,36 +22,35 @@ class GenericModelType {
 
 class ModelController<T> {
     
-    var items: [T] = []
+    var hash: [String:T] = [:]
     var modelType: ModelType
     let archiveURL: URL
     
     init(modelType: ModelType) {
         self.modelType = modelType
         self.archiveURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(self.modelType.rawValue)
-        self.items = all()
     }
     
     func all() -> [T] {
-        if let items = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? [T] {
-            return items
+        if let hash = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? [String:T] {
+            return Array(hash.values)
         } else {
             return [T]()
         }
     }
     
     func clear() {
-        self.items.removeAll()
+        self.hash.removeAll()
         save()
     }
     
-    func add(item: T) {
-        self.items.append(item)
+    func update(key: String, item: T) {
+        self.hash[key] = item
         save()
     }
     
     func save() {
-        NSKeyedArchiver.archiveRootObject(self.items as NSArray,toFile: archiveURL.path)
+        NSKeyedArchiver.archiveRootObject(self.hash as NSDictionary,toFile: archiveURL.path)
     }
     
     func loadDefault() {

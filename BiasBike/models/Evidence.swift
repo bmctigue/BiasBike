@@ -18,7 +18,19 @@ class Evidence: NSObject, NSCoding {
     private(set) var reliability: Int
     private(set) var aggRR: Int
     
-    init(evidenceId: String, title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int) {
+    init(title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int) {
+        self.evidenceId = NSUUID().uuidString
+        self.title = title
+        self.summary = summary
+        self.creationDate = creationDate
+        self.url = url
+        self.relevance = relevance
+        self.reliability = reliability
+        self.aggRR = aggRR
+        super.init()
+    }
+    
+    private init(evidenceId: String, title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int) {
         self.evidenceId = evidenceId
         self.title = title
         self.summary = summary

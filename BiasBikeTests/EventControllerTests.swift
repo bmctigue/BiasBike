@@ -18,28 +18,28 @@ class EventControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvent = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
-        testEvent2 = eventFactory.create(eventId: "2", title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", category: .News)
+        testEvent = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Health)
+        testEvent2 = eventFactory.create(title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .News)
         EventController.sharedInstance.clear()
     }
     
     func testEventInit() {
-        let event = eventFactory.create(eventId: "1", title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
-        XCTAssertTrue(event.eventId == "1")
+        let event = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Health)
+        XCTAssertTrue(event.aggProbability == 70)
     }
     
     func testClearEvents() {
-        EventController.sharedInstance.add(item: testEvent!)
+        EventController.sharedInstance.update(key: testEvent!.eventId, item: testEvent!)
         EventController.sharedInstance.clear()
         events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 0)
     }
     
     func testAddEvent() {
-        EventController.sharedInstance.add(item: testEvent!)
+        EventController.sharedInstance.update(key: testEvent!.eventId, item: testEvent!)
         events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 1)
-        EventController.sharedInstance.add(item: testEvent2!)
+        EventController.sharedInstance.update(key: testEvent2!.eventId, item: testEvent2!)
         events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 2)
     }

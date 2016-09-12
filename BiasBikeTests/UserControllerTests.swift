@@ -18,28 +18,28 @@ class UserControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testUser = userFactory.create(userId: "1", firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
-        testUser2 = userFactory.create(userId: "2", firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
+        testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
+        testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
         UserController.sharedInstance.clear()
     }
     
     func testUserInit() {
-        let user = userFactory.create(userId: "1", firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
-        XCTAssertTrue(user.userId == "1")
+        let user = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
+        XCTAssertTrue(user.rtRating == 45)
     }
     
     func testClearUser() {
-        UserController.sharedInstance.add(item: testUser!)
+        UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
         UserController.sharedInstance.clear()
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 0)
     }
     
     func testaddUser() {
-        UserController.sharedInstance.add(item: testUser!)
+        UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 1)
-        UserController.sharedInstance.add(item: testUser2!)
+        UserController.sharedInstance.update(key: testUser2!.userId, item: testUser2!)
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 2)
     }
