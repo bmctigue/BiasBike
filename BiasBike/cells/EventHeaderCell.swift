@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class EventHeaderCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
