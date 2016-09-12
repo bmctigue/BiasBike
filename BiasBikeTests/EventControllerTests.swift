@@ -50,4 +50,13 @@ class EventControllerTests: XCTestCase {
         XCTAssertTrue(events.count == 3)
     }
     
+    func testAllForCategory() {
+        EventController.sharedInstance.clear()
+        EventController.sharedInstance.loadDefault()
+        events = EventController.sharedInstance.all(category:.World)
+        XCTAssertTrue(events.count == 1)
+        events = EventController.sharedInstance.all(category:.News)
+        XCTAssertTrue(events.count == 1)
+    }
+    
 }
