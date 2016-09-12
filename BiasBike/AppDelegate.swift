@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        ModelController<ModelGenericType>.saveAllModelControllers()
+        ModelController<GenericModelType>.saveAllModelControllers()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        ModelController<ModelGenericType>.saveAllModelControllers()
+        ModelController<GenericModelType>.saveAllModelControllers()
     }
 
 

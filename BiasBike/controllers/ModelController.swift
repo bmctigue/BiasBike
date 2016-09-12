@@ -16,7 +16,7 @@ enum ModelType: String {
     case User = "users"
 }
 
-class ModelGenericType {
+class GenericModelType {
    // used for ModelController class method calls.
 }
 

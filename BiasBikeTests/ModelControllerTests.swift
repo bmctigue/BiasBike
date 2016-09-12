@@ -14,13 +14,13 @@ class ModelControllerTests: XCTestCase {
     // these methods don't need testing, including for coverage
     
     func testLoadDefault() {
-        let modelController = ModelController<ModelGenericType>.init(modelType:.Generic)
+        let modelController = ModelController<GenericModelType>.init(modelType:.Generic)
         modelController.loadDefault()
         XCTAssertTrue(true)
     }
     
     func testSaveAllModelControllers() {
-        ModelController<ModelGenericType>.saveAllModelControllers()
+        ModelController<GenericModelType>.saveAllModelControllers()
         XCTAssertTrue(true)
     }
     
