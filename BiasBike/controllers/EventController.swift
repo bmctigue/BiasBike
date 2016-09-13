@@ -17,6 +17,22 @@ class EventController: ModelController<Event> {
         return items.filter{$0.category == category}
     }
     
+    func categoryHash() -> [String:[Event]] {
+        let items = all()
+        var eventsArray: [Event]?
+        var hash: [String:[Event]] = [:]
+        for event in items {
+            eventsArray = hash[event.category.rawValue]
+            if eventsArray == nil {
+                hash[event.category.rawValue] = [event]
+            } else {
+                eventsArray!.append(event)
+                hash[event.category.rawValue] = eventsArray
+            }
+        }
+        return hash
+    }
+    
     override func loadDefault() {
         clear()
         let eventFactory = EventFactory()
@@ -26,5 +42,7 @@ class EventController: ModelController<Event> {
         update(key: event2.eventId, item: event2)
         let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", aggProbability: 55, category: .Politics)
         update(key: event3.eventId, item: event3)
+        let event4 = eventFactory.create(title: "Olympics", summary: "", creationDate: Date(), url: "", photoUrl: "photoUrl", aggProbability: 55, category: .World)
+        update(key: event4.eventId, item: event4)
     }
 }

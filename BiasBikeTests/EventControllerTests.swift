@@ -47,16 +47,27 @@ class EventControllerTests: XCTestCase {
     func testLoadDefaultEvents() {
         EventController.sharedInstance.loadDefault()
         events = EventController.sharedInstance.all()
-        XCTAssertTrue(events.count == 3)
+        XCTAssertTrue(events.count == 4)
     }
     
     func testAllForCategory() {
         EventController.sharedInstance.clear()
         EventController.sharedInstance.loadDefault()
         events = EventController.sharedInstance.all(category:.World)
-        XCTAssertTrue(events.count == 1)
+        XCTAssertTrue(events.count == 2)
         events = EventController.sharedInstance.all(category:.News)
         XCTAssertTrue(events.count == 1)
+    }
+    
+    func testCategoryHash() {
+        EventController.sharedInstance.clear()
+        EventController.sharedInstance.loadDefault()
+        let hash = EventController.sharedInstance.categoryHash()
+        XCTAssertEqual(Array(hash.keys).count, 3)
+        events = hash[Array(hash.keys).first!]!
+        XCTAssertEqual(events.count, 2)
+        events = hash[Array(hash.keys).last!]!
+        XCTAssertEqual(events.count, 1)
     }
     
 }
