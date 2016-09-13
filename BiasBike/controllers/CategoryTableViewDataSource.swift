@@ -1,5 +1,5 @@
 //
-//  EventTableViewDataSource.swift
+//  CategoryTableViewDataSource.swift
 //  Interview
 //
 //  Created by Bruce McTigue on 8/26/16.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class EventTableViewDataSource: NSObject {
+class CategoryTableViewDataSource: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
+    private(set) var category: Category
 
-    init(tableView: UITableView) {
+    init(tableView: UITableView, category: Category) {
+        self.category = category
         super.init()
         tableView.dataSource = self
     }
@@ -22,15 +24,13 @@ class EventTableViewDataSource: NSObject {
     }
 }
 
-extension EventTableViewDataSource: UITableViewDataSource {
+extension CategoryTableViewDataSource: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let hash = EventController.sharedInstance.categoryHash()
-        return Array(hash.keys).count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let category = CategoryController.sharedInstance.categoryFromSortedCategories(section: section, categoryHash:categoryHash)
         if let events = self.categoryHash[category.rawValue] {
             return Array(events).count
         }

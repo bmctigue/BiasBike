@@ -1,5 +1,5 @@
 //
-//  EventTableViewController.swift
+//  CategoryTableViewController.swift
 //  Interview
 //
 //  Created by Bruce McTigue on 7/28/16.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class EventTableViewController: UITableViewController {
+class CategoryTableViewController: UITableViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
 
-    private(set) var tableViewDataSource: EventTableViewDataSource?
-    private(set) var tableViewDelegate: EventTableViewDelegate?
+    private(set) var tableViewDataSource: CategoryTableViewDataSource?
+    private(set) var tableViewDelegate: CategoryTableViewDelegate?
     private(set) var categoryHash:[String:[Event]] = [:]
+    var category: Category = .World
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,13 @@ class EventTableViewController: UITableViewController {
         self.title = "News"
 
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(EventTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(CategoryTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 300
 
-        self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
-        self.tableViewDelegate = EventTableViewDelegate(tableView: tableView)
-        EventController.sharedInstance.loadDefault()
+        self.tableViewDataSource = CategoryTableViewDataSource(tableView: tableView, category:category)
+        self.tableViewDelegate = CategoryTableViewDelegate(tableView: tableView, category:category)
         refreshData()
     }
 

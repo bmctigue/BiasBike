@@ -10,7 +10,7 @@ import UIKit
 
 class EventTableViewDelegate: NSObject {
     
-    var categoryHash:[String:[Event]] = [:]
+    private(set) var categoryHash:[String:[Event]] = [:]
 
     init(tableView: UITableView) {
         super.init()
