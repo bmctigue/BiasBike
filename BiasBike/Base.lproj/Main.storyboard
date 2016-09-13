@@ -71,6 +71,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="y0w-E2-XKe" secondAttribute="trailing" constant="20" id="6vy-4z-ouP"/>
                                         <constraint firstItem="y0w-E2-XKe" firstAttribute="centerY" secondItem="Yto-xr-aUI" secondAttribute="centerY" id="9eQ-po-U0K"/>

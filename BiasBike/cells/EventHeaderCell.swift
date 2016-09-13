@@ -21,45 +21,35 @@ class EventHeaderCell: UITableViewCell {
         self.nextCircleView.layer.borderWidth = 1.0
     }
     
-    func update(section: Int) {
-        var title: String
+    func update(category: String) {
         var color: UIColor
-        (title,color) = headerInfo(section: section)
-        self.titleLabel.text = title
+        color = headerInfo(category: category)
+        self.titleLabel.text = category
         self.titleLabel.textColor = color
         self.nextImageView.tintColor = color
         self.nextCircleView.layer.borderColor = color.cgColor
     }
     
-    func headerInfo(section: Int) -> (String,UIColor) {
-        var text: String
+    func headerInfo(category: String) -> UIColor {
         var color: UIColor
-        switch section {
-        case 0:
-            text = Category.World.rawValue
+        switch category {
+        case Category.World.rawValue:
             color = .magenta
-        case 1:
-            text = Category.News.rawValue
+        case Category.News.rawValue:
             color = .blue
-        case 2:
-            text = Category.Politics.rawValue
+        case Category.Politics.rawValue:
             color = .orange
-        case 3:
-            text = Category.Myths.rawValue
+        case Category.Myths.rawValue:
             color = .cyan
-        case 4:
-            text = Category.Religion.rawValue
+        case Category.Religion.rawValue:
             color = .red
-        case 5:
-            text = Category.Health.rawValue
+        case Category.Health.rawValue:
             color = .green
-        case 6:
-            text = Category.Science.rawValue
+        case Category.Science.rawValue:
             color = .yellow
         default:
-            text = Category.World.rawValue
-            color = .black
+            return .black
         }
-        return (text,color)
+        return color
     }
 }

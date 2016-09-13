@@ -14,6 +14,7 @@ class EventTableViewController: UITableViewController {
 
     var tableViewDataSource: EventTableViewDataSource?
     var tableViewDelegate: EventTableViewDelegate?
+    var categoryHash:[String:[Event]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,20 @@ class EventTableViewController: UITableViewController {
 
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView)
-        
         EventController.sharedInstance.loadDefault()
-        self.tableView.reloadData()
+        refreshData()
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
-        self.tableView.reloadData()
+        refreshData()
         refreshControl.endRefreshing()
+    }
+    
+    func refreshData() {
+        self.categoryHash = EventController.sharedInstance.categoryHash()
+        self.tableViewDataSource?.updateDataSource(categoryHash: categoryHash)
+        self.tableViewDelegate?.updateDataSource(categoryHash: categoryHash)
+        self.tableView.reloadData()
     }
 
 }
