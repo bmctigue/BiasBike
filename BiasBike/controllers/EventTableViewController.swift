@@ -23,6 +23,9 @@ class EventTableViewController: UITableViewController {
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(EventTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 300
 
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView)

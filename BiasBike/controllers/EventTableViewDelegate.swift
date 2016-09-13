@@ -27,11 +27,9 @@ extension EventTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:EventCell = cell as! EventCell
         let category = CategoryController.sharedInstance.categoryFromSortedCategories(section: indexPath.section, categoryHash:categoryHash)
-        print("category: \(category)")
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            print("event: \(event.title)")
-            cell.updateCell(title: event.title)
+            cell.updateCell(title: event.title, photoUrl: event.photoUrl)
         }
     }
     
