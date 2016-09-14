@@ -140,6 +140,27 @@
 			path = factories;
 			sourceTree = "<group>";
 		};
+		A83836801D8A15B40057BFC3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */,
+				A8B0808C1D8898B400D793AC /* CategoryTableViewDataSource.swift */,
+				A8B0808D1D8898B400D793AC /* CategoryTableViewDelegate.swift */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		A83836811D8A15BE0057BFC3 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				A8E73E301D777A230098FAC0 /* EventController.swift */,
+				A8C7102D1D85F85C00205144 /* EventTableViewController.swift */,
+				A8C7102E1D85F85C00205144 /* EventTableViewDataSource.swift */,
+				A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
 		A8C710331D85FB0400205144 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,14 +234,9 @@
 		A8E4D8761D74E9B300AFA1FE /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */,
-				A8B0808C1D8898B400D793AC /* CategoryTableViewDataSource.swift */,
-				A8B0808D1D8898B400D793AC /* CategoryTableViewDelegate.swift */,
+				A83836811D8A15BE0057BFC3 /* Event */,
+				A83836801D8A15B40057BFC3 /* Category */,
 				A8E73E321D777AA90098FAC0 /* ClaimController.swift */,
-				A8E73E301D777A230098FAC0 /* EventController.swift */,
-				A8C7102D1D85F85C00205144 /* EventTableViewController.swift */,
-				A8C7102E1D85F85C00205144 /* EventTableViewDataSource.swift */,
-				A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */,
 				A8965F2F1D7882F600349EC1 /* EvidenceController.swift */,
 				A8E4AC721D848D61007F7C31 /* ModelController.swift */,
 				A81F47081D79D1630025F918 /* UserController.swift */,
