@@ -11,6 +11,7 @@ import UIKit
 class EventTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
+    private(set) var sortedCategories:[CategoryType] = []
 
     init(tableView: UITableView) {
         super.init()
@@ -19,6 +20,7 @@ class EventTableViewDelegate: NSObject {
     
     func updateDataSource(categoryHash: [String:[Event]]) {
         self.categoryHash = categoryHash
+        self.sortedCategories = CategoryType.categories.filter{Array(categoryHash.keys).contains($0.rawValue)}
     }
 }
 
@@ -26,7 +28,7 @@ extension EventTableViewDelegate: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:EventCell = cell as! EventCell
-        let category = CategoryController.sharedInstance.categoryFromSortedCategories(section: indexPath.section, categoryHash:categoryHash)
+        let category = sortedCategories[indexPath.section]
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
             cell.updateCell(title: event.title, photoUrl: event.photoUrl)
@@ -39,7 +41,7 @@ extension EventTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell:EventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "EventHeaderCell") as! EventHeaderCell
-        let category = CategoryController.sharedInstance.categoryFromSortedCategories(section: section, categoryHash:categoryHash)
+        let category = sortedCategories[section]
         cell.update(type: category)
         return cell
     }

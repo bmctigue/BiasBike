@@ -11,6 +11,7 @@ import UIKit
 class EventTableViewDataSource: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
+    private(set) var sortedCategories:[CategoryType] = []
 
     init(tableView: UITableView) {
         super.init()
@@ -19,6 +20,7 @@ class EventTableViewDataSource: NSObject {
     
     func updateDataSource(categoryHash: [String:[Event]]) {
         self.categoryHash = categoryHash
+        self.sortedCategories = CategoryType.categories.filter{Array(categoryHash.keys).contains($0.rawValue)}
     }
 }
 
@@ -30,7 +32,7 @@ extension EventTableViewDataSource: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let category = CategoryController.sharedInstance.categoryFromSortedCategories(section: section, categoryHash:categoryHash)
+        let category = sortedCategories[section]
         if let events = self.categoryHash[category.rawValue] {
             return Array(events).count
         }
