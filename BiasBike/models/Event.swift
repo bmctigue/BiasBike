@@ -16,9 +16,9 @@ class Event: NSObject, NSCoding {
     private(set) var url: String
     private(set) var photoUrl: String
     private(set) var aggProbability: Int
-    private(set) var category: Category
+    private(set) var category: CategoryType
     
-    init(title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: Category) {
+    init(title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: CategoryType) {
         self.eventId = NSUUID().uuidString
         self.title = title
         self.summary = summary
@@ -30,7 +30,7 @@ class Event: NSObject, NSCoding {
         super.init()
     }
     
-    private init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: Category) {
+    private init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: CategoryType) {
         self.eventId = eventId
         self.title = title
         self.summary = summary
@@ -50,7 +50,7 @@ class Event: NSObject, NSCoding {
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
         let photoUrl = aDecoder.decodeObject(forKey: Keys.PhotoUrl.rawValue) as! String
         let aggProbability = aDecoder.decodeInteger(forKey: Keys.AggProbability.rawValue)
-        let category = Category(rawValue: (aDecoder.decodeObject(forKey: "category") as! String))!
+        let category = CategoryType(rawValue: (aDecoder.decodeObject(forKey: "category") as! String))!
         self.init(eventId:eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, aggProbability: aggProbability, category: category)
     }
     

@@ -11,9 +11,9 @@ import UIKit
 class CategoryTableViewDataSource: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
-    private(set) var category: Category
+    private(set) var category: CategoryType
 
-    init(tableView: UITableView, category: Category) {
+    init(tableView: UITableView, category: CategoryType) {
         self.category = category
         super.init()
         tableView.dataSource = self

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-enum Category: String {
+enum CategoryType: String {
     case World = "World"
     case News = "News"
     case Myths = "Myths"
@@ -16,16 +17,38 @@ enum Category: String {
     case Health = "Health"
     case Science = "Science"
     case Politics = "Politics"
+    // the order here controls the order in the table
     static let categories = [World, News, Myths, Religion, Health, Science, Politics]
 }
 
-class CategoryController: NSObject {
-    
-    static let sharedInstance = CategoryController.init()
+protocol CategoryProtocol {
+    var color: UIColor { get }
+}
 
-    func categoryFromSortedCategories(section: Int, categoryHash:[String:[Event]]) -> Category {
-        let sortedCategories = Category.categories.filter{Array(categoryHash.keys).contains($0.rawValue)}
-        let category = sortedCategories[section]
-        return category
-    }
+struct WorldCategory: CategoryProtocol {
+    var color: UIColor = .magenta
+}
+
+struct NewsCategory: CategoryProtocol {
+    var color: UIColor = .blue
+}
+
+struct MythsCategory: CategoryProtocol {
+    var color: UIColor = .cyan
+}
+
+struct ReligionCategory: CategoryProtocol {
+    var color: UIColor = .red
+}
+
+struct HealthCategory: CategoryProtocol {
+    var color: UIColor = .green
+}
+
+struct ScienceCategory: CategoryProtocol {
+    var color: UIColor = .yellow
+}
+
+struct PoliticsCategory: CategoryProtocol {
+    var color: UIColor = .orange
 }

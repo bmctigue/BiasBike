@@ -15,7 +15,7 @@ class CategoryTableViewController: UITableViewController {
     private(set) var tableViewDataSource: CategoryTableViewDataSource?
     private(set) var tableViewDelegate: CategoryTableViewDelegate?
     private(set) var categoryHash:[String:[Event]] = [:]
-    var category: Category = .World
+    var category: CategoryType = .World
 
     override func viewDidLoad() {
         super.viewDidLoad()
