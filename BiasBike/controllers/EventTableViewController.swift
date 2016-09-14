@@ -19,7 +19,7 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "News"
+        self.title = "Events"
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(EventTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -28,7 +28,7 @@ class EventTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 300
 
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
-        self.tableViewDelegate = EventTableViewDelegate(tableView: tableView)
+        self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, eventTableViewController: self)
         EventController.sharedInstance.loadDefault()
         refreshData()
     }

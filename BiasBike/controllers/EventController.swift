@@ -38,7 +38,7 @@ class EventController: ModelController<Event> {
         let eventFactory = EventFactory()
         let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "missing-flight", aggProbability: 70, category: .World)
         update(key: event1.eventId, item: event1)
-        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "lochte", aggProbability: 40, category: .News)
+        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "lochte", aggProbability: 40, category: .Sports)
         update(key: event2.eventId, item: event2)
         let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "donald-trump", aggProbability: 55, category: .Politics)
         update(key: event3.eventId, item: event3)

@@ -17,6 +17,7 @@ class EventHeaderCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nextImageView: UIImageView!
     @IBOutlet weak var nextCircleView: UIView!
+    weak var delegate: EventHeaderCellDelegate?
     
     var categoryType: CategoryType = .World
     
@@ -35,6 +36,10 @@ class EventHeaderCell: UITableViewCell {
         self.titleLabel.textColor = color
         self.nextImageView.tintColor = color
         self.nextCircleView.layer.borderColor = color.cgColor
+    }
+    
+    @IBAction func headerButtonPressed(sender: AnyObject) {
+        delegate?.headerButtonPressed(categoryType: categoryType)
     }
     
 }

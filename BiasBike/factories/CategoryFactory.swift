@@ -17,8 +17,8 @@ struct CategoryFactory: CategoryFactoryProtocol {
         switch type {
         case .World:
             return WorldCategory()
-        case .News:
-            return NewsCategory()
+        case .Sports:
+            return SportsCategory()
         case .Myths:
             return MythsCategory()
         case .Religion:

@@ -19,7 +19,7 @@ class EventControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         testEvent = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Health)
-        testEvent2 = eventFactory.create(title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .News)
+        testEvent2 = eventFactory.create(title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Sports)
         EventController.sharedInstance.clear()
     }
     
@@ -55,7 +55,7 @@ class EventControllerTests: XCTestCase {
         EventController.sharedInstance.loadDefault()
         events = EventController.sharedInstance.all(category:.World)
         XCTAssertTrue(events.count == 1)
-        events = EventController.sharedInstance.all(category:.News)
+        events = EventController.sharedInstance.all(category:.Sports)
         XCTAssertTrue(events.count == 1)
         events = EventController.sharedInstance.all(category:.Politics)
         XCTAssertTrue(events.count == 2)

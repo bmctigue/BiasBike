@@ -11,14 +11,14 @@ import UIKit
 
 enum CategoryType: String {
     case World = "World"
-    case News = "News"
+    case Sports = "Sports"
     case Myths = "Myths"
     case Religion = "Religion"
     case Health = "Health"
     case Science = "Science"
     case Politics = "Politics"
     // the order here controls the order in the table
-    static let categories = [World, News, Myths, Religion, Health, Science, Politics]
+    static let categories = [World, Sports, Myths, Religion, Health, Science, Politics]
 }
 
 protocol CategoryProtocol {
@@ -29,7 +29,7 @@ struct WorldCategory: CategoryProtocol {
     var color: UIColor = .magenta
 }
 
-struct NewsCategory: CategoryProtocol {
+struct SportsCategory: CategoryProtocol {
     var color: UIColor = .blue
 }
 
