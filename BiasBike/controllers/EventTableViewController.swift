@@ -20,6 +20,8 @@ class EventTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Events"
+        
+        ThemeAppearance().setNavigationBarAppearance(navigationBar: self.navigationController?.navigationBar)
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(EventTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -30,6 +32,10 @@ class EventTableViewController: UITableViewController {
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, eventTableViewController: self)
         EventController.sharedInstance.loadDefault()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refreshData()
     }
 
@@ -44,5 +50,11 @@ class EventTableViewController: UITableViewController {
         self.tableViewDelegate?.updateDataSource(categoryHash: categoryHash)
         self.tableView.reloadData()
     }
-
+    
+    @IBAction func categoriesEditButtonPressed(_ sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let controller: CategoriesTableViewController = storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
 }

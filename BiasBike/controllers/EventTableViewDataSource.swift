@@ -27,8 +27,7 @@ class EventTableViewDataSource: NSObject {
 extension EventTableViewDataSource: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let hash = EventController.sharedInstance.categoryHash()
-        return Array(hash.keys).count
+        return self.sortedCategories.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -161,7 +161,13 @@
                             <outlet property="delegate" destination="UjQ-HW-UMj" id="hTM-HC-fjJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RWe-gd-h8W"/>
+                    <navigationItem key="navigationItem" id="RWe-gd-h8W">
+                        <barButtonItem key="rightBarButtonItem" image="Cog" id="9sP-N3-D2b">
+                            <connections>
+                                <action selector="categoriesEditButtonPressed:" destination="UjQ-HW-UMj" id="FAM-Br-JR9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3g-F3-Uho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,6 +267,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cog" width="25" height="25"/>
         <image name="next" width="11" height="20"/>
     </resources>
 </document>

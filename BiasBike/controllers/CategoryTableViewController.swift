@@ -1,6 +1,6 @@
 //
 //  CategoryTableViewController.swift
-//  Interview
+//  BiasBike
 //
 //  Created by Bruce McTigue on 7/28/16.
 //  Copyright © 2016 tiguer. All rights reserved.
@@ -31,6 +31,11 @@ class CategoryTableViewController: UITableViewController {
         self.tableViewDataSource = CategoryTableViewDataSource(tableView: tableView, categoryType:categoryType)
         self.tableViewDelegate = CategoryTableViewDelegate(tableView: tableView, categoryType:categoryType)
         refreshData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
