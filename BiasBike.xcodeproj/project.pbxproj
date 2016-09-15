@@ -13,6 +13,8 @@
 		A828D48A1D7E084F001FE199 /* EventFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828D4891D7E084F001FE199 /* EventFactory.swift */; };
 		A828D48C1D7E0CB2001FE199 /* ClaimFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828D48B1D7E0CB2001FE199 /* ClaimFactory.swift */; };
 		A838367B1D89FF9D0057BFC3 /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838367A1D89FF9D0057BFC3 /* CategoryFactory.swift */; };
+		A83836831D8A1A0C0057BFC3 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836821D8A1A0C0057BFC3 /* CategoryController.swift */; };
+		A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
 		A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86786061D87258E00D1A46B /* DemoImages.xcassets */; };
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
@@ -67,6 +69,8 @@
 		A828D4891D7E084F001FE199 /* EventFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFactory.swift; sourceTree = "<group>"; };
 		A828D48B1D7E0CB2001FE199 /* ClaimFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimFactory.swift; sourceTree = "<group>"; };
 		A838367A1D89FF9D0057BFC3 /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
+		A83836821D8A1A0C0057BFC3 /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryControllerTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		A86786061D87258E00D1A46B /* DemoImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DemoImages.xcassets; sourceTree = "<group>"; };
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		A83836801D8A15B40057BFC3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A83836821D8A1A0C0057BFC3 /* CategoryController.swift */,
 				A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */,
 				A8B0808C1D8898B400D793AC /* CategoryTableViewDataSource.swift */,
 				A8B0808D1D8898B400D793AC /* CategoryTableViewDelegate.swift */,
@@ -213,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E4D85F1D74E56A00AFA1FE /* Info.plist */,
+				A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */,
 				A8E73E341D77870F0098FAC0 /* ClaimControllerTests.swift */,
 				A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */,
 				A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */,
@@ -426,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A838367B1D89FF9D0057BFC3 /* CategoryFactory.swift in Sources */,
+				A83836831D8A1A0C0057BFC3 /* CategoryController.swift in Sources */,
 				A8C710311D85F85C00205144 /* EventTableViewDataSource.swift in Sources */,
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
@@ -459,6 +466,7 @@
 				A8E73E351D77870F0098FAC0 /* ClaimControllerTests.swift in Sources */,
 				A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */,
 				A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */,
+				A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */,
 				A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */,
 				A8EA7F331D84BDAE0055711B /* ModelControllerTests.swift in Sources */,
 			);

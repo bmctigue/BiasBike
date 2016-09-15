@@ -22,7 +22,7 @@ class EventTableViewDelegate: NSObject {
     
     func updateDataSource(categoryHash: [String:[Event]]) {
         self.categoryHash = categoryHash
-        self.sortedCategories = CategoryType.categories.filter{Array(categoryHash.keys).contains($0.rawValue)}
+        self.sortedCategories = CategoryController().filteredCategoryTypes(categoryHash: categoryHash)
     }
 }
 
