@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ClaimController: ModelController<Claim> {
+final class ClaimController: ModelController<Claim> {
     
     static let sharedInstance = ClaimController.init(modelType: ModelType.Claim)
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserController: ModelController<User> {
+final class UserController: ModelController<User> {
     
     static let sharedInstance = UserController.init(modelType: ModelType.User)
     

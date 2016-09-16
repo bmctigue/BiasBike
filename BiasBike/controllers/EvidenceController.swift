@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EvidenceController: ModelController<Evidence> {
+final class EvidenceController: ModelController<Evidence> {
     
     static let sharedInstance = EvidenceController.init(modelType: ModelType.Evidence)
     
