@@ -37,6 +37,8 @@
 		A8BD6AB81D75E249004FA825 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6AB71D75E249004FA825 /* Category.swift */; };
 		A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6AB91D75E3BF004FA825 /* Event.swift */; };
 		A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */; };
+		A8C538E71D8B94950082A3B2 /* ModelControllerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C538E61D8B94950082A3B2 /* ModelControllerUtilities.swift */; };
+		A8C538E91D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C538E81D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift */; };
 		A8C710301D85F85C00205144 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7102D1D85F85C00205144 /* EventTableViewController.swift */; };
 		A8C710311D85F85C00205144 /* EventTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7102E1D85F85C00205144 /* EventTableViewDataSource.swift */; };
 		A8C710321D85F85C00205144 /* EventTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */; };
@@ -103,6 +105,8 @@
 		A8BD6AB71D75E249004FA825 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A8BD6AB91D75E3BF004FA825 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventControllerTests.swift; sourceTree = "<group>"; };
+		A8C538E61D8B94950082A3B2 /* ModelControllerUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerUtilities.swift; sourceTree = "<group>"; };
+		A8C538E81D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerUtilitiesTests.swift; sourceTree = "<group>"; };
 		A8C7102D1D85F85C00205144 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		A8C7102E1D85F85C00205144 /* EventTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */,
 				A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */,
 				A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */,
+				A8C538E81D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift */,
 				A81F470A1D79D3880025F918 /* UserControllerTests.swift */,
 			);
 			path = BiasBikeTests;
@@ -296,6 +301,7 @@
 				A86F6B0F1D8AFB1B002652DF /* Categories */,
 				A8965F2F1D7882F600349EC1 /* EvidenceController.swift */,
 				A8E4AC721D848D61007F7C31 /* ModelController.swift */,
+				A8C538E61D8B94950082A3B2 /* ModelControllerUtilities.swift */,
 				A81F47081D79D1630025F918 /* UserController.swift */,
 			);
 			path = controllers;
@@ -505,6 +511,7 @@
 				A86F6B261D8B5EA2002652DF /* ClaimTableViewDelegate.swift in Sources */,
 				A828D48C1D7E0CB2001FE199 /* ClaimFactory.swift in Sources */,
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
+				A8C538E71D8B94950082A3B2 /* ModelControllerUtilities.swift in Sources */,
 				A8C710371D8616F900205144 /* EventHeaderCell.swift in Sources */,
 				A81F47091D79D1630025F918 /* UserController.swift in Sources */,
 				A86F6B241D8B5EA2002652DF /* ClaimsTableViewController.swift in Sources */,
@@ -527,6 +534,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8C538E91D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift in Sources */,
 				A8E73E351D77870F0098FAC0 /* ClaimControllerTests.swift in Sources */,
 				A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */,
 				A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */,

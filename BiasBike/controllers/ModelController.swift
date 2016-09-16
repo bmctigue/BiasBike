@@ -16,10 +16,6 @@ enum ModelType: String {
     case User = "users"
 }
 
-class GenericModelType {
-   // used for ModelController class method calls.
-}
-
 class ModelController<T> {
     
     var hash: [String:T] = [:]
@@ -57,14 +53,4 @@ class ModelController<T> {
         // load default items here
     }
     
-}
-
-extension ModelController {
-    class func saveAllModelControllers() {
-        EventController.sharedInstance.save()
-        ClaimController.sharedInstance.save()
-        EvidenceController.sharedInstance.save()
-        UserController.sharedInstance.save()
-        
-    }
 }
