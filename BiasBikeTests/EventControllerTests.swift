@@ -66,10 +66,6 @@ class EventControllerTests: XCTestCase {
         EventController.sharedInstance.loadDefault()
         let hash = EventController.sharedInstance.categoryHash()
         XCTAssertEqual(Array(hash.keys).count, 3)
-        events = hash[Array(hash.keys).first!]!
-        XCTAssertEqual(events.count, 2)
-        events = hash[Array(hash.keys).last!]!
-        XCTAssertEqual(events.count, 1)
     }
     
 }

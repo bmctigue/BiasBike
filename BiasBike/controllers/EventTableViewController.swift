@@ -29,9 +29,9 @@ class EventTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 300
 
+        EventController.sharedInstance.loadDefault()
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, eventTableViewController: self)
-        EventController.sharedInstance.loadDefault()
     }
     
     override func viewWillAppear(_ animated: Bool) {

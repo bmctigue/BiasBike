@@ -49,6 +49,17 @@ extension EventTableViewDelegate: UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = sortedCategories[indexPath.section]
+        if let events = self.categoryHash[category.rawValue] {
+            let event = events[indexPath.row]
+            let storyboard = UIStoryboard(name: "Claim", bundle: nil)
+            let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
+            controller.eventId = event.eventId
+            eventTableViewController?.show(controller, sender: nil)
+        }
+    }
+    
 }
 
 extension EventTableViewDelegate: EventHeaderCellDelegate {

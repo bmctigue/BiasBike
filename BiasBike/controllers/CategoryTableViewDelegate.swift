@@ -12,8 +12,10 @@ class CategoryTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
     private(set) var category: CategoryType
+    private(set) weak var categoryTableViewController: CategoryTableViewController?
 
-    init(tableView: UITableView, categoryType: CategoryType) {
+    init(tableView: UITableView, categoryType: CategoryType, categoryTableViewController: CategoryTableViewController? ) {
+        self.categoryTableViewController = categoryTableViewController
         self.category = categoryType
         super.init()
         tableView.delegate = self
@@ -31,6 +33,16 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
             cell.updateCell(title: event.title, photoUrl: event.photoUrl)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let events = self.categoryHash[category.rawValue] {
+            let event = events[indexPath.row]
+            let storyboard = UIStoryboard(name: "Claim", bundle: nil)
+            let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
+            controller.eventId = event.eventId
+            categoryTableViewController?.show(controller, sender: nil)
         }
     }
 }

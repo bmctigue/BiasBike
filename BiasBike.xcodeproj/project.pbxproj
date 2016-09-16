@@ -23,6 +23,11 @@
 		A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */; };
 		A86F6B181D8B0F83002652DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86F6B161D8B0F83002652DF /* Main.storyboard */; };
 		A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B1A1D8B2F02002652DF /* Theme.swift */; };
+		A86F6B1E1D8B5632002652DF /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86F6B1D1D8B5632002652DF /* Claim.storyboard */; };
+		A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B1F1D8B587E002652DF /* ClaimCell.swift */; };
+		A86F6B241D8B5EA2002652DF /* ClaimsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */; };
+		A86F6B251D8B5EA2002652DF /* ClaimTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */; };
+		A86F6B261D8B5EA2002652DF /* ClaimTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B231D8B5EA1002652DF /* ClaimTableViewDelegate.swift */; };
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
 		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */; };
@@ -84,6 +89,11 @@
 		A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
 		A86F6B171D8B0F83002652DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BiasBike/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		A86F6B1A1D8B2F02002652DF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A86F6B1D1D8B5632002652DF /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Claim.storyboard; path = BiasBike/lib/Claim.storyboard; sourceTree = SOURCE_ROOT; };
+		A86F6B1F1D8B587E002652DF /* ClaimCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimCell.swift; sourceTree = "<group>"; };
+		A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimsTableViewController.swift; sourceTree = "<group>"; };
+		A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimTableViewDataSource.swift; sourceTree = "<group>"; };
+		A86F6B231D8B5EA1002652DF /* ClaimTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceControllerTests.swift; sourceTree = "<group>"; };
@@ -198,6 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				A8E73E321D777AA90098FAC0 /* ClaimController.swift */,
+				A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */,
+				A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */,
+				A86F6B231D8B5EA1002652DF /* ClaimTableViewDelegate.swift */,
 			);
 			name = Claim;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 			children = (
 				A8C710341D85FB4300205144 /* EventCell.swift */,
 				A8C710361D8616F900205144 /* EventHeaderCell.swift */,
+				A86F6B1F1D8B587E002652DF /* ClaimCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -316,6 +330,7 @@
 		A8E4D87A1D74E9E700AFA1FE /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A86F6B1D1D8B5632002652DF /* Claim.storyboard */,
 				A86F6B161D8B0F83002652DF /* Main.storyboard */,
 				A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */,
 			);
@@ -447,6 +462,7 @@
 				A8E4D8531D74E56900AFA1FE /* LaunchScreen.storyboard in Resources */,
 				A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */,
 				A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */,
+				A86F6B1E1D8B5632002652DF /* Claim.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,13 +500,17 @@
 				A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
+				A86F6B251D8B5EA2002652DF /* ClaimTableViewDataSource.swift in Sources */,
 				A8C710351D85FB4300205144 /* EventCell.swift in Sources */,
+				A86F6B261D8B5EA2002652DF /* ClaimTableViewDelegate.swift in Sources */,
 				A828D48C1D7E0CB2001FE199 /* ClaimFactory.swift in Sources */,
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
 				A8C710371D8616F900205144 /* EventHeaderCell.swift in Sources */,
 				A81F47091D79D1630025F918 /* UserController.swift in Sources */,
+				A86F6B241D8B5EA2002652DF /* ClaimsTableViewController.swift in Sources */,
 				A828D48A1D7E084F001FE199 /* EventFactory.swift in Sources */,
 				A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */,
+				A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */,
 				A8BD6AB81D75E249004FA825 /* Category.swift in Sources */,
 				A8E73E311D777A230098FAC0 /* EventController.swift in Sources */,
 				A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */,
