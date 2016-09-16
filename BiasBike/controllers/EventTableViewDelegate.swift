@@ -43,9 +43,10 @@ extension EventTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell:EventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "EventHeaderCell") as! EventHeaderCell
-        let category = sortedCategories[section]
+        let categoryType = sortedCategories[section]
+        let category = CategoryFactory().create(type: categoryType)
         cell.delegate = self
-        cell.update(type: category)
+        cell.update(categoryTitle: categoryType.rawValue, color: category.color)
         return cell
     }
     

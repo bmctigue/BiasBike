@@ -28,11 +28,8 @@ class EventHeaderCell: UITableViewCell {
         self.nextCircleView.layer.borderWidth = 1.0
     }
     
-    func update(type: CategoryType) {
-        self.categoryType = type
-        let category = CategoryFactory().create(type: type)
-        let color = category.color
-        self.titleLabel.text = type.rawValue
+    func update(categoryTitle: String, color: UIColor) {
+        self.titleLabel.text = categoryTitle
         self.titleLabel.textColor = color
         self.nextImageView.tintColor = color
         self.nextCircleView.layer.borderColor = color.cgColor
