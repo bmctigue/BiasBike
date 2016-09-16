@@ -11,10 +11,10 @@ import UIKit
 class CategoryTableViewDataSource: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
-    private(set) var category: CategoryType
+    private(set) var category: Category
 
-    init(tableView: UITableView, categoryType: CategoryType) {
-        self.category = categoryType
+    init(tableView: UITableView, category: Category) {
+        self.category = category
         super.init()
         tableView.dataSource = self
     }

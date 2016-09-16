@@ -9,30 +9,30 @@
 import Foundation
 
 protocol CategoryControllerProtocol {
-    func loadSelectedCategories() -> [CategoryType]
-    func saveSelectedCategories(categories: [CategoryType])
-    func filteredCategoryTypes(categoryHash:[String:[Event]]) -> [CategoryType]
+    func loadSelectedCategories() -> [Category]
+    func saveSelectedCategories(categories: [Category])
+    func filteredCategoryTypes(categoryHash:[String:[Event]]) -> [Category]
 }
 
 struct CategoryController: CategoryControllerProtocol {
     
     static let selectedCategoriesKey = "SelectedCategories"
     
-    func loadSelectedCategories() -> [CategoryType] {
+    func loadSelectedCategories() -> [Category] {
         if let categoryStrings = UserDefaults.standard.array(forKey: CategoryController.selectedCategoriesKey) as? [String] {
-            let categories = categoryStrings.map{CategoryType(rawValue: $0)} as? [CategoryType]
+            let categories = categoryStrings.map{Category(rawValue: $0)} as? [Category]
             return categories!
         }
-        return CategoryType.categories
+        return Category.categories
     }
     
-    func saveSelectedCategories(categories: [CategoryType]) {
+    func saveSelectedCategories(categories: [Category]) {
         let categoryStrings: [String] = categories.map{$0.rawValue}
         UserDefaults.standard.set(categoryStrings, forKey: CategoryController.selectedCategoriesKey)
     }
     
-    func filteredCategoryTypes(categoryHash:[String:[Event]]) -> [CategoryType] {
+    func filteredCategoryTypes(categoryHash:[String:[Event]]) -> [Category] {
         let selectedCategories = loadSelectedCategories()
-        return CategoryType.categories.filter{Array(categoryHash.keys).contains($0.rawValue) && selectedCategories.contains($0)}
+        return Category.categories.filter{Array(categoryHash.keys).contains($0.rawValue) && selectedCategories.contains($0)}
     }
 }

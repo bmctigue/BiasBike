@@ -11,7 +11,7 @@ import UIKit
 class EventTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
-    private(set) var sortedCategories:[CategoryType] = []
+    private(set) var sortedCategories:[Category] = []
     private(set) weak var eventTableViewController: EventTableViewController?
 
     init(tableView: UITableView, eventTableViewController: EventTableViewController? ) {
@@ -43,10 +43,9 @@ extension EventTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell:EventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "EventHeaderCell") as! EventHeaderCell
-        let categoryType = sortedCategories[section]
-        let category = CategoryFactory().create(type: categoryType)
+        let category = sortedCategories[section]
         cell.delegate = self
-        cell.update(categoryTitle: categoryType.rawValue, color: category.color)
+        cell.update(category: category)
         return cell
     }
     
@@ -60,16 +59,14 @@ extension EventTableViewDelegate: UITableViewDelegate {
             eventTableViewController?.show(controller, sender: nil)
         }
     }
-    
 }
 
 extension EventTableViewDelegate: EventHeaderCellDelegate {
     
-    func headerButtonPressed(categoryType: CategoryType) {
+    func headerButtonPressed(category: Category) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller: CategoryTableViewController = storyboard.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
-        controller.categoryType = categoryType
+        controller.category = category
         eventTableViewController?.show(controller, sender: nil)
     }
-    
 }

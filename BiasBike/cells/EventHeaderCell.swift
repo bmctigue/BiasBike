@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EventHeaderCellDelegate: class {
-    func headerButtonPressed(categoryType: CategoryType)
+    func headerButtonPressed(category: Category)
 }
 
 class EventHeaderCell: UITableViewCell {
@@ -19,7 +19,7 @@ class EventHeaderCell: UITableViewCell {
     @IBOutlet weak var nextCircleView: UIView!
     weak var delegate: EventHeaderCellDelegate?
     
-    var categoryType: CategoryType = .World
+    var category: Category = .World
     
     override func awakeFromNib() {
         let nextImage = self.nextImageView.image?.withRenderingMode(.alwaysTemplate)
@@ -28,15 +28,16 @@ class EventHeaderCell: UITableViewCell {
         self.nextCircleView.layer.borderWidth = 1.0
     }
     
-    func update(categoryTitle: String, color: UIColor) {
-        self.titleLabel.text = categoryTitle
-        self.titleLabel.textColor = color
-        self.nextImageView.tintColor = color
-        self.nextCircleView.layer.borderColor = color.cgColor
+    func update(category: Category) {
+        self.category = category
+        self.titleLabel.text = category.rawValue
+        self.titleLabel.textColor = category.color
+        self.nextImageView.tintColor = category.color
+        self.nextCircleView.layer.borderColor = category.color.cgColor
     }
     
     @IBAction func headerButtonPressed(sender: AnyObject) {
-        delegate?.headerButtonPressed(categoryType: categoryType)
+        delegate?.headerButtonPressed(category: category)
     }
     
 }

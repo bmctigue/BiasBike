@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum CategoryType: String {
+enum Category: String {
     case World = "World"
     case Sports = "Sports"
     case Myths = "Myths"
@@ -17,38 +17,26 @@ enum CategoryType: String {
     case Health = "Health"
     case Science = "Science"
     case Politics = "Politics"
+    
+    var color: UIColor {
+        switch self {
+        case .World:
+            return .magenta
+        case .Sports:
+            return .blue
+        case .Myths:
+            return .cyan
+        case .Religion:
+            return .red
+        case .Health:
+            return .green
+        case .Science:
+            return .yellow
+        case .Politics:
+            return .orange
+        }
+    }
+    
     // the order here controls the order in the table
     static let categories = [World, Sports, Myths, Religion, Health, Science, Politics]
-}
-
-protocol CategoryProtocol {
-    var color: UIColor { get }
-}
-
-struct WorldCategory: CategoryProtocol {
-    var color: UIColor = .magenta
-}
-
-struct SportsCategory: CategoryProtocol {
-    var color: UIColor = .blue
-}
-
-struct MythsCategory: CategoryProtocol {
-    var color: UIColor = .cyan
-}
-
-struct ReligionCategory: CategoryProtocol {
-    var color: UIColor = .red
-}
-
-struct HealthCategory: CategoryProtocol {
-    var color: UIColor = .green
-}
-
-struct ScienceCategory: CategoryProtocol {
-    var color: UIColor = .yellow
-}
-
-struct PoliticsCategory: CategoryProtocol {
-    var color: UIColor = .orange
 }

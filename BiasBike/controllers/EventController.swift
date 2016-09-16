@@ -12,7 +12,7 @@ final class EventController: ModelController<Event> {
     
     static let sharedInstance = EventController.init(modelType: ModelType.Event)
     
-    func all(category: CategoryType) -> [Event] {
+    func all(category: Category) -> [Event] {
         let items = all()
         return items.filter{$0.category == category}
     }

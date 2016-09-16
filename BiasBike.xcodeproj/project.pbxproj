@@ -12,7 +12,6 @@
 		A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F470A1D79D3880025F918 /* UserControllerTests.swift */; };
 		A828D48A1D7E084F001FE199 /* EventFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828D4891D7E084F001FE199 /* EventFactory.swift */; };
 		A828D48C1D7E0CB2001FE199 /* ClaimFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828D48B1D7E0CB2001FE199 /* ClaimFactory.swift */; };
-		A838367B1D89FF9D0057BFC3 /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838367A1D89FF9D0057BFC3 /* CategoryFactory.swift */; };
 		A83836831D8A1A0C0057BFC3 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836821D8A1A0C0057BFC3 /* CategoryController.swift */; };
 		A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
@@ -80,7 +79,6 @@
 		A81F470A1D79D3880025F918 /* UserControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserControllerTests.swift; sourceTree = "<group>"; };
 		A828D4891D7E084F001FE199 /* EventFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFactory.swift; sourceTree = "<group>"; };
 		A828D48B1D7E0CB2001FE199 /* ClaimFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimFactory.swift; sourceTree = "<group>"; };
-		A838367A1D89FF9D0057BFC3 /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
 		A83836821D8A1A0C0057BFC3 /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryControllerTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 		A828D4881D7E0830001FE199 /* factories */ = {
 			isa = PBXGroup;
 			children = (
-				A838367A1D89FF9D0057BFC3 /* CategoryFactory.swift */,
 				A828D48B1D7E0CB2001FE199 /* ClaimFactory.swift */,
 				A828D4891D7E084F001FE199 /* EventFactory.swift */,
 				A8E9A6041D7E0F0400BB8C8F /* EvidenceFactory.swift */,
@@ -494,7 +491,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */,
-				A838367B1D89FF9D0057BFC3 /* CategoryFactory.swift in Sources */,
 				A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */,
 				A83836831D8A1A0C0057BFC3 /* CategoryController.swift in Sources */,
 				A8C710311D85F85C00205144 /* EventTableViewDataSource.swift in Sources */,

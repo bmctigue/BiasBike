@@ -15,12 +15,12 @@ class CategoryTableViewController: UITableViewController {
     private(set) var tableViewDataSource: CategoryTableViewDataSource?
     private(set) var tableViewDelegate: CategoryTableViewDelegate?
     private(set) var categoryHash:[String:[Event]] = [:]
-    var categoryType: CategoryType = .World
+    var category: Category = .World
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = categoryType.rawValue
+        self.title = category.rawValue
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(CategoryTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -28,8 +28,8 @@ class CategoryTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 300
 
-        self.tableViewDataSource = CategoryTableViewDataSource(tableView: tableView, categoryType:categoryType)
-        self.tableViewDelegate = CategoryTableViewDelegate(tableView: tableView, categoryType:categoryType, categoryTableViewController:self)
+        self.tableViewDataSource = CategoryTableViewDataSource(tableView: tableView, category:category)
+        self.tableViewDelegate = CategoryTableViewDelegate(tableView: tableView, category:category, categoryTableViewController:self)
         refreshData()
     }
     

@@ -10,11 +10,11 @@ import UIKit
 
 class CategoriesTableViewDataSource: NSObject {
     
-    private(set) var categories:[CategoryType] = []
-    private(set) var selectedCategories:[CategoryType] = []
+    private(set) var categories:[Category] = []
+    private(set) var selectedCategories:[Category] = []
 
     init(tableView: UITableView) {
-        self.categories = CategoryType.categories
+        self.categories = Category.categories
         super.init()
         tableView.dataSource = self
     }

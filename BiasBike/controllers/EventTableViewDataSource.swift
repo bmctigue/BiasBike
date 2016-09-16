@@ -11,7 +11,7 @@ import UIKit
 class EventTableViewDataSource: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
-    private(set) var sortedCategories:[CategoryType] = []
+    private(set) var sortedCategories:[Category] = []
 
     init(tableView: UITableView) {
         super.init()

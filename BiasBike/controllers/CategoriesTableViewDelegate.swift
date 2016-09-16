@@ -10,11 +10,11 @@ import UIKit
 
 class CategoriesTableViewDelegate: NSObject {
     
-    private(set) var categories:[CategoryType] = []
-    var selectedCategories:[CategoryType] = []
+    private(set) var categories:[Category] = []
+    var selectedCategories:[Category] = []
 
     init(tableView: UITableView) {
-        self.categories = CategoryType.categories
+        self.categories = Category.categories
         self.selectedCategories = CategoryController().loadSelectedCategories()
         super.init()
         tableView.delegate = self

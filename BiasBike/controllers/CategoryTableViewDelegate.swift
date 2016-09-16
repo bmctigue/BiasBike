@@ -11,12 +11,12 @@ import UIKit
 class CategoryTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
-    private(set) var category: CategoryType
+    private(set) var category: Category
     private(set) weak var categoryTableViewController: CategoryTableViewController?
 
-    init(tableView: UITableView, categoryType: CategoryType, categoryTableViewController: CategoryTableViewController? ) {
+    init(tableView: UITableView, category: Category, categoryTableViewController: CategoryTableViewController? ) {
         self.categoryTableViewController = categoryTableViewController
-        self.category = categoryType
+        self.category = category
         super.init()
         tableView.delegate = self
     }
