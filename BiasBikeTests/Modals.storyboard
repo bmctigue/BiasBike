@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,7 +62,162 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cdh-zc-KQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-281" y="102"/>
+            <point key="canvasLocation" x="-943" y="-89"/>
+        </scene>
+        <!--ClaimRatingViewController-->
+        <scene sceneID="ETt-qT-qqT">
+            <objects>
+                <viewController storyboardIdentifier="ClaimRatingViewController" title="ClaimRatingViewController" id="t1l-eW-deB" customClass="ClaimRatingViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ook-te-tYo"/>
+                        <viewControllerLayoutGuide type="bottom" id="o2D-J0-wiQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LJG-a0-ZEM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vi-dJ-GUt">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iSv-dW-WnW"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Rate This Claim" id="gTA-6C-4oS">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ZUp-8P-3at">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="doneButtonPressing:" destination="t1l-eW-deB" id="xbj-A9-PEJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiC-wb-xov" customClass="KDCircularProgress" customModule="BiasBike" customModuleProvider="target">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3wJ-2v-bMw"/>
+                                    <constraint firstAttribute="width" secondItem="HiC-wb-xov" secondAttribute="height" multiplier="1:1" id="YYA-Yj-yN5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <integer key="value" value="320"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
+                                        <color key="value" red="0.085719833810000007" green="0.98039215690000003" blue="0.396044703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <integer key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feP-VF-pfc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3Wg-1d-ebu"/>
+                                    <constraint firstAttribute="height" constant="30" id="pSo-q7-3yG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the probability this is true?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeJ-09-D04">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Ste-cE-Xhh"/>
+                                    <constraint firstAttribute="height" constant="64" id="kP7-q4-C79"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% - No doubt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8T-2h-3si">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Rzb-ns-5Y3"/>
+                                    <constraint firstAttribute="height" constant="30" id="g4T-uC-MfI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag to select the probability" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-mS-xsZ">
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="erD-T4-gA4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="iYq-NL-SfG"/>
+                                    <constraint firstAttribute="height" constant="30" id="rSO-TN-ik1"/>
+                                    <constraint firstAttribute="width" constant="280" id="va8-X1-id0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0% - Impossible" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAL-bG-ZJh">
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="JDw-AH-c6N"/>
+                                    <constraint firstAttribute="width" constant="280" id="Prg-X8-mCy"/>
+                                    <constraint firstAttribute="height" constant="30" id="XZC-uA-JaN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="cLp-qZ-nmf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FFC-K1-GOX"/>
+                                    <constraint firstAttribute="width" constant="194" id="cTe-Jd-wSM"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderDidChangeValue:" destination="t1l-eW-deB" eventType="valueChanged" id="rkD-7c-pF7"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zAL-bG-ZJh" firstAttribute="centerX" secondItem="LJG-a0-ZEM" secondAttribute="centerX" id="0hn-aV-uR6"/>
+                            <constraint firstItem="4vi-dJ-GUt" firstAttribute="top" secondItem="ook-te-tYo" secondAttribute="bottom" id="2Ps-f0-mk9"/>
+                            <constraint firstItem="HiC-wb-xov" firstAttribute="centerY" secondItem="LJG-a0-ZEM" secondAttribute="centerY" id="7TM-st-gcC"/>
+                            <constraint firstItem="4vi-dJ-GUt" firstAttribute="leading" secondItem="LJG-a0-ZEM" secondAttribute="leading" id="84M-k3-hcB"/>
+                            <constraint firstItem="t8T-2h-3si" firstAttribute="centerX" secondItem="LJG-a0-ZEM" secondAttribute="centerX" id="CHd-e4-DbY"/>
+                            <constraint firstItem="zAL-bG-ZJh" firstAttribute="top" secondItem="t8T-2h-3si" secondAttribute="bottom" constant="8" id="CPb-aD-2v0"/>
+                            <constraint firstItem="Uo2-mS-xsZ" firstAttribute="centerX" secondItem="LJG-a0-ZEM" secondAttribute="centerX" id="Kqq-Nb-wmJ"/>
+                            <constraint firstItem="feP-VF-pfc" firstAttribute="centerY" secondItem="LJG-a0-ZEM" secondAttribute="centerY" id="MSB-7d-b84"/>
+                            <constraint firstItem="HiC-wb-xov" firstAttribute="top" secondItem="SeJ-09-D04" secondAttribute="bottom" constant="30" id="Qgo-M1-PKe"/>
+                            <constraint firstItem="feP-VF-pfc" firstAttribute="centerX" secondItem="LJG-a0-ZEM" secondAttribute="centerX" id="ekm-h2-2mM"/>
+                            <constraint firstAttribute="trailing" secondItem="4vi-dJ-GUt" secondAttribute="trailing" id="iAV-pd-sKX"/>
+                            <constraint firstItem="o2D-J0-wiQ" firstAttribute="top" secondItem="zAL-bG-ZJh" secondAttribute="bottom" constant="30" id="l6Y-jL-HLY"/>
+                            <constraint firstAttribute="centerX" secondItem="cLp-qZ-nmf" secondAttribute="centerX" id="nSn-94-ZJO"/>
+                            <constraint firstItem="Uo2-mS-xsZ" firstAttribute="top" secondItem="cLp-qZ-nmf" secondAttribute="bottom" constant="15" id="pLd-j2-lSZ"/>
+                            <constraint firstItem="cLp-qZ-nmf" firstAttribute="top" secondItem="HiC-wb-xov" secondAttribute="bottom" constant="15" id="s3N-b0-4jW"/>
+                            <constraint firstItem="SeJ-09-D04" firstAttribute="centerX" secondItem="LJG-a0-ZEM" secondAttribute="centerX" id="y5T-ga-vMT"/>
+                            <constraint firstAttribute="centerX" secondItem="HiC-wb-xov" secondAttribute="centerX" id="zyq-Vl-cLX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="circularProgress" destination="HiC-wb-xov" id="tEB-VK-rp3"/>
+                        <outlet property="probabilityLabel" destination="feP-VF-pfc" id="ytr-Si-qT8"/>
+                        <outlet property="slider" destination="cLp-qZ-nmf" id="CRH-vQ-NEZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qfd-QO-CrQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="-90"/>
         </scene>
     </scenes>
 </document>

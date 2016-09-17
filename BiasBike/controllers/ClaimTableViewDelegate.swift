@@ -12,10 +12,12 @@ class ClaimsTableViewDelegate: NSObject {
     
     private(set) var eventId: String
     private(set) var claims:[Claim] = []
+    private(set) weak var claimsTableViewController: ClaimsTableViewController?
 
-    init(tableView: UITableView, eventId: String) {
+    init(tableView: UITableView, eventId: String, claimsTableViewController: ClaimsTableViewController) {
         self.eventId = eventId
         self.claims = ClaimController.sharedInstance.all(eventId: eventId)
+        self.claimsTableViewController = claimsTableViewController
         super.init()
         tableView.delegate = self
     }
@@ -32,5 +34,13 @@ extension ClaimsTableViewDelegate: UITableViewDelegate {
         let cell:ClaimCell = cell as! ClaimCell
         let claim = claims[indexPath.row]
         cell.updateCell(title: claim.title, probability: claim.probability, aggProbability: claim.aggProbability)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let claim = claims[indexPath.row]
+        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
+        controller.claim = claim
+        claimsTableViewController?.present(controller, animated: true, completion: nil)
     }
 }

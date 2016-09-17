@@ -14,8 +14,8 @@ class Claim: NSObject, NSCoding {
     private(set) var summary: String
     private(set) var creationDate: Date
     private(set) var url: String
-    private(set) var probability: Int
-    private(set) var aggProbability: Int
+    var probability: Int
+    var aggProbability: Int
     private(set) var eventId: String
     
     init(title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int, eventId: String) {

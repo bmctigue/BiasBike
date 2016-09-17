@@ -24,7 +24,11 @@ class ClaimsTableViewController: UITableViewController {
 
         ClaimController.sharedInstance.loadDefault()
         self.tableViewDataSource = ClaimsTableViewDataSource(tableView: tableView, eventId:eventId)
-        self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, eventId:eventId)
+        self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, eventId:eventId, claimsTableViewController: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refreshData()
     }
 
