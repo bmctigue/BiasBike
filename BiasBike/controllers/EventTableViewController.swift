@@ -29,7 +29,6 @@ class EventTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 300
 
-        EventController.sharedInstance.loadDefault()
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, eventTableViewController: self)
     }
@@ -57,4 +56,12 @@ class EventTableViewController: UITableViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
+    @IBAction func refreshButtonPressed(_ sender: AnyObject) {
+        ModelControllerUtilities().refreshAppData()
+        refreshData()
+        let alertController = UIAlertController(title: "Data Reset", message:"The app data has been reset", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

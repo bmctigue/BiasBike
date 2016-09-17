@@ -32,15 +32,25 @@ class ClaimRatingViewController: UIViewController {
         circularProgress.setColors(colors: UIColor.red)
         circularProgress.center = CGPoint(x: view.center.x, y: view.center.y + 25)
         slider.value = Float(sliderValueConversion(probability: (claim?.probability)!))
-        updateProgressColor(value: Double(slider.value))
-        updateProbabilityLabel(value: Double(slider.value))
+        updateController(angle: Double(slider.value))
         circularProgress.animate(fromAngle: 0, toAngle: Double(slider.value), duration: 1) { completed in }
     }
     
     @IBAction func sliderDidChangeValue(_ sender: UISlider) {
         circularProgress.angle = Double(sender.value)
-        updateProgressColor(value: circularProgress.angle)
-        updateProbabilityLabel(value: circularProgress.angle)
+        updateController(angle: circularProgress.angle)
+    }
+    
+    func updateController(angle: Double) {
+        let prob: Double = angle/ClaimRatingViewController.sliderMax
+        self.probability = Int(round(prob * 100))
+        updateProgressColor(value: angle)
+        updateProbabilityLabel()
+    }
+    
+    func sliderValueConversion(probability: Int) -> Double {
+        let value = Double(probability) / 100.0
+        return value * ClaimRatingViewController.sliderMax
     }
     
     func updateProgressColor(value: Double) {
@@ -50,7 +60,7 @@ class ClaimRatingViewController: UIViewController {
         } else if value <= 180 {
             color = UIColor.orange
         } else if value <= 270 {
-            color = UIColor.yellow
+            color = Theme.Yellow.color
         } else {
             color = UIColor.green
         }
@@ -58,20 +68,18 @@ class ClaimRatingViewController: UIViewController {
         probabilityLabel.textColor = color
     }
     
-    func updateProbabilityLabel(value: Double) {
-        self.probability = Int((value/ClaimRatingViewController.sliderMax) * 100)
+    func updateProbabilityLabel() {
         probabilityLabel.text = "\(probability)%"
     }
-    
-    func sliderValueConversion(probability: Int) -> Double {
-        let value = Double((Float(probability) / 100.0))
-        return value * ClaimRatingViewController.sliderMax
-    }
 
-    @IBAction func doneButtonPressing(_ sender: AnyObject) {
+    @IBAction func doneButtonPressed(_ sender: AnyObject) {
         claim?.probability = probability
         ClaimController.sharedInstance.update(key: (claim?.claimId)!, item: claim!)
         ClaimController.sharedInstance.save()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
 }

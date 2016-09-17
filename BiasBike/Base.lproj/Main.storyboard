@@ -162,6 +162,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="RWe-gd-h8W">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="cIK-T1-5dB">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="UjQ-HW-UMj" id="idq-l7-LrA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Cog" id="9sP-N3-D2b">
                             <connections>
                                 <action selector="categoriesEditButtonPressed:" destination="UjQ-HW-UMj" id="FAM-Br-JR9"/>

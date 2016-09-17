@@ -18,17 +18,19 @@ enum ModelType: String {
 
 class ModelController<T> {
     
-    var hash: [String:T] = [:]
+    var hash: [String:T]
     var modelType: ModelType
     let archiveURL: URL
     
     init(modelType: ModelType) {
+        self.hash = [:]
         self.modelType = modelType
         self.archiveURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(self.modelType.rawValue)
     }
     
     func all() -> [T] {
         if let hash = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? [String:T] {
+            self.hash = hash
             return Array(hash.values)
         } else {
             return [T]()
@@ -42,7 +44,6 @@ class ModelController<T> {
     
     func update(key: String, item: T) {
         self.hash[key] = item
-        save()
     }
     
     func save() {

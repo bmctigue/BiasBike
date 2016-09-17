@@ -13,6 +13,7 @@ class ClaimsTableViewController: UITableViewController {
     private(set) var tableViewDataSource: ClaimsTableViewDataSource?
     private(set) var tableViewDelegate: ClaimsTableViewDelegate?
     var eventId: String = ""
+    var claims: [Claim] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,6 @@ class ClaimsTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(ClaimsTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
 
-        ClaimController.sharedInstance.loadDefault()
         self.tableViewDataSource = ClaimsTableViewDataSource(tableView: tableView, eventId:eventId)
         self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, eventId:eventId, claimsTableViewController: self)
     }
@@ -38,8 +38,9 @@ class ClaimsTableViewController: UITableViewController {
     }
     
     func refreshData() {
-        self.tableViewDataSource?.updateDataSource(eventId:eventId)
-        self.tableViewDelegate?.updateDataSource(eventId:eventId)
+        claims = ClaimController.sharedInstance.all(eventId: eventId)
+        self.tableViewDataSource?.updateDataSource(claims: claims)
+        self.tableViewDelegate?.updateDataSource(claims: claims)
         self.tableView.reloadData()
     }
 

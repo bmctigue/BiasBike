@@ -15,14 +15,12 @@ class ClaimsTableViewDataSource: NSObject {
 
     init(tableView: UITableView, eventId: String) {
         self.eventId = eventId
-        self.claims = ClaimController.sharedInstance.all(eventId: eventId)
         super.init()
         tableView.dataSource = self
     }
     
-    func updateDataSource(eventId: String) {
-        self.eventId = eventId
-        self.claims = ClaimController.sharedInstance.all(eventId: eventId)
+    func updateDataSource(claims: [Claim]) {
+        self.claims = claims
     }
 }
 

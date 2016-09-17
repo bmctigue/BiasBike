@@ -31,7 +31,7 @@ enum Category: String {
         case .Health:
             return .green
         case .Science:
-            return .yellow
+            return Theme.Yellow.color
         case .Politics:
             return .orange
         }

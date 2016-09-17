@@ -34,7 +34,6 @@ final class EventController: ModelController<Event> {
     }
     
     override func loadDefault() {
-        clear()
         let eventFactory = EventFactory()
         let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "missing-flight", aggProbability: 70, category: .World)
         update(key: event1.eventId, item: event1)

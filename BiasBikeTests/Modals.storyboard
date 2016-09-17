@@ -86,10 +86,16 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Rate This Claim" id="gTA-6C-4oS">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NXk-Cz-7nq">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="t1l-eW-deB" id="AFF-Oj-4L3"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ZUp-8P-3at">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <action selector="doneButtonPressing:" destination="t1l-eW-deB" id="xbj-A9-PEJ"/>
+                                                <action selector="doneButtonPressed:" destination="t1l-eW-deB" id="ZHt-N8-vFG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
