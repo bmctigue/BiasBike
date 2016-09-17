@@ -21,6 +21,7 @@ class EvidenceControllerTests: XCTestCase {
         testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
         testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
         EvidenceController.sharedInstance.clear()
+        EvidenceController.sharedInstance.save()
     }
     
     func testEvidenceInit() {
@@ -31,21 +32,25 @@ class EvidenceControllerTests: XCTestCase {
     func testClearEvidence() {
         EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
         EvidenceController.sharedInstance.clear()
+        EvidenceController.sharedInstance.save()
         items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 0)
     }
     
     func testaddEvidence() {
         EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
+        EvidenceController.sharedInstance.save()
         items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 1)
         EvidenceController.sharedInstance.update(key: testEvidence2!.evidenceId, item: testEvidence2!)
+        EvidenceController.sharedInstance.save()
         items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 2)
     }
     
     func testLoadDefaultEvidence() {
         EvidenceController.sharedInstance.loadDefault()
+        EvidenceController.sharedInstance.save()
         let items = EvidenceController.sharedInstance.all()
         XCTAssertTrue(items.count == 2)
     }

@@ -39,7 +39,6 @@ class ModelController<T> {
     
     func clear() {
         self.hash.removeAll()
-        save()
     }
     
     func update(key: String, item: T) {

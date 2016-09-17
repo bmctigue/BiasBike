@@ -21,6 +21,7 @@ class UserControllerTests: XCTestCase {
         testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
         testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
         UserController.sharedInstance.clear()
+        UserController.sharedInstance.save()
     }
     
     func testUserInit() {
@@ -31,21 +32,25 @@ class UserControllerTests: XCTestCase {
     func testClearUser() {
         UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
         UserController.sharedInstance.clear()
+        UserController.sharedInstance.save()
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 0)
     }
     
     func testaddUser() {
         UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
+        UserController.sharedInstance.save()
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 1)
         UserController.sharedInstance.update(key: testUser2!.userId, item: testUser2!)
+        UserController.sharedInstance.save()
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 2)
     }
     
     func testLoadDefaultUsers() {
         UserController.sharedInstance.loadDefault()
+        UserController.sharedInstance.save()
         let users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 2)
     }
