@@ -10,22 +10,14 @@ import Foundation
 import UIKit
 
 enum Theme {
-    case Dark, Light, Text, Contrast, Yellow
+    case Yellow
 }
 
 extension Theme {
     var color: UIColor {
         switch self {
-        case .Dark:
-            return UIColor.init(red: 49.0/255.0, green: 127.0/255.0, blue: 194.0/255.0, alpha: 1.0)
-        case .Light:
-            return UIColor.init(red: 226.0/255.0, green: 230.0/255.0, blue: 234.0/255.0, alpha: 1.0)
-        case .Text:
-            return UIColor.init(red: 84.0/255.0, green: 95.0/255.0, blue: 102.0/255.0, alpha: 1.0)
         case .Yellow:
             return UIColor.init(red: 211.0/255.0, green: 177.0/255.0, blue: 28.0/255.0, alpha: 1.0)
-        case .Contrast:
-            return .white
         }
     }
 }
