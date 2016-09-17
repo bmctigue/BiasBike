@@ -11,6 +11,14 @@ import XCTest
 
 class CategoryControllerTests: XCTestCase {
     
+    func testSavingAndLoading() {
+        let categories = Category.categories
+        CategoryController().saveSelectedCategories(categories: categories)
+        let result = CategoryController().loadSelectedCategories()
+        XCTAssertEqual(result.count, Category.categories.count)
+        
+    }
+    
     func testFilteredCategoryTypes() {
         EventController.sharedInstance.clear()
         EventController.sharedInstance.loadDefault()
