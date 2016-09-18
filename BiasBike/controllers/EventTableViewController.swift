@@ -20,6 +20,9 @@ class EventTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Events"
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
         
         ThemeAppearance().setNavigationBarAppearance(navigationBar: self.navigationController?.navigationBar)
 

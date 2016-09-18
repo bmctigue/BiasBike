@@ -18,13 +18,15 @@ class ClaimsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Claims"
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(ClaimsTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
 
-        self.tableViewDataSource = ClaimsTableViewDataSource(tableView: tableView, eventId:eventId)
-        self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, eventId:eventId, claimsTableViewController: self)
+        self.tableViewDataSource = ClaimsTableViewDataSource(tableView: tableView)
+        self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, claimsTableViewController: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

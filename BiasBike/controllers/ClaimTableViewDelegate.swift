@@ -10,12 +10,10 @@ import UIKit
 
 class ClaimsTableViewDelegate: NSObject {
     
-    private(set) var eventId: String
     private(set) var claims:[Claim] = []
     private(set) weak var claimsTableViewController: ClaimsTableViewController?
 
-    init(tableView: UITableView, eventId: String, claimsTableViewController: ClaimsTableViewController) {
-        self.eventId = eventId
+    init(tableView: UITableView, claimsTableViewController: ClaimsTableViewController) {
         self.claimsTableViewController = claimsTableViewController
         super.init()
         tableView.delegate = self
@@ -36,9 +34,9 @@ extension ClaimsTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let claim = claims[indexPath.row]
-        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
-        let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
+        let storyboard = UIStoryboard(name: "Evidence", bundle: nil)
+        let controller: EvidenceTableViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceTableViewController") as! EvidenceTableViewController
         controller.claim = claim
-        claimsTableViewController?.present(controller, animated: true, completion: nil)
+        claimsTableViewController?.show(controller, sender: nil)
     }
 }

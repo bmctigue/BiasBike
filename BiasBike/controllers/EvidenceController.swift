@@ -12,12 +12,20 @@ final class EvidenceController: ModelController<Evidence> {
     
     static let sharedInstance = EvidenceController.init(modelType: ModelType.Evidence)
     
+    func all(claimId: String) -> [Evidence] {
+        let items = all()
+        return items.filter{$0.claimId == claimId}
+    }
+    
     override func loadDefault() {
-        clear()
+        let events = EventController.sharedInstance.all(category: .World)
+        let event: Event? = events.first
+        let claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
+        let claim: Claim? = claims.first
         let evidenceFactory = EvidenceFactory()
-        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
+        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50, claimId: (claim?.claimId)!)
         update(key: evidence1.evidenceId, item: evidence1)
-        let evidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
+        let evidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65, claimId: (claim?.claimId)!)
         update(key: evidence2.evidenceId, item: evidence2)
     }
 }

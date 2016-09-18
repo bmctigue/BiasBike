@@ -10,7 +10,7 @@ import UIKit
 
 class ClaimRatingViewController: UIViewController {
     
-    var claim: Claim?
+    weak var claim: Claim?
     var probability: Int = 0
     var progress: KDCircularProgress!
     static var sliderMax: Double = 360
@@ -18,9 +18,17 @@ class ClaimRatingViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var circularProgress: KDCircularProgress!
     @IBOutlet weak var probabilityLabel: UILabel!
+    @IBOutlet weak var customNavigationItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let claim = claim {
+            customNavigationItem.title = "Rate \(claim.title)"
+        } else {
+            customNavigationItem.title = "Rate this Claim"
+        }
+        
         circularProgress.startAngle = -90
         circularProgress.progressThickness = 0.2
         circularProgress.trackThickness = 0.6

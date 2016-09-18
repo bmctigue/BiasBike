@@ -217,6 +217,7 @@
                     </view>
                     <connections>
                         <outlet property="circularProgress" destination="HiC-wb-xov" id="tEB-VK-rp3"/>
+                        <outlet property="customNavigationItem" destination="gTA-6C-4oS" id="bRz-s1-Fxb"/>
                         <outlet property="probabilityLabel" destination="feP-VF-pfc" id="ytr-Si-qT8"/>
                         <outlet property="slider" destination="cLp-qZ-nmf" id="CRH-vQ-NEZ"/>
                     </connections>

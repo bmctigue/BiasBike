@@ -17,8 +17,9 @@ class Evidence: NSObject, NSCoding {
     private(set) var relevance: Int
     private(set) var reliability: Int
     private(set) var aggRR: Int
+    private(set) var claimId: String
     
-    init(title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int) {
+    init(title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int, claimId: String) {
         self.evidenceId = NSUUID().uuidString
         self.title = title
         self.summary = summary
@@ -27,10 +28,11 @@ class Evidence: NSObject, NSCoding {
         self.relevance = relevance
         self.reliability = reliability
         self.aggRR = aggRR
+        self.claimId = claimId
         super.init()
     }
     
-    private init(evidenceId: String, title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int) {
+    private init(evidenceId: String, title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int, claimId: String) {
         self.evidenceId = evidenceId
         self.title = title
         self.summary = summary
@@ -39,6 +41,7 @@ class Evidence: NSObject, NSCoding {
         self.relevance = relevance
         self.reliability = reliability
         self.aggRR = aggRR
+        self.claimId = claimId
         super.init()
     }
     
@@ -51,7 +54,8 @@ class Evidence: NSObject, NSCoding {
         let relevance = aDecoder.decodeInteger(forKey: Keys.Relevance.rawValue)
         let reliability = aDecoder.decodeInteger(forKey: Keys.Reliability.rawValue)
         let aggRR = aDecoder.decodeInteger(forKey: Keys.AggRR.rawValue)
-        self.init(evidenceId:evidenceId, title: title, summary: summary, creationDate: creationDate, url: url, relevance: relevance, reliability: reliability, aggRR: aggRR)
+        let claimId = aDecoder.decodeObject(forKey: Keys.ClaimId.rawValue) as! String
+        self.init(evidenceId:evidenceId, title: title, summary: summary, creationDate: creationDate, url: url, relevance: relevance, reliability: reliability, aggRR: aggRR, claimId: claimId)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -63,6 +67,7 @@ class Evidence: NSObject, NSCoding {
         aCoder.encode(relevance, forKey: Keys.Relevance.rawValue)
         aCoder.encode(reliability, forKey: Keys.Reliability.rawValue)
         aCoder.encode(aggRR, forKey: Keys.AggRR.rawValue)
+        aCoder.encode(claimId, forKey: Keys.ClaimId.rawValue)
     }
     
     enum Keys: String {
@@ -74,5 +79,6 @@ class Evidence: NSObject, NSCoding {
         case Relevance = "relevance"
         case Reliability = "reliability"
         case AggRR = "aggRR"
+        case ClaimId = "claimId"
     }
 }
