@@ -14,9 +14,9 @@ class Evidence: NSObject, NSCoding {
     private(set) var summary: String
     private(set) var creationDate: Date
     private(set) var url: String
-    private(set) var relevance: Int
-    private(set) var reliability: Int
-    private(set) var aggRR: Int
+    var relevance: Int
+    var reliability: Int
+    var aggRR: Int
     private(set) var claimId: String
     
     init(title: String, summary: String, creationDate: Date, url: String, relevance: Int, reliability: Int, aggRR: Int, claimId: String) {

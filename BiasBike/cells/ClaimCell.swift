@@ -12,7 +12,7 @@ class ClaimCell: UITableViewCell {
     
     func updateCell(title: String, probability: Int, aggProbability: Int) {
         self.textLabel?.text = title
-        self.detailTextLabel?.text = "Your probablity: \(probability)%"
+        self.detailTextLabel?.text = "Probablity: \(probability)%"
         let ratingImageName = ratingImageNameString(aggProbability: aggProbability)
         self.imageView?.image = UIImage(named: ratingImageName)
     }

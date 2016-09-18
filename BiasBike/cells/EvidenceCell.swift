@@ -12,7 +12,7 @@ class EvidenceCell: UITableViewCell {
     
     func updateCell(title: String, relevance: Int, reliability: Int, aggRR: Int) {
         self.textLabel?.text = title
-        self.detailTextLabel?.text = "Your relevance: \(relevance) and reliability: \(relevance)"
+        self.detailTextLabel?.text = "Relevance: \(relevance) and Reliability: \(reliability)"
         let ratingImageName = ratingImageNameString(aggRR: aggRR)
         self.imageView?.image = UIImage(named: ratingImageName)
     }

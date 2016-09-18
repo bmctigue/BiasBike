@@ -18,14 +18,14 @@ class EvidenceControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
-        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65)
+        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50, claimId: "1")
+        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65, claimId: "1")
         EvidenceController.sharedInstance.clear()
         EvidenceController.sharedInstance.save()
     }
     
     func testEvidenceInit() {
-        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50)
+        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50, claimId: "1")
         XCTAssertTrue(evidence.relevance == 45)
     }
     
@@ -49,6 +49,10 @@ class EvidenceControllerTests: XCTestCase {
     }
     
     func testLoadDefaultEvidence() {
+        EventController.sharedInstance.loadDefault()
+        EventController.sharedInstance.save()
+        ClaimController.sharedInstance.loadDefault()
+        ClaimController.sharedInstance.save()
         EvidenceController.sharedInstance.loadDefault()
         EvidenceController.sharedInstance.save()
         let items = EvidenceController.sharedInstance.all()

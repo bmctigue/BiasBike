@@ -15,7 +15,7 @@ class Event: NSObject, NSCoding {
     private(set) var creationDate: Date
     private(set) var url: String
     private(set) var photoUrl: String
-    private(set) var aggProbability: Int
+    var aggProbability: Int
     private(set) var category: Category
     
     init(title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: Category) {

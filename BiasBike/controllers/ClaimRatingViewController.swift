@@ -12,8 +12,6 @@ class ClaimRatingViewController: UIViewController {
     
     weak var claim: Claim?
     var probability: Int = 0
-    var progress: KDCircularProgress!
-    static var sliderMax: Double = 360
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var circularProgress: KDCircularProgress!
@@ -24,22 +22,17 @@ class ClaimRatingViewController: UIViewController {
         super.viewDidLoad()
         
         if let claim = claim {
-            customNavigationItem.title = "Rate \(claim.title)"
+            customNavigationItem.title = "\(claim.title)"
         } else {
             customNavigationItem.title = "Rate this Claim"
         }
         
-        circularProgress.startAngle = -90
-        circularProgress.progressThickness = 0.2
-        circularProgress.trackThickness = 0.6
-        circularProgress.clockwise = true
-        circularProgress.gradientRotateSpeed = 2
-        circularProgress.roundedCorners = true
-        circularProgress.glowMode = .noGlow
-        circularProgress.glowAmount = 0.9
-        circularProgress.setColors(colors: UIColor.red)
-        circularProgress.center = CGPoint(x: view.center.x, y: view.center.y + 25)
-        slider.value = Float(sliderValueConversion(probability: (claim?.probability)!))
+        setUpProgressView(circularProgress: circularProgress, slider: slider)
+    }
+    
+    func setUpProgressView(circularProgress: KDCircularProgress, slider: UISlider) {
+        RatingController().defaultProgressViewSettings(circularProgress: circularProgress)
+        slider.value = Float(RatingController().sliderValueConversion(rating: (claim?.probability)!))
         updateController(angle: Double(slider.value))
         circularProgress.animate(fromAngle: 0, toAngle: Double(slider.value), duration: 1) { completed in }
     }
@@ -50,34 +43,15 @@ class ClaimRatingViewController: UIViewController {
     }
     
     func updateController(angle: Double) {
-        let prob: Double = angle/ClaimRatingViewController.sliderMax
-        self.probability = Int(round(prob * 100))
-        updateProgressColor(value: angle)
-        updateProbabilityLabel()
-    }
-    
-    func sliderValueConversion(probability: Int) -> Double {
-        let value = Double(probability) / 100.0
-        return value * ClaimRatingViewController.sliderMax
-    }
-    
-    func updateProgressColor(value: Double) {
-        var color: UIColor
-        if value <= 90 {
-            color = UIColor.red
-        } else if value <= 180 {
-            color = UIColor.orange
-        } else if value <= 270 {
-            color = Theme.Yellow.color
-        } else {
-            color = UIColor.green
-        }
+        let initProb: Double = angle/RatingController.sliderMax
+        let probability = Int(round(initProb * 100))
+        let color = RatingController().progressColor(value: angle)
+        let probabilityText = "\(probability)"
+        self.probability = probability
+        circularProgress.angle = angle
         circularProgress.setColors(colors: color)
         probabilityLabel.textColor = color
-    }
-    
-    func updateProbabilityLabel() {
-        probabilityLabel.text = "\(probability)%"
+        probabilityLabel.text = probabilityText
     }
 
     @IBAction func doneButtonPressed(_ sender: AnyObject) {

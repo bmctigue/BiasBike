@@ -19,16 +19,15 @@ class EvidenceViewController: UIViewController {
         super.viewDidLoad()
         self.evidenceLabel.text = evidence?.title
         self.evidenceImageView?.image = UIImage(named: (evidence?.url)!)
-        
     }
 
     @IBAction func rateButtonPressed(_ sender: AnyObject) {
-//        if let evidence = evidence {
-//            let storyboard = UIStoryboard(name: "Modals", bundle: nil)
-//            let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
-//            controller.claim = claim
-//            self.present(controller, animated: true, completion: nil)
-//        }
+        if let evidence = evidence {
+            let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+            let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
+            controller.evidence = evidence
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
 }

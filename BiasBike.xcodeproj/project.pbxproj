@@ -62,6 +62,9 @@
 		A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9A6041D7E0F0400BB8C8F /* EvidenceFactory.swift */; };
 		A8EA7F331D84BDAE0055711B /* ModelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */; };
 		A8F544561D8EF9AB001A9268 /* EvidenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F544551D8EF9AB001A9268 /* EvidenceViewController.swift */; };
+		A8F544581D8F33F7001A9268 /* EvidenceRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F544571D8F33F7001A9268 /* EvidenceRatingViewController.swift */; };
+		A8F5445B1D8F3FFB001A9268 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F5445A1D8F3FFB001A9268 /* RatingController.swift */; };
+		A8F5445D1D8F4870001A9268 /* RatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F5445C1D8F4870001A9268 /* RatingControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +146,9 @@
 		A8E9A6041D7E0F0400BB8C8F /* EvidenceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceFactory.swift; sourceTree = "<group>"; };
 		A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerTests.swift; sourceTree = "<group>"; };
 		A8F544551D8EF9AB001A9268 /* EvidenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceViewController.swift; sourceTree = "<group>"; };
+		A8F544571D8F33F7001A9268 /* EvidenceRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceRatingViewController.swift; sourceTree = "<group>"; };
+		A8F5445A1D8F3FFB001A9268 /* RatingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
+		A8F5445C1D8F4870001A9268 /* RatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +258,7 @@
 				A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */,
 				A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */,
 				A8F544551D8EF9AB001A9268 /* EvidenceViewController.swift */,
+				A8F544571D8F33F7001A9268 /* EvidenceRatingViewController.swift */,
 			);
 			name = Evidence;
 			sourceTree = "<group>";
@@ -301,13 +308,14 @@
 			children = (
 				A8E4D85F1D74E56A00AFA1FE /* Info.plist */,
 				A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */,
+				A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */,
 				A8E73E341D77870F0098FAC0 /* ClaimControllerTests.swift */,
 				A8BD6ABD1D75EE70004FA825 /* EventControllerTests.swift */,
 				A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */,
 				A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */,
 				A8C538E81D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift */,
+				A8F5445C1D8F4870001A9268 /* RatingControllerTests.swift */,
 				A81F470A1D79D3880025F918 /* UserControllerTests.swift */,
-				A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */,
 			);
 			path = BiasBikeTests;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 		A8E4D8761D74E9B300AFA1FE /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8F544591D8F3FD6001A9268 /* Rating */,
 				A8C7C3061D8DF9F0007C991F /* Evidence */,
 				A86F6B1C1D8B4996002652DF /* Claim */,
 				A83836811D8A15BE0057BFC3 /* Event */,
@@ -395,6 +404,14 @@
 				A8E861E21D8C9095000FDA0E /* KDCircularProgress.swift */,
 			);
 			path = KDCircularProgress;
+			sourceTree = "<group>";
+		};
+		A8F544591D8F3FD6001A9268 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				A8F5445A1D8F3FFB001A9268 /* RatingController.swift */,
+			);
+			name = Rating;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,6 +567,7 @@
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
 				A8C710301D85F85C00205144 /* EventTableViewController.swift in Sources */,
+				A8F544581D8F33F7001A9268 /* EvidenceRatingViewController.swift in Sources */,
 				A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */,
 				A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */,
 				A8C7C30B1D8DFA67007C991F /* EvidenceTableViewDataSource.swift in Sources */,
@@ -565,6 +583,7 @@
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
 				A8C538E71D8B94950082A3B2 /* ModelControllerUtilities.swift in Sources */,
 				A8C710371D8616F900205144 /* EventHeaderCell.swift in Sources */,
+				A8F5445B1D8F3FFB001A9268 /* RatingController.swift in Sources */,
 				A81F47091D79D1630025F918 /* UserController.swift in Sources */,
 				A86F6B241D8B5EA2002652DF /* ClaimsTableViewController.swift in Sources */,
 				A828D48A1D7E084F001FE199 /* EventFactory.swift in Sources */,
@@ -595,6 +614,7 @@
 				A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */,
 				A8EA7F331D84BDAE0055711B /* ModelControllerTests.swift in Sources */,
 				A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */,
+				A8F5445D1D8F4870001A9268 /* RatingControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
