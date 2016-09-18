@@ -33,10 +33,10 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let evidence = evidence[indexPath.row]
-//        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
-//        let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
-//        controller.claim = claim
-//        evidenceTableViewController?.present(controller, animated: true, completion: nil)
+        let evidenceItem = evidence[indexPath.row]
+        let storyboard = UIStoryboard(name: "Evidence", bundle: nil)
+        let controller: EvidenceViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceViewController") as! EvidenceViewController
+        controller.evidence = evidenceItem
+        evidenceTableViewController?.show(controller, sender: nil)
     }
 }

@@ -61,6 +61,7 @@
 		A8E861E51D8CAB7A000FDA0E /* ClaimRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E861E41D8CAB7A000FDA0E /* ClaimRatingViewController.swift */; };
 		A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9A6041D7E0F0400BB8C8F /* EvidenceFactory.swift */; };
 		A8EA7F331D84BDAE0055711B /* ModelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */; };
+		A8F544561D8EF9AB001A9268 /* EvidenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F544551D8EF9AB001A9268 /* EvidenceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		A8E861E41D8CAB7A000FDA0E /* ClaimRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimRatingViewController.swift; sourceTree = "<group>"; };
 		A8E9A6041D7E0F0400BB8C8F /* EvidenceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceFactory.swift; sourceTree = "<group>"; };
 		A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerTests.swift; sourceTree = "<group>"; };
+		A8F544551D8EF9AB001A9268 /* EvidenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				A8C7C3071D8DFA67007C991F /* EvidenceTableViewController.swift */,
 				A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */,
 				A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */,
+				A8F544551D8EF9AB001A9268 /* EvidenceViewController.swift */,
 			);
 			name = Evidence;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */,
+				A8F544561D8EF9AB001A9268 /* EvidenceViewController.swift in Sources */,
 				A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */,
 				A83836831D8A1A0C0057BFC3 /* CategoryController.swift in Sources */,
 				A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */,

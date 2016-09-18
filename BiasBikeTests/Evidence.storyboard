@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EvidenceCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EvidenceCell" textLabel="eMk-Lr-EHq" detailTextLabel="ygk-5c-AAW" imageView="kyZ-cK-Z3w" style="IBUITableViewCellStyleSubtitle" id="8EO-d0-hZk" customClass="EvidenceCell" customModule="BiasBike" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EvidenceCell" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EvidenceCell" textLabel="eMk-Lr-EHq" detailTextLabel="ygk-5c-AAW" imageView="kyZ-cK-Z3w" style="IBUITableViewCellStyleSubtitle" id="8EO-d0-hZk" customClass="EvidenceCell" customModule="BiasBike" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8EO-d0-hZk" id="NTg-Vg-kak">
@@ -60,7 +60,66 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDR-1p-FTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="96"/>
+            <point key="canvasLocation" x="-116" y="115"/>
+        </scene>
+        <!--EvidenceViewController-->
+        <scene sceneID="hWS-NY-fHP">
+            <objects>
+                <viewController storyboardIdentifier="EvidenceViewController" title="EvidenceViewController" id="2G2-XG-zr5" customClass="EvidenceViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ysa-Np-HZ0"/>
+                        <viewControllerLayoutGuide type="bottom" id="JTp-gc-5ZZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SIb-qw-Zbw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V0N-cZ-Jcf">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evidence" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdi-vZ-5j0">
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lkh-gL-0En"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lkh-gL-0En" secondAttribute="trailing" id="10f-80-YJe"/>
+                                    <constraint firstItem="jdi-vZ-5j0" firstAttribute="leading" secondItem="V0N-cZ-Jcf" secondAttribute="leading" id="1LY-qy-Vxt"/>
+                                    <constraint firstItem="jdi-vZ-5j0" firstAttribute="top" secondItem="V0N-cZ-Jcf" secondAttribute="top" id="9Do-ft-HZn"/>
+                                    <constraint firstAttribute="trailing" secondItem="jdi-vZ-5j0" secondAttribute="trailing" id="ccL-Xc-hmh"/>
+                                    <constraint firstItem="lkh-gL-0En" firstAttribute="leading" secondItem="V0N-cZ-Jcf" secondAttribute="leading" id="fhe-TL-XmG"/>
+                                    <constraint firstAttribute="bottom" secondItem="lkh-gL-0En" secondAttribute="bottom" id="gQc-n1-gfg"/>
+                                    <constraint firstAttribute="height" constant="300" id="w2G-6t-QVZ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V0N-cZ-Jcf" firstAttribute="centerX" secondItem="SIb-qw-Zbw" secondAttribute="centerX" id="R0s-YQ-cwr"/>
+                            <constraint firstItem="V0N-cZ-Jcf" firstAttribute="centerY" secondItem="SIb-qw-Zbw" secondAttribute="centerY" id="Rv0-U6-KHC"/>
+                            <constraint firstItem="V0N-cZ-Jcf" firstAttribute="leading" secondItem="SIb-qw-Zbw" secondAttribute="leading" constant="20" id="jms-sP-z6P"/>
+                            <constraint firstAttribute="trailing" secondItem="V0N-cZ-Jcf" secondAttribute="trailing" constant="20" id="q1a-ev-ovd"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Evidence" id="Uio-20-CVk">
+                        <barButtonItem key="rightBarButtonItem" title="Rate" id="dUy-4s-41d">
+                            <connections>
+                                <action selector="rateButtonPressed:" destination="2G2-XG-zr5" id="NgJ-zN-ojZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="evidenceImageView" destination="lkh-gL-0En" id="jXQ-Zk-nLj"/>
+                        <outlet property="evidenceLabel" destination="jdi-vZ-5j0" id="7rW-1b-Wui"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7d-f2-RGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="115"/>
         </scene>
     </scenes>
     <resources>
