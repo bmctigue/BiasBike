@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Evidence: NSObject, NSCoding {
+final class Evidence: NSObject, NSCoding {
     private(set) var evidenceId: String
     private(set) var title: String
     private(set) var summary: String

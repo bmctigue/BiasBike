@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User: NSObject, NSCoding {
+final class User: NSObject, NSCoding {
     private(set) var userId: String
     private(set) var firstName: String
     private(set) var lastName: String

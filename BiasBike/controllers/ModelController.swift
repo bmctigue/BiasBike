@@ -9,11 +9,11 @@
 import Foundation
 
 enum ModelType: String {
-    case Generic = "generic"
     case Event = "events"
     case Claim = "claims"
     case Evidence = "evidence"
     case User = "users"
+    case Rating = "rating"
 }
 
 class ModelController<T> {

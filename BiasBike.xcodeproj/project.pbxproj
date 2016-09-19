@@ -16,6 +16,7 @@
 		A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */; };
 		A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
+		A850598E1D90A3640008D5F3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850598D1D90A3640008D5F3 /* Rating.swift */; };
 		A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86786061D87258E00D1A46B /* DemoImages.xcassets */; };
 		A86F6B0E1D8AFA5A002652DF /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */; };
 		A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */; };
@@ -94,6 +95,7 @@
 		A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryControllerTests.swift; sourceTree = "<group>"; };
 		A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		A850598D1D90A3640008D5F3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		A86786061D87258E00D1A46B /* DemoImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DemoImages.xcassets; sourceTree = "<group>"; };
 		A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Modals.storyboard; path = BiasBikeTests/Modals.storyboard; sourceTree = SOURCE_ROOT; };
 		A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				A8BD6AB91D75E3BF004FA825 /* Event.swift */,
 				A8965F2D1D787E4300349EC1 /* Evidence.swift */,
 				A81F47061D79CF910025F918 /* User.swift */,
+				A850598D1D90A3640008D5F3 /* Rating.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				A8E73E311D777A230098FAC0 /* EventController.swift in Sources */,
 				A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */,
 				A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */,
+				A850598E1D90A3640008D5F3 /* Rating.swift in Sources */,
 				A8E861E51D8CAB7A000FDA0E /* ClaimRatingViewController.swift in Sources */,
 				A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */,
 				A81F47071D79CF910025F918 /* User.swift in Sources */,

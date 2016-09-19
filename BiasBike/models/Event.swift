@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Event: NSObject, NSCoding {
+final class Event: NSObject, NSCoding {
     private(set) var eventId: String
     private(set) var title: String
     private(set) var summary: String

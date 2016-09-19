@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Claim: NSObject, NSCoding {
+final class Claim: NSObject, NSCoding {
     private(set) var claimId: String
     private(set) var title: String
     private(set) var summary: String
