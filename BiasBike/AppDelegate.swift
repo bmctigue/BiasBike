@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        ModelControllerUtilities().loadAllModelControllers()
-//        ModelControllerUtilities().saveAllModelControllers()
+        if EventController.sharedInstance.all(category: .World).count == 0 {
+            ModelControllerUtilities().loadAllModelControllers()
+            ModelControllerUtilities().saveAllModelControllers()
+        }
         return true
     }
 
