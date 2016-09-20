@@ -15,29 +15,26 @@ final class Event: NSObject, NSCoding {
     private(set) var creationDate: Date
     private(set) var url: String
     private(set) var photoUrl: String
-    var aggProbability: Int
     private(set) var category: Category
     
-    init(title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: Category) {
+    init(title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) {
         self.eventId = NSUUID().uuidString
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
         self.photoUrl = photoUrl
-        self.aggProbability = aggProbability
         self.category = category
         super.init()
     }
     
-    private init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, aggProbability: Int, category: Category) {
+    private init(eventId: String, title: String, summary: String, creationDate: Date, url: String, photoUrl: String, category: Category) {
         self.eventId = eventId
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
         self.photoUrl = photoUrl
-        self.aggProbability = aggProbability
         self.category = category
         super.init()
     }
@@ -49,9 +46,8 @@ final class Event: NSObject, NSCoding {
         let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
         let photoUrl = aDecoder.decodeObject(forKey: Keys.PhotoUrl.rawValue) as! String
-        let aggProbability = aDecoder.decodeInteger(forKey: Keys.AggProbability.rawValue)
         let category = Category(rawValue: (aDecoder.decodeObject(forKey: "category") as! String))!
-        self.init(eventId:eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, aggProbability: aggProbability, category: category)
+        self.init(eventId:eventId, title: title, summary: summary, creationDate: creationDate, url: url, photoUrl: photoUrl, category: category)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -61,7 +57,6 @@ final class Event: NSObject, NSCoding {
         aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
         aCoder.encode(url, forKey: Keys.Url.rawValue)
         aCoder.encode(photoUrl, forKey: Keys.PhotoUrl.rawValue)
-        aCoder.encode(aggProbability, forKey: Keys.AggProbability.rawValue)
         aCoder.encode(category.rawValue, forKey: Keys.Category.rawValue)
     }
     
@@ -72,7 +67,6 @@ final class Event: NSObject, NSCoding {
         case CreationDate = "creationDate"
         case Url = "url"
         case PhotoUrl = "photoUrl"
-        case AggProbability = "aggProbability"
         case Category = "category"
     }
 }

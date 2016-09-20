@@ -22,11 +22,11 @@ final class ClaimController: ModelController<Claim> {
         let event: Event? = events.first
         if let event = event {
             let claimFactory = ClaimFactory()
-            let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", creationDate: Date(), url: "", probability: 50, aggProbability: 40, eventId: event.eventId)
+            let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", creationDate: Date(), url: "", eventId: event.eventId)
             update(key: claim1.claimId, item: claim1)
-            let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", creationDate: Date(), url: "", probability: 50, aggProbability: 70, eventId: event.eventId)
+            let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", creationDate: Date(), url: "", eventId: event.eventId)
             update(key: claim2.claimId, item: claim2)
-            let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", creationDate: Date(), url: "", probability: 50, aggProbability: 90, eventId: event.eventId)
+            let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", creationDate: Date(), url: "", eventId: event.eventId)
             update(key: claim3.claimId, item: claim3)
         }
     }

@@ -14,30 +14,24 @@ final class Claim: NSObject, NSCoding {
     private(set) var summary: String
     private(set) var creationDate: Date
     private(set) var url: String
-    var probability: Int
-    var aggProbability: Int
     private(set) var eventId: String
     
-    init(title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int, eventId: String) {
+    init(title: String, summary: String, creationDate: Date, url: String, eventId: String) {
         self.claimId = NSUUID().uuidString
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
-        self.probability = probability
-        self.aggProbability = aggProbability
         self.eventId = eventId
         super.init()
     }
     
-    private init(claimId: String, title: String, summary: String, creationDate: Date, url: String, probability: Int, aggProbability: Int, eventId: String) {
+    private init(claimId: String, title: String, summary: String, creationDate: Date, url: String, eventId: String) {
         self.claimId = claimId
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
-        self.probability = probability
-        self.aggProbability = aggProbability
         self.eventId = eventId
         super.init()
     }
@@ -48,10 +42,8 @@ final class Claim: NSObject, NSCoding {
         let summary = aDecoder.decodeObject(forKey: Keys.Summary.rawValue) as! String
         let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
-        let probability = aDecoder.decodeInteger(forKey: Keys.Probability.rawValue)
-        let aggProbability = aDecoder.decodeInteger(forKey: Keys.AggProbability.rawValue)
         let eventId = aDecoder.decodeObject(forKey: Keys.EventId.rawValue) as! String
-        self.init(claimId:claimId, title: title, summary: summary, creationDate: creationDate, url: url, probability: probability, aggProbability: aggProbability, eventId: eventId)
+        self.init(claimId:claimId, title: title, summary: summary, creationDate: creationDate, url: url, eventId: eventId)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -60,8 +52,6 @@ final class Claim: NSObject, NSCoding {
         aCoder.encode(summary, forKey: Keys.Summary.rawValue)
         aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
         aCoder.encode(url, forKey: Keys.Url.rawValue)
-        aCoder.encode(probability, forKey: Keys.Probability.rawValue)
-        aCoder.encode(aggProbability, forKey: Keys.AggProbability.rawValue)
         aCoder.encode(eventId, forKey: Keys.EventId.rawValue)
     }
     
@@ -71,8 +61,6 @@ final class Claim: NSObject, NSCoding {
         case Summary = "summary"
         case CreationDate = "creationDate"
         case Url = "url"
-        case Probability = "probability"
-        case AggProbability = "aggProbability"
         case EventId = "eventId"
     }
 }

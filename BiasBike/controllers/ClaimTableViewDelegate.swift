@@ -29,7 +29,7 @@ extension ClaimsTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:ClaimCell = cell as! ClaimCell
         let claim = claims[indexPath.row]
-        cell.updateCell(title: claim.title, probability: claim.probability, aggProbability: claim.aggProbability)
+//        cell.updateCell(title: claim.title, probability: claim.probability, aggProbability: claim.aggProbability)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

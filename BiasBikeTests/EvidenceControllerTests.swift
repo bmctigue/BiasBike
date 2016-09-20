@@ -18,15 +18,15 @@ class EvidenceControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50, claimId: "1")
-        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", relevance: 35, reliability: 45, aggRR: 65, claimId: "1")
+        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: "1")
+        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", claimId: "1")
         EvidenceController.sharedInstance.clear()
         EvidenceController.sharedInstance.save()
     }
     
     func testEvidenceInit() {
-        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", relevance: 45, reliability: 70, aggRR: 50, claimId: "1")
-        XCTAssertTrue(evidence.relevance == 45)
+        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: "1")
+        XCTAssertTrue(evidence.title == "Wing Debris")
     }
     
     func testClearEvidence() {

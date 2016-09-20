@@ -18,15 +18,15 @@ class ClaimControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testClaim = claimFactory.create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50, eventId: "1")
-        testClaim2 = claimFactory.create(title: "High Jacked", summary: "", creationDate: Date(), url: "", probability: 45, aggProbability: 65, eventId: "1")
+        testClaim = claimFactory.create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", eventId: "1")
+        testClaim2 = claimFactory.create(title: "High Jacked", summary: "", creationDate: Date(), url: "", eventId: "1")
         ClaimController.sharedInstance.clear()
         ClaimController.sharedInstance.save()
     }
     
     func testClaimInit() {
-        let claim = claimFactory.create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", probability: 70, aggProbability: 50, eventId: "1")
-        XCTAssertTrue(claim.probability == 70)
+        let claim = claimFactory.create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", eventId: "1")
+        XCTAssertTrue(claim.title == "The Plane Crashed")
     }
     
     func testClearClaims() {

@@ -11,7 +11,7 @@ import UIKit
 class ClaimRatingViewController: UIViewController {
     
     weak var claim: Claim?
-    var probability: Int = 0
+    var rating: Int = 0
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var circularProgress: KDCircularProgress!
@@ -26,13 +26,17 @@ class ClaimRatingViewController: UIViewController {
         } else {
             customNavigationItem.title = "Rate this Claim"
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.rating = RatingController.sharedInstance.latestRating(modelId: (claim?.claimId)!)
         setUpProgressView(circularProgress: circularProgress, slider: slider)
     }
     
     func setUpProgressView(circularProgress: KDCircularProgress, slider: UISlider) {
         RatingController.sharedInstance.defaultProgressViewSettings(circularProgress: circularProgress)
-        slider.value = Float(RatingController.sharedInstance.sliderValueConversion(rating: (claim?.probability)!))
+        slider.value = Float(RatingController.sharedInstance.sliderValueConversion(rating: rating))
         updateController(angle: Double(slider.value))
         circularProgress.animate(fromAngle: 0, toAngle: Double(slider.value), duration: 1) { completed in }
     }
@@ -43,11 +47,11 @@ class ClaimRatingViewController: UIViewController {
     }
     
     func updateController(angle: Double) {
-        let initProb: Double = angle/RatingController.sliderMax
-        let probability = Int(round(initProb * 100))
+        let initRating: Double = angle/RatingController.sliderMax
+        let rating = Int(round(initRating * 100))
         let color = RatingController.sharedInstance.progressColor(value: angle)
-        let probabilityText = "\(probability)"
-        self.probability = probability
+        let probabilityText = "\(rating)"
+        self.rating = rating
         circularProgress.angle = angle
         circularProgress.setColors(colors: color)
         probabilityLabel.textColor = color
@@ -55,9 +59,9 @@ class ClaimRatingViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
-        claim?.probability = probability
-        ClaimController.sharedInstance.update(key: (claim?.claimId)!, item: claim!)
-        ClaimController.sharedInstance.save()
+        let newRating = RatingFactory().create(creationDate: Date(), rating: rating, modelId: (claim?.claimId)!, userId: "")
+        RatingController.sharedInstance.update(key: newRating.ratingId, item: newRating)
+        RatingController.sharedInstance.save()
         self.dismiss(animated: true, completion: nil)
     }
     

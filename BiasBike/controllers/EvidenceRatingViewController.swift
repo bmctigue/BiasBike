@@ -32,8 +32,8 @@ class EvidenceRatingViewController: UIViewController {
             customNavigationItem.title = "Evidence"
         }
         
-        setUpProgressView(circularProgress: relevanceCircularProgress, slider: relevanceSlider, rating: (evidence?.relevance)!)
-        setUpProgressView(circularProgress: reliabilityCircularProgress, slider: reliabilitySlider, rating: (evidence?.reliability)!)
+//        setUpProgressView(circularProgress: relevanceCircularProgress, slider: relevanceSlider, rating: (evidence?.relevance)!)
+//        setUpProgressView(circularProgress: reliabilityCircularProgress, slider: reliabilitySlider, rating: (evidence?.reliability)!)
     }
     
     func setUpProgressView(circularProgress: KDCircularProgress, slider: UISlider, rating: Int) {
@@ -71,8 +71,8 @@ class EvidenceRatingViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
-        evidence?.relevance = relevance
-        evidence?.reliability = reliability
+//        evidence?.relevance = relevance
+//        evidence?.reliability = reliability
         EvidenceController.sharedInstance.update(key: (evidence?.evidenceId)!, item: evidence!)
         EvidenceController.sharedInstance.save()
         self.dismiss(animated: true, completion: nil)

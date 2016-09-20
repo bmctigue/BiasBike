@@ -61,6 +61,14 @@ class RatingControllerTests: XCTestCase {
         XCTAssertEqual(avg, Int((testRating!.rating + testRating2!.rating)/2))
     }
     
+    func testLatestRating() {
+        RatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
+        RatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
+        RatingController.sharedInstance.save()
+        let latestRating = RatingController.sharedInstance.latestRating(modelId: "1")
+        XCTAssertEqual(latestRating, 90)
+    }
+    
     func testDefaultProgressViewSettings() {
         let circularProgress: KDCircularProgress = KDCircularProgress()
         RatingController.sharedInstance.defaultProgressViewSettings(circularProgress: circularProgress)

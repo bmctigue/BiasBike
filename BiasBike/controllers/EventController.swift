@@ -35,13 +35,13 @@ final class EventController: ModelController<Event> {
     
     override func loadDefault() {
         let eventFactory = EventFactory()
-        let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "missing-flight", aggProbability: 70, category: .World)
+        let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "missing-flight", category: .World)
         update(key: event1.eventId, item: event1)
-        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "lochte", aggProbability: 40, category: .Sports)
+        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "lochte", category: .Sports)
         update(key: event2.eventId, item: event2)
-        let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "donald-trump", aggProbability: 55, category: .Politics)
+        let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "donald-trump", category: .Politics)
         update(key: event3.eventId, item: event3)
-        let event4 = eventFactory.create(title: "Obama Visits Far East", summary: "", creationDate: Date(), url: "", photoUrl: "barack_obama", aggProbability: 55, category: .Politics)
+        let event4 = eventFactory.create(title: "Obama Visits Far East", summary: "", creationDate: Date(), url: "", photoUrl: "barack_obama", category: .Politics)
         update(key: event4.eventId, item: event4)
     }
 }

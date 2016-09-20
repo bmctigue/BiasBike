@@ -28,6 +28,17 @@ class RatingController: ModelController<Rating> {
         return Int(ratingTotal/items.count)
     }
     
+    func latestRating(modelId: String) -> Int {
+        var items: [Rating] = all(modelId:modelId)
+        if items.count == 0 {
+            return 50
+        }
+        items = items.sorted(by: {
+            $0.creationDate < $1.creationDate
+        })
+        return items.last!.rating
+    }
+    
     func defaultProgressViewSettings(circularProgress: KDCircularProgress) {
         circularProgress.startAngle = -90
         circularProgress.progressThickness = 0.2

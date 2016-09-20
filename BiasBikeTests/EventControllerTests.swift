@@ -18,15 +18,15 @@ class EventControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvent = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Health)
-        testEvent2 = eventFactory.create(title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Sports)
+        testEvent = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
+        testEvent2 = eventFactory.create(title: "Test2", summary: "Test Summary2", creationDate: Date(), url: "", photoUrl: "", category: .Sports)
         EventController.sharedInstance.clear()
         EventController.sharedInstance.save()
     }
     
     func testEventInit() {
-        let event = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", aggProbability: 70, category: .Health)
-        XCTAssertTrue(event.aggProbability == 70)
+        let event = eventFactory.create(title: "Test", summary: "Test Summary", creationDate: Date(), url: "", photoUrl: "", category: .Health)
+        XCTAssertTrue(event.title == "Test")
     }
     
     func testClearEvents() {

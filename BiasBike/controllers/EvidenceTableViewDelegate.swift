@@ -29,7 +29,7 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:EvidenceCell = cell as! EvidenceCell
         let evidenceItem = evidence[indexPath.row]
-        cell.updateCell(title: evidenceItem.title, relevance: evidenceItem.relevance, reliability: evidenceItem.reliability, aggRR: evidenceItem.aggRR)
+        cell.updateCell(title: evidenceItem.title)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -10,20 +10,20 @@ import UIKit
 
 class ClaimCell: UITableViewCell {
     
-    func updateCell(title: String, probability: Int, aggProbability: Int) {
+    func updateCell(title: String, rating: Int) {
         self.textLabel?.text = title
-        self.detailTextLabel?.text = "Probablity: \(probability)%"
-        let ratingImageName = ratingImageNameString(aggProbability: aggProbability)
+        self.detailTextLabel?.text = "Rating: \(rating)"
+        let ratingImageName = ratingImageNameString(rating: rating)
         self.imageView?.image = UIImage(named: ratingImageName)
     }
     
-    func ratingImageNameString(aggProbability: Int) -> String {
+    func ratingImageNameString(rating: Int) -> String {
         var ratingImageName: String
-        if aggProbability <= 25 {
+        if rating <= 25 {
             ratingImageName = "red_10_percent"
-        } else if aggProbability <= 50 {
+        } else if rating <= 50 {
             ratingImageName = "orange_40_percent"
-        } else if aggProbability <= 75 {
+        } else if rating <= 75 {
             ratingImageName = "yellow_70_percent"
         } else {
             ratingImageName = "green_90_percent"
