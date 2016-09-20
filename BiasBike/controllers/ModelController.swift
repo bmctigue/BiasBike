@@ -41,6 +41,10 @@ class ModelController<T> {
         self.hash.removeAll()
     }
     
+    func find(key: String) -> T? {
+        return self.hash[key]
+    }
+    
     func update(key: String, item: T) {
         self.hash[key] = item
     }

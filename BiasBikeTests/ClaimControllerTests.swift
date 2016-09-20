@@ -37,7 +37,7 @@ class ClaimControllerTests: XCTestCase {
         XCTAssertTrue(claims.count == 0)
     }
     
-    func testaddClaim() {
+    func testAddClaim() {
         ClaimController.sharedInstance.update(key: testClaim!.claimId, item: testClaim!)
         ClaimController.sharedInstance.save()
         claims = ClaimController.sharedInstance.all()

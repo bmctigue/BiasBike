@@ -37,7 +37,7 @@ class UserControllerTests: XCTestCase {
         XCTAssertTrue(users.count == 0)
     }
     
-    func testaddUser() {
+    func testAddUser() {
         UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
         UserController.sharedInstance.save()
         users = UserController.sharedInstance.all()

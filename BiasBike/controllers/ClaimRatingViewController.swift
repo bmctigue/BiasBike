@@ -31,8 +31,8 @@ class ClaimRatingViewController: UIViewController {
     }
     
     func setUpProgressView(circularProgress: KDCircularProgress, slider: UISlider) {
-        RatingController().defaultProgressViewSettings(circularProgress: circularProgress)
-        slider.value = Float(RatingController().sliderValueConversion(rating: (claim?.probability)!))
+        RatingController.sharedInstance.defaultProgressViewSettings(circularProgress: circularProgress)
+        slider.value = Float(RatingController.sharedInstance.sliderValueConversion(rating: (claim?.probability)!))
         updateController(angle: Double(slider.value))
         circularProgress.animate(fromAngle: 0, toAngle: Double(slider.value), duration: 1) { completed in }
     }
@@ -45,7 +45,7 @@ class ClaimRatingViewController: UIViewController {
     func updateController(angle: Double) {
         let initProb: Double = angle/RatingController.sliderMax
         let probability = Int(round(initProb * 100))
-        let color = RatingController().progressColor(value: angle)
+        let color = RatingController.sharedInstance.progressColor(value: angle)
         let probabilityText = "\(probability)"
         self.probability = probability
         circularProgress.angle = angle

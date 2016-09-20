@@ -9,9 +9,24 @@
 import Foundation
 import UIKit
 
-struct RatingController {
+class RatingController: ModelController<Rating> {
     
+    static let sharedInstance = RatingController.init(modelType: ModelType.Rating)
     static var sliderMax: Double = 360
+    
+    func all(modelId: String) -> [Rating] {
+        let items = all()
+        return items.filter{$0.modelId == modelId}
+    }
+    
+    func averageRating(modelId: String) -> Int {
+        let items = all(modelId:modelId)
+        if items.count == 0 {
+            return 0
+        }
+        let ratingTotal = items.reduce(0) {sum, rating in sum + rating.rating}
+        return Int(ratingTotal/items.count)
+    }
     
     func defaultProgressViewSettings(circularProgress: KDCircularProgress) {
         circularProgress.startAngle = -90

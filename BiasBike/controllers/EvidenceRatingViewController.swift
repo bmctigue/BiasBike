@@ -37,8 +37,8 @@ class EvidenceRatingViewController: UIViewController {
     }
     
     func setUpProgressView(circularProgress: KDCircularProgress, slider: UISlider, rating: Int) {
-        RatingController().defaultProgressViewSettings(circularProgress: circularProgress)
-        slider.value = Float(RatingController().sliderValueConversion(rating: rating))
+        RatingController.sharedInstance.defaultProgressViewSettings(circularProgress: circularProgress)
+        slider.value = Float(RatingController.sharedInstance.sliderValueConversion(rating: rating))
         updateController(angle: Double(slider.value), sliderTag: slider.tag)
         circularProgress.animate(fromAngle: 0, toAngle: Double(slider.value), duration: 1) { completed in }
     }
@@ -51,7 +51,7 @@ class EvidenceRatingViewController: UIViewController {
     func updateController(angle: Double, sliderTag: Int) {
         let initRating: Double = angle/RatingController.sliderMax
         let rating = Int(round(initRating * 100))
-        let color = RatingController().progressColor(value: angle)
+        let color = RatingController.sharedInstance.progressColor(value: angle)
         let ratingText = "\(rating)"
         switch sliderTag {
         case 0:

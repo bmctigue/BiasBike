@@ -37,7 +37,7 @@ class EvidenceControllerTests: XCTestCase {
         XCTAssertTrue(items.count == 0)
     }
     
-    func testaddEvidence() {
+    func testAddEvidence() {
         EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
         EvidenceController.sharedInstance.save()
         items = EvidenceController.sharedInstance.all()
