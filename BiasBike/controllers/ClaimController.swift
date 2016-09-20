@@ -17,6 +17,15 @@ final class ClaimController: ModelController<Claim> {
         return items.filter{$0.eventId == eventId}
     }
     
+    func claimsRatingsHash(eventId: String) -> [String:Int] {
+        let items = all(eventId:eventId)
+        var hash: [String:Int] = [:]
+        for claim: Claim in items {
+            hash[claim.claimId] = RatingController.sharedInstance.latestRating(modelId: claim.claimId)
+        }
+        return hash
+    }
+    
     override func loadDefault() {
         let events = EventController.sharedInstance.all(category: .World)
         let event: Event? = events.first

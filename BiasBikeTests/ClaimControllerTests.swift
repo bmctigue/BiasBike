@@ -15,6 +15,9 @@ class ClaimControllerTests: XCTestCase {
     var testClaim: Claim?
     var testClaim2: Claim?
     let claimFactory: ClaimFactoryProtocol = ClaimFactory()
+    var testRating: Rating?
+    var testRating2: Rating?
+    let ratingFactory: RatingFactoryProtocol = RatingFactory()
     
     override func setUp() {
         super.setUp()
@@ -22,6 +25,22 @@ class ClaimControllerTests: XCTestCase {
         testClaim2 = claimFactory.create(title: "High Jacked", summary: "", creationDate: Date(), url: "", eventId: "1")
         ClaimController.sharedInstance.clear()
         ClaimController.sharedInstance.save()
+        RatingController.sharedInstance.clear()
+        RatingController.sharedInstance.save()
+    }
+    
+    func testClaimsRatingsHash() {
+        ClaimController.sharedInstance.update(key: testClaim!.claimId, item: testClaim!)
+        ClaimController.sharedInstance.update(key: testClaim2!.claimId, item: testClaim2!)
+        ClaimController.sharedInstance.save()
+        testRating = ratingFactory.create(creationDate: Date(), rating: 10, modelId: testClaim!.claimId, userId: "2")
+        testRating2 = ratingFactory.create(creationDate: Date(), rating: 90, modelId: testClaim!.claimId, userId: "2")
+        RatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
+        RatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
+        RatingController.sharedInstance.save()
+        let hash: [String:Int] = ClaimController.sharedInstance.claimsRatingsHash(eventId: "1")
+        let rating = hash[testClaim!.claimId]!
+        XCTAssertEqual(rating, 90)
     }
     
     func testClaimInit() {

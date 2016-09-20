@@ -15,6 +15,7 @@ class ClaimsTableViewController: UITableViewController {
     var eventId: String = ""
     var claims: [Claim] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +43,7 @@ class ClaimsTableViewController: UITableViewController {
     func refreshData() {
         claims = ClaimController.sharedInstance.all(eventId: eventId)
         self.tableViewDataSource?.updateDataSource(claims: claims)
-        self.tableViewDelegate?.updateDataSource(claims: claims)
+        self.tableViewDelegate?.updateDataSource(claims: claims, eventId: eventId)
         self.tableView.reloadData()
     }
 
