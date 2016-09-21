@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EvidenceTableViewController: UITableViewController {
+class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
 
     private(set) var tableViewDataSource: EvidenceTableViewDataSource?
     private(set) var tableViewDelegate: EvidenceTableViewDelegate?
@@ -61,6 +61,13 @@ class EvidenceTableViewController: UITableViewController {
             controller.claim = claim
             self.present(controller, animated: true, completion: nil)
         }
+    }
+    
+    func rateButtonPressed(evidence: Evidence) {
+        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
+        controller.evidence = evidence
+        self.present(controller, animated: true, completion: nil)
     }
 
 }

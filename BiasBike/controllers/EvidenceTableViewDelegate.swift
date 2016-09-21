@@ -36,12 +36,13 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:EvidenceCell = cell as! EvidenceCell
+        cell.delegate = evidenceTableViewController
         let evidenceItem = evidence[indexPath.row]
         let relevance = relevanceRatingsHash[evidenceItem.evidenceId]!
         let reliability = reliabilityRatingsHash[evidenceItem.evidenceId]!
         let aggRelevance = relevanceAggRatingsHash[evidenceItem.evidenceId]!
         let aggReliability = reliabilityAggRatingsHash[evidenceItem.evidenceId]!
-        cell.updateCell(title: evidenceItem.title, relevance: relevance, reliability: reliability, aggRelevance: aggRelevance, aggReliability: aggReliability)
+        cell.updateCell(evidence: evidenceItem, relevance: relevance, reliability: reliability, aggRelevance: aggRelevance, aggReliability: aggReliability)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

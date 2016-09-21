@@ -32,9 +32,10 @@ extension ClaimsTableViewDelegate: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:ClaimCell = cell as! ClaimCell
+        cell.delegate = claimsTableViewController
         let claim = claims[indexPath.row]
         if let rating = claimsRatingsHash[claim.claimId], let aggRating = claimsAggRatingsHash[claim.claimId] {
-            cell.updateCell(title: claim.title, rating: rating, aggRating: aggRating)
+            cell.updateCell(claim: claim, rating: rating, aggRating: aggRating)
         }
     }
     

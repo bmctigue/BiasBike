@@ -8,15 +8,28 @@
 
 import UIKit
 
+protocol ClaimCellDelegate: class {
+    func rateButtonPressed(claim: Claim)
+}
+
 class ClaimCell: UITableViewCell {
     
     @IBOutlet weak var aggRatingLabel: UILabel!
     
-    func updateCell(title: String, rating: Int, aggRating: Int) {
-        self.textLabel?.text = title
+    weak var delegate: ClaimCellDelegate?
+    var claim: Claim?
+    
+    func updateCell(claim: Claim, rating: Int, aggRating: Int) {
+        self.claim = claim
+        self.textLabel?.text = claim.title
         self.detailTextLabel?.text = "Rating: \(rating)"
         self.aggRatingLabel.text = "\(aggRating)"
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: rating)
         self.imageView?.image = UIImage(named: ratingImageName)
     }
+    
+    @IBAction func rateButtonPressed(_ sender: AnyObject) {
+        delegate?.rateButtonPressed(claim: claim!)
+    }
+    
 }

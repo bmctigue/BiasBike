@@ -17,8 +17,8 @@ class EventHeaderCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nextImageView: UIImageView!
     @IBOutlet weak var nextCircleView: UIView!
-    weak var delegate: EventHeaderCellDelegate?
     
+    weak var delegate: EventHeaderCellDelegate?
     var category: Category = .World
     
     override func awakeFromNib() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClaimsTableViewController: UITableViewController {
+class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
 
     private(set) var tableViewDataSource: ClaimsTableViewDataSource?
     private(set) var tableViewDelegate: ClaimsTableViewDelegate?
@@ -45,6 +45,13 @@ class ClaimsTableViewController: UITableViewController {
         self.tableViewDataSource?.updateDataSource(claims: claims)
         self.tableViewDelegate?.updateDataSource(claims: claims, eventId: eventId)
         self.tableView.reloadData()
+    }
+    
+    func rateButtonPressed(claim: Claim) {
+        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
+        controller.claim = claim
+        self.present(controller, animated: true, completion: nil)
     }
 
 }
