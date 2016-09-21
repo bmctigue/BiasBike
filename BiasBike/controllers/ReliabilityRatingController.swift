@@ -1,19 +1,19 @@
 //
-//  RatingController.swift
+//  ReliabilityRatingController.swift
 //  BiasBike
 //
-//  Created by Bruce McTigue on 9/18/16.
+//  Created by Bruce McTigue on 9/20/16.
 //  Copyright © 2016 tiguer. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class RatingController: ModelController<Rating> {
+class ReliabilityRatingController: ModelController<ReliabilityRating> {
     
-    static let sharedInstance = RatingController.init(modelType: ModelType.Rating)
+    static let sharedInstance = ReliabilityRatingController.init(modelType: ModelType.ReliabilityRating)
     
-    func all(modelId: String) -> [Rating] {
+    func all(modelId: String) -> [ReliabilityRating] {
         let items = all()
         return items.filter{$0.modelId == modelId}
     }
@@ -28,7 +28,7 @@ class RatingController: ModelController<Rating> {
     }
     
     func latestRating(modelId: String) -> Int {
-        var items: [Rating] = all(modelId:modelId)
+        var items: [ReliabilityRating] = all(modelId:modelId)
         if items.count == 0 {
             return 50
         }
@@ -38,3 +38,5 @@ class RatingController: ModelController<Rating> {
         return items.last!.rating
     }
 }
+
+

@@ -17,6 +17,24 @@ final class EvidenceController: ModelController<Evidence> {
         return items.filter{$0.claimId == claimId}
     }
     
+    func evidenceRelevanceRatingsHash(claimId: String) -> [String:Int] {
+        let items = all(claimId:claimId)
+        var hash: [String:Int] = [:]
+        for evidenceItem: Evidence in items {
+            hash[evidenceItem.evidenceId] = RelevanceRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
+        }
+        return hash
+    }
+    
+    func evidenceReliabilityRatingsHash(claimId: String) -> [String:Int] {
+        let items = all(claimId:claimId)
+        var hash: [String:Int] = [:]
+        for evidenceItem: Evidence in items {
+            hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
+        }
+        return hash
+    }
+    
     override func loadDefault() {
         let events = EventController.sharedInstance.all(category: .World)
         let event: Event? = events.first

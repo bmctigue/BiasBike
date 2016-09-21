@@ -15,6 +15,12 @@ class EvidenceControllerTests: XCTestCase {
     var testEvidence: Evidence?
     var testEvidence2: Evidence?
     let evidenceFactory: EvidenceFactory = EvidenceFactory()
+    var testRelevanceRating: RelevanceRating?
+    var testRelevanceRating2: RelevanceRating?
+    let relevanceRatingFactory: RelevanceRatingFactory = RelevanceRatingFactory()
+    var testReliabilityRating: ReliabilityRating?
+    var testReliabilityRating2: ReliabilityRating?
+    let reliabilityRatingFactory: ReliabilityRatingFactory = ReliabilityRatingFactory()
     
     override func setUp() {
         super.setUp()
@@ -22,6 +28,34 @@ class EvidenceControllerTests: XCTestCase {
         testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", claimId: "1")
         EvidenceController.sharedInstance.clear()
         EvidenceController.sharedInstance.save()
+    }
+    
+    func testRelevanceRatingsHash() {
+        EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
+        EvidenceController.sharedInstance.update(key: testEvidence2!.evidenceId, item: testEvidence2!)
+        EvidenceController.sharedInstance.save()
+        testRelevanceRating = relevanceRatingFactory.create(creationDate: Date(), rating: 10, modelId: testEvidence!.evidenceId, userId: "2") as? RelevanceRating
+        testRelevanceRating2 = relevanceRatingFactory.create(creationDate: Date(), rating: 90, modelId: testEvidence!.evidenceId, userId: "2")  as? RelevanceRating
+        RelevanceRatingController.sharedInstance.update(key: testRelevanceRating!.ratingId, item: testRelevanceRating!)
+        RelevanceRatingController.sharedInstance.update(key: testRelevanceRating2!.ratingId, item: testRelevanceRating2!)
+        RelevanceRatingController.sharedInstance.save()
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(claimId: "1")
+        let rating = hash[testEvidence!.evidenceId]!
+        XCTAssertEqual(rating, 90)
+    }
+    
+    func testReliabilityRatingsHash() {
+        EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
+        EvidenceController.sharedInstance.update(key: testEvidence2!.evidenceId, item: testEvidence2!)
+        EvidenceController.sharedInstance.save()
+        testReliabilityRating = reliabilityRatingFactory.create(creationDate: Date(), rating: 10, modelId: testEvidence!.evidenceId, userId: "2") as? ReliabilityRating
+        testReliabilityRating2 = reliabilityRatingFactory.create(creationDate: Date(), rating: 90, modelId: testEvidence!.evidenceId, userId: "2")  as? ReliabilityRating
+        ReliabilityRatingController.sharedInstance.update(key: testReliabilityRating!.ratingId, item: testReliabilityRating!)
+        ReliabilityRatingController.sharedInstance.update(key: testReliabilityRating2!.ratingId, item: testReliabilityRating2!)
+        ReliabilityRatingController.sharedInstance.save()
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(claimId: "1")
+        let rating = hash[testEvidence!.evidenceId]!
+        XCTAssertEqual(rating, 90)
     }
     
     func testEvidenceInit() {

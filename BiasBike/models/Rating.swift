@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Rating: NSObject, NSCoding {
+class Rating: NSObject, NSCoding {
     private(set) var ratingId: String
     private(set) var creationDate: Date
     var rating: Int
@@ -24,7 +24,7 @@ final class Rating: NSObject, NSCoding {
         super.init()
     }
     
-    private init(ratingId: String, creationDate: Date, rating: Int, modelId: String, userId: String) {
+    init(ratingId: String, creationDate: Date, rating: Int, modelId: String, userId: String) {
         self.ratingId = ratingId
         self.creationDate = creationDate
         self.rating = rating
@@ -56,5 +56,37 @@ final class Rating: NSObject, NSCoding {
         case Rating = "rating"
         case ModelId = "modelId"
         case UserId = "userId"
+    }
+}
+
+final class RelevanceRating: Rating {
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let ratingId = aDecoder.decodeObject(forKey: Keys.RatingId.rawValue) as! String
+        let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
+        let rating = aDecoder.decodeInteger(forKey: Keys.Rating.rawValue)
+        let modelId = aDecoder.decodeObject(forKey: Keys.ModelId.rawValue) as! String
+        let userId = aDecoder.decodeObject(forKey: Keys.UserId.rawValue) as! String
+        self.init(ratingId:ratingId, creationDate: creationDate, rating: rating, modelId: modelId, userId: userId)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+}
+
+final class ReliabilityRating: Rating {
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let ratingId = aDecoder.decodeObject(forKey: Keys.RatingId.rawValue) as! String
+        let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
+        let rating = aDecoder.decodeInteger(forKey: Keys.Rating.rawValue)
+        let modelId = aDecoder.decodeObject(forKey: Keys.ModelId.rawValue) as! String
+        let userId = aDecoder.decodeObject(forKey: Keys.UserId.rawValue) as! String
+        self.init(ratingId:ratingId, creationDate: creationDate, rating: rating, modelId: modelId, userId: userId)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
     }
 }

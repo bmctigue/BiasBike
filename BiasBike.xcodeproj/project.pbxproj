@@ -67,6 +67,12 @@
 		A8F544581D8F33F7001A9268 /* EvidenceRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F544571D8F33F7001A9268 /* EvidenceRatingViewController.swift */; };
 		A8F5445B1D8F3FFB001A9268 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F5445A1D8F3FFB001A9268 /* RatingController.swift */; };
 		A8F5445D1D8F4870001A9268 /* RatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F5445C1D8F4870001A9268 /* RatingControllerTests.swift */; };
+		A8FD038C1D91EB1C00447924 /* RatingControllerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD038B1D91EB1C00447924 /* RatingControllerUtilities.swift */; };
+		A8FD038E1D91FDD500447924 /* RatingControllerUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD038D1D91FDD500447924 /* RatingControllerUtilitiesTests.swift */; };
+		A8FD03901D91FF7400447924 /* RelevanceRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD038F1D91FF7400447924 /* RelevanceRatingController.swift */; };
+		A8FD03921D91FF8700447924 /* ReliabilityRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD03911D91FF8700447924 /* ReliabilityRatingController.swift */; };
+		A8FD03951D9200D400447924 /* RelevanceRatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD03931D9200D400447924 /* RelevanceRatingControllerTests.swift */; };
+		A8FD03981D92011300447924 /* ReliabilityRatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD03971D92011300447924 /* ReliabilityRatingControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +159,12 @@
 		A8F544571D8F33F7001A9268 /* EvidenceRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceRatingViewController.swift; sourceTree = "<group>"; };
 		A8F5445A1D8F3FFB001A9268 /* RatingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
 		A8F5445C1D8F4870001A9268 /* RatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControllerTests.swift; sourceTree = "<group>"; };
+		A8FD038B1D91EB1C00447924 /* RatingControllerUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControllerUtilities.swift; sourceTree = "<group>"; };
+		A8FD038D1D91FDD500447924 /* RatingControllerUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControllerUtilitiesTests.swift; sourceTree = "<group>"; };
+		A8FD038F1D91FF7400447924 /* RelevanceRatingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelevanceRatingController.swift; sourceTree = "<group>"; };
+		A8FD03911D91FF8700447924 /* ReliabilityRatingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReliabilityRatingController.swift; sourceTree = "<group>"; };
+		A8FD03931D9200D400447924 /* RelevanceRatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelevanceRatingControllerTests.swift; sourceTree = "<group>"; };
+		A8FD03971D92011300447924 /* ReliabilityRatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReliabilityRatingControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +332,9 @@
 				A8EA7F321D84BDAE0055711B /* ModelControllerTests.swift */,
 				A8C538E81D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift */,
 				A8F5445C1D8F4870001A9268 /* RatingControllerTests.swift */,
+				A8FD03931D9200D400447924 /* RelevanceRatingControllerTests.swift */,
+				A8FD03971D92011300447924 /* ReliabilityRatingControllerTests.swift */,
+				A8FD038D1D91FDD500447924 /* RatingControllerUtilitiesTests.swift */,
 				A81F470A1D79D3880025F918 /* UserControllerTests.swift */,
 			);
 			path = BiasBikeTests;
@@ -379,8 +394,8 @@
 		A8E4D87A1D74E9E700AFA1FE /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				A86F6B1D1D8B5632002652DF /* Claim.storyboard */,
 				A86F6B161D8B0F83002652DF /* Main.storyboard */,
+				A86F6B1D1D8B5632002652DF /* Claim.storyboard */,
 				A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */,
 				A8C7C3041D8DF95A007C991F /* Evidence.storyboard */,
 			);
@@ -416,6 +431,9 @@
 			isa = PBXGroup;
 			children = (
 				A8F5445A1D8F3FFB001A9268 /* RatingController.swift */,
+				A8FD038F1D91FF7400447924 /* RelevanceRatingController.swift */,
+				A8FD03911D91FF8700447924 /* ReliabilityRatingController.swift */,
+				A8FD038B1D91EB1C00447924 /* RatingControllerUtilities.swift */,
 			);
 			name = Rating;
 			sourceTree = "<group>";
@@ -573,6 +591,7 @@
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
 				A8C710301D85F85C00205144 /* EventTableViewController.swift in Sources */,
+				A8FD03901D91FF7400447924 /* RelevanceRatingController.swift in Sources */,
 				A8F544581D8F33F7001A9268 /* EvidenceRatingViewController.swift in Sources */,
 				A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */,
 				A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */,
@@ -597,11 +616,13 @@
 				A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */,
 				A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */,
 				A8BD6AB81D75E249004FA825 /* Category.swift in Sources */,
+				A8FD038C1D91EB1C00447924 /* RatingControllerUtilities.swift in Sources */,
 				A8E73E311D777A230098FAC0 /* EventController.swift in Sources */,
 				A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */,
 				A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */,
 				A850598E1D90A3640008D5F3 /* Rating.swift in Sources */,
 				A8E861E51D8CAB7A000FDA0E /* ClaimRatingViewController.swift in Sources */,
+				A8FD03921D91FF8700447924 /* ReliabilityRatingController.swift in Sources */,
 				A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */,
 				A81F47071D79CF910025F918 /* User.swift in Sources */,
 				A8B080901D8898B400D793AC /* CategoryTableViewDelegate.swift in Sources */,
@@ -616,11 +637,14 @@
 			files = (
 				A8C538E91D8B95EB0082A3B2 /* ModelControllerUtilitiesTests.swift in Sources */,
 				A8E73E351D77870F0098FAC0 /* ClaimControllerTests.swift in Sources */,
+				A8FD03951D9200D400447924 /* RelevanceRatingControllerTests.swift in Sources */,
 				A8BD6ABE1D75EE70004FA825 /* EventControllerTests.swift in Sources */,
 				A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */,
 				A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */,
 				A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */,
+				A8FD03981D92011300447924 /* ReliabilityRatingControllerTests.swift in Sources */,
 				A8EA7F331D84BDAE0055711B /* ModelControllerTests.swift in Sources */,
+				A8FD038E1D91FDD500447924 /* RatingControllerUtilitiesTests.swift in Sources */,
 				A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */,
 				A8F5445D1D8F4870001A9268 /* RatingControllerTests.swift in Sources */,
 			);

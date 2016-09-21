@@ -14,6 +14,8 @@ enum ModelType: String {
     case Evidence = "evidence"
     case User = "users"
     case Rating = "rating"
+    case RelevanceRating = "relevanceRating"
+    case ReliabilityRating = "reliabilityRating"
 }
 
 class ModelController<T> {

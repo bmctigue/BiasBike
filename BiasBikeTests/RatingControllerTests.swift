@@ -68,31 +68,4 @@ class RatingControllerTests: XCTestCase {
         let latestRating = RatingController.sharedInstance.latestRating(modelId: "1")
         XCTAssertEqual(latestRating, 90)
     }
-    
-    func testDefaultProgressViewSettings() {
-        let circularProgress: KDCircularProgress = KDCircularProgress()
-        RatingController.sharedInstance.defaultProgressViewSettings(circularProgress: circularProgress)
-        XCTAssertTrue(circularProgress.roundedCorners)
-    }
-    
-    func testProgressColor() {
-        var color: UIColor
-        color = RatingController.sharedInstance.progressColor(value: 80)
-        XCTAssertTrue(color.isEqual(UIColor.red))
-        color = RatingController.sharedInstance.progressColor(value: 100)
-        XCTAssertTrue(color.isEqual(UIColor.orange))
-        color = RatingController.sharedInstance.progressColor(value: 200)
-        XCTAssertTrue(color.isEqual(Theme.Yellow.color))
-        color = RatingController.sharedInstance.progressColor(value: 300)
-        XCTAssertTrue(color.isEqual(UIColor.green))
-    }
-    
-    func testSliderValueConversion() {
-        var result: Double
-        result = RatingController.sharedInstance.sliderValueConversion(rating: 0)
-        XCTAssertEqual(result, 0)
-        result = RatingController.sharedInstance.sliderValueConversion(rating: 100)
-        XCTAssertEqual(result, RatingController.sliderMax)
-    }
-    
 }

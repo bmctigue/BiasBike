@@ -44,8 +44,10 @@ class EvidenceTableViewController: UITableViewController {
     func refreshData() {
         if let claim = claim {
             evidence = EvidenceController.sharedInstance.all(claimId: claim.claimId)
+            let relevanceHash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(claimId: claim.claimId)
+            let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(claimId: claim.claimId)
             self.tableViewDataSource?.updateDataSource(evidence: evidence)
-            self.tableViewDelegate?.updateDataSource(evidence: evidence)
+            self.tableViewDelegate?.updateDataSource(evidence: evidence, relevanceRatingsHash: relevanceHash, reliabilityRatingsHash: reliabilityHash)
             self.tableView.reloadData()
         }
     }

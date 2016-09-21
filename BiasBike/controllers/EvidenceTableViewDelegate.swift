@@ -11,6 +11,8 @@ import UIKit
 class EvidenceTableViewDelegate: NSObject {
     
     private(set) var evidence:[Evidence] = []
+    private(set) var relevanceRatingsHash: [String:Int] = [:]
+    private(set) var reliabilityRatingsHash: [String:Int] = [:]
     private(set) weak var evidenceTableViewController: EvidenceTableViewController?
 
     init(tableView: UITableView, evidenceTableViewController: EvidenceTableViewController) {
@@ -19,8 +21,10 @@ class EvidenceTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
-    func updateDataSource(evidence: [Evidence]) {
+    func updateDataSource(evidence: [Evidence], relevanceRatingsHash: [String:Int], reliabilityRatingsHash: [String:Int]) {
         self.evidence = evidence
+        self.relevanceRatingsHash = relevanceRatingsHash
+        self.reliabilityRatingsHash = reliabilityRatingsHash
     }
 }
 
@@ -29,7 +33,9 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:EvidenceCell = cell as! EvidenceCell
         let evidenceItem = evidence[indexPath.row]
-        cell.updateCell(title: evidenceItem.title)
+        let relevance = relevanceRatingsHash[evidenceItem.evidenceId]!
+        let reliability = reliabilityRatingsHash[evidenceItem.evidenceId]!
+        cell.updateCell(title: evidenceItem.title, relevance: relevance, reliability: reliability)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

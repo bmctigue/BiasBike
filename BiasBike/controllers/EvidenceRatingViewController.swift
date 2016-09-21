@@ -31,14 +31,15 @@ class EvidenceRatingViewController: UIViewController {
         } else {
             customNavigationItem.title = "Evidence"
         }
-        
-//        setUpProgressView(circularProgress: relevanceCircularProgress, slider: relevanceSlider, rating: (evidence?.relevance)!)
-//        setUpProgressView(circularProgress: reliabilityCircularProgress, slider: reliabilitySlider, rating: (evidence?.reliability)!)
+        self.relevance = RelevanceRatingController.sharedInstance.latestRating(modelId: (evidence?.evidenceId)!)
+        setUpProgressView(circularProgress: relevanceCircularProgress, slider: relevanceSlider, rating: relevance)
+        self.reliability = ReliabilityRatingController.sharedInstance.latestRating(modelId: (evidence?.evidenceId)!)
+        setUpProgressView(circularProgress: reliabilityCircularProgress, slider: reliabilitySlider, rating: reliability)
     }
     
     func setUpProgressView(circularProgress: KDCircularProgress, slider: UISlider, rating: Int) {
-        RatingController.sharedInstance.defaultProgressViewSettings(circularProgress: circularProgress)
-        slider.value = Float(RatingController.sharedInstance.sliderValueConversion(rating: rating))
+        RatingControllerUtilities().defaultProgressViewSettings(circularProgress: circularProgress)
+        slider.value = Float(RatingControllerUtilities().sliderValueConversion(rating: rating))
         updateController(angle: Double(slider.value), sliderTag: slider.tag)
         circularProgress.animate(fromAngle: 0, toAngle: Double(slider.value), duration: 1) { completed in }
     }
@@ -49,9 +50,9 @@ class EvidenceRatingViewController: UIViewController {
     }
     
     func updateController(angle: Double, sliderTag: Int) {
-        let initRating: Double = angle/RatingController.sliderMax
+        let initRating: Double = angle/RatingControllerUtilities.sliderMax
         let rating = Int(round(initRating * 100))
-        let color = RatingController.sharedInstance.progressColor(value: angle)
+        let color = RatingControllerUtilities().progressColor(value: angle)
         let ratingText = "\(rating)"
         switch sliderTag {
         case 0:
@@ -71,10 +72,12 @@ class EvidenceRatingViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
-//        evidence?.relevance = relevance
-//        evidence?.reliability = reliability
-        EvidenceController.sharedInstance.update(key: (evidence?.evidenceId)!, item: evidence!)
-        EvidenceController.sharedInstance.save()
+        let newRelevance = RelevanceRatingFactory().create(creationDate: Date(), rating: relevance, modelId: (evidence?.evidenceId)!, userId: "")
+        RelevanceRatingController.sharedInstance.update(key: newRelevance.ratingId, item: newRelevance as! RelevanceRating)
+        RelevanceRatingController.sharedInstance.save()
+        let newreliability = ReliabilityRatingFactory().create(creationDate: Date(), rating: reliability, modelId: (evidence?.evidenceId)!, userId: "")
+        ReliabilityRatingController.sharedInstance.update(key: newreliability.ratingId, item: newreliability as! ReliabilityRating)
+        ReliabilityRatingController.sharedInstance.save()
         self.dismiss(animated: true, completion: nil)
     }
     
