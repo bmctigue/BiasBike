@@ -28,13 +28,13 @@ struct RatingControllerUtilities {
     func progressColor(value: Double) -> UIColor {
         var color: UIColor
         if value <= 90 {
-            color = UIColor.red
+            color = Theme.Red.color
         } else if value <= 180 {
-            color = UIColor.orange
+            color = Theme.Orange.color
         } else if value <= 270 {
             color = Theme.Yellow.color
         } else {
-            color = UIColor.green
+            color = Theme.Green.color
         }
         return color
     }

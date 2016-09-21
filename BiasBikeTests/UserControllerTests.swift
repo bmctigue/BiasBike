@@ -18,15 +18,15 @@ class UserControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
-        testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
+        testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "")
+        testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "")
         UserController.sharedInstance.clear()
         UserController.sharedInstance.save()
     }
     
     func testUserInit() {
-        let user = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
-        XCTAssertTrue(user.rtRating == 45)
+        let user = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "")
+        XCTAssertTrue(user.firstName == "Bruce")
     }
     
     func testClearUser() {

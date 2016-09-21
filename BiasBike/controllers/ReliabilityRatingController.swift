@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ReliabilityRatingController: ModelController<ReliabilityRating> {
+final class ReliabilityRatingController: ModelController<ReliabilityRating> {
     
     static let sharedInstance = ReliabilityRatingController.init(modelType: ModelType.ReliabilityRating)
     

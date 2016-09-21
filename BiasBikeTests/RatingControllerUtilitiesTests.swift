@@ -20,13 +20,13 @@ class RatingControllerUtilitiesTests: XCTestCase {
     func testProgressColor() {
         var color: UIColor
         color = RatingControllerUtilities().progressColor(value: 80)
-        XCTAssertTrue(color.isEqual(UIColor.red))
+        XCTAssertTrue(color.isEqual(Theme.Red.color))
         color = RatingControllerUtilities().progressColor(value: 100)
-        XCTAssertTrue(color.isEqual(UIColor.orange))
+        XCTAssertTrue(color.isEqual(Theme.Orange.color))
         color = RatingControllerUtilities().progressColor(value: 200)
         XCTAssertTrue(color.isEqual(Theme.Yellow.color))
         color = RatingControllerUtilities().progressColor(value: 300)
-        XCTAssertTrue(color.isEqual(UIColor.green))
+        XCTAssertTrue(color.isEqual(Theme.Green.color))
     }
     
     func testSliderValueConversion() {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RelevanceRatingController: ModelController<RelevanceRating> {
+final class RelevanceRatingController: ModelController<RelevanceRating> {
     
     static let sharedInstance = RelevanceRatingController.init(modelType: ModelType.RelevanceRating)
     
