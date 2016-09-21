@@ -21,6 +21,9 @@ class CategoryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = category.rawValue
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(CategoryTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
