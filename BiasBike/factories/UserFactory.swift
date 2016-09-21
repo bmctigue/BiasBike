@@ -9,11 +9,11 @@
 import Foundation
 
 protocol UserFactoryProtocol {
-    func create(firstName: String, lastName: String, creationDate: Date, url: String, rtRating: Int, aggRR: Int) -> User
+    func create(firstName: String, lastName: String, creationDate: Date, url: String) -> User
 }
 
 struct UserFactory: UserFactoryProtocol {
-    func create(firstName: String, lastName: String, creationDate: Date, url: String, rtRating: Int, aggRR: Int) -> User {
-        return User.init(firstName: firstName, lastName: lastName, creationDate: creationDate, url: url, rtRating: rtRating, aggRR: aggRR)
+    func create(firstName: String, lastName: String, creationDate: Date, url: String) -> User {
+        return User.init(firstName: firstName, lastName: lastName, creationDate: creationDate, url: url)
     }
 }

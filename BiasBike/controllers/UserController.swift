@@ -15,9 +15,9 @@ final class UserController: ModelController<User> {
     override func loadDefault() {
         clear()
         let userFactory = UserFactory()
-        let user1 = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "", rtRating: 45, aggRR: 50)
+        let user1 = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "")
         update(key: user1.userId, item: user1)
-        let user2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "", rtRating: 90, aggRR: 65)
+        let user2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "")
         update(key: user2.userId, item: user2)
     }
 }
