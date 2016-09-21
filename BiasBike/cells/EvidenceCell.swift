@@ -19,11 +19,10 @@ class EvidenceCell: UITableViewCell {
     weak var delegate: EvidenceCellDelegate?
     var evidence: Evidence?
     
-    func updateCell(evidence: Evidence, relevance: Int, reliability: Int, aggRelevance: Int, aggReliability: Int) {
+    func updateCell(evidence: Evidence, relevance: Int, reliability: Int, aggRating: Int) {
         self.evidence = evidence
         self.textLabel?.text = evidence.title
         self.detailTextLabel?.text = "Relevance: \(relevance) and Reliability: \(reliability)"
-        let aggRating = (aggRelevance + aggReliability)/2
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
         self.aggRatingLabel.text = "\(aggRating)"
         self.imageView?.image = UIImage(named: ratingImageName)

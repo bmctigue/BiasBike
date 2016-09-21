@@ -42,7 +42,8 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
         let reliability = reliabilityRatingsHash[evidenceItem.evidenceId]!
         let aggRelevance = relevanceAggRatingsHash[evidenceItem.evidenceId]!
         let aggReliability = reliabilityAggRatingsHash[evidenceItem.evidenceId]!
-        cell.updateCell(evidence: evidenceItem, relevance: relevance, reliability: reliability, aggRelevance: aggRelevance, aggReliability: aggReliability)
+        let aggRating = (aggRelevance + aggReliability)/2
+        cell.updateCell(evidence: evidenceItem, relevance: relevance, reliability: reliability, aggRating: aggRating)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
