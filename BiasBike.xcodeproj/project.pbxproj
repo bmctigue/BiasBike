@@ -33,6 +33,8 @@
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
 		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */; };
+		A8A6E88D1D92BE6D0085AF93 /* CellUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */; };
+		A8A6E88F1D92BFA60085AF93 /* CellUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6E88E1D92BFA60085AF93 /* CellUtilitiesTests.swift */; };
 		A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */; };
 		A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0808C1D8898B400D793AC /* CategoryTableViewDataSource.swift */; };
 		A8B080901D8898B400D793AC /* CategoryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0808D1D8898B400D793AC /* CategoryTableViewDelegate.swift */; };
@@ -119,6 +121,8 @@
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceControllerTests.swift; sourceTree = "<group>"; };
+		A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellUtilities.swift; sourceTree = "<group>"; };
+		A8A6E88E1D92BFA60085AF93 /* CellUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellUtilitiesTests.swift; sourceTree = "<group>"; };
 		A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		A8B0808C1D8898B400D793AC /* CategoryTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8B0808D1D8898B400D793AC /* CategoryTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				A8C710341D85FB4300205144 /* EventCell.swift */,
 				A8C710361D8616F900205144 /* EventHeaderCell.swift */,
 				A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */,
+				A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				A8FD03971D92011300447924 /* ReliabilityRatingControllerTests.swift */,
 				A8FD038D1D91FDD500447924 /* RatingControllerUtilitiesTests.swift */,
 				A81F470A1D79D3880025F918 /* UserControllerTests.swift */,
+				A8A6E88E1D92BFA60085AF93 /* CellUtilitiesTests.swift */,
 			);
 			path = BiasBikeTests;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
 				A8C710301D85F85C00205144 /* EventTableViewController.swift in Sources */,
+				A8A6E88D1D92BE6D0085AF93 /* CellUtilities.swift in Sources */,
 				A8FD03901D91FF7400447924 /* RelevanceRatingController.swift in Sources */,
 				A8F544581D8F33F7001A9268 /* EvidenceRatingViewController.swift in Sources */,
 				A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */,
@@ -643,6 +650,7 @@
 				A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */,
 				A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */,
 				A8FD03981D92011300447924 /* ReliabilityRatingControllerTests.swift in Sources */,
+				A8A6E88F1D92BFA60085AF93 /* CellUtilitiesTests.swift in Sources */,
 				A8EA7F331D84BDAE0055711B /* ModelControllerTests.swift in Sources */,
 				A8FD038E1D91FDD500447924 /* RatingControllerUtilitiesTests.swift in Sources */,
 				A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */,
