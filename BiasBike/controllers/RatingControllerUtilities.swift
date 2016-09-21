@@ -22,6 +22,7 @@ struct RatingControllerUtilities {
         circularProgress.roundedCorners = true
         circularProgress.glowMode = .noGlow
         circularProgress.glowAmount = 0.9
+        circularProgress.trackColor = Theme.Track.color
         circularProgress.setColors(colors: UIColor.red)
     }
     

@@ -31,4 +31,3 @@ struct CellUtitilities {
         return ratingImageName
     }
 }
-

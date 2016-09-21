@@ -41,7 +41,7 @@ class ClaimsTableViewController: UITableViewController {
     }
     
     func refreshData() {
-        claims = ClaimController.sharedInstance.all(eventId: eventId)
+        self.claims = ClaimController.sharedInstance.all(eventId: eventId)
         self.tableViewDataSource?.updateDataSource(claims: claims)
         self.tableViewDelegate?.updateDataSource(claims: claims, eventId: eventId)
         self.tableView.reloadData()

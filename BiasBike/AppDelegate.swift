@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        ModelControllerUtilities().saveAllModelControllers()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -39,9 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        ModelControllerUtilities().saveAllModelControllers()
-    }
 
+    }
 
 }
 

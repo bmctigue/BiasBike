@@ -14,6 +14,7 @@ enum Theme {
     case Green
     case Red
     case Orange
+    case Track
 }
 
 extension Theme {
@@ -27,6 +28,8 @@ extension Theme {
             return UIColor.init(red: 222.0/255.0, green: 106.0/255.0, blue: 16.0/255.0, alpha: 1.0)
         case .Red:
             return UIColor.init(red: 200.0/255.0, green: 38.0/255.0, blue: 6.0/255.0, alpha: 1.0)
+        case .Track:
+            return UIColor.init(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1.0)
         }
     }
 }
