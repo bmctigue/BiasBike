@@ -42,6 +42,7 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
             let storyboard = UIStoryboard(name: "Claim", bundle: nil)
             let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
             controller.eventId = event.eventId
+            controller.title = event.title
             categoryTableViewController?.show(controller, sender: nil)
         }
     }
