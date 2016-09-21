@@ -43,6 +43,20 @@ class ClaimControllerTests: XCTestCase {
         XCTAssertEqual(rating, 90)
     }
     
+    func testClaimsAggRatingsHash() {
+        ClaimController.sharedInstance.update(key: testClaim!.claimId, item: testClaim!)
+        ClaimController.sharedInstance.update(key: testClaim2!.claimId, item: testClaim2!)
+        ClaimController.sharedInstance.save()
+        testRating = ratingFactory.create(creationDate: Date(), rating: 10, modelId: testClaim!.claimId, userId: "2")
+        testRating2 = ratingFactory.create(creationDate: Date(), rating: 90, modelId: testClaim!.claimId, userId: "2")
+        RatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
+        RatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
+        RatingController.sharedInstance.save()
+        let hash: [String:Int] = ClaimController.sharedInstance.claimsAggRatingsHash(eventId: "1")
+        let aggRating = hash[testClaim!.claimId]!
+        XCTAssertEqual(aggRating, 50)
+    }
+    
     func testClaimInit() {
         let claim = claimFactory.create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", eventId: "1")
         XCTAssertTrue(claim.title == "The Plane Crashed")

@@ -12,6 +12,7 @@ class ClaimsTableViewDelegate: NSObject {
     
     private(set) var claims:[Claim] = []
     private(set) var claimsRatingsHash: [String:Int] = [:]
+    private(set) var claimsAggRatingsHash: [String:Int] = [:]
     private(set) weak var claimsTableViewController: ClaimsTableViewController?
 
     init(tableView: UITableView, claimsTableViewController: ClaimsTableViewController) {
@@ -23,6 +24,7 @@ class ClaimsTableViewDelegate: NSObject {
     func updateDataSource(claims: [Claim], eventId: String) {
         self.claims = claims
         self.claimsRatingsHash = ClaimController.sharedInstance.claimsRatingsHash(eventId: eventId)
+        self.claimsAggRatingsHash = ClaimController.sharedInstance.claimsAggRatingsHash(eventId: eventId)
     }
 }
 
@@ -31,8 +33,8 @@ extension ClaimsTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:ClaimCell = cell as! ClaimCell
         let claim = claims[indexPath.row]
-        if let rating = claimsRatingsHash[claim.claimId] {
-            cell.updateCell(title: claim.title, rating: rating)
+        if let rating = claimsRatingsHash[claim.claimId], let aggRating = claimsAggRatingsHash[claim.claimId] {
+            cell.updateCell(title: claim.title, rating: rating, aggRating: aggRating)
         }
     }
     

@@ -13,6 +13,8 @@ class EvidenceTableViewDelegate: NSObject {
     private(set) var evidence:[Evidence] = []
     private(set) var relevanceRatingsHash: [String:Int] = [:]
     private(set) var reliabilityRatingsHash: [String:Int] = [:]
+    private(set) var relevanceAggRatingsHash: [String:Int] = [:]
+    private(set) var reliabilityAggRatingsHash: [String:Int] = [:]
     private(set) weak var evidenceTableViewController: EvidenceTableViewController?
 
     init(tableView: UITableView, evidenceTableViewController: EvidenceTableViewController) {
@@ -21,10 +23,12 @@ class EvidenceTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
-    func updateDataSource(evidence: [Evidence], relevanceRatingsHash: [String:Int], reliabilityRatingsHash: [String:Int]) {
+    func updateDataSource(evidence: [Evidence], relevanceRatingsHash: [String:Int], reliabilityRatingsHash: [String:Int], relevanceAggRatingsHash: [String:Int], reliabilityAggRatingsHash: [String:Int]) {
         self.evidence = evidence
         self.relevanceRatingsHash = relevanceRatingsHash
         self.reliabilityRatingsHash = reliabilityRatingsHash
+        self.relevanceAggRatingsHash = relevanceAggRatingsHash
+        self.reliabilityAggRatingsHash = reliabilityAggRatingsHash
     }
 }
 
@@ -35,7 +39,9 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
         let evidenceItem = evidence[indexPath.row]
         let relevance = relevanceRatingsHash[evidenceItem.evidenceId]!
         let reliability = reliabilityRatingsHash[evidenceItem.evidenceId]!
-        cell.updateCell(title: evidenceItem.title, relevance: relevance, reliability: reliability)
+        let aggRelevance = relevanceAggRatingsHash[evidenceItem.evidenceId]!
+        let aggReliability = reliabilityAggRatingsHash[evidenceItem.evidenceId]!
+        cell.updateCell(title: evidenceItem.title, relevance: relevance, reliability: reliability, aggRelevance: aggRelevance, aggReliability: aggReliability)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

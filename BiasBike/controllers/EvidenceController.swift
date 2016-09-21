@@ -26,11 +26,29 @@ final class EvidenceController: ModelController<Evidence> {
         return hash
     }
     
+    func evidenceAggRelevanceRatingsHash(claimId: String) -> [String:Int] {
+        let items = all(claimId:claimId)
+        var hash: [String:Int] = [:]
+        for evidenceItem: Evidence in items {
+            hash[evidenceItem.evidenceId] = RelevanceRatingController.sharedInstance.averageRating(modelId: evidenceItem.evidenceId)
+        }
+        return hash
+    }
+    
     func evidenceReliabilityRatingsHash(claimId: String) -> [String:Int] {
         let items = all(claimId:claimId)
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
             hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
+        }
+        return hash
+    }
+    
+    func evidenceAggReliabilityRatingsHash(claimId: String) -> [String:Int] {
+        let items = all(claimId:claimId)
+        var hash: [String:Int] = [:]
+        for evidenceItem: Evidence in items {
+            hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.averageRating(modelId: evidenceItem.evidenceId)
         }
         return hash
     }

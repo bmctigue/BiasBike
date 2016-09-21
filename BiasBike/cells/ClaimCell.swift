@@ -10,9 +10,12 @@ import UIKit
 
 class ClaimCell: UITableViewCell {
     
-    func updateCell(title: String, rating: Int) {
+    @IBOutlet weak var aggRatingLabel: UILabel!
+    
+    func updateCell(title: String, rating: Int, aggRating: Int) {
         self.textLabel?.text = title
         self.detailTextLabel?.text = "Rating: \(rating)"
+        self.aggRatingLabel.text = "\(aggRating)"
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: rating)
         self.imageView?.image = UIImage(named: ratingImageName)
     }

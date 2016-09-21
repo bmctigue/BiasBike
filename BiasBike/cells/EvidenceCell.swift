@@ -10,10 +10,14 @@ import UIKit
 
 class EvidenceCell: UITableViewCell {
     
-    func updateCell(title: String, relevance: Int, reliability: Int) {
+    @IBOutlet weak var aggRatingLabel: UILabel!
+    
+    func updateCell(title: String, relevance: Int, reliability: Int, aggRelevance: Int, aggReliability: Int) {
         self.textLabel?.text = title
         self.detailTextLabel?.text = "Relevance: \(relevance) and Reliability: \(reliability)"
-        let ratingImageName = CellUtitilities().ratingImageNameString(rating: (relevance + reliability)/2)
+        let aggRating = (aggRelevance + aggReliability)/2
+        let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
+        self.aggRatingLabel.text = "\(aggRating)"
         self.imageView?.image = UIImage(named: ratingImageName)
     }
 }
