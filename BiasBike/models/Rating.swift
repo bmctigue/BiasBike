@@ -78,6 +78,7 @@ final class RelevanceRating: Rating {
 final class ReliabilityRating: Rating {
     
     required convenience init?(coder aDecoder: NSCoder) {
+        print("made it here")
         let ratingId = aDecoder.decodeObject(forKey: Keys.RatingId.rawValue) as! String
         let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
         let rating = aDecoder.decodeInteger(forKey: Keys.Rating.rawValue)

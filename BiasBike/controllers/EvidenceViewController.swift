@@ -12,13 +12,26 @@ class EvidenceViewController: UIViewController {
     
     weak var evidence: Evidence?
     
-    @IBOutlet weak var evidenceLabel: UILabel!
+    @IBOutlet weak var relevanceRatingImageView: UIImageView!
+    @IBOutlet weak var reliabilityRatingImageView: UIImageView!
+    @IBOutlet weak var relevanceRatingLabel: UILabel!
+    @IBOutlet weak var reliabilityRatingLabel: UILabel!
     @IBOutlet weak var evidenceImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.evidenceLabel.text = evidence?.title
+        self.title = evidence?.title
         self.evidenceImageView?.image = UIImage(named: (evidence?.url)!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let relevanceRating = RelevanceRatingController.sharedInstance.averageRating(modelId: (evidence?.evidenceId)!)
+        let reliabilityRating = ReliabilityRatingController.sharedInstance.averageRating(modelId: (evidence?.evidenceId)!)
+        relevanceRatingLabel.text = "\(relevanceRating)"
+        reliabilityRatingLabel.text = "\(reliabilityRating)"
+        relevanceRatingImageView.image = UIImage(named:CellUtitilities().ratingImageNameString(rating: relevanceRating))
+        reliabilityRatingImageView.image = UIImage(named:CellUtitilities().ratingImageNameString(rating: reliabilityRating))
     }
 
     @IBAction func rateButtonPressed(_ sender: AnyObject) {
@@ -29,5 +42,4 @@ class EvidenceViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
         }
     }
-    
 }
