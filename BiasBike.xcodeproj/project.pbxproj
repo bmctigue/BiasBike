@@ -30,6 +30,7 @@
 		A86F6B241D8B5EA2002652DF /* ClaimsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */; };
 		A86F6B251D8B5EA2002652DF /* ClaimTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */; };
 		A86F6B261D8B5EA2002652DF /* ClaimTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B231D8B5EA1002652DF /* ClaimTableViewDelegate.swift */; };
+		A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A879CDE91D9430DE00D57BF9 /* SplashViewController.swift */; };
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
 		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */; };
@@ -53,6 +54,7 @@
 		A8C7C30B1D8DFA67007C991F /* EvidenceTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */; };
 		A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */; };
 		A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */; };
+		A8C820A61D94250100FE92D3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C820A51D94250100FE92D3 /* Splash.storyboard */; };
 		A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4AC721D848D61007F7C31 /* ModelController.swift */; };
 		A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */; };
 		A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */; };
@@ -118,6 +120,7 @@
 		A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimsTableViewController.swift; sourceTree = "<group>"; };
 		A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimTableViewDataSource.swift; sourceTree = "<group>"; };
 		A86F6B231D8B5EA1002652DF /* ClaimTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimTableViewDelegate.swift; sourceTree = "<group>"; };
+		A879CDE91D9430DE00D57BF9 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceControllerTests.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceCell.swift; sourceTree = "<group>"; };
+		A8C820A51D94250100FE92D3 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Splash.storyboard; path = BiasBikeTests/Splash.storyboard; sourceTree = SOURCE_ROOT; };
 		A8E4AC721D848D61007F7C31 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		A8E4D8431D74E56900AFA1FE /* BiasBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiasBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +289,23 @@
 			name = Evidence;
 			sourceTree = "<group>";
 		};
+		A8C820A71D94267E00FE92D3 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A879CDE91D9430DE00D57BF9 /* SplashViewController.swift */,
+			);
+			name = Splash;
+			sourceTree = "<group>";
+		};
+		A8C820A81D94269000FE92D3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A81F47081D79D1630025F918 /* UserController.swift */,
+			);
+			name = User;
+			path = controllers;
+			sourceTree = "<group>";
+		};
 		A8E4D83A1D74E56900AFA1FE = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +338,7 @@
 				A8E4D8771D74E9C000AFA1FE /* models */,
 				A8C710331D85FB0400205144 /* cells */,
 				A8E4D8761D74E9B300AFA1FE /* controllers */,
+				A8C820A81D94269000FE92D3 /* User */,
 				A8E4D8781D74E9CE00AFA1FE /* protocols */,
 				A8E4D8791D74E9DB00AFA1FE /* services */,
 				A8E4D87B1D74E9FB00AFA1FE /* Supporting Files */,
@@ -357,15 +379,15 @@
 		A8E4D8761D74E9B300AFA1FE /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4AC721D848D61007F7C31 /* ModelController.swift */,
+				A8C538E61D8B94950082A3B2 /* ModelControllerUtilities.swift */,
 				A8F544591D8F3FD6001A9268 /* Rating */,
 				A8C7C3061D8DF9F0007C991F /* Evidence */,
 				A86F6B1C1D8B4996002652DF /* Claim */,
 				A83836811D8A15BE0057BFC3 /* Event */,
 				A83836801D8A15B40057BFC3 /* Category */,
 				A86F6B0F1D8AFB1B002652DF /* Categories */,
-				A8E4AC721D848D61007F7C31 /* ModelController.swift */,
-				A8C538E61D8B94950082A3B2 /* ModelControllerUtilities.swift */,
-				A81F47081D79D1630025F918 /* UserController.swift */,
+				A8C820A71D94267E00FE92D3 /* Splash */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -404,6 +426,7 @@
 				A86F6B1D1D8B5632002652DF /* Claim.storyboard */,
 				A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */,
 				A8C7C3041D8DF95A007C991F /* Evidence.storyboard */,
+				A8C820A51D94250100FE92D3 /* Splash.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -560,6 +583,7 @@
 				A86F6B0E1D8AFA5A002652DF /* Modals.storyboard in Resources */,
 				A86F6B181D8B0F83002652DF /* Main.storyboard in Resources */,
 				A8C7C3051D8DF95A007C991F /* Evidence.storyboard in Resources */,
+				A8C820A61D94250100FE92D3 /* Splash.storyboard in Resources */,
 				A8E4D8531D74E56900AFA1FE /* LaunchScreen.storyboard in Resources */,
 				A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */,
 				A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */,
@@ -623,6 +647,7 @@
 				A8C7C30A1D8DFA67007C991F /* EvidenceTableViewController.swift in Sources */,
 				A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
+				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
 				A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */,
 				A86F6B251D8B5EA2002652DF /* ClaimTableViewDataSource.swift in Sources */,

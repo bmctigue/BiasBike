@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ModelControllerUtilities().loadAllModelControllers()
             ModelControllerUtilities().saveAllModelControllers()
         }
+        
+        let storyboard = UIStoryboard(name: "Splash", bundle: nil)
+        let controller: SplashViewController = storyboard.instantiateInitialViewController() as! SplashViewController
+        self.window?.rootViewController = controller
+        
         return true
     }
 
