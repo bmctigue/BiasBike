@@ -381,13 +381,13 @@
 			children = (
 				A8E4AC721D848D61007F7C31 /* ModelController.swift */,
 				A8C538E61D8B94950082A3B2 /* ModelControllerUtilities.swift */,
-				A8F544591D8F3FD6001A9268 /* Rating */,
-				A8C7C3061D8DF9F0007C991F /* Evidence */,
-				A86F6B1C1D8B4996002652DF /* Claim */,
-				A83836811D8A15BE0057BFC3 /* Event */,
 				A83836801D8A15B40057BFC3 /* Category */,
 				A86F6B0F1D8AFB1B002652DF /* Categories */,
+				A86F6B1C1D8B4996002652DF /* Claim */,
+				A83836811D8A15BE0057BFC3 /* Event */,
+				A8C7C3061D8DF9F0007C991F /* Evidence */,
 				A8C820A71D94267E00FE92D3 /* Splash */,
+				A8F544591D8F3FD6001A9268 /* Rating */,
 			);
 			path = controllers;
 			sourceTree = "<group>";

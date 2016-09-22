@@ -15,10 +15,12 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
     weak var claim: Claim?
     var evidence: [Evidence] = []
 
+    @IBOutlet weak var headerTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = claim?.title
+        self.headerTitleLabel.text = claim?.title
         
         let backItem = UIBarButtonItem()
         backItem.title = ""

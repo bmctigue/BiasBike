@@ -13,8 +13,10 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
     private(set) var tableViewDataSource: ClaimsTableViewDataSource?
     private(set) var tableViewDelegate: ClaimsTableViewDelegate?
     var eventId: String = ""
+    var eventTitle: String = ""
     var claims: [Claim] = []
 
+    @IBOutlet weak var headerTitleLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        self.headerTitleLabel.text = eventTitle
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(ClaimsTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)

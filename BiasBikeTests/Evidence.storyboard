@@ -16,12 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="gbi-8h-kiZ">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgK-LQ-FZZ">
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-Gk-PHR">
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="WTg-j5-n29"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="tRu-Gk-PHR" secondAttribute="bottom" id="3Cd-IQ-Np4"/>
+                                <constraint firstAttribute="trailing" secondItem="tRu-Gk-PHR" secondAttribute="trailing" id="62B-zz-mcQ"/>
+                                <constraint firstItem="vgK-LQ-FZZ" firstAttribute="leading" secondItem="gbi-8h-kiZ" secondAttribute="leading" constant="8" id="D8z-f7-cYv"/>
+                                <constraint firstItem="tRu-Gk-PHR" firstAttribute="leading" secondItem="gbi-8h-kiZ" secondAttribute="leading" id="Ecp-fz-LPv"/>
+                                <constraint firstAttribute="bottom" secondItem="vgK-LQ-FZZ" secondAttribute="bottom" constant="12" id="Ssj-Ec-Vv5"/>
+                                <constraint firstAttribute="trailing" secondItem="vgK-LQ-FZZ" secondAttribute="trailing" constant="8" id="mDV-cL-jub"/>
+                                <constraint firstItem="vgK-LQ-FZZ" firstAttribute="top" secondItem="gbi-8h-kiZ" secondAttribute="top" constant="11" id="rdZ-8U-P4F"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EvidenceCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EvidenceCell" id="DGh-Te-dHt" customClass="EvidenceCell" customModule="BiasBike" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DGh-Te-dHt" id="ylr-GK-aFn">
-                                    <frame key="frameInset" width="342" height="44"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uI9-A1-WcP">
@@ -96,7 +123,7 @@
                             <outlet property="delegate" destination="7fB-v3-x1A" id="EzC-fp-BSR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="High Jacked" id="nz1-bd-9x9">
+                    <navigationItem key="navigationItem" title="Evidence" id="nz1-bd-9x9">
                         <barButtonItem key="rightBarButtonItem" title="Rate" id="G1d-ec-UYW">
                             <connections>
                                 <action selector="rateButtonPressed:" destination="7fB-v3-x1A" id="fht-yX-foX"/>
@@ -104,6 +131,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="headerTitleLabel" destination="vgK-LQ-FZZ" id="2GB-fR-elA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDR-1p-FTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
