@@ -59,4 +59,8 @@ extension EvidenceGroupedTableViewDelegate: UITableViewDelegate {
         controller.evidence = evidence
         evidenceTableViewController?.show(controller, sender: nil)
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
 }
