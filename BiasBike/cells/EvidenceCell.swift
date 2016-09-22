@@ -14,18 +14,21 @@ protocol EvidenceCellDelegate: class {
 
 class EvidenceCell: UITableViewCell {
     
+    @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var aggRatingLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
     
     weak var delegate: EvidenceCellDelegate?
     var evidence: Evidence?
     
     func updateCell(evidence: Evidence, relevance: Int, reliability: Int, aggRating: Int) {
         self.evidence = evidence
-        self.textLabel?.text = evidence.title
-        self.detailTextLabel?.text = "Relevance: \(relevance) and Reliability: \(reliability)"
+        self.titleLabel?.text = evidence.title
+        self.subTitleLabel?.text = "Relevance: \(relevance) and Reliability: \(reliability)"
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
         self.aggRatingLabel.text = "\(aggRating)"
-        self.imageView?.image = UIImage(named: ratingImageName)
+        self.ratingImageView?.image = UIImage(named: ratingImageName)
     }
     
     @IBAction func rateButtonPressed(_ sender: AnyObject) {

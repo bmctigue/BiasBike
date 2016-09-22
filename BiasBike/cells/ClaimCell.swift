@@ -14,18 +14,21 @@ protocol ClaimCellDelegate: class {
 
 class ClaimCell: UITableViewCell {
     
+    @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var aggRatingLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
     
     weak var delegate: ClaimCellDelegate?
     var claim: Claim?
     
     func updateCell(claim: Claim, rating: Int, aggRating: Int) {
         self.claim = claim
-        self.textLabel?.text = claim.title
-        self.detailTextLabel?.text = "Rating: \(rating)"
+        self.titleLabel?.text = claim.title
+        self.subTitleLabel?.text = "Rating: \(rating)"
         self.aggRatingLabel.text = "\(aggRating)"
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: rating)
-        self.imageView?.image = UIImage(named: ratingImageName)
+        self.ratingImageView?.image = UIImage(named: ratingImageName)
     }
     
     @IBAction func rateButtonPressed(_ sender: AnyObject) {
