@@ -17,8 +17,20 @@ final class EvidenceController: ModelController<Evidence> {
         return items.filter{$0.claimId == claimId}
     }
     
-    func evidenceRelevanceRatingsHash(claimId: String) -> [String:Int] {
-        let items = all(claimId:claimId)
+    func evidenceClaimsHash() -> [String:[Evidence]] {
+        var hash: [String:[Evidence]] = [:]
+        let claims = ClaimController.sharedInstance.all()
+        for claim: Claim in claims {
+            let evidence = all(claimId: claim.claimId)
+            if evidence.count > 0 {
+                hash[claim.claimId] = all(claimId: claim.claimId)
+            }
+        }
+        return hash
+    }
+    
+    func evidenceRelevanceRatingsHash(claimId: String?) -> [String:Int] {
+        let items = itemsForHash(claimId: claimId)
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
             hash[evidenceItem.evidenceId] = RelevanceRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
@@ -26,8 +38,8 @@ final class EvidenceController: ModelController<Evidence> {
         return hash
     }
     
-    func evidenceAggRelevanceRatingsHash(claimId: String) -> [String:Int] {
-        let items = all(claimId:claimId)
+    func evidenceAggRelevanceRatingsHash(claimId: String?) -> [String:Int] {
+        let items = itemsForHash(claimId: claimId)
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
             hash[evidenceItem.evidenceId] = RelevanceRatingController.sharedInstance.averageRating(modelId: evidenceItem.evidenceId)
@@ -35,8 +47,8 @@ final class EvidenceController: ModelController<Evidence> {
         return hash
     }
     
-    func evidenceReliabilityRatingsHash(claimId: String) -> [String:Int] {
-        let items = all(claimId:claimId)
+    func evidenceReliabilityRatingsHash(claimId: String?) -> [String:Int] {
+        let items = itemsForHash(claimId: claimId)
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
             hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
@@ -44,13 +56,23 @@ final class EvidenceController: ModelController<Evidence> {
         return hash
     }
     
-    func evidenceAggReliabilityRatingsHash(claimId: String) -> [String:Int] {
-        let items = all(claimId:claimId)
+    func evidenceAggReliabilityRatingsHash(claimId: String?) -> [String:Int] {
+        let items = itemsForHash(claimId: claimId)
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
             hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.averageRating(modelId: evidenceItem.evidenceId)
         }
         return hash
+    }
+    
+    private func itemsForHash(claimId: String?) -> [Evidence] {
+        let items: [Evidence]
+        if let claimId = claimId {
+            items = all(claimId:claimId)
+        } else {
+            items = all()
+        }
+        return items
     }
     
     override func loadDefault() {
