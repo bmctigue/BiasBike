@@ -183,7 +183,7 @@
         <scene sceneID="1Ws-d4-Cko">
             <objects>
                 <navigationController id="QyG-Kd-eJR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="beO-t8-qMd"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="Home" id="beO-t8-qMd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nkD-dE-NfE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -386,6 +386,7 @@
     </scenes>
     <resources>
         <image name="Cog" width="25" height="25"/>
+        <image name="Home" width="25" height="25"/>
         <image name="Vertical_Slider" width="25" height="24"/>
         <image name="next" width="11" height="20"/>
     </resources>
