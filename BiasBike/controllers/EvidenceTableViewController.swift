@@ -46,10 +46,11 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
     func refreshData() {
         if let claim = claim {
             evidence = EvidenceController.sharedInstance.all(claimId: claim.claimId)
-            let relevanceHash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(claimId: claim.claimId)
-            let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(claimId: claim.claimId)
-            let relevanceAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(claimId: claim.claimId)
-            let reliabilityAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(claimId: claim.claimId)
+            let items = EvidenceController.sharedInstance.itemsForHash(claimId: claim.claimId)
+            let relevanceHash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(items: items)
+            let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
+            let relevanceAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)
+            let reliabilityAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(items: items)
             self.tableViewDataSource?.updateDataSource(evidence: evidence)
             self.tableViewDelegate?.updateDataSource(evidence: evidence, relevanceRatingsHash: relevanceHash, reliabilityRatingsHash: reliabilityHash, relevanceAggRatingsHash: relevanceAggHash, reliabilityAggRatingsHash: reliabilityAggHash)
             self.tableView.reloadData()

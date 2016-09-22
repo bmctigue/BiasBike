@@ -48,27 +48,31 @@ class EvidenceControllerTests: XCTestCase {
     
     func testRelevanceRatingsHash() {
         commonRelevanceRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(claimId: "1")
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: "1")
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(items: items)
         let rating = hash[testEvidence!.evidenceId]!
         XCTAssertEqual(rating, 90)
     }
     
     func testRelevanceRatingsHashNil() {
         commonRelevanceRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(claimId: nil)
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: nil)
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(items: items)
         XCTAssertEqual(Array(hash.keys).count, 2)
     }
     
     func testAggRelevanceRatingsHash() {
         commonRelevanceRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(claimId: "1")
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: "1")
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)
         let rating = hash[testEvidence!.evidenceId]!
         XCTAssertEqual(rating, 50)
     }
     
     func testAggRelevanceRatingsHashNil() {
         commonRelevanceRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(claimId: nil)
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: nil)
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)
         XCTAssertEqual(Array(hash.keys).count, 2)
     }
     
@@ -85,27 +89,31 @@ class EvidenceControllerTests: XCTestCase {
     
     func testReliabilityRatingsHash() {
         commonReliabilityRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(claimId: "1")
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: "1")
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
         let rating = hash[testEvidence!.evidenceId]!
         XCTAssertEqual(rating, 90)
     }
     
     func testReliabilityRatingsHashNil() {
         commonReliabilityRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(claimId: nil)
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: nil)
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
         XCTAssertEqual(Array(hash.keys).count, 2)
     }
     
     func testAggReliabilityRatingsHash() {
         commonReliabilityRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(claimId: "1")
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: "1")
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(items: items)
         let rating = hash[testEvidence!.evidenceId]!
         XCTAssertEqual(rating, 50)
     }
     
     func testAggReliabilityRatingsHashNil() {
         commonReliabilityRatings()
-        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(claimId: nil)
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: nil)
+        let hash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(items: items)
         XCTAssertEqual(Array(hash.keys).count, 2)
     }
     
