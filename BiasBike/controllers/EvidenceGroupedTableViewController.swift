@@ -12,7 +12,6 @@ class EvidenceGroupedTableViewController: UITableViewController, EvidenceCellDel
 
     private(set) var tableViewDataSource: EvidenceGroupedTableViewDataSource?
     private(set) var tableViewDelegate: EvidenceGroupedTableViewDelegate?
-    var claims: [Claim] = ClaimController.sharedInstance.all()
     var evidenceHash: [String:[Evidence]] = [:]
     
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class EvidenceGroupedTableViewController: UITableViewController, EvidenceCellDel
         navigationItem.backBarButtonItem = backItem
 
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(ClaimsTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(EvidenceGroupedTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
 
         self.tableViewDataSource = EvidenceGroupedTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EvidenceGroupedTableViewDelegate(tableView: tableView, evidenceTableViewController: self)
@@ -46,8 +45,8 @@ class EvidenceGroupedTableViewController: UITableViewController, EvidenceCellDel
         let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
         let relevanceAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)
         let reliabilityAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(items: items)
-        self.tableViewDataSource?.updateDataSource(claims: claims, evidenceHash: evidenceHash)
-        self.tableViewDelegate?.updateDataSource(claims: claims, evidenceHash: evidenceHash, relevanceRatingsHash: relevanceHash, reliabilityRatingsHash: reliabilityHash, relevanceAggRatingsHash: relevanceAggHash, reliabilityAggRatingsHash: reliabilityAggHash)
+        self.tableViewDataSource?.updateDataSource(evidenceHash: evidenceHash)
+        self.tableViewDelegate?.updateDataSource(evidenceHash: evidenceHash, relevanceRatingsHash: relevanceHash, reliabilityRatingsHash: reliabilityHash, relevanceAggRatingsHash: relevanceAggHash, reliabilityAggRatingsHash: reliabilityAggHash)
         self.tableView.reloadData()
     }
     

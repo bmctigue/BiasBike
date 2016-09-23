@@ -72,14 +72,24 @@ final class EvidenceController: ModelController<Evidence> {
     }
     
     override func loadDefault() {
-        let events = EventController.sharedInstance.all(category: .World)
-        let event: Event? = events.first
-        let claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
-        let claim: Claim? = claims.first
+        // World
+        var events = EventController.sharedInstance.all(category: .World)
+        var event: Event? = events.first
+        var claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
+        var claim: Claim? = claims.first
         let evidenceFactory = EvidenceFactory()
         let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "debris", claimId: (claim?.claimId)!)
         update(key: evidence1.evidenceId, item: evidence1)
-        let evidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "flightpath", claimId: (claim?.claimId)!)
+        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", creationDate: Date(), url: "flightpath", claimId: (claim?.claimId)!)
         update(key: evidence2.evidenceId, item: evidence2)
+        // Sports
+        events = EventController.sharedInstance.all(category: .Sports)
+        event = events.first
+        claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
+        claim = claims.first
+        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", creationDate: Date(), url: "lochte-footage", claimId: (claim?.claimId)!)
+        update(key: evidence3.evidenceId, item: evidence3)
+        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", creationDate: Date(), url: "lochte-station", claimId: (claim?.claimId)!)
+        update(key: evidence4.evidenceId, item: evidence4)
     }
 }

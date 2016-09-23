@@ -10,29 +10,29 @@ import UIKit
 
 class EvidenceGroupedTableViewDataSource: NSObject {
     
-    private(set) var claims: [Claim] = []
     private(set) var evidenceHash:[String:[Evidence]] = [:]
+    private(set) var claimIds: [String] = []
 
     init(tableView: UITableView) {
         super.init()
         tableView.dataSource = self
     }
     
-    func updateDataSource(claims: [Claim], evidenceHash:[String:[Evidence]]) {
-        self.claims = claims
+    func updateDataSource(evidenceHash:[String:[Evidence]]) {
         self.evidenceHash = evidenceHash
+        self.claimIds = Array(evidenceHash.keys)
     }
 }
 
 extension EvidenceGroupedTableViewDataSource: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Array(self.evidenceHash.keys).count
+        return claimIds.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let claim = claims[section]
-        let evidenceItems = evidenceHash[claim.claimId]
+        let claimId = claimIds[section]
+        let evidenceItems = evidenceHash[claimId]
         return evidenceItems!.count
     }
 
@@ -42,7 +42,15 @@ extension EvidenceGroupedTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let claim = claims[section]
-        return claim.title
+        let claimId = claimIds[section]
+        let claim: Claim? = ClaimController.sharedInstance.find(key: claimId)
+        if let claim = claim {
+        let event = EventController.sharedInstance.find(key: claim.eventId)
+            if let event = event {
+                return "\(event.title) - \(claim.title)"
+            }
+            return claim.title
+        }
+        return ""
     }
 }

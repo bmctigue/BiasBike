@@ -36,16 +36,24 @@ final class ClaimController: ModelController<Claim> {
     }
     
     override func loadDefault() {
-        let events = EventController.sharedInstance.all(category: .World)
-        let event: Event? = events.first
+        let claimFactory = ClaimFactory()
+        var events = EventController.sharedInstance.all(category: .World)
+        var event: Event? = events.first
         if let event = event {
-            let claimFactory = ClaimFactory()
             let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", creationDate: Date(), url: "", eventId: event.eventId)
             update(key: claim1.claimId, item: claim1)
             let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", creationDate: Date(), url: "", eventId: event.eventId)
             update(key: claim2.claimId, item: claim2)
             let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", creationDate: Date(), url: "", eventId: event.eventId)
             update(key: claim3.claimId, item: claim3)
+        }
+        events = EventController.sharedInstance.all(category: .Sports)
+        event = events.first
+        if let event = event {
+            let claim4 = claimFactory.create(title: "Fabricated His Story", summary: "Your probablity: 60%", creationDate: Date(), url: "", eventId: event.eventId)
+            update(key: claim4.claimId, item: claim4)
+            let claim5 = claimFactory.create(title: "Robbed by Guards", summary: "Your probablity: 70%", creationDate: Date(), url: "", eventId: event.eventId)
+            update(key: claim5.claimId, item: claim5)
         }
     }
 }

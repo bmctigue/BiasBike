@@ -27,7 +27,7 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
         navigationItem.backBarButtonItem = backItem
 
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(ClaimsTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(EvidenceTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
 
         self.tableViewDataSource = EvidenceTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EvidenceTableViewDelegate(tableView: tableView, evidenceTableViewController: self)
