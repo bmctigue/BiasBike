@@ -27,7 +27,7 @@ class ClaimCell: UITableViewCell {
         self.titleLabel?.text = claim.title
         self.subTitleLabel?.text = "Rating: \(rating)"
         self.aggRatingLabel.text = "\(aggRating)"
-        let ratingImageName = CellUtitilities().ratingImageNameString(rating: rating)
+        let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
         self.ratingImageView?.image = UIImage(named: ratingImageName)
     }
     

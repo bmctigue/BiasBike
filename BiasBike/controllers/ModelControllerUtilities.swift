@@ -31,6 +31,8 @@ struct ModelControllerUtilities {
         UserController.sharedInstance.save()
         RatingController.sharedInstance.clear()
         RatingController.sharedInstance.save()
+        UserController.sharedInstance.clear()
+        UserController.sharedInstance.save()
     }
     
     func loadAllModelControllers() {
@@ -44,6 +46,8 @@ struct ModelControllerUtilities {
         UserController.sharedInstance.save()
         RatingController.sharedInstance.loadDefault()
         RatingController.sharedInstance.save()
+        UserController.sharedInstance.loadDefault()
+        UserController.sharedInstance.save()
     }
     
     func saveAllModelControllers() {
@@ -52,5 +56,6 @@ struct ModelControllerUtilities {
         EvidenceController.sharedInstance.save()
         UserController.sharedInstance.save()
         RatingController.sharedInstance.save()
+        UserController.sharedInstance.save()
     }
 }

@@ -37,6 +37,7 @@
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
 		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */; };
+		A89EF6AB1D96CCA600D23E1F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EF6AA1D96CCA600D23E1F /* UserCell.swift */; };
 		A8A6E88D1D92BE6D0085AF93 /* CellUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */; };
 		A8A6E88F1D92BFA60085AF93 /* CellUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6E88E1D92BFA60085AF93 /* CellUtilitiesTests.swift */; };
 		A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */; };
@@ -58,6 +59,9 @@
 		A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */; };
 		A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */; };
 		A8C820A61D94250100FE92D3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C820A51D94250100FE92D3 /* Splash.storyboard */; };
+		A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */; };
+		A8E39AA41D96E47A0075ADD9 /* UsersTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */; };
+		A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */; };
 		A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4AC721D848D61007F7C31 /* ModelController.swift */; };
 		A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */; };
 		A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */; };
@@ -130,6 +134,7 @@
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceControllerTests.swift; sourceTree = "<group>"; };
+		A89EF6AA1D96CCA600D23E1F /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellUtilities.swift; sourceTree = "<group>"; };
 		A8A6E88E1D92BFA60085AF93 /* CellUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellUtilitiesTests.swift; sourceTree = "<group>"; };
 		A8B0808B1D8898B400D793AC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +156,9 @@
 		A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceCell.swift; sourceTree = "<group>"; };
 		A8C820A51D94250100FE92D3 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Splash.storyboard; path = BiasBikeTests/Splash.storyboard; sourceTree = SOURCE_ROOT; };
+		A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewDataSource.swift; sourceTree = "<group>"; };
+		A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8E4AC721D848D61007F7C31 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		A8E4D8431D74E56900AFA1FE /* BiasBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiasBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -278,6 +286,7 @@
 				A8C710361D8616F900205144 /* EventHeaderCell.swift */,
 				A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */,
 				A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */,
+				A89EF6AA1D96CCA600D23E1F /* UserCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -310,9 +319,11 @@
 			isa = PBXGroup;
 			children = (
 				A81F47081D79D1630025F918 /* UserController.swift */,
+				A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */,
+				A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */,
+				A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */,
 			);
 			name = User;
-			path = controllers;
 			sourceTree = "<group>";
 		};
 		A8E4D83A1D74E56900AFA1FE = {
@@ -347,7 +358,6 @@
 				A8E4D8771D74E9C000AFA1FE /* models */,
 				A8C710331D85FB0400205144 /* cells */,
 				A8E4D8761D74E9B300AFA1FE /* controllers */,
-				A8C820A81D94269000FE92D3 /* User */,
 				A8E4D8781D74E9CE00AFA1FE /* protocols */,
 				A8E4D8791D74E9DB00AFA1FE /* services */,
 				A8E4D87B1D74E9FB00AFA1FE /* Supporting Files */,
@@ -397,6 +407,7 @@
 				A8C7C3061D8DF9F0007C991F /* Evidence */,
 				A8C820A71D94267E00FE92D3 /* Splash */,
 				A8F544591D8F3FD6001A9268 /* Rating */,
+				A8C820A81D94269000FE92D3 /* User */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -666,6 +677,7 @@
 				A86F6B261D8B5EA2002652DF /* ClaimTableViewDelegate.swift in Sources */,
 				A828D48C1D7E0CB2001FE199 /* ClaimFactory.swift in Sources */,
 				A83041C81D91893E0084EDEA /* RatingFactory.swift in Sources */,
+				A8E39AA41D96E47A0075ADD9 /* UsersTableViewDataSource.swift in Sources */,
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
 				A8C538E71D8B94950082A3B2 /* ModelControllerUtilities.swift in Sources */,
 				A8C710371D8616F900205144 /* EventHeaderCell.swift in Sources */,
@@ -675,6 +687,7 @@
 				A828D48A1D7E084F001FE199 /* EventFactory.swift in Sources */,
 				A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */,
 				A87F2B3E1D9470ED00E7A3AF /* EvidenceGroupedTableViewDataSource.swift in Sources */,
+				A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */,
 				A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */,
 				A8BD6AB81D75E249004FA825 /* Category.swift in Sources */,
 				A8FD038C1D91EB1C00447924 /* RatingControllerUtilities.swift in Sources */,
@@ -682,7 +695,9 @@
 				A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */,
 				A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */,
 				A850598E1D90A3640008D5F3 /* Rating.swift in Sources */,
+				A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */,
 				A8E861E51D8CAB7A000FDA0E /* ClaimRatingViewController.swift in Sources */,
+				A89EF6AB1D96CCA600D23E1F /* UserCell.swift in Sources */,
 				A8FD03921D91FF8700447924 /* ReliabilityRatingController.swift in Sources */,
 				A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */,
 				A81F47071D79CF910025F918 /* User.swift in Sources */,
