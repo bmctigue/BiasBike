@@ -39,10 +39,10 @@ extension UsersTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let user = users[indexPath.row]
-//        let storyboard = UIStoryboard(name: "User", bundle: nil)
-//        let controller: EvidenceTableViewController = storyboard.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
-//        controller.user = user
-//        userTableViewController?.show(controller, sender: nil)
+        let user = users[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller: UserTableViewController = storyboard.instantiateViewController(withIdentifier: "UserTableViewController") as! UserTableViewController
+        controller.user = user
+        usersTableViewController?.show(controller, sender: nil)
     }
 }

@@ -37,7 +37,5 @@ final class UserController: ModelController<User> {
         update(key: user1.userId, item: user1)
         let user2 = userFactory.create(firstName: "Julia", lastName: "Galef", creationDate: Date(), url: "julia")
         update(key: user2.userId, item: user2)
-        let user3 = userFactory.create(firstName: "Karen", lastName: "Knisely", creationDate: Date(), url: "karen")
-        update(key: user3.userId, item: user3)
     }
 }

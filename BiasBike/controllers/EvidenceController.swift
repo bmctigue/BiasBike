@@ -17,6 +17,11 @@ final class EvidenceController: ModelController<Evidence> {
         return items.filter{$0.claimId == claimId}
     }
     
+    func all(userId: String) -> [Evidence] {
+        let items = all()
+        return items.filter{$0.userId == userId}
+    }
+    
     func evidenceClaimsHash() -> [String:[Evidence]] {
         var hash: [String:[Evidence]] = [:]
         let claims = ClaimController.sharedInstance.all()
@@ -73,23 +78,26 @@ final class EvidenceController: ModelController<Evidence> {
     
     override func loadDefault() {
         // World
+        let users = UserController.sharedInstance.all()
+        var user = users.first!
         var events = EventController.sharedInstance.all(category: .World)
         var event: Event? = events.first
         var claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
         var claim: Claim? = claims.first
         let evidenceFactory = EvidenceFactory()
-        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "debris", claimId: (claim?.claimId)!)
+        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "debris", claimId: (claim?.claimId)!, userId: user.userId)
         update(key: evidence1.evidenceId, item: evidence1)
-        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", creationDate: Date(), url: "flightpath", claimId: (claim?.claimId)!)
+        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", creationDate: Date(), url: "flightpath", claimId: (claim?.claimId)!, userId: user.userId)
         update(key: evidence2.evidenceId, item: evidence2)
         // Sports
+        user = users.last!
         events = EventController.sharedInstance.all(category: .Sports)
         event = events.first
         claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
         claim = claims.first
-        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", creationDate: Date(), url: "lochte-footage", claimId: (claim?.claimId)!)
+        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", creationDate: Date(), url: "lochte-footage", claimId: (claim?.claimId)!, userId: user.userId)
         update(key: evidence3.evidenceId, item: evidence3)
-        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", creationDate: Date(), url: "lochte-station", claimId: (claim?.claimId)!)
+        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", creationDate: Date(), url: "lochte-station", claimId: (claim?.claimId)!, userId: user.userId)
         update(key: evidence4.evidenceId, item: evidence4)
     }
 }

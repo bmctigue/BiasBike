@@ -15,24 +15,27 @@ final class Claim: NSObject, NSCoding {
     private(set) var creationDate: Date
     private(set) var url: String
     private(set) var eventId: String
+    private(set) var userId: String
     
-    init(title: String, summary: String, creationDate: Date, url: String, eventId: String) {
+    init(title: String, summary: String, creationDate: Date, url: String, eventId: String, userId: String) {
         self.claimId = NSUUID().uuidString
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
         self.eventId = eventId
+        self.userId = userId
         super.init()
     }
     
-    private init(claimId: String, title: String, summary: String, creationDate: Date, url: String, eventId: String) {
+    private init(claimId: String, title: String, summary: String, creationDate: Date, url: String, eventId: String, userId: String) {
         self.claimId = claimId
         self.title = title
         self.summary = summary
         self.creationDate = creationDate
         self.url = url
         self.eventId = eventId
+        self.userId = userId
         super.init()
     }
     
@@ -43,7 +46,8 @@ final class Claim: NSObject, NSCoding {
         let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
         let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
         let eventId = aDecoder.decodeObject(forKey: Keys.EventId.rawValue) as! String
-        self.init(claimId:claimId, title: title, summary: summary, creationDate: creationDate, url: url, eventId: eventId)
+        let userId = aDecoder.decodeObject(forKey: Keys.UserId.rawValue) as! String
+        self.init(claimId:claimId, title: title, summary: summary, creationDate: creationDate, url: url, eventId: eventId, userId: userId)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -53,6 +57,7 @@ final class Claim: NSObject, NSCoding {
         aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
         aCoder.encode(url, forKey: Keys.Url.rawValue)
         aCoder.encode(eventId, forKey: Keys.EventId.rawValue)
+        aCoder.encode(userId, forKey: Keys.UserId.rawValue)
     }
     
     enum Keys: String {
@@ -62,5 +67,6 @@ final class Claim: NSObject, NSCoding {
         case CreationDate = "creationDate"
         case Url = "url"
         case EventId = "eventId"
+        case UserId = "userId"
     }
 }

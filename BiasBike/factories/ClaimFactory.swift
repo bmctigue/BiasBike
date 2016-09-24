@@ -9,11 +9,11 @@
 import Foundation
 
 protocol ClaimFactoryProtocol {
-    func create(title: String, summary: String, creationDate: Date, url: String, eventId: String) -> Claim
+    func create(title: String, summary: String, creationDate: Date, url: String, eventId: String, userId: String) -> Claim
 }
 
 struct ClaimFactory: ClaimFactoryProtocol {
-    func create(title: String, summary: String, creationDate: Date, url: String, eventId: String) -> Claim {
-        return Claim.init(title: title, summary: summary, creationDate: creationDate, url: url, eventId: eventId)
+    func create(title: String, summary: String, creationDate: Date, url: String, eventId: String, userId: String) -> Claim {
+        return Claim.init(title: title, summary: summary, creationDate: creationDate, url: url, eventId: eventId, userId: userId)
     }
 }
