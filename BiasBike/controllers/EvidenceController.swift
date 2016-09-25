@@ -37,7 +37,8 @@ final class EvidenceController: ModelController<Evidence> {
     func evidenceRelevanceRatingsHash(items: [Evidence]) -> [String:Int] {
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
-            hash[evidenceItem.evidenceId] = RelevanceRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
+            let ratings = RelevanceRatingController.sharedInstance.all(modelId: evidenceItem.evidenceId)
+            hash[evidenceItem.evidenceId] = RatingController.sharedInstance.latestRating(ratings: ratings)
         }
         return hash
     }
@@ -45,7 +46,8 @@ final class EvidenceController: ModelController<Evidence> {
     func evidenceAggRelevanceRatingsHash(items: [Evidence]) -> [String:Int] {
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
-            hash[evidenceItem.evidenceId] = RelevanceRatingController.sharedInstance.averageRating(modelId: evidenceItem.evidenceId)
+            let ratings = RelevanceRatingController.sharedInstance.all(modelId: evidenceItem.evidenceId)
+            hash[evidenceItem.evidenceId] = RatingController.sharedInstance.averageRating(ratings: ratings)
         }
         return hash
     }
@@ -53,7 +55,8 @@ final class EvidenceController: ModelController<Evidence> {
     func evidenceReliabilityRatingsHash(items: [Evidence]) -> [String:Int] {
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
-            hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.latestRating(modelId: evidenceItem.evidenceId)
+            let ratings = ReliabilityRatingController.sharedInstance.all(modelId: evidenceItem.evidenceId)
+            hash[evidenceItem.evidenceId] = RatingController.sharedInstance.latestRating(ratings: ratings)
         }
         return hash
     }
@@ -61,7 +64,8 @@ final class EvidenceController: ModelController<Evidence> {
     func evidenceAggReliabilityRatingsHash(items: [Evidence]) -> [String:Int] {
         var hash: [String:Int] = [:]
         for evidenceItem: Evidence in items {
-            hash[evidenceItem.evidenceId] = ReliabilityRatingController.sharedInstance.averageRating(modelId: evidenceItem.evidenceId)
+            let ratings = ReliabilityRatingController.sharedInstance.all(modelId: evidenceItem.evidenceId)
+            hash[evidenceItem.evidenceId] = RatingController.sharedInstance.averageRating(ratings: ratings)
         }
         return hash
     }

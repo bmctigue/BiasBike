@@ -30,7 +30,8 @@ class ClaimRatingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rating = RatingController.sharedInstance.latestRating(modelId: (claim?.claimId)!)
+        let ratings = RatingController.sharedInstance.all(modelId: (claim?.claimId)!)
+        self.rating = RatingController.sharedInstance.latestRating(ratings: ratings)
         setUpProgressView(circularProgress: circularProgress, slider: slider)
     }
     

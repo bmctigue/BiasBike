@@ -16,7 +16,8 @@ final class UserController: ModelController<User> {
         let items = all()
         var hash: [String:Int] = [:]
         for user: User in items {
-            hash[user.userId] = RatingController.sharedInstance.latestRating(modelId: user.userId)
+            let ratings = RatingController.sharedInstance.all(modelId: user.userId)
+            hash[user.userId] = RatingController.sharedInstance.latestRating(ratings:ratings)
         }
         return hash
     }
@@ -25,7 +26,8 @@ final class UserController: ModelController<User> {
         let items = all()
         var hash: [String:Int] = [:]
         for user: User in items {
-            hash[user.userId] = RatingController.sharedInstance.averageRating(modelId: user.userId)
+            let ratings = RatingController.sharedInstance.all(modelId: user.userId)
+            hash[user.userId] = RatingController.sharedInstance.averageRating(ratings:ratings)
         }
         return hash
     }

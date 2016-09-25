@@ -26,8 +26,10 @@ class EvidenceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let relevanceRating = RelevanceRatingController.sharedInstance.averageRating(modelId: (evidence?.evidenceId)!)
-        let reliabilityRating = ReliabilityRatingController.sharedInstance.averageRating(modelId: (evidence?.evidenceId)!)
+        let relevanceRatings = RelevanceRatingController.sharedInstance.all(modelId: (evidence?.evidenceId)!)
+        let relevanceRating = RatingController.sharedInstance.averageRating(ratings: relevanceRatings)
+        let reliabilityRatings = ReliabilityRatingController.sharedInstance.all(modelId: (evidence?.evidenceId)!)
+        let reliabilityRating = RatingController.sharedInstance.averageRating(ratings: reliabilityRatings)
         relevanceRatingLabel.text = "\(relevanceRating)"
         reliabilityRatingLabel.text = "\(reliabilityRating)"
         relevanceRatingImageView.image = UIImage(named:CellUtitilities().ratingImageNameString(rating: relevanceRating))

@@ -47,25 +47,4 @@ class RelevanceRatingControllerTests: XCTestCase {
         ratings = RelevanceRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 2)
     }
-    
-    func testAverageRatingNoRatings() {
-        let avg = RelevanceRatingController.sharedInstance.averageRating(modelId: "1")
-        XCTAssertEqual(avg, 0)
-    }
-    
-    func testAverageRating() {
-        RelevanceRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
-        RelevanceRatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
-        RelevanceRatingController.sharedInstance.save()
-        let avg = RelevanceRatingController.sharedInstance.averageRating(modelId: "1")
-        XCTAssertEqual(avg, Int((testRating!.rating + testRating2!.rating)/2))
-    }
-    
-    func testLatestRating() {
-        RelevanceRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
-        RelevanceRatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
-        RelevanceRatingController.sharedInstance.save()
-        let latestRating = RelevanceRatingController.sharedInstance.latestRating(modelId: "1")
-        XCTAssertEqual(latestRating, 90)
-    }
 }

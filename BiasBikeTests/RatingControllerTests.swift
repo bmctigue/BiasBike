@@ -49,7 +49,8 @@ class RatingControllerTests: XCTestCase {
     }
     
     func testAverageRatingNoRatings() {
-        let avg = RatingController.sharedInstance.averageRating(modelId: "1")
+        let ratings = RatingController.sharedInstance.all(modelId: "1")
+        let avg = RatingController.sharedInstance.averageRating(ratings: ratings)
         XCTAssertEqual(avg, 0)
     }
     
@@ -57,7 +58,8 @@ class RatingControllerTests: XCTestCase {
         RatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
         RatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
         RatingController.sharedInstance.save()
-        let avg = RatingController.sharedInstance.averageRating(modelId: "1")
+        let ratings = RatingController.sharedInstance.all(modelId: "1")
+        let avg = RatingController.sharedInstance.averageRating(ratings: ratings)
         XCTAssertEqual(avg, Int((testRating!.rating + testRating2!.rating)/2))
     }
     
@@ -65,7 +67,8 @@ class RatingControllerTests: XCTestCase {
         RatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
         RatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
         RatingController.sharedInstance.save()
-        let latestRating = RatingController.sharedInstance.latestRating(modelId: "1")
+        let ratings = RatingController.sharedInstance.all(modelId: "1")
+        let latestRating = RatingController.sharedInstance.latestRating(ratings: ratings)
         XCTAssertEqual(latestRating, 90)
     }
 }

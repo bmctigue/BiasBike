@@ -18,24 +18,23 @@ class RatingController: ModelController<Rating> {
         return items.filter{$0.modelId == modelId}
     }
     
-    func latestRating(modelId: String) -> Int {
-        var items: [Rating] = all(modelId:modelId)
-        if items.count == 0 {
+    func latestRating(ratings: [Rating]) -> Int {
+        var ratings = ratings
+        if ratings.count == 0 {
             return 50
         }
-        items = items.sorted(by: {
+        ratings = ratings.sorted(by: {
             $0.creationDate < $1.creationDate
         })
-        return items.last!.rating
+        return ratings.last!.rating
     }
     
-    func averageRating(modelId: String) -> Int {
-        let items = all(modelId:modelId)
-        if items.count == 0 {
+    func averageRating(ratings: [Rating]) -> Int {
+        if ratings.count == 0 {
             return 0
         }
-        let ratingTotal = items.reduce(0) {sum, rating in sum + rating.rating}
-        return Int(ratingTotal/items.count)
+        let ratingTotal = ratings.reduce(0) {sum, rating in sum + rating.rating}
+        return Int(ratingTotal/ratings.count)
     }
     
 }

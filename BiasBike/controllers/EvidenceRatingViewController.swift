@@ -31,9 +31,11 @@ class EvidenceRatingViewController: UIViewController {
         } else {
             customNavigationItem.title = "Evidence"
         }
-        self.relevance = RelevanceRatingController.sharedInstance.latestRating(modelId: (evidence?.evidenceId)!)
+        let relevanceRatings = RelevanceRatingController.sharedInstance.all(modelId: (evidence?.evidenceId)!)
+        self.relevance = RatingController.sharedInstance.latestRating(ratings: relevanceRatings)
         setUpProgressView(circularProgress: relevanceCircularProgress, slider: relevanceSlider, rating: relevance)
-        self.reliability = ReliabilityRatingController.sharedInstance.latestRating(modelId: (evidence?.evidenceId)!)
+        let reliabilityRatings = ReliabilityRatingController.sharedInstance.all(modelId: (evidence?.evidenceId)!)
+        self.reliability = RatingController.sharedInstance.latestRating(ratings: reliabilityRatings)
         setUpProgressView(circularProgress: reliabilityCircularProgress, slider: reliabilitySlider, rating: reliability)
     }
     

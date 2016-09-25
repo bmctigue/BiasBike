@@ -44,7 +44,8 @@ final class ClaimController: ModelController<Claim> {
     func claimsRatingsHashLatestCommon(items: [Claim]) -> [String:Int] {
         var hash: [String:Int] = [:]
         for claim: Claim in items {
-            hash[claim.claimId] = RatingController.sharedInstance.latestRating(modelId: claim.claimId)
+            let ratings = RatingController.sharedInstance.all(modelId: claim.claimId)
+            hash[claim.claimId] = RatingController.sharedInstance.latestRating(ratings: ratings)
         }
         return hash
     }
@@ -52,7 +53,8 @@ final class ClaimController: ModelController<Claim> {
     func claimsRatingsHashAverageCommon(items: [Claim]) -> [String:Int] {
         var hash: [String:Int] = [:]
         for claim: Claim in items {
-            hash[claim.claimId] = RatingController.sharedInstance.averageRating(modelId: claim.claimId)
+            let ratings = RatingController.sharedInstance.all(modelId: claim.claimId)
+            hash[claim.claimId] = RatingController.sharedInstance.averageRating(ratings: ratings)
         }
         return hash
     }
