@@ -31,7 +31,7 @@ class ClaimRatingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let ratings = RatingController.sharedInstance.all(modelId: (claim?.claimId)!)
-        self.rating = RatingController.sharedInstance.latestRating(ratings: ratings)
+        self.rating = ratings.count == 0 ? 50 : RatingController.sharedInstance.latestRating(ratings: ratings)
         setUpProgressView(circularProgress: circularProgress, slider: slider)
     }
     
@@ -60,7 +60,9 @@ class ClaimRatingViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
-        let newRating = RatingFactory().create(creationDate: Date(), rating: rating, modelId: (claim?.claimId)!, userId: "")
+        let users = UserController.sharedInstance.all()
+        let user = users.first!
+        let newRating = RatingFactory().create(creationDate: Date(), rating: rating, modelId: (claim?.claimId)!, userId: user.userId)
         RatingController.sharedInstance.update(key: newRating.ratingId, item: newRating)
         RatingController.sharedInstance.save()
         self.dismiss(animated: true, completion: nil)

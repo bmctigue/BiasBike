@@ -15,6 +15,10 @@ class UserTableViewDelegate: NSObject {
     private(set) var evidenceItems: [Evidence] = []
     private(set) var claimsRatingsHash: [String:Int] = [:]
     private(set) var claimsAggRatingsHash: [String:Int] = [:]
+    private(set) var relevanceRatingsHash: [String:Int] = [:]
+    private(set) var reliabilityRatingsHash: [String:Int] = [:]
+    private(set) var relevanceAggRatingsHash: [String:Int] = [:]
+    private(set) var reliabilityAggRatingsHash: [String:Int] = [:]
     private(set) weak var userTableViewController: UserTableViewController?
 
     init(tableView: UITableView, userTableViewController: UserTableViewController) {
@@ -23,11 +27,15 @@ class UserTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
-    func updateDataSource(userId: String, claims: [Claim], evidenceItems: [Evidence]) {
+    func updateDataSource(userId: String, claims: [Claim], evidenceItems: [Evidence],relevanceRatingsHash: [String:Int], reliabilityRatingsHash: [String:Int], relevanceAggRatingsHash: [String:Int], reliabilityAggRatingsHash: [String:Int]) {
         self.claims = claims
         self.evidenceItems = evidenceItems
         self.claimsRatingsHash = ClaimController.sharedInstance.claimsRatingsHash(userId: userId)
         self.claimsAggRatingsHash = ClaimController.sharedInstance.claimsAggRatingsHash(userId: userId)
+        self.relevanceRatingsHash = relevanceRatingsHash
+        self.reliabilityRatingsHash = reliabilityRatingsHash
+        self.relevanceAggRatingsHash = relevanceAggRatingsHash
+        self.reliabilityAggRatingsHash = reliabilityAggRatingsHash
     }
 }
 
@@ -43,8 +51,14 @@ extension UserTableViewDelegate: UITableViewDelegate {
             }
         } else {
             let cell:EvidenceCell = cell as! EvidenceCell
+            cell.delegate = userTableViewController
             let evidence = evidenceItems[indexPath.row]
-            cell.updateCell(evidence: evidence, relevance: 0, reliability: 0, aggRating: 0)
+            let relevance = relevanceRatingsHash[evidence.evidenceId]!
+            let reliability = reliabilityRatingsHash[evidence.evidenceId]!
+            let aggRelevance = relevanceAggRatingsHash[evidence.evidenceId]!
+            let aggReliability = reliabilityAggRatingsHash[evidence.evidenceId]!
+            let aggRating = (aggRelevance + aggReliability)/2
+            cell.updateCell(evidence: evidence, relevance: relevance, reliability: reliability, aggRating: aggRating)
         }
     }
     

@@ -32,10 +32,10 @@ class EvidenceRatingViewController: UIViewController {
             customNavigationItem.title = "Evidence"
         }
         let relevanceRatings = RelevanceRatingController.sharedInstance.all(modelId: (evidence?.evidenceId)!)
-        self.relevance = RatingController.sharedInstance.latestRating(ratings: relevanceRatings)
+        self.relevance = relevanceRatings.count == 0 ? 50 : RatingController.sharedInstance.latestRating(ratings: relevanceRatings)
         setUpProgressView(circularProgress: relevanceCircularProgress, slider: relevanceSlider, rating: relevance)
         let reliabilityRatings = ReliabilityRatingController.sharedInstance.all(modelId: (evidence?.evidenceId)!)
-        self.reliability = RatingController.sharedInstance.latestRating(ratings: reliabilityRatings)
+        self.reliability = reliabilityRatings.count == 0 ? 50 : RatingController.sharedInstance.latestRating(ratings: reliabilityRatings)
         setUpProgressView(circularProgress: reliabilityCircularProgress, slider: reliabilitySlider, rating: reliability)
     }
     
@@ -74,10 +74,12 @@ class EvidenceRatingViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
-        let newRelevance = RelevanceRatingFactory().create(creationDate: Date(), rating: relevance, modelId: (evidence?.evidenceId)!, userId: "")
+        let users = UserController.sharedInstance.all()
+        let user = users.first!
+        let newRelevance = RelevanceRatingFactory().create(creationDate: Date(), rating: relevance, modelId: (evidence?.evidenceId)!, userId: user.userId)
         RelevanceRatingController.sharedInstance.update(key: newRelevance.ratingId, item: newRelevance as! RelevanceRating)
         RelevanceRatingController.sharedInstance.save()
-        let newreliability = ReliabilityRatingFactory().create(creationDate: Date(), rating: reliability, modelId: (evidence?.evidenceId)!, userId: "")
+        let newreliability = ReliabilityRatingFactory().create(creationDate: Date(), rating: reliability, modelId: (evidence?.evidenceId)!, userId: user.userId)
         ReliabilityRatingController.sharedInstance.update(key: newreliability.ratingId, item: newreliability as! ReliabilityRating)
         ReliabilityRatingController.sharedInstance.save()
         self.dismiss(animated: true, completion: nil)

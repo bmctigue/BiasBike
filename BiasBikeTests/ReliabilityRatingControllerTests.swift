@@ -47,25 +47,4 @@ class ReliabilityRatingControllerTests: XCTestCase {
         ratings = ReliabilityRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 2)
     }
-    
-    func testAverageRatingNoRatings() {
-        let avg = ReliabilityRatingController.sharedInstance.averageRating(modelId: "1")
-        XCTAssertEqual(avg, 0)
-    }
-    
-    func testAverageRating() {
-        ReliabilityRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
-        ReliabilityRatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
-        ReliabilityRatingController.sharedInstance.save()
-        let avg = ReliabilityRatingController.sharedInstance.averageRating(modelId: "1")
-        XCTAssertEqual(avg, Int((testRating!.rating + testRating2!.rating)/2))
-    }
-    
-    func testLatestRating() {
-        ReliabilityRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
-        ReliabilityRatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
-        ReliabilityRatingController.sharedInstance.save()
-        let latestRating = ReliabilityRatingController.sharedInstance.latestRating(modelId: "1")
-        XCTAssertEqual(latestRating, 90)
-    }
 }

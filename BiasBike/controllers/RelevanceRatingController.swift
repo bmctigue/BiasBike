@@ -18,4 +18,9 @@ final class RelevanceRatingController: ModelController<RelevanceRating> {
         return items.filter{$0.modelId == modelId}
     }
     
+    func all(userId: String) -> [RelevanceRating] {
+        let items = all()
+        return items.filter{$0.userId == userId}
+    }
+    
 }

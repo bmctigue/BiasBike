@@ -33,7 +33,7 @@ extension UsersTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell:UserCell = cell as! UserCell
         let user = users[indexPath.row]
-        if let rating = userRatingsHash[user.userId] {
+        if let rating = userAggRatingsHash[user.userId] {
             cell.updateCell(firstName: user.firstName, lastName: user.lastName, rating: rating, url: user.url)
         }
     }

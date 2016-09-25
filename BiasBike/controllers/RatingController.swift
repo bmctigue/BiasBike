@@ -18,10 +18,15 @@ class RatingController: ModelController<Rating> {
         return items.filter{$0.modelId == modelId}
     }
     
+    func all(userId: String) -> [Rating] {
+        let items = all()
+        return items.filter{$0.userId == userId}
+    }
+    
     func latestRating(ratings: [Rating]) -> Int {
         var ratings = ratings
         if ratings.count == 0 {
-            return 50
+            return 0
         }
         ratings = ratings.sorted(by: {
             $0.creationDate < $1.creationDate

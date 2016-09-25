@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserTableViewController: UITableViewController, ClaimCellDelegate {
+class UserTableViewController: UITableViewController, ClaimCellDelegate, EvidenceCellDelegate {
 
     private(set) var tableViewDataSource: UserTableViewDataSource?
     private(set) var tableViewDelegate: UserTableViewDelegate?
@@ -45,9 +45,13 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate {
     func refreshData() {
         let claims = ClaimController.sharedInstance.all(userId: (user?.userId)!)
         let evidenceItems = EvidenceController.sharedInstance.all(userId: (user?.userId)!)
-        
+        let items = EvidenceController.sharedInstance.itemsForHash(claimId: nil)
+        let relevanceHash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(items: items)
+        let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
+        let relevanceAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)
+        let reliabilityAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggReliabilityRatingsHash(items: items)
         self.tableViewDataSource?.updateDataSource(claims: claims, evidenceItems: evidenceItems)
-        self.tableViewDelegate?.updateDataSource(userId: (user?.userId)!, claims: claims, evidenceItems: evidenceItems)
+        self.tableViewDelegate?.updateDataSource(userId: (user?.userId)!, claims: claims, evidenceItems: evidenceItems, relevanceRatingsHash: relevanceHash, reliabilityRatingsHash: reliabilityHash, relevanceAggRatingsHash: relevanceAggHash, reliabilityAggRatingsHash: reliabilityAggHash)
         self.tableView.reloadData()
     }
     
@@ -55,6 +59,13 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate {
         let storyboard = UIStoryboard(name: "Modals", bundle: nil)
         let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
         controller.claim = claim
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func rateButtonPressed(evidence: Evidence) {
+        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
+        controller.evidence = evidence
         self.present(controller, animated: true, completion: nil)
     }
 

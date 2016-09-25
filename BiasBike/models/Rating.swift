@@ -47,7 +47,7 @@ class Rating: NSObject, NSCoding {
         aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
         aCoder.encode(rating, forKey: Keys.Rating.rawValue)
         aCoder.encode(modelId, forKey: Keys.ModelId.rawValue)
-        aCoder.encode(modelId, forKey: Keys.UserId.rawValue)
+        aCoder.encode(userId, forKey: Keys.UserId.rawValue)
     }
     
     enum Keys: String {
