@@ -11,6 +11,9 @@ import XCTest
 
 class EvidenceControllerTests: XCTestCase {
     
+    var testUser: User?
+    var testUser2: User?
+    let userFactory: UserFactoryProtocol = UserFactory()
     var items: [Evidence] = []
     var testClaim: Claim?
     var testEvidence: Evidence?
@@ -25,18 +28,24 @@ class EvidenceControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: "1")
-        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", claimId: "1")
+        UserController.sharedInstance.clear()
+        testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "")
+        testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "")
+        UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
+        UserController.sharedInstance.update(key: testUser2!.userId, item: testUser2!)
+        UserController.sharedInstance.save()
+        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: "1", userId: (testUser?.userId)!)
+        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", claimId: "1", userId: (testUser2?.userId)!)
         EvidenceController.sharedInstance.clear()
         EvidenceController.sharedInstance.save()
     }
     
     func testEvidenceClaimsHash() {
-        testClaim = ClaimFactory().create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", eventId: "1")
+        testClaim = ClaimFactory().create(title: "The Plane Crashed", summary: "", creationDate: Date(), url: "", eventId: "1", userId: (testUser?.userId)!)
         ClaimController.sharedInstance.update(key: testClaim!.claimId, item: testClaim!)
         ClaimController.sharedInstance.save()
-        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: (testClaim?.claimId)!)
-        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", claimId: (testClaim?.claimId)!)
+        testEvidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: (testClaim?.claimId)!, userId: (testUser?.userId)!)
+        testEvidence2 = evidenceFactory.create(title: "Flight path", summary: "", creationDate: Date(), url: "", claimId: (testClaim?.claimId)!, userId: (testUser2?.userId)!)
         EvidenceController.sharedInstance.update(key: testEvidence!.evidenceId, item: testEvidence!)
         EvidenceController.sharedInstance.update(key: testEvidence2!.evidenceId, item: testEvidence2!)
         EvidenceController.sharedInstance.save()
@@ -129,7 +138,7 @@ class EvidenceControllerTests: XCTestCase {
     }
     
     func testEvidenceInit() {
-        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: "1")
+        let evidence = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "", claimId: "1", userId: (testUser?.userId)!)
         XCTAssertTrue(evidence.title == "Wing Debris")
     }
     
@@ -160,7 +169,7 @@ class EvidenceControllerTests: XCTestCase {
         EvidenceController.sharedInstance.loadDefault()
         EvidenceController.sharedInstance.save()
         let items = EvidenceController.sharedInstance.all()
-        XCTAssertTrue(items.count == 2)
+        XCTAssertTrue(items.count == 4)
     }
     
 }

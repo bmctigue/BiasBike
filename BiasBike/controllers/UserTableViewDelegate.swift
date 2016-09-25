@@ -10,8 +10,11 @@ import UIKit
 
 class UserTableViewDelegate: NSObject {
 
+    private(set) var userId: String = ""
     private(set) var claims: [Claim] = []
     private(set) var evidenceItems: [Evidence] = []
+    private(set) var claimsRatingsHash: [String:Int] = [:]
+    private(set) var claimsAggRatingsHash: [String:Int] = [:]
     private(set) weak var userTableViewController: UserTableViewController?
 
     init(tableView: UITableView, userTableViewController: UserTableViewController) {
@@ -20,9 +23,11 @@ class UserTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
-    func updateDataSource(claims: [Claim], evidenceItems: [Evidence]) {
+    func updateDataSource(userId: String, claims: [Claim], evidenceItems: [Evidence]) {
         self.claims = claims
         self.evidenceItems = evidenceItems
+        self.claimsRatingsHash = ClaimController.sharedInstance.claimsRatingsHash(userId: userId)
+        self.claimsAggRatingsHash = ClaimController.sharedInstance.claimsAggRatingsHash(userId: userId)
     }
 }
 
@@ -31,8 +36,11 @@ extension UserTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let cell:ClaimCell = cell as! ClaimCell
+            cell.delegate = userTableViewController
             let claim = claims[indexPath.row]
-            cell.updateCell(claim: claim, rating: 0, aggRating: 0)
+            if let rating = claimsRatingsHash[claim.claimId], let aggRating = claimsAggRatingsHash[claim.claimId] {
+                cell.updateCell(claim: claim, rating: rating, aggRating: aggRating)
+            }
         } else {
             let cell:EvidenceCell = cell as! EvidenceCell
             let evidence = evidenceItems[indexPath.row]
