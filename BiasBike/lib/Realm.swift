@@ -13,9 +13,9 @@ private var realm: Realm! // FIXME: shouldn't have to hold on to the Realm here.
 
 private func setDefaultRealmConfigurationWithUser(user: User) {
     
-    var configuration = Realm.Configuration()
-    configuration.syncConfiguration = (user, Constants.syncServerURL! as URL)
-    realm = try! Realm(configuration: configuration)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration()
+    Realm.Configuration.defaultConfiguration.syncConfiguration = (user, Constants.syncServerURL! as URL)
+    realm = try! Realm()
     
 }
 
