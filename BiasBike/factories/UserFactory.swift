@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol UserFactoryProtocol {
-    func create(firstName: String, lastName: String, creationDate: Date, url: String) -> User
+    func create(firstName: String, lastName: String, url: String) -> User
 }
 
 struct UserFactory: UserFactoryProtocol {
-    func create(firstName: String, lastName: String, creationDate: Date, url: String) -> User {
-        return User.init(firstName: firstName, lastName: lastName, creationDate: creationDate, url: url)
+    func create(firstName: String, lastName: String, url: String) -> User {
+        return User(value: [firstName: firstName, lastName: lastName, url: url])
     }
 }

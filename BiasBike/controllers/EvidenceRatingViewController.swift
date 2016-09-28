@@ -76,12 +76,10 @@ class EvidenceRatingViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
         let users = UserController.sharedInstance.all()
         let user = users.first!
-        let newRelevance = RelevanceRatingFactory().create(creationDate: Date(), rating: relevance, modelId: (evidence?.evidenceId)!, userId: user.userId)
-        RelevanceRatingController.sharedInstance.update(key: newRelevance.ratingId, item: newRelevance as! RelevanceRating)
-        RelevanceRatingController.sharedInstance.save()
-        let newreliability = ReliabilityRatingFactory().create(creationDate: Date(), rating: reliability, modelId: (evidence?.evidenceId)!, userId: user.userId)
-        ReliabilityRatingController.sharedInstance.update(key: newreliability.ratingId, item: newreliability as! ReliabilityRating)
-        ReliabilityRatingController.sharedInstance.save()
+        let newRelevance = RelevanceRatingFactory().create(rating: relevance, modelId: (evidence?.evidenceId)!, userId: user.userId)
+        RelevanceRatingController.sharedInstance.update(item: newRelevance as! RelevanceRating)
+        let newreliability = ReliabilityRatingFactory().create(rating: reliability, modelId: (evidence?.evidenceId)!, userId: user.userId)
+        ReliabilityRatingController.sharedInstance.update(item: newreliability as! ReliabilityRating)
         self.dismiss(animated: true, completion: nil)
     }
     

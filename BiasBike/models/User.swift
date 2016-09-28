@@ -7,54 +7,22 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class User: NSObject, NSCoding {
-    private(set) var userId: String
-    private(set) var firstName: String
-    private(set) var lastName: String
-    private(set) var creationDate: Date
-    private(set) var url: String
+final class User: Object {
+    dynamic var userId: String = NSUUID().uuidString
+    dynamic var firstName: String = ""
+    dynamic var lastName: String = ""
+    dynamic var email: String = ""
+    dynamic var creationDate: Date = Date()
+    dynamic var url: String = ""
     
-    init(firstName: String, lastName: String, creationDate: Date, url: String) {
-        self.userId = NSUUID().uuidString
-        self.firstName = firstName
-        self.lastName = lastName
-        self.creationDate = creationDate
-        self.url = url
-        super.init()
+    override static func indexedProperties() -> [String] {
+        return ["userId", "creationDate"]
     }
     
-    private init(userId: String, firstName: String, lastName: String, creationDate: Date, url: String) {
-        self.userId = userId
-        self.firstName = firstName
-        self.lastName = lastName
-        self.creationDate = creationDate
-        self.url = url
-        super.init()
+    override static func primaryKey() -> String? {
+        return "userId"
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        let userId = aDecoder.decodeObject(forKey: Keys.UserId.rawValue) as! String
-        let firstName = aDecoder.decodeObject(forKey: Keys.FirstName.rawValue) as! String
-        let lastName = aDecoder.decodeObject(forKey: Keys.LastName.rawValue) as! String
-        let creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! Date
-        let url = aDecoder.decodeObject(forKey: Keys.Url.rawValue) as! String
-        self.init(userId:userId, firstName: firstName, lastName: lastName, creationDate: creationDate, url: url)
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(userId, forKey: Keys.UserId.rawValue)
-        aCoder.encode(firstName, forKey: Keys.FirstName.rawValue)
-        aCoder.encode(lastName, forKey: Keys.LastName.rawValue)
-        aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
-        aCoder.encode(url, forKey: Keys.Url.rawValue)
-    }
-    
-    enum Keys: String {
-        case UserId = "userId"
-        case FirstName = "firstName"
-        case LastName = "lastName"
-        case CreationDate = "creationDate"
-        case Url = "url"
-    }
 }

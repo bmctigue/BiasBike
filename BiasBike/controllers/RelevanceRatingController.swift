@@ -8,10 +8,36 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-final class RelevanceRatingController: ModelController<RelevanceRating> {
+final class RelevanceRatingController: ModelController {
     
-    static let sharedInstance = RelevanceRatingController.init(modelType: ModelType.RelevanceRating)
+    static let sharedInstance = RelevanceRatingController.init()
+    
+    func all() -> [RelevanceRating] {
+        let realm = try! Realm()
+        let items = realm.objects(RelevanceRating.self)
+        if items.count == 0 {
+            return [RelevanceRating]()
+        }
+        return Array(items)
+    }
+    
+    func find(key: String) -> RelevanceRating? {
+        return realm.object(ofType: RelevanceRating.self, forPrimaryKey: key)
+    }
+    
+    func update(item: RelevanceRating) {
+        DispatchQueue.global().async {
+            try! self.realm.write {
+                self.realm.add(item, update: true)
+            }
+        }
+    }
+    
+    func save(item: RelevanceRating) {
+        update(item: item)
+    }
     
     func all(modelId: String) -> [RelevanceRating] {
         let items = all()

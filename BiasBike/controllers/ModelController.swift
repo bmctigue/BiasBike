@@ -7,56 +7,22 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum ModelType: String {
-    case Event = "events"
-    case Claim = "claims"
-    case Evidence = "evidence"
-    case User = "users"
-    case Rating = "rating"
-    case RelevanceRating = "relevanceRating"
-    case ReliabilityRating = "reliabilityRating"
-}
-
-class ModelController<T> {
+class ModelController {
     
-    var hash: [String:T]
-    var modelType: ModelType
-    let archiveURL: URL
+    let realm: Realm
     
-    init(modelType: ModelType) {
-        self.hash = [:]
-        self.modelType = modelType
-        self.archiveURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(self.modelType.rawValue)
-    }
-    
-    func all() -> [T] {
-        if let hash = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? [String:T] {
-            self.hash = hash
-            return Array(hash.values)
-        } else {
-            return [T]()
-        }
+    init() {
+        self.realm = try! Realm()
     }
     
     func clear() {
-        self.hash.removeAll()
-    }
-    
-    func find(key: String) -> T? {
-        return self.hash[key]
-    }
-    
-    func update(key: String, item: T) {
-        self.hash[key] = item
-    }
-    
-    func save() {
-        NSKeyedArchiver.archiveRootObject(self.hash as NSDictionary,toFile: archiveURL.path)
-    }
-    
-    func loadDefault() {
-        // load default items here
+        DispatchQueue.global().async {
+            try! self.realm.write {
+                self.realm.deleteAll()
+            }
+        }
     }
     
 }

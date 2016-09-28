@@ -9,23 +9,23 @@
 import Foundation
 
 protocol RatingFactoryProtocol {
-    func create(creationDate: Date, rating: Int, modelId: String, userId: String) -> Rating
+    func create(rating: Int, modelId: String, userId: String) -> Rating
 }
 
 struct RatingFactory: RatingFactoryProtocol {
-    func create(creationDate: Date, rating: Int, modelId: String, userId: String) -> Rating {
-        return Rating.init(creationDate: creationDate, rating: rating, modelId: modelId, userId: userId)
+    func create(rating: Int, modelId: String, userId: String) -> Rating {
+        return Rating(value: [rating: rating, modelId: modelId, userId: userId])
     }
 }
 
 struct RelevanceRatingFactory: RatingFactoryProtocol {
-    func create(creationDate: Date, rating: Int, modelId: String, userId: String) -> Rating {
-        return RelevanceRating.init(creationDate: creationDate, rating: rating, modelId: modelId, userId: userId)
+    func create(rating: Int, modelId: String, userId: String) -> Rating {
+        return RelevanceRating(value: [rating: rating, modelId: modelId, userId: userId])
     }
 }
 
 struct ReliabilityRatingFactory: RatingFactoryProtocol {
-    func create(creationDate: Date, rating: Int, modelId: String, userId: String) -> Rating {
-        return ReliabilityRating.init(creationDate: creationDate, rating: rating, modelId: modelId, userId: userId)
+    func create(rating: Int, modelId: String, userId: String) -> Rating {
+        return ReliabilityRating(value: [rating: rating, modelId: modelId, userId: userId])
     }
 }

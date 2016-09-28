@@ -7,10 +7,32 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class UserController: ModelController<User> {
+final class UserController: ModelController {
     
-    static let sharedInstance = UserController.init(modelType: ModelType.User)
+    static let sharedInstance = UserController.init()
+    
+    func all() -> [User] {
+        let realm = try! Realm()
+        let items = realm.objects(User.self)
+        if items.count == 0 {
+            return [User]()
+        }
+        return Array(items)
+    }
+    
+    func find(key: String) -> User? {
+        return realm.object(ofType: User.self, forPrimaryKey: key)
+    }
+    
+    func update(item: User) {
+        DispatchQueue.global().async {
+            try! self.realm.write {
+                self.realm.add(item, update: true)
+            }
+        }
+    }
     
     func userRatingsHash() -> [String:Int] {
         let items = all()
@@ -32,12 +54,12 @@ final class UserController: ModelController<User> {
         return hash
     }
     
-    override func loadDefault() {
+    func loadDefault() {
         clear()
         let userFactory = UserFactory()
-        let user1 = userFactory.create(firstName: "Bruce", lastName: "McTigue", creationDate: Date(), url: "bruce")
-        update(key: user1.userId, item: user1)
-        let user2 = userFactory.create(firstName: "Julia", lastName: "Galef", creationDate: Date(), url: "julia")
-        update(key: user2.userId, item: user2)
+        let user1 = userFactory.create(firstName: "Bruce", lastName: "McTigue", url: "bruce")
+        update(item: user1)
+        let user2 = userFactory.create(firstName: "Julia", lastName: "Galef", url: "julia")
+        update(item: user2)
     }
 }

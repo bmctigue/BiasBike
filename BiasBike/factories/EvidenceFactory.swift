@@ -9,11 +9,11 @@
 import Foundation
 
 protocol EvidenceFactoryProtocol {
-    func create(title: String, summary: String, creationDate: Date, url: String, claimId: String, userId: String) -> Evidence
+    func create(title: String, summary: String, url: String, claimId: String, userId: String) -> Evidence
 }
 
 struct EvidenceFactory: EvidenceFactoryProtocol {
-    func create(title: String, summary: String, creationDate: Date, url: String, claimId: String, userId: String) -> Evidence {
-        return Evidence.init(title: title, summary: summary, creationDate: creationDate, url: url, claimId: claimId, userId: userId)
+    func create(title: String, summary: String, url: String, claimId: String, userId: String) -> Evidence {
+        return Evidence(value: [title: title, summary: summary, url: url, claimId: claimId, userId: userId])
     }
 }

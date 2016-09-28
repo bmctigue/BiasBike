@@ -7,10 +7,32 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class EvidenceController: ModelController<Evidence> {
+final class EvidenceController: ModelController {
     
-    static let sharedInstance = EvidenceController.init(modelType: ModelType.Evidence)
+    static let sharedInstance = EvidenceController.init()
+    
+    func all() -> [Evidence] {
+        let realm = try! Realm()
+        let items = realm.objects(Evidence.self)
+        if items.count == 0 {
+            return [Evidence]()
+        }
+        return Array(items)
+    }
+    
+    func find(key: String) -> Evidence? {
+        return realm.object(ofType: Evidence.self, forPrimaryKey: key)
+    }
+    
+    func update(item: Evidence) {
+        DispatchQueue.global().async {
+            try! self.realm.write {
+                self.realm.add(item, update: true)
+            }
+        }
+    }
     
     func all(claimId: String) -> [Evidence] {
         let items = all()
@@ -80,7 +102,7 @@ final class EvidenceController: ModelController<Evidence> {
         return items
     }
     
-    override func loadDefault() {
+    func loadDefault() {
         // World
         let users = UserController.sharedInstance.all()
         var user = users.first!
@@ -89,19 +111,19 @@ final class EvidenceController: ModelController<Evidence> {
         var claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
         var claim: Claim? = claims.first
         let evidenceFactory = EvidenceFactory()
-        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", creationDate: Date(), url: "debris", claimId: (claim?.claimId)!, userId: user.userId)
-        update(key: evidence1.evidenceId, item: evidence1)
-        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", creationDate: Date(), url: "flightpath", claimId: (claim?.claimId)!, userId: user.userId)
-        update(key: evidence2.evidenceId, item: evidence2)
+        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", url: "debris", claimId: (claim?.claimId)!, userId: user.userId)
+        update(item: evidence1)
+        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", url: "flightpath", claimId: (claim?.claimId)!, userId: user.userId)
+        update(item: evidence2)
         // Sports
         user = users.last!
         events = EventController.sharedInstance.all(category: .Sports)
         event = events.first
         claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
         claim = claims.first
-        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", creationDate: Date(), url: "lochte-footage", claimId: (claim?.claimId)!, userId: user.userId)
-        update(key: evidence3.evidenceId, item: evidence3)
-        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", creationDate: Date(), url: "lochte-station", claimId: (claim?.claimId)!, userId: user.userId)
-        update(key: evidence4.evidenceId, item: evidence4)
+        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", url: "lochte-footage", claimId: (claim?.claimId)!, userId: user.userId)
+        update(item: evidence3)
+        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", url: "lochte-station", claimId: (claim?.claimId)!, userId: user.userId)
+        update(item: evidence4)
     }
 }

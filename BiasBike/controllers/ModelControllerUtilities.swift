@@ -21,36 +21,13 @@ struct ModelControllerUtilities {
     }
     
     func clearAllModelControllers() {
-        UserController.sharedInstance.clear()
-        UserController.sharedInstance.save()
-        EventController.sharedInstance.clear()
-        EventController.sharedInstance.save()
-        ClaimController.sharedInstance.clear()
-        ClaimController.sharedInstance.save()
-        EvidenceController.sharedInstance.clear()
-        EvidenceController.sharedInstance.save()
-        RatingController.sharedInstance.clear()
-        RatingController.sharedInstance.save()
+        ModelController().clear()
     }
     
     func loadAllModelControllers() {
         UserController.sharedInstance.loadDefault()
-        UserController.sharedInstance.save()
         EventController.sharedInstance.loadDefault()
-        EventController.sharedInstance.save()
         ClaimController.sharedInstance.loadDefault()
-        ClaimController.sharedInstance.save()
         EvidenceController.sharedInstance.loadDefault()
-        EvidenceController.sharedInstance.save()
-        RatingController.sharedInstance.loadDefault()
-        RatingController.sharedInstance.save()
-    }
-    
-    func saveAllModelControllers() {
-        UserController.sharedInstance.save()
-        EventController.sharedInstance.save()
-        ClaimController.sharedInstance.save()
-        EvidenceController.sharedInstance.save()
-        RatingController.sharedInstance.save()
     }
 }

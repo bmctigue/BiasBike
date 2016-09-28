@@ -7,14 +7,36 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class EventController: ModelController<Event> {
+final class EventController: ModelController {
     
-    static let sharedInstance = EventController.init(modelType: ModelType.Event)
+    static let sharedInstance = EventController.init()
+    
+    func all() -> [Event] {
+        let realm = try! Realm()
+        let items = realm.objects(Event.self)
+        if items.count == 0 {
+            return [Event]()
+        }
+        return Array(items)
+    }
+    
+    func find(key: String) -> Event? {
+        return realm.object(ofType: Event.self, forPrimaryKey: key)
+    }
+    
+    func update(item: Event) {
+        DispatchQueue.global().async {
+            try! self.realm.write {
+                self.realm.add(item, update: true)
+            }
+        }
+    }
     
     func all(category: Category) -> [Event] {
         let items = all()
-        return items.filter{$0.category == category}
+        return items.filter{$0.category == category.rawValue}
     }
     
     func categoryHash() -> [String:[Event]] {
@@ -22,26 +44,26 @@ final class EventController: ModelController<Event> {
         var eventsArray: [Event]?
         var hash: [String:[Event]] = [:]
         for event in items {
-            eventsArray = hash[event.category.rawValue]
+            eventsArray = hash[event.category]
             if eventsArray == nil {
-                hash[event.category.rawValue] = [event]
+                hash[event.category] = [event]
             } else {
                 eventsArray!.append(event)
-                hash[event.category.rawValue] = eventsArray
+                hash[event.category] = eventsArray
             }
         }
         return hash
     }
     
-    override func loadDefault() {
+    func loadDefault() {
         let eventFactory = EventFactory()
-        let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", creationDate: Date(), url: "", photoUrl: "missing-flight", category: .World)
-        update(key: event1.eventId, item: event1)
-        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", creationDate: Date(), url: "", photoUrl: "lochte", category: .Sports)
-        update(key: event2.eventId, item: event2)
-        let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", creationDate: Date(), url: "", photoUrl: "donald-trump", category: .Politics)
-        update(key: event3.eventId, item: event3)
-        let event4 = eventFactory.create(title: "Obama Visits Far East", summary: "", creationDate: Date(), url: "", photoUrl: "barack_obama", category: .Politics)
-        update(key: event4.eventId, item: event4)
+        let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", url: "", photoUrl: "missing-flight", category: Category.World.rawValue)
+        update(item: event1)
+        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", url: "", photoUrl: "lochte", category: Category.Sports.rawValue)
+        update(item: event2)
+        let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", url: "", photoUrl: "donald-trump", category: Category.Politics.rawValue)
+        update(item: event3)
+        let event4 = eventFactory.create(title: "Obama Visits Far East", summary: "", url: "", photoUrl: "barack_obama", category: Category.Politics.rawValue)
+        update(item: event4)
     }
 }

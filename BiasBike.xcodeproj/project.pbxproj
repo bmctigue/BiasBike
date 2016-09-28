@@ -21,14 +21,22 @@
 		A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
 		A850598E1D90A3640008D5F3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850598D1D90A3640008D5F3 /* Rating.swift */; };
+		A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */; };
+		A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */; };
+		A8586FD11D9ADAD2002C2672 /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCC1D9ADAD2002C2672 /* Modals.storyboard */; };
+		A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */; };
+		A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */; };
+		A8586FD71D9ADB1A002C2672 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */; };
+		A8586FD81D9ADB1A002C2672 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8586FD61D9ADB1A002C2672 /* RegisterViewController.swift */; };
+		A8586FF21D9AE7A8002C2672 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; };
+		A8586FF51D9AE7B2002C2672 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8586FF61D9AE7B2002C2672 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
+		A8586FF71D9AE7B2002C2672 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86786061D87258E00D1A46B /* DemoImages.xcassets */; };
-		A86F6B0E1D8AFA5A002652DF /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */; };
 		A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */; };
 		A86F6B141D8AFB8D002652DF /* CategoriesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B111D8AFB8D002652DF /* CategoriesTableViewDataSource.swift */; };
 		A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */; };
-		A86F6B181D8B0F83002652DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86F6B161D8B0F83002652DF /* Main.storyboard */; };
 		A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B1A1D8B2F02002652DF /* Theme.swift */; };
-		A86F6B1E1D8B5632002652DF /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86F6B1D1D8B5632002652DF /* Claim.storyboard */; };
 		A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B1F1D8B587E002652DF /* ClaimCell.swift */; };
 		A86F6B241D8B5EA2002652DF /* ClaimsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */; };
 		A86F6B251D8B5EA2002652DF /* ClaimTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */; };
@@ -56,12 +64,10 @@
 		A8C710321D85F85C00205144 /* EventTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */; };
 		A8C710351D85FB4300205144 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C710341D85FB4300205144 /* EventCell.swift */; };
 		A8C710371D8616F900205144 /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C710361D8616F900205144 /* EventHeaderCell.swift */; };
-		A8C7C3051D8DF95A007C991F /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C7C3041D8DF95A007C991F /* Evidence.storyboard */; };
 		A8C7C30A1D8DFA67007C991F /* EvidenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3071D8DFA67007C991F /* EvidenceTableViewController.swift */; };
 		A8C7C30B1D8DFA67007C991F /* EvidenceTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */; };
 		A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */; };
 		A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */; };
-		A8C820A61D94250100FE92D3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C820A51D94250100FE92D3 /* Splash.storyboard */; };
 		A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */; };
 		A8E39AA41D96E47A0075ADD9 /* UsersTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */; };
 		A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */; };
@@ -106,6 +112,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A8586FF81D9AE7B2002C2672 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A8586FF71D9AE7B2002C2672 /* RealmSwift.framework in Embed Frameworks */,
+				A8586FF51D9AE7B2002C2672 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A81F47061D79CF910025F918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A81F47081D79D1630025F918 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -121,14 +142,21 @@
 		A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		A850598D1D90A3640008D5F3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Claim.storyboard; sourceTree = "<group>"; };
+		A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Evidence.storyboard; sourceTree = "<group>"; };
+		A8586FCC1D9ADAD2002C2672 /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modals.storyboard; sourceTree = "<group>"; };
+		A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RealmSyncLogin.storyboard; sourceTree = "<group>"; };
+		A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		A8586FD61D9ADB1A002C2672 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A8586FF01D9AE7A8002C2672 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		A8586FFA1D9B0B3F002C2672 /* BiasBike-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BiasBike-PrefixHeader.pch"; sourceTree = "<group>"; };
 		A86786061D87258E00D1A46B /* DemoImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DemoImages.xcassets; sourceTree = "<group>"; };
-		A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Modals.storyboard; path = BiasBikeTests/Modals.storyboard; sourceTree = SOURCE_ROOT; };
 		A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		A86F6B111D8AFB8D002652DF /* CategoriesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDataSource.swift; sourceTree = "<group>"; };
 		A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
-		A86F6B171D8B0F83002652DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BiasBike/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		A86F6B1A1D8B2F02002652DF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		A86F6B1D1D8B5632002652DF /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Claim.storyboard; path = BiasBike/lib/Claim.storyboard; sourceTree = SOURCE_ROOT; };
 		A86F6B1F1D8B587E002652DF /* ClaimCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimCell.swift; sourceTree = "<group>"; };
 		A86F6B211D8B5EA1002652DF /* ClaimsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimsTableViewController.swift; sourceTree = "<group>"; };
 		A86F6B221D8B5EA1002652DF /* ClaimTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -156,12 +184,10 @@
 		A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8C710341D85FB4300205144 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		A8C710361D8616F900205144 /* EventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
-		A8C7C3041D8DF95A007C991F /* Evidence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Evidence.storyboard; path = BiasBikeTests/Evidence.storyboard; sourceTree = SOURCE_ROOT; };
 		A8C7C3071D8DFA67007C991F /* EvidenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewController.swift; sourceTree = "<group>"; };
 		A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceCell.swift; sourceTree = "<group>"; };
-		A8C820A51D94250100FE92D3 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Splash.storyboard; path = BiasBikeTests/Splash.storyboard; sourceTree = SOURCE_ROOT; };
 		A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +226,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8586FF61D9AE7B2002C2672 /* RealmSwift.framework in Frameworks */,
+				A8586FF21D9AE7A8002C2672 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +280,36 @@
 				A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */,
 			);
 			name = Event;
+			sourceTree = "<group>";
+		};
+		A8586FC91D9ADAD2002C2672 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */,
+				A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */,
+				A8586FCC1D9ADAD2002C2672 /* Modals.storyboard */,
+				A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */,
+				A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		A8586FD41D9ADB1A002C2672 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */,
+				A8586FD61D9ADB1A002C2672 /* RegisterViewController.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		A8586FE51D9AE411002C2672 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8586FF01D9AE7A8002C2672 /* Realm.framework */,
+				A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A86F6B0F1D8AFB1B002652DF /* Categories */ = {
@@ -342,6 +400,7 @@
 				A8E4D85C1D74E56A00AFA1FE /* BiasBikeTests */,
 				A8E4D8671D74E56A00AFA1FE /* BiasBikeUITests */,
 				A8E4D8441D74E56900AFA1FE /* Products */,
+				A8586FE51D9AE411002C2672 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -361,14 +420,15 @@
 				A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */,
 				A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */,
 				A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */,
-				A8E4D87A1D74E9E700AFA1FE /* storyboards */,
 				A828D4881D7E0830001FE199 /* factories */,
 				A86F6B191D8B2E95002652DF /* lib */,
+				A8586FD41D9ADB1A002C2672 /* login */,
 				A8E4D8771D74E9C000AFA1FE /* models */,
 				A8C710331D85FB0400205144 /* cells */,
 				A8E4D8761D74E9B300AFA1FE /* controllers */,
 				A8E4D8781D74E9CE00AFA1FE /* protocols */,
 				A8E4D8791D74E9DB00AFA1FE /* services */,
+				A8586FC91D9ADAD2002C2672 /* storyboards */,
 				A8E4D87B1D74E9FB00AFA1FE /* Supporting Files */,
 				A8E861E01D8C9095000FDA0E /* vendor */,
 			);
@@ -448,23 +508,12 @@
 			path = services;
 			sourceTree = "<group>";
 		};
-		A8E4D87A1D74E9E700AFA1FE /* storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				A86F6B161D8B0F83002652DF /* Main.storyboard */,
-				A86F6B1D1D8B5632002652DF /* Claim.storyboard */,
-				A86F6B0D1D8AFA5A002652DF /* Modals.storyboard */,
-				A8C7C3041D8DF95A007C991F /* Evidence.storyboard */,
-				A8C820A51D94250100FE92D3 /* Splash.storyboard */,
-			);
-			path = storyboards;
-			sourceTree = "<group>";
-		};
 		A8E4D87B1D74E9FB00AFA1FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				A8E4D8801D74EA3700AFA1FE /* Info.plist */,
 				A86786061D87258E00D1A46B /* DemoImages.xcassets */,
+				A8586FFA1D9B0B3F002C2672 /* BiasBike-PrefixHeader.pch */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -506,7 +555,8 @@
 				A8E4D83F1D74E56900AFA1FE /* Sources */,
 				A8E4D8401D74E56900AFA1FE /* Frameworks */,
 				A8E4D8411D74E56900AFA1FE /* Resources */,
-				A8A6E8901D92C4190085AF93 /* ShellScript */,
+				A8586FF81D9AE7B2002C2672 /* Embed Frameworks */,
+				A8586FF91D9AEBD3002C2672 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -609,14 +659,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A86F6B0E1D8AFA5A002652DF /* Modals.storyboard in Resources */,
-				A86F6B181D8B0F83002652DF /* Main.storyboard in Resources */,
-				A8C7C3051D8DF95A007C991F /* Evidence.storyboard in Resources */,
-				A8C820A61D94250100FE92D3 /* Splash.storyboard in Resources */,
 				A8E4D8531D74E56900AFA1FE /* LaunchScreen.storyboard in Resources */,
+				A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */,
 				A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */,
+				A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */,
+				A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */,
+				A8586FD11D9ADAD2002C2672 /* Modals.storyboard in Resources */,
 				A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */,
-				A86F6B1E1D8B5632002652DF /* Claim.storyboard in Resources */,
+				A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +687,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A8A6E8901D92C4190085AF93 /* ShellScript */ = {
+		A8586FF91D9AEBD3002C2672 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -648,7 +698,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -658,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87F2B3F1D9470ED00E7A3AF /* EvidenceGroupedTableViewDelegate.swift in Sources */,
+				A8586FD81D9ADB1A002C2672 /* RegisterViewController.swift in Sources */,
 				A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */,
 				A8F544561D8EF9AB001A9268 /* EvidenceViewController.swift in Sources */,
 				A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */,
@@ -665,6 +716,7 @@
 				A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */,
 				A8C710311D85F85C00205144 /* EventTableViewDataSource.swift in Sources */,
 				A8E861E31D8C9095000FDA0E /* KDCircularProgress.swift in Sources */,
+				A8586FD71D9ADB1A002C2672 /* LogInViewController.swift in Sources */,
 				A8E73E2F1D7776690098FAC0 /* Claim.swift in Sources */,
 				A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */,
 				A8C710301D85F85C00205144 /* EventTableViewController.swift in Sources */,
@@ -762,14 +814,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A86F6B161D8B0F83002652DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A86F6B171D8B0F83002652DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -812,6 +856,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BiasBike-PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -861,6 +906,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BiasBike-PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -881,6 +927,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/BiasBike",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/BiasBike/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tiguer.BiasBike;
@@ -894,6 +945,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/BiasBike",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/BiasBike/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tiguer.BiasBike;
@@ -909,6 +965,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BiasBikeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tiguer.BiasBikeTests;
@@ -926,6 +986,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BiasBikeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tiguer.BiasBikeTests;

@@ -7,10 +7,32 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class ClaimController: ModelController<Claim> {
+final class ClaimController: ModelController {
     
-    static let sharedInstance = ClaimController.init(modelType: ModelType.Claim)
+    static let sharedInstance = ClaimController.init()
+    
+    func all() -> [Claim] {
+        let realm = try! Realm()
+        let items = realm.objects(Claim.self)
+        if items.count == 0 {
+            return [Claim]()
+        }
+        return Array(items)
+    }
+    
+    func find(key: String) -> Claim? {
+        return realm.object(ofType: Claim.self, forPrimaryKey: key)
+    }
+    
+    func update(item: Claim) {
+        DispatchQueue.global().async {
+            try! self.realm.write {
+                self.realm.add(item, update: true)
+            }
+        }
+    }
     
     func all(eventId: String) -> [Claim] {
         let items = all()
@@ -59,28 +81,28 @@ final class ClaimController: ModelController<Claim> {
         return hash
     }
     
-    override func loadDefault() {
+    func loadDefault() {
         let users = UserController.sharedInstance.all()
         var user = users.first!
         var events = EventController.sharedInstance.all(category: .World)
         var event: Event? = events.first
         let claimFactory = ClaimFactory()
         if let event = event {
-            let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", creationDate: Date(), url: "", eventId: event.eventId, userId: user.userId)
-            update(key: claim1.claimId, item: claim1)
-            let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", creationDate: Date(), url: "", eventId: event.eventId, userId: user.userId)
-            update(key: claim2.claimId, item: claim2)
-            let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", creationDate: Date(), url: "", eventId: event.eventId, userId: user.userId)
-            update(key: claim3.claimId, item: claim3)
+            let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", url: "", eventId: event.eventId, userId: user.userId)
+            update(item: claim1)
+            let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", url: "", eventId: event.eventId, userId: user.userId)
+            update(item: claim2)
+            let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", url: "", eventId: event.eventId, userId: user.userId)
+            update(item: claim3)
         }
         events = EventController.sharedInstance.all(category: .Sports)
         event = events.first
         user = users.last!
         if let event = event {
-            let claim4 = claimFactory.create(title: "Fabricated His Story", summary: "Your probablity: 60%", creationDate: Date(), url: "", eventId: event.eventId, userId: user.userId)
-            update(key: claim4.claimId, item: claim4)
-            let claim5 = claimFactory.create(title: "Robbed by Guards", summary: "Your probablity: 70%", creationDate: Date(), url: "", eventId: event.eventId, userId: user.userId)
-            update(key: claim5.claimId, item: claim5)
+            let claim4 = claimFactory.create(title: "Fabricated His Story", summary: "Your probablity: 60%", url: "", eventId: event.eventId, userId: user.userId)
+            update(item: claim4)
+            let claim5 = claimFactory.create(title: "Robbed by Guards", summary: "Your probablity: 70%", url: "", eventId: event.eventId, userId: user.userId)
+            update(item: claim5)
         }
     }
 }
