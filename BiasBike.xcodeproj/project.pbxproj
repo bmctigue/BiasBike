@@ -72,6 +72,8 @@
 		A8C7C30B1D8DFA67007C991F /* EvidenceTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3081D8DFA67007C991F /* EvidenceTableViewDataSource.swift */; };
 		A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */; };
 		A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */; };
+		A8D13C191D9D82D70072F334 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; };
+		A8D13C1A1D9D82DF0072F334 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
 		A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */; };
 		A8E39AA41D96E47A0075ADD9 /* UsersTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */; };
 		A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */; };
@@ -244,6 +246,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D13C1A1D9D82DF0072F334 /* RealmSwift.framework in Frameworks */,
+				A8D13C191D9D82D70072F334 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,8 +443,6 @@
 				A8E4D8771D74E9C000AFA1FE /* models */,
 				A8C710331D85FB0400205144 /* cells */,
 				A8E4D8761D74E9B300AFA1FE /* controllers */,
-				A8E4D8781D74E9CE00AFA1FE /* protocols */,
-				A8E4D8791D74E9DB00AFA1FE /* services */,
 				A8586FC91D9ADAD2002C2672 /* storyboards */,
 				A8E4D87B1D74E9FB00AFA1FE /* Supporting Files */,
 				A8E861E01D8C9095000FDA0E /* vendor */,
@@ -505,20 +507,6 @@
 				A81F47061D79CF910025F918 /* User.swift */,
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		A8E4D8781D74E9CE00AFA1FE /* protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = protocols;
-			sourceTree = "<group>";
-		};
-		A8E4D8791D74E9DB00AFA1FE /* services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = services;
 			sourceTree = "<group>";
 		};
 		A8E4D87B1D74E9FB00AFA1FE /* Supporting Files */ = {

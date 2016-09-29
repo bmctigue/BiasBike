@@ -18,32 +18,28 @@ class RelevanceRatingControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testRating  = ratingFactory.create(creationDate: Date(), rating: 10, modelId: "1", userId: "2") as? RelevanceRating
-        testRating2 = ratingFactory.create(creationDate: Date(), rating: 90, modelId: "1", userId: "2") as? RelevanceRating
+        testRating  = ratingFactory.create(rating: 10, modelId: "1", userId: "2") as? RelevanceRating
+        testRating2 = ratingFactory.create(rating: 90, modelId: "1", userId: "2") as? RelevanceRating
         RelevanceRatingController.sharedInstance.clear()
-        RelevanceRatingController.sharedInstance.save()
     }
     
     func testRatingInit() {
-        let Rating = ratingFactory.create(creationDate: Date(), rating: 10, modelId: "1", userId: "2")
+        let Rating = ratingFactory.create(rating: 10, modelId: "1", userId: "2")
         XCTAssertTrue(Rating.rating == 10)
     }
     
     func testClearRatings() {
-        RelevanceRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
+        RelevanceRatingController.sharedInstance.update(item: testRating!)
         RelevanceRatingController.sharedInstance.clear()
-        RelevanceRatingController.sharedInstance.save()
         ratings = RelevanceRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 0)
     }
     
     func testAddRating() {
-        RelevanceRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
-        RelevanceRatingController.sharedInstance.save()
+        RelevanceRatingController.sharedInstance.update(item: testRating!)
         ratings = RelevanceRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 1)
-        RelevanceRatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
-        RelevanceRatingController.sharedInstance.save()
+        RelevanceRatingController.sharedInstance.update(item: testRating2!)
         ratings = RelevanceRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 2)
     }

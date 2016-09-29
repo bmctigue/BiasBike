@@ -11,9 +11,9 @@ import XCTest
 
 class ModelControllerTests: XCTestCase {
     
-    func testLoadDefault() {
-        let modelController = ModelController<Event>.init(modelType:.Event)
-        modelController.loadDefault()
+    func testClear() {
+        let modelController = ModelController.init()
+        modelController.clear()
         XCTAssertTrue(true)
     }
     

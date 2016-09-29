@@ -11,46 +11,41 @@ import XCTest
 
 class UserControllerTests: XCTestCase {
     
-    var users: [User] = []
-    var testUser: User?
-    var testUser2: User?
+    var users: [BiasUser] = []
+    var testUser: BiasUser?
+    var testUser2: BiasUser?
     let userFactory: UserFactoryProtocol = UserFactory()
     
     override func setUp() {
         super.setUp()
-        testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "")
-        testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", creationDate: Date(), url: "")
+        testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", url: "")
+        testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", url: "")
         UserController.sharedInstance.clear()
-        UserController.sharedInstance.save()
     }
     
     func testUserInit() {
-        let user = userFactory.create(firstName: "Bruce", lastName: "Lee", creationDate: Date(), url: "")
+        let user = userFactory.create(firstName: "Bruce", lastName: "Lee", url: "")
         XCTAssertTrue(user.firstName == "Bruce")
     }
     
     func testClearUser() {
-        UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
+        UserController.sharedInstance.update(item: testUser!)
         UserController.sharedInstance.clear()
-        UserController.sharedInstance.save()
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 0)
     }
     
     func testAddUser() {
-        UserController.sharedInstance.update(key: testUser!.userId, item: testUser!)
-        UserController.sharedInstance.save()
+        UserController.sharedInstance.update(item: testUser!)
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 1)
-        UserController.sharedInstance.update(key: testUser2!.userId, item: testUser2!)
-        UserController.sharedInstance.save()
+        UserController.sharedInstance.update(item: testUser2!)
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 2)
     }
     
     func testLoadDefaultUsers() {
         UserController.sharedInstance.loadDefault()
-        UserController.sharedInstance.save()
         let users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 2)
     }

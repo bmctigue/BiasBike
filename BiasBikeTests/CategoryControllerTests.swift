@@ -22,7 +22,6 @@ class CategoryControllerTests: XCTestCase {
     func testFilteredCategoryTypes() {
         EventController.sharedInstance.clear()
         EventController.sharedInstance.loadDefault()
-        EventController.sharedInstance.save()
         let hash = EventController.sharedInstance.categoryHash()
         let categories = CategoryController().filteredCategoryTypes(categoryHash: hash)
         XCTAssertEqual(categories, [.World,.Sports,.Politics])

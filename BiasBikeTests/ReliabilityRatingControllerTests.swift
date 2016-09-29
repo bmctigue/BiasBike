@@ -18,32 +18,28 @@ class ReliabilityRatingControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        testRating = ratingFactory.create(creationDate: Date(), rating: 10, modelId: "1", userId: "2") as? ReliabilityRating
-        testRating2 = ratingFactory.create(creationDate: Date(), rating: 90, modelId: "1", userId: "2") as? ReliabilityRating
+        testRating = ratingFactory.create(rating: 10, modelId: "1", userId: "2") as? ReliabilityRating
+        testRating2 = ratingFactory.create(rating: 90, modelId: "1", userId: "2") as? ReliabilityRating
         ReliabilityRatingController.sharedInstance.clear()
-        ReliabilityRatingController.sharedInstance.save()
     }
     
     func testRatingInit() {
-        let Rating = ratingFactory.create(creationDate: Date(), rating: 10, modelId: "1", userId: "2")
+        let Rating = ratingFactory.create(rating: 10, modelId: "1", userId: "2")
         XCTAssertTrue(Rating.rating == 10)
     }
     
     func testClearRatings() {
-        ReliabilityRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
+        ReliabilityRatingController.sharedInstance.update(item: testRating!)
         ReliabilityRatingController.sharedInstance.clear()
-        ReliabilityRatingController.sharedInstance.save()
         ratings = ReliabilityRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 0)
     }
     
     func testAddRating() {
-        ReliabilityRatingController.sharedInstance.update(key: testRating!.ratingId, item: testRating!)
-        ReliabilityRatingController.sharedInstance.save()
+        ReliabilityRatingController.sharedInstance.update(item: testRating!)
         ratings = ReliabilityRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 1)
-        ReliabilityRatingController.sharedInstance.update(key: testRating2!.ratingId, item: testRating2!)
-        ReliabilityRatingController.sharedInstance.save()
+        ReliabilityRatingController.sharedInstance.update(item: testRating2!)
         ratings = ReliabilityRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 2)
     }

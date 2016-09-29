@@ -19,7 +19,6 @@ class ModelControllerUtilitiesTests: XCTestCase {
         ModelControllerUtilities().refreshAppData()
         let events = EventController.sharedInstance.all(category: .World)
         XCTAssertEqual(events.count, 1)
-
         XCTAssertTrue(true)
     }
     
@@ -39,7 +38,6 @@ class ModelControllerUtilitiesTests: XCTestCase {
         ModelControllerUtilities().loadAllModelControllers()
         ModelControllerUtilities().clearAllModelControllers()
         EventController.sharedInstance.loadDefault()
-        ModelControllerUtilities().saveAllModelControllers()
         let events = EventController.sharedInstance.all(category: .World)
         XCTAssertEqual(events.count, 1)
         XCTAssertTrue(true)
