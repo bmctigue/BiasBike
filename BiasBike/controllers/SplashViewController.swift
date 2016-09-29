@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SplashViewController: UIViewController {
     
@@ -32,18 +33,21 @@ class SplashViewController: UIViewController {
         }, completion: {
             (value: Bool) in
             let when = DispatchTime.now() + 1
-            DispatchQueue.main.asyncAfter(deadline: when){
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
+            DispatchQueue.main.asyncAfter(deadline: when) {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.window?.rootViewController = controller
-                
-                UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
-                    (value: Bool) in
+                if configureDefaultRealm() {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
                     appDelegate.window?.rootViewController = controller
-                })
+                    
+                    UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
+                        (value: Bool) in
+                        appDelegate.window?.rootViewController = controller
+                    })
+                } else {
+                    logIn(animated: false)
+                }
             }
-            
         })
     }
     

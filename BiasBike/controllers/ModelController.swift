@@ -18,10 +18,8 @@ class ModelController {
     }
     
     func clear() {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.deleteAll()
-            }
+        try! self.realm.write {
+            self.realm.deleteAll()
         }
     }
     

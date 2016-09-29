@@ -15,7 +15,6 @@ class RatingController: ModelController {
     static let sharedInstance = RatingController.init()
     
     func all() -> [Rating] {
-        let realm = try! Realm()
         let items = realm.objects(Rating.self)
         if items.count == 0 {
             return [Rating]()
@@ -28,10 +27,8 @@ class RatingController: ModelController {
     }
     
     func update(item: Rating) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

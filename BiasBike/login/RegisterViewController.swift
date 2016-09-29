@@ -53,15 +53,15 @@ class RegisterViewController: UIViewController {
             return
         }
 
-        dismiss(animated: true) {
+        dismiss(animated: true, completion: {
             self.completionHandler?(self.userNameTextField.text, self.passwordTextField.text, .Register)
-        }
+        })
     }
 
     @IBAction func cancel(sender: AnyObject?) {
-        dismiss(animated: true) {
+        dismiss(animated: true, completion: {
             self.completionHandler?(nil, nil, .Cancel)
-        }
+        })
     }
 
     private dynamic func updateUI() {

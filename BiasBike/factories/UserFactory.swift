@@ -15,6 +15,6 @@ protocol UserFactoryProtocol {
 
 struct UserFactory: UserFactoryProtocol {
     func create(firstName: String, lastName: String, url: String) -> BiasUser {
-        return BiasUser(value: [firstName: firstName, lastName: lastName, url: url])
+        return BiasUser(value: ["firstName": firstName, "lastName": lastName, "url": url])
     }
 }

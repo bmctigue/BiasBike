@@ -14,7 +14,6 @@ final class UserController: ModelController {
     static let sharedInstance = UserController.init()
     
     func all() -> [BiasUser] {
-        let realm = try! Realm()
         let items = realm.objects(BiasUser.self)
         if items.count == 0 {
             return [BiasUser]()
@@ -27,10 +26,8 @@ final class UserController: ModelController {
     }
     
     func update(item: BiasUser) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

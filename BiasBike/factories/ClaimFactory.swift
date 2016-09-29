@@ -14,6 +14,6 @@ protocol ClaimFactoryProtocol {
 
 struct ClaimFactory: ClaimFactoryProtocol {
     func create(title: String, summary: String, url: String, eventId: String, userId: String) -> Claim {
-        return Claim(value: [title: title, summary: summary, url: url, eventId: eventId, userId: userId])
+        return Claim(value: ["title": title, "summary": summary, "url": url, "eventId": eventId, "userId": userId])
     }
 }

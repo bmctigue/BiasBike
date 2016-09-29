@@ -15,7 +15,6 @@ final class ReliabilityRatingController: ModelController {
     static let sharedInstance = ReliabilityRatingController.init()
     
     func all() -> [ReliabilityRating] {
-        let realm = try! Realm()
         let items = realm.objects(ReliabilityRating.self)
         if items.count == 0 {
             return [ReliabilityRating]()
@@ -28,10 +27,8 @@ final class ReliabilityRatingController: ModelController {
     }
     
     func update(item: ReliabilityRating) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

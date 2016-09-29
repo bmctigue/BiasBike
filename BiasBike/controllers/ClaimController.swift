@@ -14,7 +14,6 @@ final class ClaimController: ModelController {
     static let sharedInstance = ClaimController.init()
     
     func all() -> [Claim] {
-        let realm = try! Realm()
         let items = realm.objects(Claim.self)
         if items.count == 0 {
             return [Claim]()
@@ -27,10 +26,8 @@ final class ClaimController: ModelController {
     }
     
     func update(item: Claim) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

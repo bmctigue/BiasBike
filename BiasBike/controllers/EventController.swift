@@ -14,7 +14,6 @@ final class EventController: ModelController {
     static let sharedInstance = EventController.init()
     
     func all() -> [Event] {
-        let realm = try! Realm()
         let items = realm.objects(Event.self)
         if items.count == 0 {
             return [Event]()
@@ -27,10 +26,8 @@ final class EventController: ModelController {
     }
     
     func update(item: Event) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

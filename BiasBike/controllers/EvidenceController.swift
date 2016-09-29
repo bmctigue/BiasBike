@@ -14,7 +14,6 @@ final class EvidenceController: ModelController {
     static let sharedInstance = EvidenceController.init()
     
     func all() -> [Evidence] {
-        let realm = try! Realm()
         let items = realm.objects(Evidence.self)
         if items.count == 0 {
             return [Evidence]()
@@ -27,10 +26,8 @@ final class EvidenceController: ModelController {
     }
     
     func update(item: Evidence) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

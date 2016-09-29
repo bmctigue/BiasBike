@@ -35,7 +35,6 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         userNameTextField.addTarget(self, action: #selector(updateUI), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(updateUI), for: .editingChanged)
-
         updateUI()
     }
 
@@ -43,16 +42,23 @@ class LogInViewController: UIViewController {
         guard userInputValid() else {
             return
         }
-
-        dismiss(animated: true) {
-            self.completionHandler?(self.userNameTextField.text, self.passwordTextField.text, .LogIn)
+        self.completionHandler?(self.userNameTextField.text, self.passwordTextField.text, .LogIn)
+    }
+    
+    @IBAction func register(sender: AnyObject?) {
+        let storyboard = UIStoryboard(name: "RealmSyncLogin", bundle: nil)
+        let viewController: RegisterViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        viewController.initialUserName = self.userNameTextField.text
+        viewController.completionHandler = { userName, password, returnCode in
+            if returnCode == .Register {
+                self.completionHandler?(userName, password, .Register)
+            }
         }
+        self.show(viewController, sender: nil)
     }
 
     @IBAction func cancel(sender: AnyObject?) {
-        dismiss(animated: true) {
-            self.completionHandler?(nil, nil, .Cancel)
-        }
+        self.completionHandler?(nil, nil, .Cancel)
     }
 
     private dynamic func updateUI() {
@@ -68,23 +74,6 @@ class LogInViewController: UIViewController {
         }
 
         return true
-    }
-
-}
-
-extension LogInViewController {
-
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destination as? RegisterViewController {
-            viewController.initialUserName = self.userNameTextField.text
-            viewController.completionHandler = { userName, password, returnCode in
-                if returnCode == .Register {
-                    self.dismiss(animated: true) {
-                        self.completionHandler?(userName, password, .Register)
-                    }
-                }
-            }
-        }
     }
 
 }

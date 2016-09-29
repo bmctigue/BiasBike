@@ -7,21 +7,66 @@
 //
 
 import Foundation
+import UIKit
 import RealmSwift
 
-private var realm: Realm! // FIXME: shouldn't have to hold on to the Realm here. https://github.com/realm/realm-sync/issues/694
+private var realm: Realm!
+
+func logIn(animated: Bool = true) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let loginStoryboard = UIStoryboard(name: "RealmSyncLogin", bundle: nil)
+    let logInViewController = loginStoryboard.instantiateInitialViewController() as! LogInViewController
+    logInViewController.completionHandler = { username, password, returnCode in
+        guard returnCode != .Cancel, let username = username, let password = password else {
+            // FIXME: handle cancellation properly or just restrict it
+            DispatchQueue.main.async {
+                logIn()
+            }
+            return
+        }
+        authenticate(username: username, password: password, register: returnCode == .Register) { error in
+            if let error = error {
+                presentError(error: error)
+            } else {
+                if UserController.sharedInstance.all().count == 0 {
+                    ModelControllerUtilities().loadAllModelControllers()
+                }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
+                appDelegate.window?.rootViewController = controller
+                
+                UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
+                    (value: Bool) in
+                    appDelegate.window?.rootViewController = controller
+                })
+            }
+        }
+    }
+    appDelegate.window?.rootViewController?.present(logInViewController, animated: false, completion: nil)
+    
+    UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
+        (value: Bool) in
+        appDelegate.window?.rootViewController = logInViewController
+    })
+}
+
+func presentError(error: NSError) {
+    let alertController = UIAlertController(title: error.localizedDescription,
+                                            message: error.localizedFailureReason ?? "",
+                                            preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Try Again", style: .default) { _ in
+        logIn()
+    })
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+}
 
 private func setDefaultRealmConfigurationWithUser(user: User) {
-    
     Realm.Configuration.defaultConfiguration = Realm.Configuration()
     Realm.Configuration.defaultConfiguration.syncConfiguration = (user, Constants.syncServerURL! as URL)
     realm = try! Realm()
-    
 }
 
-// Internal Functions
-
-// returns true on success
 func configureDefaultRealm() -> Bool {
     if let user = User.all().first {
         setDefaultRealmConfigurationWithUser(user: user)
@@ -31,18 +76,14 @@ func configureDefaultRealm() -> Bool {
 }
 
 func authenticate(username: String, password: String, register: Bool, callback: @escaping (NSError?) -> ()) {
-    User.authenticate(with: .usernamePassword(username: username, password: password, actions: register ? [.createAccount] : []), server: Constants.syncAuthURL as URL, onCompletion: { user, error in
+    let actions: AuthenticationActions = register ? [.createAccount] : []
+    let credential = Credential.usernamePassword(username: username, password: password, actions: actions)
+    User.authenticate(with: credential, server: Constants.syncAuthURL as URL, onCompletion: { user, error in
         if let user = user {
             setDefaultRealmConfigurationWithUser(user: user)
         }
-        
         if let error = error {
-            let httpError = error as! SyncError
-            if httpError.code == SyncError.httpStatusCodeError && httpError.errorCode == 400 {
-                // FIXME: workararound for https://github.com/realm/realm-cocoa-private/issues/204
-                // Note: "account not found" and "wrong password" have the same error code, so will show general error message for now
-                callback(NSError(error: error as NSError, description: "Incorrect username or password.", recoverySuggestion: "Please check username and password or register a new account."))
-            }
+            callback(NSError(error: error as NSError, description: error.localizedDescription, recoverySuggestion: "Please check username and password or register a new account."))
         } else {
             callback(error as NSError?)
         }

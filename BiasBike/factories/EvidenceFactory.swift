@@ -14,6 +14,6 @@ protocol EvidenceFactoryProtocol {
 
 struct EvidenceFactory: EvidenceFactoryProtocol {
     func create(title: String, summary: String, url: String, claimId: String, userId: String) -> Evidence {
-        return Evidence(value: [title: title, summary: summary, url: url, claimId: claimId, userId: userId])
+        return Evidence(value: ["title": title, "summary": summary, "url": url, "claimId": claimId, "userId": userId])
     }
 }

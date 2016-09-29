@@ -14,6 +14,6 @@ protocol EventFactoryProtocol {
 
 struct EventFactory: EventFactoryProtocol {
     func create(title: String, summary: String, url: String, photoUrl: String, category: String) -> Event {
-        return Event(value: [title: title, summary: summary, url: url, photoUrl: photoUrl, category: category])
+        return Event(value: ["title": title, "summary": summary, "url": url, "photoUrl": photoUrl, "category": category])
     }
 }

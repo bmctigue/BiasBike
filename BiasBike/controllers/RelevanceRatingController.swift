@@ -15,7 +15,6 @@ final class RelevanceRatingController: ModelController {
     static let sharedInstance = RelevanceRatingController.init()
     
     func all() -> [RelevanceRating] {
-        let realm = try! Realm()
         let items = realm.objects(RelevanceRating.self)
         if items.count == 0 {
             return [RelevanceRating]()
@@ -28,10 +27,8 @@ final class RelevanceRatingController: ModelController {
     }
     
     func update(item: RelevanceRating) {
-        DispatchQueue.global().async {
-            try! self.realm.write {
-                self.realm.add(item, update: true)
-            }
+        try! self.realm.write {
+            self.realm.add(item, update: true)
         }
     }
     

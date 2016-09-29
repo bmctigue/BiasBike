@@ -12,7 +12,7 @@ class UsersTableViewController: UITableViewController {
 
     private(set) var tableViewDataSource: UsersTableViewDataSource?
     private(set) var tableViewDelegate: UsersTableViewDelegate?
-    var users: [User] = []
+    var users: [BiasUser] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

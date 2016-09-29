@@ -23,12 +23,12 @@
                                     <navigationItem title="Sign In" id="ChH-pA-bA5">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ff3-z7-QlM">
                                             <connections>
-                                                <action selector="cancel:" destination="rJr-HE-H8k" id="H5b-Wf-asr"/>
+                                                <action selector="cancelWithSender:" destination="rJr-HE-H8k" id="pmt-aK-GEL"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Register" id="tGb-WQ-ACr">
                                             <connections>
-                                                <segue destination="exZ-BH-3tP" kind="presentation" id="k1W-9f-frD"/>
+                                                <action selector="registerWithSender:" destination="rJr-HE-H8k" id="0my-bl-mVY"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -57,7 +57,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8X-f5-PQg">
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <action selector="logIn:" destination="rJr-HE-H8k" eventType="touchUpInside" id="btr-ar-zOd"/>
+                                    <action selector="logInSender:" destination="rJr-HE-H8k" eventType="touchUpInside" id="pHP-HL-f2o"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-270" y="62"/>
         </scene>
-        <!--Register View Controller-->
+        <!--RegisterViewController-->
         <scene sceneID="3hS-eC-kMa">
             <objects>
-                <viewController id="exZ-BH-3tP" customClass="RegisterViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" title="RegisterViewController" id="exZ-BH-3tP" customClass="RegisterViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mof-3i-Jm3"/>
                         <viewControllerLayoutGuide type="bottom" id="Fm9-HK-a89"/>
@@ -110,7 +110,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZI-xO-NuZ">
                                 <state key="normal" title="Register &amp; Log In"/>
                                 <connections>
-                                    <action selector="register:" destination="exZ-BH-3tP" eventType="touchUpInside" id="Sdr-IE-tY8"/>
+                                    <action selector="registerWithSender:" destination="exZ-BH-3tP" eventType="touchUpInside" id="VG2-Hw-hH1"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpn-FI-L4m">
@@ -132,7 +132,7 @@
                                     <navigationItem title="Register" id="U0X-mK-a8N">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="7Ac-0B-jKL">
                                             <connections>
-                                                <action selector="cancel:" destination="exZ-BH-3tP" id="CDT-zH-O0A"/>
+                                                <action selector="cancelWithSender:" destination="exZ-BH-3tP" id="hcc-do-1pB"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

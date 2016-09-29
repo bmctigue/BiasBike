@@ -14,18 +14,18 @@ protocol RatingFactoryProtocol {
 
 struct RatingFactory: RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating {
-        return Rating(value: [rating: rating, modelId: modelId, userId: userId])
+        return Rating(value: ["rating": rating, "modelId": modelId, "userId": userId])
     }
 }
 
 struct RelevanceRatingFactory: RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating {
-        return RelevanceRating(value: [rating: rating, modelId: modelId, userId: userId])
+        return RelevanceRating(value: ["rating": rating, "modelId": modelId, "userId": userId])
     }
 }
 
 struct ReliabilityRatingFactory: RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating {
-        return ReliabilityRating(value: [rating: rating, modelId: modelId, userId: userId])
+        return ReliabilityRating(value: ["rating": rating, "modelId": modelId, "userId": userId])
     }
 }
