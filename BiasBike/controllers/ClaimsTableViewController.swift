@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
+    
+    let realm: Realm = try! Realm()
+    var notificationToken: NotificationToken? = nil
 
     private(set) var tableViewDataSource: ClaimsTableViewDataSource?
     private(set) var tableViewDelegate: ClaimsTableViewDelegate?
@@ -32,10 +36,11 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
 
         self.tableViewDataSource = ClaimsTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, claimsTableViewController: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        notificationToken = realm.addNotificationBlock { notification, realm in
+            self.refreshData()
+        }
+        
         refreshData()
     }
 
@@ -56,6 +61,11 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
         let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
         controller.claim = claim
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        notificationToken?.stop()
     }
 
 }

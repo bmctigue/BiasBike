@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class UsersTableViewController: UITableViewController {
+    
+    let realm: Realm = try! Realm()
+    var notificationToken: NotificationToken? = nil
 
     private(set) var tableViewDataSource: UsersTableViewDataSource?
     private(set) var tableViewDelegate: UsersTableViewDelegate?
@@ -26,10 +30,11 @@ class UsersTableViewController: UITableViewController {
 
         self.tableViewDataSource = UsersTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = UsersTableViewDelegate(tableView: tableView, usersTableViewController: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        notificationToken = realm.addNotificationBlock { notification, realm in
+            self.refreshData()
+        }
+        
         refreshData()
     }
 
@@ -43,5 +48,10 @@ class UsersTableViewController: UITableViewController {
         self.tableViewDataSource?.updateDataSource(users: users)
         self.tableViewDelegate?.updateDataSource(users: users)
         self.tableView.reloadData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        notificationToken?.stop()
     }
 }

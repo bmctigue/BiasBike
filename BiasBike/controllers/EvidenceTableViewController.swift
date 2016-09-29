@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
+    
+    let realm: Realm = try! Realm()
+    var notificationToken: NotificationToken? = nil
 
     private(set) var tableViewDataSource: EvidenceTableViewDataSource?
     private(set) var tableViewDelegate: EvidenceTableViewDelegate?
@@ -31,10 +35,11 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
 
         self.tableViewDataSource = EvidenceTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EvidenceTableViewDelegate(tableView: tableView, evidenceTableViewController: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        notificationToken = realm.addNotificationBlock { notification, realm in
+            self.refreshData()
+        }
+        
         refreshData()
     }
 
@@ -71,6 +76,11 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
         let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
         controller.evidence = evidence
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        notificationToken?.stop()
     }
 
 }

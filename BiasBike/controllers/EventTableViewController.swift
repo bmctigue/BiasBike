@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EventTableViewController: UITableViewController {
+    
+    let realm: Realm = try! Realm()
+    var notificationToken: NotificationToken? = nil
 
     @IBOutlet weak var titleLabel: UILabel!
 
@@ -34,10 +38,11 @@ class EventTableViewController: UITableViewController {
 
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, eventTableViewController: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        notificationToken = realm.addNotificationBlock { notification, realm in
+            self.refreshData()
+        }
+        
         refreshData()
     }
 
@@ -66,5 +71,10 @@ class EventTableViewController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        notificationToken?.stop()
     }
 }
