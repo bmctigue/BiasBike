@@ -34,20 +34,24 @@ class SplashViewController: UIViewController {
             (value: Bool) in
             let when = DispatchTime.now() + 1
             DispatchQueue.main.asyncAfter(deadline: when) {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 if configureDefaultRealm() {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
-                    appDelegate.window?.rootViewController = controller
-                    
-                    UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
-                        (value: Bool) in
-                        appDelegate.window?.rootViewController = controller
-                    })
+                    self.openMainView()
                 } else {
                     logIn(animated: false)
                 }
             }
+        })
+    }
+    
+    private func openMainView() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
+        appDelegate.window?.rootViewController = controller
+        
+        UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
+            (value: Bool) in
+            appDelegate.window?.rootViewController = controller
         })
     }
     
