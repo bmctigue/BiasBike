@@ -29,5 +29,6 @@ struct ModelControllerUtilities {
         EventController.sharedInstance.loadDefault()
         ClaimController.sharedInstance.loadDefault()
         EvidenceController.sharedInstance.loadDefault()
+        FallacyController.sharedInstance.loadDefault()
     }
 }

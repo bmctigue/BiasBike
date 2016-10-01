@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A807DB011DA00A4100FBC077 /* Fallacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB001DA00A4100FBC077 /* Fallacy.swift */; };
+		A807DB041DA00B0300FBC077 /* FallacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB031DA00B0300FBC077 /* FallacyController.swift */; };
+		A807DB061DA00C0200FBC077 /* FallacyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB051DA00C0200FBC077 /* FallacyFactory.swift */; };
+		A807DB091DA0148900FBC077 /* DemoImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A807DB081DA0148900FBC077 /* DemoImages.xcassets */; };
+		A807DB0B1DA014CC00FBC077 /* FallacIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A807DB0A1DA014CC00FBC077 /* FallacIcons.xcassets */; };
 		A81F47071D79CF910025F918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47061D79CF910025F918 /* User.swift */; };
 		A81F47091D79D1630025F918 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47081D79D1630025F918 /* UserController.swift */; };
 		A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F470A1D79D3880025F918 /* UserControllerTests.swift */; };
@@ -35,7 +40,6 @@
 		A8586FF51D9AE7B2002C2672 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8586FF61D9AE7B2002C2672 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
 		A8586FF71D9AE7B2002C2672 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86786061D87258E00D1A46B /* DemoImages.xcassets */; };
 		A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */; };
 		A86F6B141D8AFB8D002652DF /* CategoriesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B111D8AFB8D002652DF /* CategoriesTableViewDataSource.swift */; };
 		A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */; };
@@ -134,6 +138,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A807DB001DA00A4100FBC077 /* Fallacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fallacy.swift; sourceTree = "<group>"; };
+		A807DB031DA00B0300FBC077 /* FallacyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyController.swift; sourceTree = "<group>"; };
+		A807DB051DA00C0200FBC077 /* FallacyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyFactory.swift; sourceTree = "<group>"; };
+		A807DB081DA0148900FBC077 /* DemoImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DemoImages.xcassets; sourceTree = "<group>"; };
+		A807DB0A1DA014CC00FBC077 /* FallacIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FallacIcons.xcassets; sourceTree = "<group>"; };
 		A81F47061D79CF910025F918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A81F47081D79D1630025F918 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		A81F470A1D79D3880025F918 /* UserControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserControllerTests.swift; sourceTree = "<group>"; };
@@ -161,7 +170,6 @@
 		A8586FF01D9AE7A8002C2672 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A8586FFA1D9B0B3F002C2672 /* BiasBike-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BiasBike-PrefixHeader.pch"; sourceTree = "<group>"; };
-		A86786061D87258E00D1A46B /* DemoImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DemoImages.xcassets; sourceTree = "<group>"; };
 		A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		A86F6B111D8AFB8D002652DF /* CategoriesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDataSource.swift; sourceTree = "<group>"; };
 		A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -261,12 +269,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A807DB021DA00AEC00FBC077 /* Fallacy */ = {
+			isa = PBXGroup;
+			children = (
+				A807DB031DA00B0300FBC077 /* FallacyController.swift */,
+			);
+			name = Fallacy;
+			sourceTree = "<group>";
+		};
+		A807DB071DA0148900FBC077 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				A807DB081DA0148900FBC077 /* DemoImages.xcassets */,
+				A807DB0A1DA014CC00FBC077 /* FallacIcons.xcassets */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		A828D4881D7E0830001FE199 /* factories */ = {
 			isa = PBXGroup;
 			children = (
 				A828D48B1D7E0CB2001FE199 /* ClaimFactory.swift */,
 				A828D4891D7E084F001FE199 /* EventFactory.swift */,
 				A8E9A6041D7E0F0400BB8C8F /* EvidenceFactory.swift */,
+				A807DB051DA00C0200FBC077 /* FallacyFactory.swift */,
 				A83041C71D91893E0084EDEA /* RatingFactory.swift */,
 				A83FA6F71D7E113200B9BD0C /* UserFactory.swift */,
 			);
@@ -437,6 +463,7 @@
 				A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */,
 				A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */,
 				A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */,
+				A807DB071DA0148900FBC077 /* assets */,
 				A828D4881D7E0830001FE199 /* factories */,
 				A86F6B191D8B2E95002652DF /* lib */,
 				A8586FD41D9ADB1A002C2672 /* login */,
@@ -489,6 +516,7 @@
 				A86F6B1C1D8B4996002652DF /* Claim */,
 				A83836811D8A15BE0057BFC3 /* Event */,
 				A8C7C3061D8DF9F0007C991F /* Evidence */,
+				A807DB021DA00AEC00FBC077 /* Fallacy */,
 				A8C820A71D94267E00FE92D3 /* Splash */,
 				A8F544591D8F3FD6001A9268 /* Rating */,
 				A8C820A81D94269000FE92D3 /* User */,
@@ -503,6 +531,7 @@
 				A8E73E2E1D7776690098FAC0 /* Claim.swift */,
 				A8BD6AB91D75E3BF004FA825 /* Event.swift */,
 				A8965F2D1D787E4300349EC1 /* Evidence.swift */,
+				A807DB001DA00A4100FBC077 /* Fallacy.swift */,
 				A850598D1D90A3640008D5F3 /* Rating.swift */,
 				A81F47061D79CF910025F918 /* User.swift */,
 			);
@@ -514,7 +543,6 @@
 			children = (
 				A8E4D8801D74EA3700AFA1FE /* Info.plist */,
 				A889A1EF1D9C697200178DEB /* BiasBike.entitlements */,
-				A86786061D87258E00D1A46B /* DemoImages.xcassets */,
 				A8586FFA1D9B0B3F002C2672 /* BiasBike-PrefixHeader.pch */,
 			);
 			path = "Supporting Files";
@@ -666,6 +694,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A807DB091DA0148900FBC077 /* DemoImages.xcassets in Resources */,
+				A807DB0B1DA014CC00FBC077 /* FallacIcons.xcassets in Resources */,
 				A8E4D8531D74E56900AFA1FE /* LaunchScreen.storyboard in Resources */,
 				A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */,
 				A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */,
@@ -673,7 +703,6 @@
 				A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */,
 				A8586FD11D9ADAD2002C2672 /* Modals.storyboard in Resources */,
 				A8A3BCFF1D9C342C002F5A67 /* Main.storyboard in Resources */,
-				A86786071D87258E00D1A46B /* DemoImages.xcassets in Resources */,
 				A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -745,6 +774,7 @@
 				A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */,
 				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
+				A807DB011DA00A4100FBC077 /* Fallacy.swift in Sources */,
 				A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */,
 				A86F6B251D8B5EA2002652DF /* ClaimTableViewDataSource.swift in Sources */,
 				A8C710351D85FB4300205144 /* EventCell.swift in Sources */,
@@ -752,6 +782,7 @@
 				A828D48C1D7E0CB2001FE199 /* ClaimFactory.swift in Sources */,
 				A83041C81D91893E0084EDEA /* RatingFactory.swift in Sources */,
 				A8E39AA41D96E47A0075ADD9 /* UsersTableViewDataSource.swift in Sources */,
+				A807DB061DA00C0200FBC077 /* FallacyFactory.swift in Sources */,
 				A8E4D8471D74E56900AFA1FE /* AppDelegate.swift in Sources */,
 				A8C538E71D8B94950082A3B2 /* ModelControllerUtilities.swift in Sources */,
 				A8C710371D8616F900205144 /* EventHeaderCell.swift in Sources */,
@@ -762,6 +793,7 @@
 				A828D48A1D7E084F001FE199 /* EventFactory.swift in Sources */,
 				A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */,
 				A87F2B3E1D9470ED00E7A3AF /* EvidenceGroupedTableViewDataSource.swift in Sources */,
+				A807DB041DA00B0300FBC077 /* FallacyController.swift in Sources */,
 				A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */,
 				A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */,
 				A8BD6AB81D75E249004FA825 /* Category.swift in Sources */,

@@ -31,14 +31,7 @@ func logIn(animated: Bool = true) {
                 if UserController.sharedInstance.all().count == 0 {
                     ModelControllerUtilities().loadAllModelControllers()
                 }
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
-                appDelegate.window?.rootViewController = controller
-                
-                UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
-                    (value: Bool) in
-                    appDelegate.window?.rootViewController = controller
-                })
+                loadMainView()
             }
         }
     }
@@ -47,6 +40,18 @@ func logIn(animated: Bool = true) {
     UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
         (value: Bool) in
         appDelegate.window?.rootViewController = logInViewController
+    })
+}
+
+func loadMainView() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
+    appDelegate.window?.rootViewController = controller
+    
+    UIView.transition(with: appDelegate.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {}, completion: {
+        (value: Bool) in
+        appDelegate.window?.rootViewController = controller
     })
 }
 
@@ -62,8 +67,11 @@ func presentError(error: NSError) {
 }
 
 private func setDefaultRealmConfigurationWithUser(user: User) {
-    Realm.Configuration.defaultConfiguration = Realm.Configuration()
-    Realm.Configuration.defaultConfiguration.syncConfiguration = (user, Constants.syncServerURL! as URL)
+    var config = Realm.Configuration()
+    config.syncConfiguration = (user, Constants.syncServerURL! as URL)
+    config.deleteRealmIfMigrationNeeded = true
+    Realm.Configuration.defaultConfiguration = config
+    
     realm = try! Realm()
 }
 
