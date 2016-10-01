@@ -215,7 +215,7 @@
 		A8E4AC721D848D61007F7C31 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		A8E4D8431D74E56900AFA1FE /* BiasBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiasBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A8E4D8521D74E56900AFA1FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8E4D8591D74E56A00AFA1FE /* BiasBikeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiasBikeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E4D85F1D74E56A00AFA1FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -282,6 +282,7 @@
 		A807DB071DA0148900FBC077 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */,
 				A807DB081DA0148900FBC077 /* DemoImages.xcassets */,
 				A807DB0A1DA014CC00FBC077 /* FallacIcons.xcassets */,
 			);
@@ -326,6 +327,7 @@
 		A8586FC91D9ADAD2002C2672 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */,
 				A8A3BCFE1D9C342C002F5A67 /* Main.storyboard */,
 				A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */,
 				A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */,
@@ -463,8 +465,6 @@
 			isa = PBXGroup;
 			children = (
 				A8E4D8461D74E56900AFA1FE /* AppDelegate.swift */,
-				A8E4D84F1D74E56900AFA1FE /* Assets.xcassets */,
-				A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */,
 				A807DB071DA0148900FBC077 /* assets */,
 				A828D4881D7E0830001FE199 /* factories */,
 				A86F6B191D8B2E95002652DF /* lib */,
@@ -867,6 +867,7 @@
 				A8E4D8521D74E56900AFA1FE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
