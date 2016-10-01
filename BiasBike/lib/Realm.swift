@@ -69,7 +69,6 @@ func presentError(error: NSError) {
 private func setDefaultRealmConfigurationWithUser(user: User) {
     var config = Realm.Configuration()
     config.syncConfiguration = (user, Constants.syncServerURL! as URL)
-    config.deleteRealmIfMigrationNeeded = true
     Realm.Configuration.defaultConfiguration = config
     
     realm = try! Realm()
