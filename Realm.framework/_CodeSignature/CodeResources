@@ -4,17 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>56382DA2-438F-3736-BD76-1F6D2D7D9CCF.bcsymbolmap</key>
+		<key>5EDD7CD4-C0C8-375C-8C23-6C986299A2F6.bcsymbolmap</key>
 		<data>
 		Q9UwdyGQkbJYgrb3wf/R/kZBIEY=
 		</data>
-		<key>9F7FECD3-9021-3A11-A0CB-D4DAD6A3706C.bcsymbolmap</key>
+		<key>C6FF5603-BA1E-3C7C-B4FB-A67853B1F8BB.bcsymbolmap</key>
 		<data>
 		o4cylzYLao26CZxcjlI45KunTDk=
 		</data>
 		<key>CHANGELOG.md</key>
 		<data>
-		5vEedwLxyWfaiSVLOD/ZK087UPU=
+		mar8r77nvIU32g/D0Wd8S6U1D2A=
 		</data>
 		<key>Headers/RLMArray.h</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GTxN+EGK6uYnpeePMuUuFPpj8eo=
+		wXt9Sz45qUOqBChaDug2y9Lwm3s=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -231,7 +231,7 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>56382DA2-438F-3736-BD76-1F6D2D7D9CCF.bcsymbolmap</key>
+		<key>5EDD7CD4-C0C8-375C-8C23-6C986299A2F6.bcsymbolmap</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -242,7 +242,7 @@
 			s2KVfgsukiH0Wx4W0o9M4nSTsjvu/n8nyAKPPsBOFvk=
 			</data>
 		</dict>
-		<key>9F7FECD3-9021-3A11-A0CB-D4DAD6A3706C.bcsymbolmap</key>
+		<key>C6FF5603-BA1E-3C7C-B4FB-A67853B1F8BB.bcsymbolmap</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -257,11 +257,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5vEedwLxyWfaiSVLOD/ZK087UPU=
+			mar8r77nvIU32g/D0Wd8S6U1D2A=
 			</data>
 			<key>hash2</key>
 			<data>
-			ONqTsmc93q5lJt0dfMkORUSv8YWNKBcahi76gzRegGY=
+			G/en9v/CJSKCJQhNNHW9A000NkLmNctnlWw28LSoOY0=
 			</data>
 		</dict>
 		<key>Headers/RLMArray.h</key>
