@@ -44,6 +44,12 @@ class EventControllerTests: XCTestCase {
         XCTAssertTrue(events.count == 2)
     }
     
+    func testFindEvent() {
+        EventController.sharedInstance.update(item: testEvent!)
+        let foundEvent = EventController.sharedInstance.find(key: (testEvent?.eventId)!)
+        XCTAssertTrue(foundEvent?.title == "Test")
+    }
+    
     func testLoadDefaultEvents() {
         EventController.sharedInstance.loadDefault()
         events = EventController.sharedInstance.all()

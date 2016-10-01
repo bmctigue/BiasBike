@@ -32,10 +32,6 @@ final class RelevanceRatingController: ModelController {
         }
     }
     
-    func save(item: RelevanceRating) {
-        update(item: item)
-    }
-    
     func all(modelId: String) -> [RelevanceRating] {
         let items = all()
         return items.filter{$0.modelId == modelId}

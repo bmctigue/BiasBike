@@ -32,10 +32,6 @@ final class ReliabilityRatingController: ModelController {
         }
     }
     
-    func save(item: ReliabilityRating) {
-        update(item: item)
-    }
-    
     func all(modelId: String) -> [ReliabilityRating] {
         let items = all()
         return items.filter{$0.modelId == modelId}

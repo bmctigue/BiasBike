@@ -14,12 +14,17 @@ class UserControllerTests: XCTestCase {
     var users: [BiasUser] = []
     var testUser: BiasUser?
     var testUser2: BiasUser?
+    var testRating: Rating?
+    var testRating2: Rating?
     let userFactory: UserFactoryProtocol = UserFactory()
+    let ratingFactory: RatingFactoryProtocol = RatingFactory()
     
     override func setUp() {
         super.setUp()
         testUser = userFactory.create(firstName: "Bruce", lastName: "Lee", url: "")
         testUser2 = userFactory.create(firstName: "Tom", lastName: "Slick", url: "")
+        testRating = ratingFactory.create(rating: 10, modelId: "1", userId: (testUser?.userId)!)
+        testRating2 = ratingFactory.create(rating: 90, modelId: "1", userId: (testUser2?.userId)!)
         UserController.sharedInstance.clear()
     }
     
@@ -42,6 +47,34 @@ class UserControllerTests: XCTestCase {
         UserController.sharedInstance.update(item: testUser2!)
         users = UserController.sharedInstance.all()
         XCTAssertTrue(users.count == 2)
+    }
+    
+    func testFindUser() {
+        UserController.sharedInstance.update(item: testUser!)
+        let foundUser = UserController.sharedInstance.find(key: (testUser?.userId)!)
+        XCTAssertEqual(foundUser?.firstName, "Bruce")
+    }
+    
+    func testUserRatingsHash() {
+        UserController.sharedInstance.update(item: testUser!)
+        UserController.sharedInstance.update(item: testUser2!)
+        RatingController.sharedInstance.update(item: testRating!)
+        RatingController.sharedInstance.update(item: testRating2!)
+        users = UserController.sharedInstance.all()
+        let hash = UserController.sharedInstance.userRatingsHash()
+        XCTAssertEqual(Array(hash.keys).count, 2)
+    }
+    
+    func testUserAggRatingsHash() {
+        UserController.sharedInstance.update(item: testUser!)
+        UserController.sharedInstance.update(item: testUser2!)
+        RatingController.sharedInstance.update(item: testRating!)
+        RatingController.sharedInstance.update(item: testRating2!)
+        RatingController.sharedInstance.update(item: testRating!)
+        RatingController.sharedInstance.update(item: testRating2!)
+        users = UserController.sharedInstance.all()
+        let hash = UserController.sharedInstance.userAggRatingsHash()
+        XCTAssertEqual(Array(hash.keys).count, 2)
     }
     
     func testLoadDefaultUsers() {

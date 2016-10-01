@@ -150,4 +150,16 @@ class EvidenceControllerTests: XCTestCase {
         XCTAssertTrue(items.count == 2)
     }
     
+    func testFindEvidence() {
+        EvidenceController.sharedInstance.update(item: testEvidence!)
+        let foundEvidence = EvidenceController.sharedInstance.find(key: (testEvidence?.evidenceId)!)
+        XCTAssertTrue(foundEvidence?.title == "Wing Debris")
+    }
+    
+    func testFindEvidenceForUser() {
+        EvidenceController.sharedInstance.update(item: testEvidence!)
+        items = EvidenceController.sharedInstance.all(userId: (testUser?.userId)!)
+        XCTAssertTrue(items.count == 1)
+    }
+    
 }

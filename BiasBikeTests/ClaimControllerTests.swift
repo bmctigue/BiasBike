@@ -88,4 +88,10 @@ class ClaimControllerTests: XCTestCase {
         XCTAssertTrue(claims.count == 2)
     }
     
+    func testFindClaim() {
+        ClaimController.sharedInstance.update(item: testClaim!)
+        let foundClaim = ClaimController.sharedInstance.find(key: (testClaim?.claimId)!)
+        XCTAssertTrue(foundClaim?.title == "The Plane Crashed")
+    }
+    
 }

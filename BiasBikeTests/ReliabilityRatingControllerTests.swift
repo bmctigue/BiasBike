@@ -43,4 +43,16 @@ class ReliabilityRatingControllerTests: XCTestCase {
         ratings = ReliabilityRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 2)
     }
+    
+    func testFindRating() {
+        ReliabilityRatingController.sharedInstance.update(item: testRating!)
+        let foundRating = ReliabilityRatingController.sharedInstance.find(key: (testRating?.ratingId)!)
+        XCTAssertEqual(foundRating?.rating, 10)
+    }
+    
+    func testFindRatingForUser() {
+        ReliabilityRatingController.sharedInstance.update(item: testRating!)
+        ratings = ReliabilityRatingController.sharedInstance.all(userId: "2")
+        XCTAssertTrue(ratings.count == 1)
+    }
 }

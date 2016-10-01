@@ -44,6 +44,18 @@ class RatingControllerTests: XCTestCase {
         XCTAssertTrue(ratings.count == 2)
     }
     
+    func testFindRating() {
+        RatingController.sharedInstance.update(item: testRating!)
+        let foundRating = RatingController.sharedInstance.find(key: (testRating?.ratingId)!)
+        XCTAssertEqual(foundRating?.rating, 10)
+    }
+    
+    func testFindRatingForUser() {
+        RatingController.sharedInstance.update(item: testRating!)
+        ratings = RatingController.sharedInstance.all(userId: "2")
+        XCTAssertTrue(ratings.count == 1)
+    }
+    
     func testAverageRatingNoRatings() {
         let ratings = RatingController.sharedInstance.all(modelId: "1")
         let avg = RatingController.sharedInstance.averageRating(ratings: ratings)
