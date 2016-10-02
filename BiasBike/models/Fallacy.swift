@@ -9,12 +9,6 @@
 import Foundation
 import RealmSwift
 
-enum FallacIcons: String {
-    case AnonymousAuthority = "olderman"
-    case Anger = "angry"
-    case Authority = "police"
-}
-
 final class Fallacy: Object {
     dynamic var fallacyId: String = NSUUID().uuidString
     dynamic var title: String = ""
@@ -33,3 +27,4 @@ final class Fallacy: Object {
     }
     
 }
+

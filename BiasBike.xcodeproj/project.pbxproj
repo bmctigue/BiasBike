@@ -29,6 +29,7 @@
 		A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */; };
 		A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
+		A84E79361DA1B77400EBF3FB /* FallacIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E79351DA1B77400EBF3FB /* FallacIcon.swift */; };
 		A850598E1D90A3640008D5F3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850598D1D90A3640008D5F3 /* Rating.swift */; };
 		A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */; };
 		A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */; };
@@ -161,6 +162,7 @@
 		A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryControllerTests.swift; sourceTree = "<group>"; };
 		A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		A84E79351DA1B77400EBF3FB /* FallacIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacIcon.swift; sourceTree = "<group>"; };
 		A850598D1D90A3640008D5F3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Claim.storyboard; sourceTree = "<group>"; };
 		A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Evidence.storyboard; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				A8E73E2E1D7776690098FAC0 /* Claim.swift */,
 				A8BD6AB91D75E3BF004FA825 /* Event.swift */,
 				A8965F2D1D787E4300349EC1 /* Evidence.swift */,
+				A84E79351DA1B77400EBF3FB /* FallacIcon.swift */,
 				A807DB001DA00A4100FBC077 /* Fallacy.swift */,
 				A850598D1D90A3640008D5F3 /* Rating.swift */,
 				A81F47061D79CF910025F918 /* User.swift */,
@@ -774,6 +777,7 @@
 				A8C7C30A1D8DFA67007C991F /* EvidenceTableViewController.swift in Sources */,
 				A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
+				A84E79361DA1B77400EBF3FB /* FallacIcon.swift in Sources */,
 				A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */,
 				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,

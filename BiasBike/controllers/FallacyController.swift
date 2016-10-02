@@ -33,11 +33,11 @@ final class FallacyController: ModelController {
     
     func loadDefault() {
         let fallacyFactory = FallacyFactory()
-        let fallacy1 = fallacyFactory.create(title: "Anonymous Authority", summary: "An argument's proponent justifies it by appeal to an unidentified authority.", example: "Experts say that gluten is bad for you: hence, I should avoid gluten.", url: "", icon: FallacIcons.AnonymousAuthority.rawValue)
+        let fallacy1 = fallacyFactory.create(title: FallacIcons.AnonymousAuthority.title, summary: FallacIcons.AnonymousAuthority.summary, example: FallacIcons.AnonymousAuthority.example, url: "", icon: FallacIcons.AnonymousAuthority.icon)
         update(item: fallacy1)
-        let fallacy2 = fallacyFactory.create(title: "Appeal to Anger", summary: "Attacking an opponent's argument on the grounds that it angers you or your audience.", example: "", url: "", icon: FallacIcons.Anger.rawValue)
+        let fallacy2 = fallacyFactory.create(title: FallacIcons.Anger.title, summary: FallacIcons.Anger.summary, example: FallacIcons.Anger.example, url: "", icon: FallacIcons.Anger.icon)
         update(item: fallacy2)
-        let fallacy3 = fallacyFactory.create(title: "Appeal to Authority", summary: "Attempting to support an argument, not offering any direct evidence for the argument, but by appealing to the testimony of an authority.", example: "", url: "", icon: FallacIcons.Authority.rawValue)
+        let fallacy3 = fallacyFactory.create(title: FallacIcons.Authority.title, summary: FallacIcons.Authority.summary, example: FallacIcons.Authority.example, url: "", icon: FallacIcons.Authority.icon)
         update(item: fallacy3)
     }
 }
