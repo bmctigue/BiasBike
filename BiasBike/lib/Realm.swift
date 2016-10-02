@@ -71,7 +71,12 @@ private func setDefaultRealmConfigurationWithUser(user: User) {
     config.syncConfiguration = (user, Constants.syncServerURL! as URL)
     Realm.Configuration.defaultConfiguration = config
     
-    realm = try! Realm()
+    do {
+        realm = try Realm()
+    } catch let error as NSError {
+        NSLog("Error opening Realm: \(error.localizedDescription)")
+    }
+    
 }
 
 func configureDefaultRealm() -> Bool {
@@ -95,6 +100,25 @@ func authenticate(username: String, password: String, register: Bool, callback: 
             callback(error as NSError?)
         }
     })
+}
+
+func resetRealm() {
+    let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+    let realmURLs = [
+        realmURL,
+        realmURL.appendingPathExtension("lock"),
+        realmURL.appendingPathExtension("log_a"),
+        realmURL.appendingPathExtension("log_b"),
+        realmURL.appendingPathExtension("note")
+    ]
+    for URL in realmURLs {
+        do {
+            try FileManager.default.removeItem(at: URL)
+        } catch {
+            NSLog("Error resetting Realm: \(error.localizedDescription)")
+        }
+    }
+
 }
 
 private extension NSError {
