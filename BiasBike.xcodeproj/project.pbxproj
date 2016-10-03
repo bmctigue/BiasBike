@@ -12,6 +12,7 @@
 		A807DB061DA00C0200FBC077 /* FallacyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB051DA00C0200FBC077 /* FallacyFactory.swift */; };
 		A807DB091DA0148900FBC077 /* DemoImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A807DB081DA0148900FBC077 /* DemoImages.xcassets */; };
 		A807DB0B1DA014CC00FBC077 /* FallacIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A807DB0A1DA014CC00FBC077 /* FallacIcons.xcassets */; };
+		A80B1C3B1DA2E8D300539090 /* FallacyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B1C3A1DA2E8D300539090 /* FallacyType.swift */; };
 		A81F47071D79CF910025F918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47061D79CF910025F918 /* User.swift */; };
 		A81F47091D79D1630025F918 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47081D79D1630025F918 /* UserController.swift */; };
 		A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F470A1D79D3880025F918 /* UserControllerTests.swift */; };
@@ -29,7 +30,6 @@
 		A83836851D8A1AE80057BFC3 /* CategoryControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */; };
 		A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
-		A84E79361DA1B77400EBF3FB /* FallacIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E79351DA1B77400EBF3FB /* FallacIcon.swift */; };
 		A850598E1D90A3640008D5F3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850598D1D90A3640008D5F3 /* Rating.swift */; };
 		A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */; };
 		A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */; };
@@ -145,6 +145,7 @@
 		A807DB051DA00C0200FBC077 /* FallacyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyFactory.swift; sourceTree = "<group>"; };
 		A807DB081DA0148900FBC077 /* DemoImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DemoImages.xcassets; sourceTree = "<group>"; };
 		A807DB0A1DA014CC00FBC077 /* FallacIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FallacIcons.xcassets; sourceTree = "<group>"; };
+		A80B1C3A1DA2E8D300539090 /* FallacyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyType.swift; sourceTree = "<group>"; };
 		A81F47061D79CF910025F918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A81F47081D79D1630025F918 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		A81F470A1D79D3880025F918 /* UserControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserControllerTests.swift; sourceTree = "<group>"; };
@@ -162,7 +163,6 @@
 		A83836841D8A1AE80057BFC3 /* CategoryControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryControllerTests.swift; sourceTree = "<group>"; };
 		A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
-		A84E79351DA1B77400EBF3FB /* FallacIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacIcon.swift; sourceTree = "<group>"; };
 		A850598D1D90A3640008D5F3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Claim.storyboard; sourceTree = "<group>"; };
 		A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Evidence.storyboard; sourceTree = "<group>"; };
@@ -536,8 +536,8 @@
 				A8E73E2E1D7776690098FAC0 /* Claim.swift */,
 				A8BD6AB91D75E3BF004FA825 /* Event.swift */,
 				A8965F2D1D787E4300349EC1 /* Evidence.swift */,
-				A84E79351DA1B77400EBF3FB /* FallacIcon.swift */,
 				A807DB001DA00A4100FBC077 /* Fallacy.swift */,
+				A80B1C3A1DA2E8D300539090 /* FallacyType.swift */,
 				A850598D1D90A3640008D5F3 /* Rating.swift */,
 				A81F47061D79CF910025F918 /* User.swift */,
 			);
@@ -777,7 +777,6 @@
 				A8C7C30A1D8DFA67007C991F /* EvidenceTableViewController.swift in Sources */,
 				A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
-				A84E79361DA1B77400EBF3FB /* FallacIcon.swift in Sources */,
 				A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */,
 				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
@@ -809,6 +808,7 @@
 				A86F6B1B1D8B2F02002652DF /* Theme.swift in Sources */,
 				A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */,
 				A850598E1D90A3640008D5F3 /* Rating.swift in Sources */,
+				A80B1C3B1DA2E8D300539090 /* FallacyType.swift in Sources */,
 				A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */,
 				A8E861E51D8CAB7A000FDA0E /* ClaimRatingViewController.swift in Sources */,
 				A89EF6AB1D96CCA600D23E1F /* UserCell.swift in Sources */,

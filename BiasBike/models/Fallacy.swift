@@ -9,14 +9,24 @@
 import Foundation
 import RealmSwift
 
-final class Fallacy: Object {
+protocol FallacyProtocol {
+    var fallacyId: String { get }
+    var creationDate: Date { get }
+    var title: String { get }
+    var summary: String { get }
+    var example: String { get }
+    var icon: String { get }
+    var type: String { get }
+}
+
+class Fallacy: Object, FallacyProtocol {
     dynamic var fallacyId: String = NSUUID().uuidString
+    dynamic var creationDate: Date = Date()
     dynamic var title: String = ""
     dynamic var summary: String = ""
     dynamic var example: String = ""
-    dynamic var creationDate: Date = Date()
-    dynamic var url: String = ""
     dynamic var icon: String = ""
+    dynamic var type: String = ""
     
     override static func indexedProperties() -> [String] {
         return ["fallacyId", "creationDate"]
@@ -27,4 +37,3 @@ final class Fallacy: Object {
     }
     
 }
-

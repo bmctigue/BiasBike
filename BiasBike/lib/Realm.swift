@@ -102,25 +102,6 @@ func authenticate(username: String, password: String, register: Bool, callback: 
     })
 }
 
-func resetRealm() {
-    let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
-    let realmURLs = [
-        realmURL,
-        realmURL.appendingPathExtension("lock"),
-        realmURL.appendingPathExtension("log_a"),
-        realmURL.appendingPathExtension("log_b"),
-        realmURL.appendingPathExtension("note")
-    ]
-    for URL in realmURLs {
-        do {
-            try FileManager.default.removeItem(at: URL)
-        } catch {
-            NSLog("Error resetting Realm: \(error.localizedDescription)")
-        }
-    }
-
-}
-
 private extension NSError {
     
     convenience init(error: NSError, description: String?, recoverySuggestion: String?) {

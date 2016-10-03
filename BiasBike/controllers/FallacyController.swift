@@ -21,6 +21,11 @@ final class FallacyController: ModelController {
         return Array(items)
     }
     
+    func all(type: String) -> [Fallacy] {
+        let items = all()
+        return items.filter{$0.type == type}
+    }
+    
     func find(key: String) -> Fallacy? {
         return realm.object(ofType: Fallacy.self, forPrimaryKey: key)
     }
@@ -33,11 +38,11 @@ final class FallacyController: ModelController {
     
     func loadDefault() {
         let fallacyFactory = FallacyFactory()
-        let fallacy1 = fallacyFactory.create(title: FallacIcons.AnonymousAuthority.title, summary: FallacIcons.AnonymousAuthority.summary, example: FallacIcons.AnonymousAuthority.example, url: "", icon: FallacIcons.AnonymousAuthority.icon)
+        let fallacy1  = fallacyFactory.create(title: FallacyType.AnonymousAuthority.title, summary: FallacyType.AnonymousAuthority.summary, example: FallacyType.AnonymousAuthority.example, url: "", icon: FallacyType.AnonymousAuthority.icon, type: FallacyType.AnonymousAuthority.rawValue)
         update(item: fallacy1)
-        let fallacy2 = fallacyFactory.create(title: FallacIcons.Anger.title, summary: FallacIcons.Anger.summary, example: FallacIcons.Anger.example, url: "", icon: FallacIcons.Anger.icon)
+        let fallacy2 = fallacyFactory.create(title: FallacyType.Anger.title, summary: FallacyType.Anger.summary, example: FallacyType.Anger.example, url: "", icon: FallacyType.Anger.icon, type: FallacyType.Anger.rawValue)
         update(item: fallacy2)
-        let fallacy3 = fallacyFactory.create(title: FallacIcons.Authority.title, summary: FallacIcons.Authority.summary, example: FallacIcons.Authority.example, url: "", icon: FallacIcons.Authority.icon)
+        let fallacy3 = fallacyFactory.create(title: FallacyType.Authority.title, summary: FallacyType.Authority.summary, example: FallacyType.Authority.example, url: "", icon: FallacyType.Authority.icon, type: FallacyType.Authority.rawValue)
         update(item: fallacy3)
     }
 }
