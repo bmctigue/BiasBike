@@ -67,7 +67,7 @@ enum FallacyType: String {
     
     var icon: String {
         switch self {
-        case .Anger: return "angry"
+        case .Anger: return "anger"
         case .Authority: return "police"
         case .Celebrity: return "celebrity"
         case .CommonBelief: return "commonbelief"
