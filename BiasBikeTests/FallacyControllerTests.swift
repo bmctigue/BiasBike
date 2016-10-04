@@ -18,13 +18,13 @@ class FallacyControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        fallacy = fallacyFactory.create(title: "Fallacy One", summary: ".", example: "", url: "", icon: FallacyType.AnonymousAuthority.icon, type: FallacyType.AnonymousAuthority.rawValue)
-        fallacy2 = fallacyFactory.create(title: "Fallacy Two", summary: "", example: "", url: "", icon: FallacyType.Authority.icon, type: FallacyType.Authority.rawValue)
+        fallacy = fallacyFactory.create(title: "Fallacy One", summary: ".", example: "", url: "", icon: FallacyType.Authority.icon, type: FallacyType.Authority.rawValue)
+        fallacy2 = fallacyFactory.create(title: "Fallacy Two", summary: "", example: "", url: "", icon: FallacyType.Anger.icon, type: FallacyType.Anger.rawValue)
         FallacyController.sharedInstance.clear()
     }
     
     func testFallacyInit() {
-        let fallacy = fallacyFactory.create(title: "Fallacy One", summary: ".", example: "", url: "", icon: FallacyType.AnonymousAuthority.icon, type: FallacyType.AnonymousAuthority.rawValue)
+        let fallacy = fallacyFactory.create(title: "Fallacy One", summary: ".", example: "", url: "", icon: FallacyType.Authority.icon, type: FallacyType.Authority.rawValue)
         XCTAssertTrue(fallacy.title == "Fallacy One")
     }
     
@@ -54,7 +54,7 @@ class FallacyControllerTests: XCTestCase {
     func testLoadDefaultFallacies() {
         FallacyController.sharedInstance.loadDefault()
         fallacies = FallacyController.sharedInstance.all()
-        XCTAssertTrue(fallacies.count == 3)
+        XCTAssertTrue(fallacies.count == 10)
     }
     
     func testFindFallacy() {
