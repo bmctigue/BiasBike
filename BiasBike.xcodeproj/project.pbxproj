@@ -32,8 +32,6 @@
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
 		A850598E1D90A3640008D5F3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850598D1D90A3640008D5F3 /* Rating.swift */; };
 		A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */; };
-		A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */; };
-		A8586FD11D9ADAD2002C2672 /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCC1D9ADAD2002C2672 /* Modals.storyboard */; };
 		A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */; };
 		A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */; };
 		A8586FD71D9ADB1A002C2672 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */; };
@@ -82,6 +80,8 @@
 		A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */; };
 		A8C7C30E1D8E00C2007C991F /* EvidenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */; };
 		A8CDCAD41DA455EB00635E65 /* FallacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDCAD31DA455EB00635E65 /* FallacyCell.swift */; };
+		A8CDCAD71DA45C0700635E65 /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDCAD51DA45C0700635E65 /* Evidence.storyboard */; };
+		A8CDCAD81DA45C0700635E65 /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDCAD61DA45C0700635E65 /* Modals.storyboard */; };
 		A8D13C191D9D82D70072F334 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; };
 		A8D13C1A1D9D82DF0072F334 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
 		A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */; };
@@ -169,8 +169,6 @@
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		A850598D1D90A3640008D5F3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Claim.storyboard; sourceTree = "<group>"; };
-		A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Evidence.storyboard; sourceTree = "<group>"; };
-		A8586FCC1D9ADAD2002C2672 /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modals.storyboard; sourceTree = "<group>"; };
 		A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RealmSyncLogin.storyboard; sourceTree = "<group>"; };
 		A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +217,8 @@
 		A8C7C3091D8DFA67007C991F /* EvidenceTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8C7C30D1D8E00C2007C991F /* EvidenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceCell.swift; sourceTree = "<group>"; };
 		A8CDCAD31DA455EB00635E65 /* FallacyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyCell.swift; sourceTree = "<group>"; };
+		A8CDCAD51DA45C0700635E65 /* Evidence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Evidence.storyboard; path = BiasBike/Storyboards/Evidence.storyboard; sourceTree = SOURCE_ROOT; };
+		A8CDCAD61DA45C0700635E65 /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Modals.storyboard; path = BiasBike/Storyboards/Modals.storyboard; sourceTree = SOURCE_ROOT; };
 		A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -340,11 +340,11 @@
 		A8586FC91D9ADAD2002C2672 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A8CDCAD51DA45C0700635E65 /* Evidence.storyboard */,
+				A8CDCAD61DA45C0700635E65 /* Modals.storyboard */,
 				A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */,
 				A8A3BCFE1D9C342C002F5A67 /* Main.storyboard */,
 				A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */,
-				A8586FCB1D9ADAD2002C2672 /* Evidence.storyboard */,
-				A8586FCC1D9ADAD2002C2672 /* Modals.storyboard */,
 				A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */,
 				A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */,
 			);
@@ -712,14 +712,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8CDCAD81DA45C0700635E65 /* Modals.storyboard in Resources */,
+				A8CDCAD71DA45C0700635E65 /* Evidence.storyboard in Resources */,
 				A807DB091DA0148900FBC077 /* DemoImages.xcassets in Resources */,
 				A807DB0B1DA014CC00FBC077 /* FallacIcons.xcassets in Resources */,
 				A8E4D8531D74E56900AFA1FE /* LaunchScreen.storyboard in Resources */,
 				A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */,
 				A8E4D8501D74E56900AFA1FE /* Assets.xcassets in Resources */,
 				A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */,
-				A8586FD01D9ADAD2002C2672 /* Evidence.storyboard in Resources */,
-				A8586FD11D9ADAD2002C2672 /* Modals.storyboard in Resources */,
 				A8A3BCFF1D9C342C002F5A67 /* Main.storyboard in Resources */,
 				A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */,
 			);

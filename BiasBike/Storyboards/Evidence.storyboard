@@ -216,6 +216,14 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" alpha="0.11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUi-i3-gki">
+                                                                <frame key="frameInset"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <connections>
+                                                                    <action selector="rateButtonPressed:" destination="2G2-XG-zr5" eventType="touchUpInside" id="lws-DN-Kh3"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -267,9 +275,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Evidence" id="Uio-20-CVk">
-                        <barButtonItem key="rightBarButtonItem" title="Rate" id="dUy-4s-41d">
+                        <barButtonItem key="rightBarButtonItem" title="Fallacies" id="dUy-4s-41d">
                             <connections>
-                                <action selector="rateButtonPressed:" destination="2G2-XG-zr5" id="NgJ-zN-ojZ"/>
+                                <action selector="fallacyButtonPressed:" destination="2G2-XG-zr5" id="m0V-6V-Nwb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
