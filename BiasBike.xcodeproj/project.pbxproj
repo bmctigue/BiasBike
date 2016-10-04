@@ -42,6 +42,9 @@
 		A8586FF51D9AE7B2002C2672 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8586FF61D9AE7B2002C2672 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
 		A8586FF71D9AE7B2002C2672 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A85992031DA414BE00E459C9 /* FallacyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85992001DA414BE00E459C9 /* FallacyTableViewController.swift */; };
+		A85992041DA414BE00E459C9 /* FallacyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85992011DA414BE00E459C9 /* FallacyTableViewDataSource.swift */; };
+		A85992051DA414BE00E459C9 /* FallacyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85992021DA414BE00E459C9 /* FallacyTableViewDelegate.swift */; };
 		A86F6B131D8AFB8D002652DF /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */; };
 		A86F6B141D8AFB8D002652DF /* CategoriesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B111D8AFB8D002652DF /* CategoriesTableViewDataSource.swift */; };
 		A86F6B151D8AFB8D002652DF /* CategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */; };
@@ -174,6 +177,9 @@
 		A8586FF01D9AE7A8002C2672 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A8586FFA1D9B0B3F002C2672 /* BiasBike-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BiasBike-PrefixHeader.pch"; sourceTree = "<group>"; };
+		A85992001DA414BE00E459C9 /* FallacyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyTableViewController.swift; sourceTree = "<group>"; };
+		A85992011DA414BE00E459C9 /* FallacyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyTableViewDataSource.swift; sourceTree = "<group>"; };
+		A85992021DA414BE00E459C9 /* FallacyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyTableViewDelegate.swift; sourceTree = "<group>"; };
 		A86F6B101D8AFB8D002652DF /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		A86F6B111D8AFB8D002652DF /* CategoriesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDataSource.swift; sourceTree = "<group>"; };
 		A86F6B121D8AFB8D002652DF /* CategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -277,6 +283,9 @@
 			isa = PBXGroup;
 			children = (
 				A807DB031DA00B0300FBC077 /* FallacyController.swift */,
+				A85992001DA414BE00E459C9 /* FallacyTableViewController.swift */,
+				A85992011DA414BE00E459C9 /* FallacyTableViewDataSource.swift */,
+				A85992021DA414BE00E459C9 /* FallacyTableViewDelegate.swift */,
 			);
 			name = Fallacy;
 			sourceTree = "<group>";
@@ -775,8 +784,10 @@
 				A8C7C30B1D8DFA67007C991F /* EvidenceTableViewDataSource.swift in Sources */,
 				A837A7C61D9B491E004655DD /* Realm.swift in Sources */,
 				A8C7C30A1D8DFA67007C991F /* EvidenceTableViewController.swift in Sources */,
+				A85992031DA414BE00E459C9 /* FallacyTableViewController.swift in Sources */,
 				A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
+				A85992041DA414BE00E459C9 /* FallacyTableViewDataSource.swift in Sources */,
 				A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */,
 				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
@@ -800,6 +811,7 @@
 				A8B0808E1D8898B400D793AC /* CategoryTableViewController.swift in Sources */,
 				A87F2B3E1D9470ED00E7A3AF /* EvidenceGroupedTableViewDataSource.swift in Sources */,
 				A807DB041DA00B0300FBC077 /* FallacyController.swift in Sources */,
+				A85992051DA414BE00E459C9 /* FallacyTableViewDelegate.swift in Sources */,
 				A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */,
 				A86F6B201D8B587E002652DF /* ClaimCell.swift in Sources */,
 				A8BD6AB81D75E249004FA825 /* Category.swift in Sources */,

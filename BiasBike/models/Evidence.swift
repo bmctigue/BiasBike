@@ -17,6 +17,7 @@ final class Evidence: Object {
     dynamic var url: String = ""
     dynamic var claimId: String = ""
     dynamic var userId: String = ""
+    let fallacies = List<Fallacy>()
     
     override static func indexedProperties() -> [String] {
         return ["evidenceId", "creationDate"]
