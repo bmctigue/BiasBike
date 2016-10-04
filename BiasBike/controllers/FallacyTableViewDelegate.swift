@@ -17,12 +17,17 @@ class FallaciesTableViewDelegate: NSObject {
     init(tableView: UITableView, evidence: Evidence?) {
         self.fallacies = FallacyController.sharedInstance.all()
         self.evidence = evidence
+        if let evidence = evidence {
+            self.selectedFallacies = Array(evidence.fallacies)
+        }
         super.init()
         tableView.delegate = self
     }
     
     func saveSelectedFallacies() {
-        EvidenceController.sharedInstance.update(item: evidence!)
+        if let evidence = evidence {
+            EvidenceController.sharedInstance.updateFallacies(item: evidence, fallacies: selectedFallacies)
+        }
     }
 }
 
@@ -30,30 +35,25 @@ extension FallaciesTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let fallacy = fallacies[indexPath.row]
-        cell.textLabel?.text = fallacy.title
-        if selectedFallacies.contains(fallacy) {
-            cell.accessoryType = .checkmark
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
-        } else {
-            cell.accessoryType = .none
-        }
-        cell.selectionStyle = .none
+        let cell:FallacyCell = cell as! FallacyCell
+        let checked = selectedFallacies.contains(fallacy)
+        cell.updateCell(title: fallacy.title, icon: fallacy.icon, checked:checked)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
         let fallacy = fallacies[indexPath.row]
-        if !(evidence!.fallacies.contains(fallacy)) {
-            evidence!.fallacies.append(fallacy)
+        if !(selectedFallacies.contains(fallacy)) {
+            selectedFallacies.append(fallacy)
         }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
         let fallacy = fallacies[indexPath.row]
-        if (evidence!.fallacies.contains(fallacy)) {
-            let index: Int = (evidence!.fallacies.index(of: fallacy)!)
-            evidence!.fallacies.remove(objectAtIndex: index)
+        if (selectedFallacies.contains(fallacy)) {
+            let index: Int = (selectedFallacies.index(of: fallacy)!)
+            selectedFallacies.remove(at: index)
         }
     }
 }

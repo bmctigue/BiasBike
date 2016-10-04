@@ -44,4 +44,13 @@ class EvidenceViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func fallacyButtonPressed(_ sender: AnyObject) {
+        if let evidence = evidence {
+            let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+            let controller: FallaciesTableViewController = storyboard.instantiateViewController(withIdentifier: "FallaciesTableViewController") as! FallaciesTableViewController
+            controller.evidence = evidence
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
 }

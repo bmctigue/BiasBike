@@ -41,6 +41,13 @@ final class EvidenceController: ModelController {
         return items.filter{$0.userId == userId}
     }
     
+    func updateFallacies(item: Evidence, fallacies: [Fallacy]) {
+        try! self.realm.write {
+            item.fallacies.removeAll()
+            item.fallacies.append(objectsIn: fallacies)
+        }
+    }
+    
     func evidenceClaimsHash() -> [String:[Evidence]] {
         var hash: [String:[Evidence]] = [:]
         let claims = ClaimController.sharedInstance.all()
