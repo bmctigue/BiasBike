@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfd-QO-CrQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1335" y="426"/>
+            <point key="canvasLocation" x="-532" y="-273"/>
         </scene>
         <!--EvidenceRatingViewController-->
         <scene sceneID="LIQ-ND-Oyt">
@@ -477,79 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDr-PJ-n7R" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-505" y="426"/>
-        </scene>
-        <!--FallaciesTableViewController-->
-        <scene sceneID="JAQ-61-k9R">
-            <objects>
-                <tableViewController storyboardIdentifier="FallaciesTableViewController" title="FallaciesTableViewController" id="oYy-tF-lfh" customClass="FallaciesTableViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7si-y9-Yl2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="56h-DR-Ti7">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <textAttributes key="titleTextAttributes">
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </textAttributes>
-                            <items>
-                                <navigationItem title="Add Fallacies" id="zMZ-MP-5p2">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="done" id="B66-yP-IQ2">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="doneButtonPressed:" destination="oYy-tF-lfh" id="ba8-ZZ-dOZ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FallacyCell" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="FallacyCell" id="DGE-Gh-1HC" customClass="FallacyCell" customModule="BiasBike" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DGE-Gh-1HC" id="3pM-CK-ZP3">
-                                    <frame key="frameInset" width="336" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i8W-h6-SaB">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="Fig-lj-Hio"/>
-                                                <constraint firstAttribute="width" constant="30" id="NHW-rT-Eyz"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5b-av-32H">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="k5b-av-32H" firstAttribute="centerY" secondItem="3pM-CK-ZP3" secondAttribute="centerY" id="0wW-il-q6W"/>
-                                        <constraint firstAttribute="trailing" secondItem="k5b-av-32H" secondAttribute="trailing" constant="20" id="78o-oi-Rzp"/>
-                                        <constraint firstItem="k5b-av-32H" firstAttribute="leading" secondItem="i8W-h6-SaB" secondAttribute="trailing" constant="14" id="Bfd-aG-yyW"/>
-                                        <constraint firstItem="i8W-h6-SaB" firstAttribute="centerY" secondItem="3pM-CK-ZP3" secondAttribute="centerY" constant="-1" id="gJq-MJ-uZq"/>
-                                        <constraint firstItem="i8W-h6-SaB" firstAttribute="leading" secondItem="3pM-CK-ZP3" secondAttribute="leading" constant="16" id="uAN-Rc-0qI"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="iconImageView" destination="i8W-h6-SaB" id="DPa-VN-3Gf"/>
-                                    <outlet property="titleLabel" destination="k5b-av-32H" id="d9C-Ec-yPl"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="oYy-tF-lfh" id="m4V-ou-gw4"/>
-                            <outlet property="delegate" destination="oYy-tF-lfh" id="MYb-7W-1ku"/>
-                        </connections>
-                    </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="87s-Qq-9hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-506.39999999999998" y="-273.01349325337333"/>
+            <point key="canvasLocation" x="282" y="-273"/>
         </scene>
     </scenes>
 </document>

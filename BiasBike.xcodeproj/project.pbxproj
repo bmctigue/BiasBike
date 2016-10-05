@@ -31,6 +31,11 @@
 		A83AE1BC1D8DEF67001E46B1 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */; };
 		A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA6F71D7E113200B9BD0C /* UserFactory.swift */; };
 		A850598E1D90A3640008D5F3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850598D1D90A3640008D5F3 /* Rating.swift */; };
+		A857A4741DA473EF00FFEB83 /* Fallacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A857A4731DA473EF00FFEB83 /* Fallacy.storyboard */; };
+		A857A4761DA4776100FFEB83 /* FallacyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857A4751DA4776100FFEB83 /* FallacyCollectionViewController.swift */; };
+		A857A4781DA4785B00FFEB83 /* FallacyCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857A4771DA4785B00FFEB83 /* FallacyCollectionViewDataSource.swift */; };
+		A857A47C1DA47D6600FFEB83 /* FallacyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857A47B1DA47D6600FFEB83 /* FallacyCollectionCell.swift */; };
+		A857A47E1DA4840600FFEB83 /* FallacyCollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857A47D1DA4840600FFEB83 /* FallacyCollectionViewDelegateFlowLayout.swift */; };
 		A8586FCF1D9ADAD2002C2672 /* Claim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */; };
 		A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */; };
 		A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */; };
@@ -168,6 +173,11 @@
 		A83AE1BB1D8DEF67001E46B1 /* CategoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		A83FA6F71D7E113200B9BD0C /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		A850598D1D90A3640008D5F3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A857A4731DA473EF00FFEB83 /* Fallacy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Fallacy.storyboard; sourceTree = "<group>"; };
+		A857A4751DA4776100FFEB83 /* FallacyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyCollectionViewController.swift; sourceTree = "<group>"; };
+		A857A4771DA4785B00FFEB83 /* FallacyCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		A857A47B1DA47D6600FFEB83 /* FallacyCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyCollectionCell.swift; sourceTree = "<group>"; };
+		A857A47D1DA4840600FFEB83 /* FallacyCollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyCollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
 		A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Claim.storyboard; sourceTree = "<group>"; };
 		A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RealmSyncLogin.storyboard; sourceTree = "<group>"; };
 		A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -288,6 +298,9 @@
 				A85992001DA414BE00E459C9 /* FallacyTableViewController.swift */,
 				A85992011DA414BE00E459C9 /* FallacyTableViewDataSource.swift */,
 				A85992021DA414BE00E459C9 /* FallacyTableViewDelegate.swift */,
+				A857A4751DA4776100FFEB83 /* FallacyCollectionViewController.swift */,
+				A857A4771DA4785B00FFEB83 /* FallacyCollectionViewDataSource.swift */,
+				A857A47D1DA4840600FFEB83 /* FallacyCollectionViewDelegateFlowLayout.swift */,
 			);
 			name = Fallacy;
 			sourceTree = "<group>";
@@ -340,11 +353,12 @@
 		A8586FC91D9ADAD2002C2672 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */,
 				A8CDCAD51DA45C0700635E65 /* Evidence.storyboard */,
+				A857A4731DA473EF00FFEB83 /* Fallacy.storyboard */,
 				A8CDCAD61DA45C0700635E65 /* Modals.storyboard */,
 				A8E4D8511D74E56900AFA1FE /* LaunchScreen.storyboard */,
 				A8A3BCFE1D9C342C002F5A67 /* Main.storyboard */,
-				A8586FCA1D9ADAD2002C2672 /* Claim.storyboard */,
 				A8586FCD1D9ADAD2002C2672 /* RealmSyncLogin.storyboard */,
 				A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */,
 			);
@@ -412,6 +426,7 @@
 				A8CDCAD31DA455EB00635E65 /* FallacyCell.swift */,
 				A89EF6AA1D96CCA600D23E1F /* UserCell.swift */,
 				A8A6E88C1D92BE6D0085AF93 /* CellUtilities.swift */,
+				A857A47B1DA47D6600FFEB83 /* FallacyCollectionCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -722,6 +737,7 @@
 				A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */,
 				A8A3BCFF1D9C342C002F5A67 /* Main.storyboard in Resources */,
 				A8586FD21D9ADAD2002C2672 /* RealmSyncLogin.storyboard in Resources */,
+				A857A4741DA473EF00FFEB83 /* Fallacy.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +800,7 @@
 				A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */,
 				A8267B281D97199F0012EF62 /* UserTableViewController.swift in Sources */,
 				A87F2B3D1D9470ED00E7A3AF /* EvidenceGroupedTableViewController.swift in Sources */,
+				A857A4761DA4776100FFEB83 /* FallacyCollectionViewController.swift in Sources */,
 				A8C7C30B1D8DFA67007C991F /* EvidenceTableViewDataSource.swift in Sources */,
 				A837A7C61D9B491E004655DD /* Realm.swift in Sources */,
 				A8C7C30A1D8DFA67007C991F /* EvidenceTableViewController.swift in Sources */,
@@ -793,6 +810,7 @@
 				A85992041DA414BE00E459C9 /* FallacyTableViewDataSource.swift in Sources */,
 				A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */,
 				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,
+				A857A47E1DA4840600FFEB83 /* FallacyCollectionViewDelegateFlowLayout.swift in Sources */,
 				A8E73E331D777AA90098FAC0 /* ClaimController.swift in Sources */,
 				A807DB011DA00A4100FBC077 /* Fallacy.swift in Sources */,
 				A8C7C30C1D8DFA67007C991F /* EvidenceTableViewDelegate.swift in Sources */,
@@ -825,6 +843,7 @@
 				A8E9A6051D7E0F0400BB8C8F /* EvidenceFactory.swift in Sources */,
 				A850598E1D90A3640008D5F3 /* Rating.swift in Sources */,
 				A80B1C3B1DA2E8D300539090 /* FallacyType.swift in Sources */,
+				A857A4781DA4785B00FFEB83 /* FallacyCollectionViewDataSource.swift in Sources */,
 				A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */,
 				A8E861E51D8CAB7A000FDA0E /* ClaimRatingViewController.swift in Sources */,
 				A89EF6AB1D96CCA600D23E1F /* UserCell.swift in Sources */,
@@ -832,6 +851,7 @@
 				A8BD6ABA1D75E3BF004FA825 /* Event.swift in Sources */,
 				A81F47071D79CF910025F918 /* User.swift in Sources */,
 				A8B080901D8898B400D793AC /* CategoryTableViewDelegate.swift in Sources */,
+				A857A47C1DA47D6600FFEB83 /* FallacyCollectionCell.swift in Sources */,
 				A8C710321D85F85C00205144 /* EventTableViewDelegate.swift in Sources */,
 				A86F6B141D8AFB8D002652DF /* CategoriesTableViewDataSource.swift in Sources */,
 			);
