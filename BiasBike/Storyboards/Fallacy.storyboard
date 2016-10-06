@@ -109,6 +109,7 @@
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="EuA-ng-dna" firstAttribute="centerX" secondItem="Idy-68-QTt" secondAttribute="centerX" id="U5u-Tx-rIp"/>
                                     <constraint firstItem="EuA-ng-dna" firstAttribute="centerY" secondItem="Idy-68-QTt" secondAttribute="centerY" id="gbI-iM-YlX"/>

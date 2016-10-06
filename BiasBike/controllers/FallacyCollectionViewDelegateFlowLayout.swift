@@ -12,12 +12,17 @@ private let sectionInsets = UIEdgeInsets(top: 7.0, left: 10.0, bottom: 7.0, righ
 
 class FallacyCollectionViewDelegateFlowLayout: NSObject {
     
-    init(collectionView: UICollectionView) {
+    weak var evidence: Evidence?
+    private(set) var fallacies:[Fallacy] = []
+    
+    init(collectionView: UICollectionView, evidence: Evidence?) {
         super.init()
         collectionView.delegate = self
+        if let evidence = evidence {
+            self.fallacies = Array(evidence.fallacies)
+        }
     }
 }
-
 
 extension FallacyCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlowLayout {
     
@@ -32,4 +37,18 @@ extension FallacyCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+}
+
+extension FallacyCollectionViewDelegateFlowLayout: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell:FallacyCollectionCell = cell as! FallacyCollectionCell
+        let fallacy = fallacies[indexPath.row]
+        cell.updateCell(icon: fallacy.icon)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("You selected cell #\(indexPath.item)!")
+    }
+    
 }

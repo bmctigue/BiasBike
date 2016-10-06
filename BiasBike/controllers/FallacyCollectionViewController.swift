@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class FallacyCollectionViewController: UICollectionViewController {
     
     weak var evidence: Evidence?
@@ -19,7 +17,7 @@ class FallacyCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionViewDataSource = FallacyCollectionViewDataSource(collectionView: collectionView!, evidence: evidence)
-        self.collectionViewDelegateFlowLayout = FallacyCollectionViewDelegateFlowLayout(collectionView: collectionView!)
+        self.collectionViewDelegateFlowLayout = FallacyCollectionViewDelegateFlowLayout(collectionView: collectionView!, evidence: evidence)
     }
 
 }

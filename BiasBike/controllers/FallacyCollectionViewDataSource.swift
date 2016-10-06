@@ -14,12 +14,12 @@ class FallacyCollectionViewDataSource: NSObject {
     private(set) var fallacies:[Fallacy] = []
     
     init(collectionView: UICollectionView, evidence: Evidence?) {
+        super.init()
+        collectionView.dataSource = self
         self.evidence = evidence
         if let evidence = evidence {
             self.fallacies = Array(evidence.fallacies)
         }
-        super.init()
-        collectionView.dataSource = self
     }
     
     func updateData() {
@@ -41,8 +41,6 @@ extension FallacyCollectionViewDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: FallacyCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FallacyCollectionCell", for: indexPath) as! FallacyCollectionCell
-        let fallacy = fallacies[indexPath.row]
-        cell.updateCell(icon: fallacy.icon)
         return cell
     }
 
