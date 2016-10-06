@@ -14,13 +14,15 @@ class FallacyCollectionViewDelegateFlowLayout: NSObject {
     
     weak var evidence: Evidence?
     private(set) var fallacies:[Fallacy] = []
+    private(set) weak var fallacyCollectionViewController: FallacyCollectionViewController?
     
-    init(collectionView: UICollectionView, evidence: Evidence?) {
+    init(collectionView: UICollectionView, evidence: Evidence?, fallacyCollectionViewController: FallacyCollectionViewController) {
         super.init()
         collectionView.delegate = self
         if let evidence = evidence {
             self.fallacies = Array(evidence.fallacies)
         }
+        self.fallacyCollectionViewController = fallacyCollectionViewController
     }
 }
 
