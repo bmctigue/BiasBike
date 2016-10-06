@@ -78,11 +78,112 @@
             </objects>
             <point key="canvasLocation" x="-1196" y="-687"/>
         </scene>
+        <!--FallacyViewController-->
+        <scene sceneID="B5Y-S4-lKi">
+            <objects>
+                <viewController storyboardIdentifier="FallacyViewController" title="FallacyViewController" id="5E7-VZ-aDy" customClass="FallacyViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BnA-jJ-CJW"/>
+                        <viewControllerLayoutGuide type="bottom" id="YLo-CV-Al9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iz3-03-lPJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJW-yl-5Ig">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bqI-ee-gFd"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Fallacy" id="Jcw-FJ-GN9">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="TIZ-ti-PP6">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="closeButtonPressed:" destination="5E7-VZ-aDy" id="ayi-dd-nfK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hy4-vu-UgM">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5X-wJ-6L0">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-3h-JLZ">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjE-AX-Rbr">
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="MS6-yn-Kf7"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-zn-OtX">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk1-sR-jg2">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuZ-hr-NRe">
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="50K-Jy-Pxq"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om3-0z-TE5">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6B-J5-PnT">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="k1L-xq-6J4"/>
+                                </constraints>
+                            </stackView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gzu-TR-v4L">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gzu-TR-v4L" firstAttribute="leading" secondItem="iz3-03-lPJ" secondAttribute="leading" id="0A0-PX-6b6"/>
+                            <constraint firstItem="hy4-vu-UgM" firstAttribute="centerY" secondItem="iz3-03-lPJ" secondAttribute="centerY" id="1tQ-12-rOR"/>
+                            <constraint firstItem="Gzu-TR-v4L" firstAttribute="top" secondItem="BJW-yl-5Ig" secondAttribute="bottom" id="QxV-2i-abS"/>
+                            <constraint firstItem="BJW-yl-5Ig" firstAttribute="top" secondItem="iz3-03-lPJ" secondAttribute="top" constant="20" id="UmW-fA-dUt"/>
+                            <constraint firstAttribute="trailing" secondItem="BJW-yl-5Ig" secondAttribute="trailing" id="oeo-dy-gAw"/>
+                            <constraint firstAttribute="trailing" secondItem="Gzu-TR-v4L" secondAttribute="trailing" id="rrl-EM-fSt"/>
+                            <constraint firstItem="hy4-vu-UgM" firstAttribute="centerX" secondItem="iz3-03-lPJ" secondAttribute="centerX" id="vJx-Cx-TMR"/>
+                            <constraint firstItem="BJW-yl-5Ig" firstAttribute="leading" secondItem="iz3-03-lPJ" secondAttribute="leading" id="xLq-rF-hPh"/>
+                            <constraint firstItem="YLo-CV-Al9" firstAttribute="top" secondItem="Gzu-TR-v4L" secondAttribute="bottom" id="xNW-0U-Txu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exampleLabel" destination="F6B-J5-PnT" id="s5a-l6-JQB"/>
+                        <outlet property="summaryLabel" destination="Mk1-sR-jg2" id="Zyi-9m-f05"/>
+                        <outlet property="titleLabel" destination="ccn-3h-JLZ" id="gYC-r8-0f9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-eU-qcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-538.39999999999998" y="-687.7061469265368"/>
+        </scene>
         <!--FallacyCollectionViewController-->
         <scene sceneID="6DA-sc-I0q">
             <objects>
                 <collectionViewController storyboardIdentifier="FallacyCollectionViewController" title="FallacyCollectionViewController" id="UqV-pi-Jom" customClass="FallacyCollectionViewController" customModule="BiasBike" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="fRc-5F-xf5">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="fRc-5F-xf5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -133,7 +234,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3p-Ib-3cJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-521" y="-920"/>
+            <point key="canvasLocation" x="-538" y="-1071"/>
         </scene>
     </scenes>
 </document>
