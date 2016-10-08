@@ -23,7 +23,6 @@ class FallacyViewController: UIViewController {
             summaryLabel.text = fallacy.summary
             exampleLabel.text = fallacy.example
         }
-
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {

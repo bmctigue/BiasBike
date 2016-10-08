@@ -33,7 +33,8 @@ extension EventTableViewDelegate: UITableViewDelegate {
         let category = sortedCategories[indexPath.section]
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            cell.updateCell(title: event.title, photoUrl: event.photoUrl)
+            let evidence = EvidenceController.sharedInstance.all().first
+            cell.updateCell(title: event.title, photoUrl: event.photoUrl, evidence: evidence)
         }
     }
     
