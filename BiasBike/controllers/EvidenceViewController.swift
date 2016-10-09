@@ -35,7 +35,7 @@ class EvidenceViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
             fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
             if let fallacyCollectionViewController = fallacyCollectionViewController {
-                fallacyCollectionViewController.evidence = evidence
+                fallacyCollectionViewController.fallacies = Array(evidence.fallacies)
                 fallacyCollectionViewController.view.frame = fallacyContainerView.bounds
                 fallacyContainerView.addSubview(fallacyCollectionViewController.view)
                 fallacyContainerView.sendSubview(toBack: fallacyCollectionViewController.view)
@@ -46,8 +46,10 @@ class EvidenceViewController: UIViewController {
         
         notificationToken = realm.addNotificationBlock { notification, realm in
             self.updateTapToAddLabel()
-            self.fallacyCollectionViewController?.collectionViewDataSource?.updateData()
-            self.fallacyCollectionViewController?.collectionView?.reloadData()
+            if let evidence = self.evidence {
+                self.fallacyCollectionViewController?.collectionViewDataSource?.updateData(fallacies: Array(evidence.fallacies))
+                self.fallacyCollectionViewController?.collectionView?.reloadData()
+            }
         }
     }
     

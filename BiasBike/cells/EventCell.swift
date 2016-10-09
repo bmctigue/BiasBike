@@ -14,20 +14,22 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var fallacyContainerView: UIView!
+    var fallacyView: UIView!
 
-    func updateCell(title: String, photoUrl: String, evidence: Evidence?) {
+    func updateCell(title: String, photoUrl: String, fallacyView: UIView?) {
         titleLabel.text = title
         eventImage.image = UIImage(named: photoUrl)
+        self.fallacyView = fallacyView
         
-        if let evidence = evidence {
-            let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
-            let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
-            if let fallacyCollectionViewController = fallacyCollectionViewController {
-                fallacyCollectionViewController.evidence = evidence
-                fallacyCollectionViewController.view.frame = fallacyContainerView.bounds
-                fallacyContainerView.addSubview(fallacyCollectionViewController.view)
-                fallacyContainerView.sendSubview(toBack: fallacyCollectionViewController.view)
-            }
+    }
+    
+    override func layoutSubviews() {
+        for currentFallacyView in fallacyContainerView.subviews {
+            currentFallacyView.removeFromSuperview()
+        }
+        if let fallacyView = fallacyView {
+            fallacyView.frame = fallacyContainerView.bounds
+            fallacyContainerView.addSubview(fallacyView)
         }
     }
 

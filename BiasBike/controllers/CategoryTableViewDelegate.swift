@@ -12,17 +12,21 @@ class CategoryTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
     private(set) var category: Category
+    private(set) var uniqueFallaciesViewHash: [String:UIView] = [:]
     private(set) weak var categoryTableViewController: CategoryTableViewController?
+    private(set) weak var tableView: UITableView!
 
     init(tableView: UITableView, category: Category, categoryTableViewController: CategoryTableViewController? ) {
-        self.categoryTableViewController = categoryTableViewController
         self.category = category
+        self.tableView = tableView
         super.init()
         tableView.delegate = self
+        self.categoryTableViewController = categoryTableViewController
     }
     
     func updateDataSource(categoryHash: [String:[Event]]) {
         self.categoryHash = categoryHash
+        self.uniqueFallaciesViewHash = FallacyController.sharedInstance.uniqueFallaciesViewHash()
     }
 }
 
@@ -32,8 +36,7 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
         let cell:EventCell = cell as! EventCell
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            let evidence = EvidenceController.sharedInstance.all().first
-            cell.updateCell(title: event.title, photoUrl: event.photoUrl, evidence: evidence)
+            cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacyView: uniqueFallaciesViewHash[event.eventId])
         }
     }
     

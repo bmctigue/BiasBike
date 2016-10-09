@@ -8,20 +8,17 @@
 
 import UIKit
 
-private let sectionInsets = UIEdgeInsets(top: 7.0, left: 10.0, bottom: 7.0, right: 10.0)
+private let sectionInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
 
 class FallacyCollectionViewDelegateFlowLayout: NSObject {
     
-    weak var evidence: Evidence?
     private(set) var fallacies:[Fallacy] = []
     private(set) weak var fallacyCollectionViewController: FallacyCollectionViewController?
     
-    init(collectionView: UICollectionView, evidence: Evidence?, fallacyCollectionViewController: FallacyCollectionViewController) {
+    init(collectionView: UICollectionView, fallacies: [Fallacy], fallacyCollectionViewController: FallacyCollectionViewController) {
         super.init()
         collectionView.delegate = self
-        if let evidence = evidence {
-            self.fallacies = Array(evidence.fallacies)
-        }
+        self.fallacies = fallacies
         self.fallacyCollectionViewController = fallacyCollectionViewController
     }
 }
@@ -29,7 +26,7 @@ class FallacyCollectionViewDelegateFlowLayout: NSObject {
 extension FallacyCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 30.0, height: 30.0)
+        return CGSize(width: 20.0, height: 20.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

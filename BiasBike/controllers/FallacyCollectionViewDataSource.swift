@@ -10,22 +10,16 @@ import UIKit
 
 class FallacyCollectionViewDataSource: NSObject {
     
-    weak var evidence: Evidence?
     private(set) var fallacies:[Fallacy] = []
     
-    init(collectionView: UICollectionView, evidence: Evidence?) {
+    init(collectionView: UICollectionView, fallacies:[Fallacy]) {
         super.init()
         collectionView.dataSource = self
-        self.evidence = evidence
-        if let evidence = evidence {
-            self.fallacies = Array(evidence.fallacies)
-        }
+        self.fallacies = fallacies
     }
     
-    func updateData() {
-        if let evidence = evidence {
-            self.fallacies = Array(evidence.fallacies)
-        }
+    func updateData(fallacies:[Fallacy]) {
+        self.fallacies = fallacies
     }
 }
 

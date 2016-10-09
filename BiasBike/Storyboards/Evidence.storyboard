@@ -234,7 +234,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw4-mD-I8z">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to Add Fallacies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-CG-xAb">
-                                                        <frame key="frameInset" width="300" height="64"/>
+                                                        <frame key="frameInset" width="300" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -255,7 +255,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="aUi-i3-gki" secondAttribute="trailing" id="GpR-ik-Yz6"/>
                                                     <constraint firstItem="aUi-i3-gki" firstAttribute="leading" secondItem="Vw4-mD-I8z" secondAttribute="leading" id="MJc-7b-PZ7"/>
                                                     <constraint firstAttribute="trailing" secondItem="aUi-i3-gki" secondAttribute="trailing" id="Qtx-Vq-PfL"/>
-                                                    <constraint firstAttribute="height" constant="64" id="Trv-Gb-7VZ"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Trv-Gb-7VZ"/>
                                                     <constraint firstItem="aUi-i3-gki" firstAttribute="leading" secondItem="Vw4-mD-I8z" secondAttribute="leading" id="XY3-tQ-DAw"/>
                                                     <constraint firstItem="aUi-i3-gki" firstAttribute="top" secondItem="Vw4-mD-I8z" secondAttribute="top" id="hAB-6n-oyC"/>
                                                     <constraint firstItem="aUi-i3-gki" firstAttribute="top" secondItem="Vw4-mD-I8z" secondAttribute="top" id="joa-wi-CSv"/>
@@ -272,7 +272,7 @@
                                             <constraint firstItem="ws4-xd-fQ5" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="RVO-2i-AUV"/>
                                             <constraint firstAttribute="trailing" secondItem="ws4-xd-fQ5" secondAttribute="trailing" id="bkv-FL-lYq"/>
                                             <constraint firstAttribute="trailing" secondItem="lkh-gL-0En" secondAttribute="trailing" id="f6M-GL-JV2"/>
-                                            <constraint firstAttribute="height" constant="464" id="j1u-RP-ztj"/>
+                                            <constraint firstAttribute="height" constant="416" id="j1u-RP-ztj"/>
                                             <constraint firstItem="Vw4-mD-I8z" firstAttribute="top" secondItem="lkh-gL-0En" secondAttribute="bottom" id="od2-7t-FBy"/>
                                             <constraint firstAttribute="width" constant="300" id="rOm-7K-JQs"/>
                                             <constraint firstItem="ws4-xd-fQ5" firstAttribute="top" secondItem="Fnt-Ug-jIG" secondAttribute="top" id="v0I-iz-YfY"/>
