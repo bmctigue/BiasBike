@@ -37,23 +37,32 @@ extension FallaciesTableViewDelegate: UITableViewDelegate {
         let fallacy = fallacies[indexPath.row]
         let cell:FallacyCell = cell as! FallacyCell
         let checked = selectedFallacies.contains(fallacy)
-        cell.updateCell(title: fallacy.title, icon: fallacy.icon, checked:checked)
+        let title = fallacy.title
+        let icon = fallacy.icon
+        cell.updateCell(title: title, icon: icon, checked:checked)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        let cell:FallacyCell = tableView.cellForRow(at: indexPath) as! FallacyCell
         let fallacy = fallacies[indexPath.row]
-        if !(selectedFallacies.contains(fallacy)) {
-            selectedFallacies.append(fallacy)
-        }
+        updateFallacies(fallacy: fallacy, cell: cell)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        let cell:FallacyCell = tableView.cellForRow(at: indexPath) as! FallacyCell
         let fallacy = fallacies[indexPath.row]
+        updateFallacies(fallacy: fallacy, cell: cell)
+    }
+    
+    func updateFallacies(fallacy: Fallacy, cell: FallacyCell) {
         if (selectedFallacies.contains(fallacy)) {
             let index: Int = (selectedFallacies.index(of: fallacy)!)
             selectedFallacies.remove(at: index)
+            cell.accessoryType = .none
+        } else {
+            selectedFallacies.append(fallacy)
+            cell.accessoryType = .checkmark
         }
     }
+    
 }

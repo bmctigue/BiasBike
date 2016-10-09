@@ -14,12 +14,12 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var fallacyContainerView: UIView!
-    var fallacyView: UIView!
+    var fallacies: [Fallacy]?
 
-    func updateCell(title: String, photoUrl: String, fallacyView: UIView?) {
+    func updateCell(title: String, photoUrl: String, fallacies: [Fallacy]?) {
         titleLabel.text = title
         eventImage.image = UIImage(named: photoUrl)
-        self.fallacyView = fallacyView
+        self.fallacies = fallacies
         
     }
     
@@ -27,9 +27,19 @@ class EventCell: UITableViewCell {
         for currentFallacyView in fallacyContainerView.subviews {
             currentFallacyView.removeFromSuperview()
         }
-        if let fallacyView = fallacyView {
-            fallacyView.frame = fallacyContainerView.bounds
-            fallacyContainerView.addSubview(fallacyView)
+//        if let fallacyView = fallacyView {
+//            fallacyView.frame = fallacyContainerView.bounds
+//            fallacyContainerView.addSubview(fallacyView)
+//        }
+        if let fallacies = fallacies {
+            let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
+            let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
+            if let fallacyCollectionViewController = fallacyCollectionViewController {
+                fallacyCollectionViewController.fallacies = fallacies
+                fallacyCollectionViewController.collectionView?.isUserInteractionEnabled = false
+                fallacyCollectionViewController.view.frame = fallacyContainerView.bounds
+                fallacyContainerView.addSubview(fallacyCollectionViewController.view)
+            }
         }
     }
 

@@ -21,6 +21,10 @@ class FallacyCollectionViewDelegateFlowLayout: NSObject {
         self.fallacies = fallacies
         self.fallacyCollectionViewController = fallacyCollectionViewController
     }
+    
+    func updateData(fallacies:[Fallacy]) {
+        self.fallacies = fallacies
+    }
 }
 
 extension FallacyCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlowLayout {
@@ -43,7 +47,8 @@ extension FallacyCollectionViewDelegateFlowLayout: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell:FallacyCollectionCell = cell as! FallacyCollectionCell
         let fallacy = fallacies[indexPath.row]
-        cell.updateCell(icon: fallacy.icon)
+        let icon = fallacy.icon
+        cell.updateCell(icon: icon)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -45,6 +45,7 @@ class EvidenceViewController: UIViewController {
         notificationToken = realm.addNotificationBlock { notification, realm in
             if let evidence = self.evidence {
                 self.fallacyCollectionViewController?.collectionViewDataSource?.updateData(fallacies: Array(evidence.fallacies))
+                self.fallacyCollectionViewController?.collectionViewDelegateFlowLayout?.updateData(fallacies: Array(evidence.fallacies))
                 self.fallacyCollectionViewController?.collectionView?.reloadData()
             }
         }

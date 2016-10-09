@@ -12,7 +12,7 @@ class CategoryTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
     private(set) var category: Category
-    private(set) var uniqueFallaciesViewHash: [String:UIView] = [:]
+    private(set) var uniqueFallaciesPerEventHash: [String:[Fallacy]] = [:]
     private(set) weak var categoryTableViewController: CategoryTableViewController?
     private(set) weak var tableView: UITableView!
 
@@ -26,7 +26,7 @@ class CategoryTableViewDelegate: NSObject {
     
     func updateDataSource(categoryHash: [String:[Event]]) {
         self.categoryHash = categoryHash
-        self.uniqueFallaciesViewHash = FallacyController.sharedInstance.uniqueFallaciesViewHash()
+        self.uniqueFallaciesPerEventHash = FallacyController.sharedInstance.uniqueFallaciesPerEventHash()
     }
 }
 
@@ -36,7 +36,12 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
         let cell:EventCell = cell as! EventCell
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacyView: uniqueFallaciesViewHash[event.eventId])
+            let fallacies = uniqueFallaciesPerEventHash[event.eventId]
+            if let fallacies = fallacies {
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacies: fallacies)
+            } else {
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacies: [])
+            }
         }
     }
     

@@ -37,12 +37,13 @@ final class FallacyController: ModelController {
         }
     }
     
-    func uniqueFallaciesPerEventHash() -> [String:[String]] {
-        var eventFallacyHash: [String:[String]] = [:]
-        var fallacies: [String]? = []
+    func uniqueFallaciesPerEventHash() -> [String:[Fallacy]] {
+        var eventFallacyHash: [String:[Fallacy]] = [:]
+        var fallacies: [Fallacy]? = []
         let claims = ClaimController.sharedInstance.all()
         let evidenceClaimsHash = EvidenceController.sharedInstance.evidenceClaimsHash()
         for claim in claims {
+            var addedFallacies: [String] = []
             fallacies = eventFallacyHash[claim.eventId]
             if fallacies == nil {
                 fallacies = []
@@ -52,8 +53,9 @@ final class FallacyController: ModelController {
                 for evidence in evidenceArray {
                     let fallacyArray = Array(evidence.fallacies)
                     for fallacy in fallacyArray {
-                        if !(fallacies?.contains(fallacy.fallacyId))! {
-                            fallacies?.append(fallacy.fallacyId)
+                        if !addedFallacies.contains(fallacy.fallacyId) {
+                            fallacies?.append(fallacy)
+                            addedFallacies.append(fallacy.fallacyId)
                         }
                     }
                 }
@@ -61,31 +63,6 @@ final class FallacyController: ModelController {
             eventFallacyHash[claim.eventId] = fallacies
         }
         return eventFallacyHash
-    }
-    
-    func uniqueFallaciesViewHash() -> [String:UIView] {
-        let uniqueFallaciesPerEventHash = self.uniqueFallaciesPerEventHash()
-        var fallaciesViewHash: [String:UIView] = [:]
-        let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
-        for eventId in uniqueFallaciesPerEventHash.keys {
-            let fallaciesIdArray = uniqueFallaciesPerEventHash[eventId]
-            if let fallaciesIdArray = fallaciesIdArray {
-                var fallacies: [Fallacy] = []
-                for fallacyId in fallaciesIdArray {
-                    let fallacy = find(key: fallacyId)
-                    if let fallacy = fallacy {
-                        fallacies.append(fallacy)
-                    }
-                }
-                let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
-                if let fallacyCollectionViewController = fallacyCollectionViewController {
-                    fallacyCollectionViewController.fallacies = fallacies
-                    fallacyCollectionViewController.collectionView?.isUserInteractionEnabled = false
-                    fallaciesViewHash[eventId] = fallacyCollectionViewController.view
-                }
-            }
-        }
-        return fallaciesViewHash
     }
     
     func loadDefault() {

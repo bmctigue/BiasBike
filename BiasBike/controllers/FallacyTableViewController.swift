@@ -30,4 +30,8 @@ class FallaciesTableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func closeButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

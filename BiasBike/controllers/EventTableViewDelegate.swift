@@ -12,7 +12,7 @@ class EventTableViewDelegate: NSObject {
     
     private(set) var categoryHash:[String:[Event]] = [:]
     private(set) var sortedCategories:[Category] = []
-    private(set) var uniqueFallaciesViewHash: [String:UIView] = [:]
+    private(set) var uniqueFallaciesPerEventHash: [String:[Fallacy]] = [:]
     private(set) weak var eventTableViewController: EventTableViewController?
     private(set) weak var tableView: UITableView!
 
@@ -26,7 +26,7 @@ class EventTableViewDelegate: NSObject {
     func updateDataSource(categoryHash: [String:[Event]]) {
         self.categoryHash = categoryHash
         self.sortedCategories = CategoryController().filteredCategoryTypes(categoryHash: categoryHash)
-        self.uniqueFallaciesViewHash = FallacyController.sharedInstance.uniqueFallaciesViewHash()
+        self.uniqueFallaciesPerEventHash = FallacyController.sharedInstance.uniqueFallaciesPerEventHash()
     }
 }
 
@@ -37,7 +37,12 @@ extension EventTableViewDelegate: UITableViewDelegate {
         let category = sortedCategories[indexPath.section]
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacyView: uniqueFallaciesViewHash[event.eventId])
+            let fallacies = uniqueFallaciesPerEventHash[event.eventId]
+            if let fallacies = fallacies {
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacies: fallacies)
+            } else {
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacies: [])
+            }
         }
     }
     
@@ -64,6 +69,7 @@ extension EventTableViewDelegate: UITableViewDelegate {
             eventTableViewController?.show(controller, sender: nil)
         }
     }
+
 }
 
 extension EventTableViewDelegate: EventHeaderCellDelegate {
