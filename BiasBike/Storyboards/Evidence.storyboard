@@ -232,56 +232,56 @@
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lkh-gL-0En"/>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw4-mD-I8z">
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to Add Fallacies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-CG-xAb">
-                                                        <frame key="frameInset" width="300" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUi-i3-gki">
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="fallacyButtonPressed:" destination="2G2-XG-zr5" eventType="touchUpInside" id="UIt-Fa-eff"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="aUi-i3-gki" secondAttribute="bottom" id="1ld-Jd-NBG"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aUi-i3-gki" secondAttribute="bottom" id="3HT-zt-QGc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="aUi-i3-gki" secondAttribute="trailing" id="GpR-ik-Yz6"/>
-                                                    <constraint firstItem="aUi-i3-gki" firstAttribute="leading" secondItem="Vw4-mD-I8z" secondAttribute="leading" id="MJc-7b-PZ7"/>
-                                                    <constraint firstAttribute="trailing" secondItem="aUi-i3-gki" secondAttribute="trailing" id="Qtx-Vq-PfL"/>
-                                                    <constraint firstAttribute="height" constant="40" id="Trv-Gb-7VZ"/>
-                                                    <constraint firstItem="aUi-i3-gki" firstAttribute="leading" secondItem="Vw4-mD-I8z" secondAttribute="leading" id="XY3-tQ-DAw"/>
-                                                    <constraint firstItem="aUi-i3-gki" firstAttribute="top" secondItem="Vw4-mD-I8z" secondAttribute="top" id="hAB-6n-oyC"/>
-                                                    <constraint firstItem="aUi-i3-gki" firstAttribute="top" secondItem="Vw4-mD-I8z" secondAttribute="top" id="joa-wi-CSv"/>
+                                                    <constraint firstAttribute="height" constant="40" id="qUO-8n-Rjj"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Add Fallacies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-CG-xAb">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="rsH-1w-0LZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUi-i3-gki">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="9QX-J0-MxX"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="fallacyButtonPressed:" destination="2G2-XG-zr5" eventType="touchUpInside" id="UIt-Fa-eff"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Vw4-mD-I8z" secondAttribute="trailing" id="5bd-UG-wSM"/>
-                                            <constraint firstItem="Vw4-mD-I8z" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="60D-b0-h7s"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vw4-mD-I8z" secondAttribute="bottom" id="K6w-Oe-fEJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="aUi-i3-gki" secondAttribute="bottom" id="Bf0-tk-07G"/>
                                             <constraint firstItem="lkh-gL-0En" firstAttribute="top" secondItem="ws4-xd-fQ5" secondAttribute="bottom" id="LMk-Vc-NzT"/>
+                                            <constraint firstAttribute="bottom" secondItem="g4P-CG-xAb" secondAttribute="bottom" id="Lye-UN-LHo"/>
                                             <constraint firstItem="lkh-gL-0En" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="Nd9-ro-vFR"/>
+                                            <constraint firstItem="Vw4-mD-I8z" firstAttribute="top" secondItem="lkh-gL-0En" secondAttribute="bottom" id="PCT-ay-x5z"/>
                                             <constraint firstItem="ws4-xd-fQ5" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="RVO-2i-AUV"/>
+                                            <constraint firstItem="g4P-CG-xAb" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="SFu-bG-MNH"/>
+                                            <constraint firstItem="Vw4-mD-I8z" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="THM-My-Whi"/>
+                                            <constraint firstAttribute="trailing" secondItem="g4P-CG-xAb" secondAttribute="trailing" id="aAz-29-RUK"/>
                                             <constraint firstAttribute="trailing" secondItem="ws4-xd-fQ5" secondAttribute="trailing" id="bkv-FL-lYq"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vw4-mD-I8z" secondAttribute="trailing" id="c8F-FA-k5R"/>
                                             <constraint firstAttribute="trailing" secondItem="lkh-gL-0En" secondAttribute="trailing" id="f6M-GL-JV2"/>
-                                            <constraint firstAttribute="height" constant="416" id="j1u-RP-ztj"/>
-                                            <constraint firstItem="Vw4-mD-I8z" firstAttribute="top" secondItem="lkh-gL-0En" secondAttribute="bottom" id="od2-7t-FBy"/>
+                                            <constraint firstAttribute="height" constant="446" id="j1u-RP-ztj"/>
+                                            <constraint firstAttribute="trailing" secondItem="aUi-i3-gki" secondAttribute="trailing" id="pFY-vn-tVn"/>
                                             <constraint firstAttribute="width" constant="300" id="rOm-7K-JQs"/>
+                                            <constraint firstItem="aUi-i3-gki" firstAttribute="top" secondItem="Vw4-mD-I8z" secondAttribute="bottom" id="ul4-Le-3B1"/>
                                             <constraint firstItem="ws4-xd-fQ5" firstAttribute="top" secondItem="Fnt-Ug-jIG" secondAttribute="top" id="v0I-iz-YfY"/>
+                                            <constraint firstItem="aUi-i3-gki" firstAttribute="leading" secondItem="Fnt-Ug-jIG" secondAttribute="leading" id="vly-0n-pWo"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Fnt-Ug-jIG" firstAttribute="centerY" secondItem="i5A-Uq-QiF" secondAttribute="centerY" constant="-0.5" id="Tcp-xz-a4X"/>
+                                    <constraint firstItem="Fnt-Ug-jIG" firstAttribute="centerY" secondItem="i5A-Uq-QiF" secondAttribute="centerY" constant="-5.5" id="Tcp-xz-a4X"/>
                                     <constraint firstItem="Fnt-Ug-jIG" firstAttribute="centerX" secondItem="i5A-Uq-QiF" secondAttribute="centerX" id="omH-ja-sWh"/>
                                 </constraints>
                             </view>

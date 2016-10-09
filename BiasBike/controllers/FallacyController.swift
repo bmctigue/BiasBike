@@ -80,6 +80,7 @@ final class FallacyController: ModelController {
                 let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
                 if let fallacyCollectionViewController = fallacyCollectionViewController {
                     fallacyCollectionViewController.fallacies = fallacies
+                    fallacyCollectionViewController.collectionView?.isUserInteractionEnabled = false
                     fallaciesViewHash[eventId] = fallacyCollectionViewController.view
                 }
             }

@@ -42,10 +42,7 @@ class EvidenceViewController: UIViewController {
             }
         }
         
-        updateTapToAddLabel()
-        
         notificationToken = realm.addNotificationBlock { notification, realm in
-            self.updateTapToAddLabel()
             if let evidence = self.evidence {
                 self.fallacyCollectionViewController?.collectionViewDataSource?.updateData(fallacies: Array(evidence.fallacies))
                 self.fallacyCollectionViewController?.collectionView?.reloadData()
@@ -63,10 +60,6 @@ class EvidenceViewController: UIViewController {
         reliabilityRatingLabel.text = "\(reliabilityRating)"
         relevanceRatingImageView.image = UIImage(named:CellUtitilities().ratingImageNameString(rating: relevanceRating))
         reliabilityRatingImageView.image = UIImage(named:CellUtitilities().ratingImageNameString(rating: reliabilityRating))
-    }
-    
-    func updateTapToAddLabel() {
-        self.tapToAddFallaciesLabel.isHidden = evidence?.fallacies.count == 0 ? false : true
     }
 
     @IBAction func rateButtonPressed(_ sender: AnyObject) {
