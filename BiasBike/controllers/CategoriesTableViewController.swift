@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol CategoriesTableViewControllerDelegate: class {
+    func doneButtonPressed()
+}
+
+
 class CategoriesTableViewController: UITableViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
+    weak var delegate: CategoriesTableViewControllerDelegate?
 
     private(set) var tableViewDataSource: CategoriesTableViewDataSource?
     private(set) var tableViewDelegate: CategoriesTableViewDelegate?
@@ -26,7 +32,8 @@ class CategoriesTableViewController: UITableViewController {
     
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
         self.tableViewDelegate?.saveSelectedCategories()
-        self.dismiss(animated: true, completion: nil)
+        self.delegate?.doneButtonPressed()
+        self.dismiss(animated: true, completion:nil)
     }
     
 

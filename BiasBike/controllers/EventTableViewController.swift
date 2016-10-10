@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class EventTableViewController: UITableViewController {
+class EventTableViewController: UITableViewController, CategoriesTableViewControllerDelegate {
     
     let realm: Realm = try! Realm()
     var notificationToken: NotificationToken? = nil
@@ -61,6 +61,7 @@ class EventTableViewController: UITableViewController {
     @IBAction func categoriesEditButtonPressed(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Modals", bundle: nil)
         let controller: CategoriesTableViewController = storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
+        controller.delegate = self
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -71,6 +72,10 @@ class EventTableViewController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func doneButtonPressed() {
+        refreshData()
     }
     
     deinit {
