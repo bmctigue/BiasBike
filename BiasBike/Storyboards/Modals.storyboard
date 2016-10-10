@@ -24,6 +24,12 @@
                             </textAttributes>
                             <items>
                                 <navigationItem title="Edit Categories" id="Piy-LO-9pg">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="stop" id="1ja-q6-txb">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="v9U-Dv-1LY" id="ywh-1e-rDe"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="done" id="CG8-nt-pce">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -38,11 +44,11 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a9G-Hg-oDW" id="PJF-Cr-PNK">
-                                    <frame key="frameInset" width="336" height="43"/>
+                                    <frame key="frameInset" width="336" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e2I-Re-qG0">
-                                            <frame key="frameInset" minX="15" width="321" height="43"/>
+                                            <frame key="frameInset" minX="15" width="321" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -86,7 +92,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Rate This Claim" id="gTA-6C-4oS">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NXk-Cz-7nq">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="NXk-Cz-7nq">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="t1l-eW-deB" id="AFF-Oj-4L3"/>
@@ -248,7 +254,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Rate This Evidence" id="sZt-Ue-Fyd">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bO1-1U-77n">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="bO1-1U-77n">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="xma-bZ-L4D" id="okf-x7-k7n"/>
