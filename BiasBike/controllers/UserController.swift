@@ -56,7 +56,7 @@ final class UserController: ModelController {
         let userFactory = UserFactory()
         let user1 = userFactory.create(firstName: "Bruce", lastName: "McTigue", url: "bruce")
         update(item: user1)
-        let user2 = userFactory.create(firstName: "Julia", lastName: "Galef", url: "julia")
+        let user2 = userFactory.create(firstName: "Karen", lastName: "Knisely", url: "karen")
         update(item: user2)
     }
 }
