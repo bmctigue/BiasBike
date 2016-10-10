@@ -14,12 +14,17 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var fallacyContainerView: UIView!
+    @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var aggRatingLabel: UILabel!
+    
     var fallacies: [Fallacy]?
+    var aggRating: Int = 0
 
-    func updateCell(title: String, photoUrl: String, fallacies: [Fallacy]?) {
+    func updateCell(title: String, photoUrl: String, aggRating: Int, fallacies: [Fallacy]?) {
         titleLabel.text = title
         eventImage.image = UIImage(named: photoUrl)
         self.fallacies = fallacies
+        self.aggRating = aggRating
         
     }
     
@@ -41,6 +46,9 @@ class EventCell: UITableViewCell {
                 fallacyContainerView.addSubview(fallacyCollectionViewController.view)
             }
         }
+        let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
+        self.aggRatingLabel.text = "\(aggRating)"
+        self.ratingImageView?.image = UIImage(named: ratingImageName)
     }
 
 }

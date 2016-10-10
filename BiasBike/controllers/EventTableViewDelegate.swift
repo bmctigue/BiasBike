@@ -13,6 +13,8 @@ class EventTableViewDelegate: NSObject {
     private(set) var categoryHash:[String:[Event]] = [:]
     private(set) var sortedCategories:[Category] = []
     private(set) var uniqueFallaciesPerEventHash: [String:[Fallacy]] = [:]
+    private(set) var eventRatingsHash: [String:[Rating]] = [:]
+    private(set) var aggRatingsPerEventHash: [String:Int] = [:]
     private(set) weak var eventTableViewController: EventTableViewController?
     private(set) weak var tableView: UITableView!
 
@@ -27,6 +29,8 @@ class EventTableViewDelegate: NSObject {
         self.categoryHash = categoryHash
         self.sortedCategories = CategoryController().filteredCategoryTypes(categoryHash: categoryHash)
         self.uniqueFallaciesPerEventHash = FallacyController.sharedInstance.uniqueFallaciesPerEventHash()
+        self.eventRatingsHash = RatingController.sharedInstance.eventRatingsHash()
+        self.aggRatingsPerEventHash = RatingController.sharedInstance.aggRatingsPerEventHash(eventRatingsHash: eventRatingsHash)
     }
 }
 
@@ -38,10 +42,14 @@ extension EventTableViewDelegate: UITableViewDelegate {
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
             let fallacies = uniqueFallaciesPerEventHash[event.eventId]
+            var aggRating = aggRatingsPerEventHash[event.eventId]
+            if aggRating == nil {
+                aggRating = 0
+            }
             if let fallacies = fallacies {
-                cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacies: fallacies)
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: fallacies)
             } else {
-                cell.updateCell(title: event.title, photoUrl: event.photoUrl, fallacies: [])
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: [])
             }
         }
     }
@@ -69,7 +77,6 @@ extension EventTableViewDelegate: UITableViewDelegate {
             eventTableViewController?.show(controller, sender: nil)
         }
     }
-
 }
 
 extension EventTableViewDelegate: EventHeaderCellDelegate {

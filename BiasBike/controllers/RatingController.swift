@@ -61,4 +61,30 @@ class RatingController: ModelController {
         return Int(ratingTotal/ratings.count)
     }
     
+    func aggRatingsPerEventHash(eventRatingsHash: [String:[Rating]]) -> [String:Int] {
+        var eventRatingsHash = eventRatingsHash
+        var aggRatingsPerEventHash: [String:Int] = [:]
+        var ratings: [Rating]? = []
+        for eventId in eventRatingsHash.keys {
+            ratings = eventRatingsHash[eventId]
+            aggRatingsPerEventHash[eventId] = averageRating(ratings: ratings!)
+        }
+        return aggRatingsPerEventHash
+    }
+    
+    func eventRatingsHash() -> [String:[Rating]] {
+        var eventRatingsHash: [String:[Rating]] = [:]
+        var ratings: [Rating]? = []
+        let claims = ClaimController.sharedInstance.all()
+        for claim in claims {
+            ratings = eventRatingsHash[claim.eventId]
+            if ratings == nil {
+                ratings = []
+            }
+            ratings!.append(contentsOf: all(modelId: claim.claimId))
+            eventRatingsHash[claim.eventId] = ratings
+        }
+        return eventRatingsHash
+    }
+    
 }
