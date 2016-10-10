@@ -10,7 +10,7 @@ import UIKit
 
 class FallacyViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var fallacyNavigationItem: UINavigationItem!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
     
@@ -19,7 +19,7 @@ class FallacyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let fallacy = fallacy {
-            titleLabel.text = fallacy.title
+            fallacyNavigationItem.title = fallacy.title
             summaryLabel.text = fallacy.summary
             exampleLabel.text = fallacy.example
         }
