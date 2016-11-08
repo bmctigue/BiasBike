@@ -10,7 +10,7 @@ import UIKit
 
 class UsersTableViewDelegate: NSObject {
     
-    private(set) var users:[BiasUser] = []
+    private(set) var users:[User] = []
     private(set) var userRatingsHash: [String:Int] = [:]
     private(set) var userAggRatingsHash: [String:Int] = [:]
     private(set) weak var usersTableViewController: UsersTableViewController?
@@ -21,7 +21,7 @@ class UsersTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
-    func updateDataSource(users: [BiasUser]) {
+    func updateDataSource(users: [User]) {
         self.users = users
         self.userRatingsHash = UserController.sharedInstance.userRatingsHash()
         self.userAggRatingsHash = UserController.sharedInstance.userAggRatingsHash()

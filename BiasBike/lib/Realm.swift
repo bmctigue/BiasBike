@@ -66,7 +66,7 @@ func presentError(error: NSError) {
     appDelegate.window?.rootViewController?.present(alertController, animated: true, completion: nil)
 }
 
-private func setDefaultRealmConfigurationWithUser(user: User) {
+private func setDefaultRealmConfigurationWithUser(user: SyncUser) {
     var config = Realm.Configuration()
     config.syncConfiguration = (user, Constants.syncServerURL! as URL)
     Realm.Configuration.defaultConfiguration = config
@@ -80,7 +80,7 @@ private func setDefaultRealmConfigurationWithUser(user: User) {
 }
 
 func configureDefaultRealm() -> Bool {
-    if let user = User.all().first {
+    if let user = SyncUser.all().first {
         setDefaultRealmConfigurationWithUser(user: user)
         return true
     }
@@ -90,7 +90,7 @@ func configureDefaultRealm() -> Bool {
 func authenticate(username: String, password: String, register: Bool, callback: @escaping (NSError?) -> ()) {
     let actions: AuthenticationActions = register ? [.createAccount] : []
     let credential = Credential.usernamePassword(username: username, password: password, actions: actions)
-    User.authenticate(with: credential, server: Constants.syncAuthURL as URL, onCompletion: { user, error in
+    SyncUser.authenticate(with: credential, server: Constants.syncAuthURL as URL, onCompletion: { user, error in
         if let user = user {
             setDefaultRealmConfigurationWithUser(user: user)
         }

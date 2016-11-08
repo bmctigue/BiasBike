@@ -10,14 +10,14 @@ import UIKit
 
 class UsersTableViewDataSource: NSObject {
     
-    private(set) var users:[BiasUser] = []
+    private(set) var users:[User] = []
 
     init(tableView: UITableView) {
         super.init()
         tableView.dataSource = self
     }
     
-    func updateDataSource(users: [BiasUser]) {
+    func updateDataSource(users: [User]) {
         self.users = users
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-final class BiasUser: Object {
+final class User: Object {
     dynamic var userId: String = NSUUID().uuidString
     dynamic var firstName: String = ""
     dynamic var lastName: String = ""

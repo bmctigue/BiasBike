@@ -11,9 +11,9 @@ import XCTest
 
 class UserControllerTests: XCTestCase {
     
-    var users: [BiasUser] = []
-    var testUser: BiasUser?
-    var testUser2: BiasUser?
+    var users: [User] = []
+    var testUser: User?
+    var testUser2: User?
     var testRating: Rating?
     var testRating2: Rating?
     let userFactory: UserFactoryProtocol = UserFactory()

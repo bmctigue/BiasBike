@@ -13,19 +13,19 @@ final class UserController: ModelController {
     
     static let sharedInstance = UserController.init()
     
-    func all() -> [BiasUser] {
-        let items = realm.objects(BiasUser.self)
+    func all() -> [User] {
+        let items = realm.objects(User.self)
         if items.count == 0 {
-            return [BiasUser]()
+            return [User]()
         }
         return Array(items)
     }
     
-    func find(key: String) -> BiasUser? {
-        return realm.object(ofType: BiasUser.self, forPrimaryKey: key)
+    func find(key: String) -> User? {
+        return realm.object(ofType: User.self, forPrimaryKey: key)
     }
     
-    func update(item: BiasUser) {
+    func update(item: User) {
         try! self.realm.write {
             self.realm.add(item, update: true)
         }
@@ -34,7 +34,7 @@ final class UserController: ModelController {
     func userRatingsHash() -> [String:Int] {
         let items = all()
         var hash: [String:Int] = [:]
-        for user: BiasUser in items {
+        for user: User in items {
             let ratings = RatingController.sharedInstance.all(userId: user.userId)
             hash[user.userId] = RatingController.sharedInstance.latestRating(ratings:ratings)
         }
@@ -44,7 +44,7 @@ final class UserController: ModelController {
     func userAggRatingsHash() -> [String:Int] {
         let items = all()
         var hash: [String:Int] = [:]
-        for user: BiasUser in items {
+        for user: User in items {
             let ratings = RatingController.sharedInstance.all(userId: user.userId)
             hash[user.userId] = RatingController.sharedInstance.averageRating(ratings:ratings)
         }

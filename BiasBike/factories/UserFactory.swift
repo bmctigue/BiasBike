@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 protocol UserFactoryProtocol {
-    func create(firstName: String, lastName: String, url: String) -> BiasUser
+    func create(firstName: String, lastName: String, url: String) -> User
 }
 
 struct UserFactory: UserFactoryProtocol {
-    func create(firstName: String, lastName: String, url: String) -> BiasUser {
-        return BiasUser(value: ["firstName": firstName, "lastName": lastName, "url": url])
+    func create(firstName: String, lastName: String, url: String) -> User {
+        return User(value: ["firstName": firstName, "lastName": lastName, "url": url])
     }
 }

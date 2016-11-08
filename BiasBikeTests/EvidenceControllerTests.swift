@@ -11,8 +11,8 @@ import XCTest
 
 class EvidenceControllerTests: XCTestCase {
     
-    var testUser: BiasUser?
-    var testUser2: BiasUser?
+    var testUser: User?
+    var testUser2: User?
     let userFactory: UserFactoryProtocol = UserFactory()
     var items: [Evidence] = []
     var testClaim: Claim?

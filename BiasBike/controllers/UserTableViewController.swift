@@ -16,7 +16,7 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate, Evidenc
 
     private(set) var tableViewDataSource: UserTableViewDataSource?
     private(set) var tableViewDelegate: UserTableViewDelegate?
-    var user: BiasUser?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,8 +11,8 @@ import XCTest
 
 class ClaimControllerTests: XCTestCase {
     
-    var testUser: BiasUser?
-    var testUser2: BiasUser?
+    var testUser: User?
+    var testUser2: User?
     let userFactory: UserFactoryProtocol = UserFactory()
     var claims: [Claim] = []
     var testClaim: Claim?
