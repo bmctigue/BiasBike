@@ -16,8 +16,7 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
 
     private(set) var tableViewDataSource: ClaimsTableViewDataSource?
     private(set) var tableViewDelegate: ClaimsTableViewDelegate?
-    var eventId: String = ""
-    var eventTitle: String = ""
+    var event: Event?
     var claims: [Claim] = []
 
     @IBOutlet weak var headerTitleLabel: UILabel!
@@ -29,7 +28,7 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         
-        self.headerTitleLabel.text = eventTitle
+        self.headerTitleLabel.text = event!.title
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(ClaimsTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -50,9 +49,9 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
     }
     
     func refreshData() {
-        self.claims = ClaimController.sharedInstance.all(eventId: eventId)
+        self.claims = ClaimController.sharedInstance.all(event: event!)
         self.tableViewDataSource?.updateDataSource(claims: claims)
-        self.tableViewDelegate?.updateDataSource(claims: claims, eventId: eventId)
+        self.tableViewDelegate?.updateDataSource(claims: claims, event: event!)
         self.tableView.reloadData()
     }
     

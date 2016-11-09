@@ -72,8 +72,7 @@ extension EventTableViewDelegate: UITableViewDelegate {
             let event = events[indexPath.row]
             let storyboard = UIStoryboard(name: "Claim", bundle: nil)
             let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
-            controller.eventId = event.eventId
-            controller.eventTitle = event.title
+            controller.event = event
             eventTableViewController?.show(controller, sender: nil)
         }
     }

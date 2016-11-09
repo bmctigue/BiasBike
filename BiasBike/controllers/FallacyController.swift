@@ -44,7 +44,7 @@ final class FallacyController: ModelController {
         let evidenceClaimsHash = EvidenceController.sharedInstance.evidenceClaimsHash()
         for claim in claims {
             var addedFallacies: [String] = []
-            fallacies = eventFallacyHash[claim.eventId]
+            fallacies = eventFallacyHash[(claim.event?.eventId)!]
             if fallacies == nil {
                 fallacies = []
             }
@@ -60,7 +60,7 @@ final class FallacyController: ModelController {
                     }
                 }
             }
-            eventFallacyHash[claim.eventId] = fallacies
+            eventFallacyHash[(claim.event?.eventId)!] = fallacies
         }
         return eventFallacyHash
     }

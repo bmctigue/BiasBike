@@ -21,6 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        User.all().first?.logOut()
         
+//        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+//        let realmURLs = [
+//            realmURL,
+//            realmURL.appendingPathExtension("lock"),
+//            realmURL.appendingPathExtension("log_a"),
+//            realmURL.appendingPathExtension("log_b"),
+//            realmURL.appendingPathExtension("note")
+//        ]
+//        for URL in realmURLs {
+//            do {
+//                try FileManager.default.removeItem(at: URL)
+//            } catch {
+//                // handle error
+//            }
+//        }
+        
         return true
     }
 

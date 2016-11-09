@@ -16,7 +16,7 @@ final class Claim: Object {
     dynamic var summary: String = ""
     dynamic var creationDate: Date = Date()
     dynamic var url: String = ""
-    dynamic var eventId: String = ""
+    dynamic var event: Event?
     dynamic var userId: String = ""
     
     override static func indexedProperties() -> [String] {

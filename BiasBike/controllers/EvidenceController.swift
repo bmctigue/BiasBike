@@ -113,7 +113,10 @@ final class EvidenceController: ModelController {
         var user = users.first!
         var events = EventController.sharedInstance.all(category: .World)
         var event: Event? = events.first
-        var claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
+        var claims: [Claim] = []
+        if let event = event {
+            claims = ClaimController.sharedInstance.all(event: event)
+        }
         var claim: Claim? = claims.first
         let evidenceFactory = EvidenceFactory()
         let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", url: "debris", claimId: (claim?.claimId)!, userId: user.userId)
@@ -124,7 +127,7 @@ final class EvidenceController: ModelController {
         user = users.last!
         events = EventController.sharedInstance.all(category: .Sports)
         event = events.first
-        claims = ClaimController.sharedInstance.all(eventId: (event?.eventId)!)
+        claims = ClaimController.sharedInstance.all(event: event!)
         claim = claims.first
         let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", url: "lochte-footage", claimId: (claim?.claimId)!, userId: user.userId)
         update(item: evidence3)

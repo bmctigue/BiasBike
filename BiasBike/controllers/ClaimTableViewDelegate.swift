@@ -21,10 +21,10 @@ class ClaimsTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
-    func updateDataSource(claims: [Claim], eventId: String) {
+    func updateDataSource(claims: [Claim], event: Event) {
         self.claims = claims
-        self.claimsRatingsHash = ClaimController.sharedInstance.claimsRatingsHash(eventId: eventId)
-        self.claimsAggRatingsHash = ClaimController.sharedInstance.claimsAggRatingsHash(eventId: eventId)
+        self.claimsRatingsHash = ClaimController.sharedInstance.claimsRatingsHash(event: event)
+        self.claimsAggRatingsHash = ClaimController.sharedInstance.claimsAggRatingsHash(event: event)
     }
 }
 

@@ -7,13 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol ClaimFactoryProtocol {
-    func create(title: String, summary: String, url: String, eventId: String, userId: String) -> Claim
+    func create(title: String, summary: String, url: String, event: Event, userId: String) -> Claim
 }
 
 struct ClaimFactory: ClaimFactoryProtocol {
-    func create(title: String, summary: String, url: String, eventId: String, userId: String) -> Claim {
-        return Claim(value: ["title": title, "summary": summary, "url": url, "eventId": eventId, "userId": userId])
+    func create(title: String, summary: String, url: String, event: Event, userId: String) -> Claim {
+        let claim = Claim(value: ["title": title, "summary": summary, "url": url, "userId": userId])
+        claim.event = event
+        let realm = try! Realm()
+        try! realm.write {
+            event.claims.append(claim)
+        }
+        return claim
     }
 }

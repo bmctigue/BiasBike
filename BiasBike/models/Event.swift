@@ -17,6 +17,7 @@ final class Event: Object {
     dynamic var url: String = ""
     dynamic var photoUrl: String = ""
     dynamic var category: String = ""
+    let claims = List<Claim>()
     
     override static func indexedProperties() -> [String] {
         return ["eventId", "creationDate"]

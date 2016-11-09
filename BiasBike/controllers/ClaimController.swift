@@ -31,9 +31,8 @@ final class ClaimController: ModelController {
         }
     }
     
-    func all(eventId: String) -> [Claim] {
-        let items = all()
-        return items.filter{$0.eventId == eventId}
+    func all(event: Event) -> [Claim] {
+        return Array(event.claims)
     }
     
     func all(userId: String) -> [Claim] {
@@ -41,8 +40,8 @@ final class ClaimController: ModelController {
         return items.filter{$0.userId == userId}
     }
     
-    func claimsRatingsHash(eventId: String) -> [String:Int] {
-        let items = all(eventId:eventId)
+    func claimsRatingsHash(event: Event) -> [String:Int] {
+        let items = all(event:event)
         return claimsRatingsHashLatestCommon(items: items)
     }
     func claimsRatingsHash(userId: String) -> [String:Int] {
@@ -50,8 +49,8 @@ final class ClaimController: ModelController {
         return claimsRatingsHashLatestCommon(items: items)
     }
     
-    func claimsAggRatingsHash(eventId: String) -> [String:Int] {
-        let items = all(eventId:eventId)
+    func claimsAggRatingsHash(event: Event) -> [String:Int] {
+        let items = all(event:event)
         return claimsRatingsHashAverageCommon(items: items)
     }
     
@@ -85,20 +84,20 @@ final class ClaimController: ModelController {
         var event: Event? = events.first
         let claimFactory = ClaimFactory()
         if let event = event {
-            let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", url: "", eventId: event.eventId, userId: user.userId)
+            let claim1 = claimFactory.create(title: "The Plane Crashed", summary: "Your probablity: 60%", url: "", event: event, userId: user.userId)
             update(item: claim1)
-            let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", url: "", eventId: event.eventId, userId: user.userId)
+            let claim2 = claimFactory.create(title: "High Jacked", summary: "Your probablity: 45%", url: "", event: event, userId: user.userId)
             update(item: claim2)
-            let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", url: "", eventId: event.eventId, userId: user.userId)
+            let claim3 = claimFactory.create(title: "The Plane was Stolen", summary: "Your probablity: 70%", url: "", event: event, userId: user.userId)
             update(item: claim3)
         }
         events = EventController.sharedInstance.all(category: .Sports)
         event = events.first
         user = users.last!
         if let event = event {
-            let claim4 = claimFactory.create(title: "Fabricated His Story", summary: "Your probablity: 60%", url: "", eventId: event.eventId, userId: user.userId)
+            let claim4 = claimFactory.create(title: "Fabricated His Story", summary: "Your probablity: 60%", url: "", event: event, userId: user.userId)
             update(item: claim4)
-            let claim5 = claimFactory.create(title: "Robbed by Guards", summary: "Your probablity: 70%", url: "", eventId: event.eventId, userId: user.userId)
+            let claim5 = claimFactory.create(title: "Robbed by Guards", summary: "Your probablity: 70%", url: "", event: event, userId: user.userId)
             update(item: claim5)
         }
     }

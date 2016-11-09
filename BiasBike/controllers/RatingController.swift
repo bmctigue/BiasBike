@@ -77,12 +77,12 @@ class RatingController: ModelController {
         var ratings: [Rating]? = []
         let claims = ClaimController.sharedInstance.all()
         for claim in claims {
-            ratings = eventRatingsHash[claim.eventId]
+            ratings = eventRatingsHash[(claim.event?.eventId)!]
             if ratings == nil {
                 ratings = []
             }
             ratings!.append(contentsOf: all(modelId: claim.claimId))
-            eventRatingsHash[claim.eventId] = ratings
+            eventRatingsHash[(claim.event?.eventId)!] = ratings
         }
         return eventRatingsHash
     }

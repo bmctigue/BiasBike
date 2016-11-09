@@ -45,7 +45,7 @@ extension EvidenceGroupedTableViewDataSource: UITableViewDataSource {
         let claimId = claimIds[section]
         let claim: Claim? = ClaimController.sharedInstance.find(key: claimId)
         if let claim = claim {
-        let event = EventController.sharedInstance.find(key: claim.eventId)
+        let event = claim.event
             if let event = event {
                 return "\(event.title) - \(claim.title)"
             }
