@@ -32,9 +32,8 @@ final class EvidenceController: ModelController {
         }
     }
     
-    func all(claimId: String) -> [Evidence] {
-        let items = all()
-        return items.filter{$0.claimId == claimId}
+    func all(claim: Claim) -> [Evidence] {
+        return Array(claim.evidence)
     }
     
     func all(userId: String) -> [Evidence] {
@@ -53,9 +52,9 @@ final class EvidenceController: ModelController {
         var hash: [String:[Evidence]] = [:]
         let claims = ClaimController.sharedInstance.all()
         for claim: Claim in claims {
-            let evidence = all(claimId: claim.claimId)
+            let evidence = all(claim: claim)
             if evidence.count > 0 {
-                hash[claim.claimId] = all(claimId: claim.claimId)
+                hash[claim.claimId] = all(claim: claim)
             }
         }
         return hash
@@ -97,10 +96,10 @@ final class EvidenceController: ModelController {
         return hash
     }
     
-    func itemsForHash(claimId: String?) -> [Evidence] {
+    func itemsForHash(claim: Claim?) -> [Evidence] {
         let items: [Evidence]
-        if let claimId = claimId {
-            items = all(claimId:claimId)
+        if let claim = claim {
+            items = all(claim:claim)
         } else {
             items = all()
         }
@@ -119,9 +118,9 @@ final class EvidenceController: ModelController {
         }
         var claim: Claim? = claims.first
         let evidenceFactory = EvidenceFactory()
-        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", url: "debris", claimId: (claim?.claimId)!, userId: user.userId)
+        let evidence1 = evidenceFactory.create(title: "Wing Debris", summary: "", url: "debris", claim: claim!, userId: user.userId)
         update(item: evidence1)
-        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", url: "flightpath", claimId: (claim?.claimId)!, userId: user.userId)
+        let evidence2 = evidenceFactory.create(title: "Flight Path", summary: "", url: "flightpath", claim: claim!, userId: user.userId)
         update(item: evidence2)
         // Sports
         user = users.last!
@@ -129,9 +128,9 @@ final class EvidenceController: ModelController {
         event = events.first
         claims = ClaimController.sharedInstance.all(event: event!)
         claim = claims.first
-        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", url: "lochte-footage", claimId: (claim?.claimId)!, userId: user.userId)
+        let evidence3 = evidenceFactory.create(title: "Broke Bathroom Door", summary: "", url: "lochte-footage", claim: claim!, userId: user.userId)
         update(item: evidence3)
-        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", url: "lochte-station", claimId: (claim?.claimId)!, userId: user.userId)
+        let evidence4 = evidenceFactory.create(title: "No Panic", summary: "", url: "lochte-station", claim: claim!, userId: user.userId)
         update(item: evidence4)
     }
 }

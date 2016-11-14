@@ -50,8 +50,8 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
     
     func refreshData() {
         if let claim = claim {
-            evidence = EvidenceController.sharedInstance.all(claimId: claim.claimId)
-            let items = EvidenceController.sharedInstance.itemsForHash(claimId: claim.claimId)
+            evidence = EvidenceController.sharedInstance.all(claim: claim)
+            let items = EvidenceController.sharedInstance.itemsForHash(claim: claim)
             let relevanceHash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(items: items)
             let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
             let relevanceAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)

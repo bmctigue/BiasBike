@@ -15,8 +15,8 @@ final class Evidence: Object {
     dynamic var summary: String = ""
     dynamic var creationDate: Date = Date()
     dynamic var url: String = ""
-    dynamic var claimId: String = ""
     dynamic var userId: String = ""
+    dynamic var claim: Claim?
     let fallacies = List<Fallacy>()
     
     override static func indexedProperties() -> [String] {

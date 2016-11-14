@@ -50,7 +50,7 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate, Evidenc
     func refreshData() {
         let claims = ClaimController.sharedInstance.all(userId: (user?.userId)!)
         let evidenceItems = EvidenceController.sharedInstance.all(userId: (user?.userId)!)
-        let items = EvidenceController.sharedInstance.itemsForHash(claimId: nil)
+        let items = EvidenceController.sharedInstance.itemsForHash(claim: nil)
         let relevanceHash: [String:Int] = EvidenceController.sharedInstance.evidenceRelevanceRatingsHash(items: items)
         let reliabilityHash: [String:Int] = EvidenceController.sharedInstance.evidenceReliabilityRatingsHash(items: items)
         let relevanceAggHash: [String:Int] = EvidenceController.sharedInstance.evidenceAggRelevanceRatingsHash(items: items)

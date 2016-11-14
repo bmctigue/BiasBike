@@ -7,13 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol EvidenceFactoryProtocol {
-    func create(title: String, summary: String, url: String, claimId: String, userId: String) -> Evidence
+    func create(title: String, summary: String, url: String, claim: Claim, userId: String) -> Evidence
 }
 
 struct EvidenceFactory: EvidenceFactoryProtocol {
-    func create(title: String, summary: String, url: String, claimId: String, userId: String) -> Evidence {
-        return Evidence(value: ["title": title, "summary": summary, "url": url, "claimId": claimId, "userId": userId])
+    func create(title: String, summary: String, url: String, claim: Claim, userId: String) -> Evidence {
+        let evidence = Evidence(value: ["title": title, "summary": summary, "url": url, "userId": userId])
+        evidence.claim = claim
+        let realm = try! Realm()
+        try! realm.write {
+            claim.evidence.append(evidence)
+        }
+        return evidence
     }
 }

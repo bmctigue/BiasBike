@@ -18,6 +18,7 @@ final class Claim: Object {
     dynamic var url: String = ""
     dynamic var event: Event?
     dynamic var userId: String = ""
+    let evidence = List<Evidence>()
     
     override static func indexedProperties() -> [String] {
         return ["claimId", "creationDate"]
