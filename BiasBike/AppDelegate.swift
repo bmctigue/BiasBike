@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller: SplashViewController = storyboard.instantiateInitialViewController() as! SplashViewController
         self.window?.rootViewController = controller
         
-//        User.all().first?.logOut()
+//        SyncUser.current?.logOut()
         
 //        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
 //        let realmURLs = [

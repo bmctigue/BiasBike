@@ -68,7 +68,7 @@ func presentError(error: NSError) {
 
 private func setDefaultRealmConfigurationWithUser(user: SyncUser) {
     var config = Realm.Configuration()
-    config.syncConfiguration = (user, Constants.syncServerURL! as URL)
+    config.syncConfiguration = SyncConfiguration(user: user, realmURL: Constants.syncServerURL! as URL)
     Realm.Configuration.defaultConfiguration = config
     
     do {
@@ -80,7 +80,7 @@ private func setDefaultRealmConfigurationWithUser(user: SyncUser) {
 }
 
 func configureDefaultRealm() -> Bool {
-    if let user = SyncUser.all().first {
+    if let user = SyncUser.current {
         setDefaultRealmConfigurationWithUser(user: user)
         return true
     }
@@ -88,9 +88,8 @@ func configureDefaultRealm() -> Bool {
 }
 
 func authenticate(username: String, password: String, register: Bool, callback: @escaping (NSError?) -> ()) {
-    let actions: AuthenticationActions = register ? [.createAccount] : []
-    let credential = Credential.usernamePassword(username: username, password: password, actions: actions)
-    SyncUser.authenticate(with: credential, server: Constants.syncAuthURL as URL, onCompletion: { user, error in
+    let credential = SyncCredentials.usernamePassword(username: username, password: password)
+    SyncUser.logIn(with: credential, server: Constants.syncAuthURL as URL, onCompletion: { user, error in
         if let user = user {
             setDefaultRealmConfigurationWithUser(user: user)
         }
@@ -103,7 +102,6 @@ func authenticate(username: String, password: String, register: Bool, callback: 
 }
 
 private extension NSError {
-    
     convenience init(error: NSError, description: String?, recoverySuggestion: String?) {
         var userInfo = error.userInfo
         
@@ -112,5 +110,4 @@ private extension NSError {
         
         self.init(domain: error.domain, code: error.code, userInfo: userInfo)
     }
-    
 }
