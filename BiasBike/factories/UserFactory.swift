@@ -15,6 +15,11 @@ protocol UserFactoryProtocol {
 
 struct UserFactory: UserFactoryProtocol {
     func create(firstName: String, lastName: String, url: String) -> User {
-        return User(value: ["firstName": firstName, "lastName": lastName, "url": url])
+        let user = User(value: ["firstName": firstName, "lastName": lastName, "url": url])
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(user)
+        }
+        return user
     }
 }

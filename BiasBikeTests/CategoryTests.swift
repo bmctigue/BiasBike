@@ -45,5 +45,4 @@ class CategoryTests: XCTestCase {
         let color = Category.Politics.color
         XCTAssertTrue(color.isEqual(UIColor.orange))
     }
-    
 }

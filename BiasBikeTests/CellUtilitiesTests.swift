@@ -22,5 +22,4 @@ class CellUtilitiesTests: XCTestCase {
         name = CellUtitilities().ratingImageNameString(rating: 80)
         XCTAssertEqual(name, "green_cell_blank")
     }
-    
 }

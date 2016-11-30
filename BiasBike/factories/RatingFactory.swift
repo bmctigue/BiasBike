@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating
@@ -14,18 +15,33 @@ protocol RatingFactoryProtocol {
 
 struct RatingFactory: RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating {
-        return Rating(value: ["rating": rating, "modelId": modelId, "userId": userId])
+        let rating = Rating(value: ["rating": rating, "modelId": modelId, "userId": userId])
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(rating)
+        }
+        return rating
     }
 }
 
 struct RelevanceRatingFactory: RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating {
-        return RelevanceRating(value: ["rating": rating, "modelId": modelId, "userId": userId])
+        let rating = RelevanceRating(value: ["rating": rating, "modelId": modelId, "userId": userId])
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(rating)
+        }
+        return rating
     }
 }
 
 struct ReliabilityRatingFactory: RatingFactoryProtocol {
     func create(rating: Int, modelId: String, userId: String) -> Rating {
-        return ReliabilityRating(value: ["rating": rating, "modelId": modelId, "userId": userId])
+        let rating = ReliabilityRating(value: ["rating": rating, "modelId": modelId, "userId": userId])
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(rating)
+        }
+        return rating
     }
 }

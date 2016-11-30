@@ -18,42 +18,24 @@ class RelevanceRatingControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        RelevanceRatingController.sharedInstance.clear()
         testRating  = ratingFactory.create(rating: 10, modelId: "1", userId: "2") as? RelevanceRating
         testRating2 = ratingFactory.create(rating: 90, modelId: "1", userId: "2") as? RelevanceRating
-        RelevanceRatingController.sharedInstance.clear()
-    }
-    
-    func testRatingInit() {
-        let Rating = ratingFactory.create(rating: 10, modelId: "1", userId: "2")
-        XCTAssertTrue(Rating.rating == 10)
     }
     
     func testClearRatings() {
-        RelevanceRatingController.sharedInstance.update(item: testRating!)
         RelevanceRatingController.sharedInstance.clear()
         ratings = RelevanceRatingController.sharedInstance.all()
         XCTAssertTrue(ratings.count == 0)
     }
     
-    func testAddRating() {
-        RelevanceRatingController.sharedInstance.update(item: testRating!)
-        ratings = RelevanceRatingController.sharedInstance.all()
-        XCTAssertTrue(ratings.count == 1)
-        RelevanceRatingController.sharedInstance.update(item: testRating2!)
-        ratings = RelevanceRatingController.sharedInstance.all()
-        XCTAssertTrue(ratings.count == 2)
-    }
-    
     func testFindRating() {
-        RelevanceRatingController.sharedInstance.update(item: testRating!)
         let foundRating = RelevanceRatingController.sharedInstance.find(key: (testRating?.ratingId)!)
         XCTAssertEqual(foundRating?.rating, 10)
     }
     
     func testFindRatingForUser() {
-        RelevanceRatingController.sharedInstance.update(item: testRating!)
         ratings = RelevanceRatingController.sharedInstance.all(userId: "2")
-        XCTAssertTrue(ratings.count == 1)
+        XCTAssertTrue(ratings.count == 2)
     }
-
 }

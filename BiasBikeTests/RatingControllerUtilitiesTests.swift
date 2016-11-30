@@ -36,5 +36,4 @@ class RatingControllerUtilitiesTests: XCTestCase {
         result = RatingControllerUtilities().sliderValueConversion(rating: 100)
         XCTAssertEqual(result, RatingControllerUtilities.sliderMax)
     }
-    
 }

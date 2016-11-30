@@ -16,7 +16,6 @@ class CategoryControllerTests: XCTestCase {
         CategoryController().saveSelectedCategories(categories: categories)
         let result = CategoryController().loadSelectedCategories()
         XCTAssertEqual(result.count, Category.categories.count)
-        
     }
     
     func testFilteredCategoryTypes() {
@@ -26,5 +25,4 @@ class CategoryControllerTests: XCTestCase {
         let categories = CategoryController().filteredCategoryTypes(categoryHash: hash)
         XCTAssertEqual(categories, [.World,.Sports,.Politics])
     }
-    
 }

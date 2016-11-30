@@ -25,12 +25,6 @@ final class EventController: ModelController {
         return realm.object(ofType: Event.self, forPrimaryKey: key)
     }
     
-    func update(item: Event) {
-        try! self.realm.write {
-            self.realm.add(item, update: true)
-        }
-    }
-    
     func all(category: Category) -> [Event] {
         let items = all()
         return items.filter{$0.category == category.rawValue}
@@ -54,13 +48,9 @@ final class EventController: ModelController {
     
     func loadDefault() {
         let eventFactory = EventFactory()
-        let event1 = eventFactory.create(title: "Malaysia Flight 370", summary: "", url: "", photoUrl: "missing-flight", category: Category.World.rawValue)
-        update(item: event1)
-        let event2 = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", url: "", photoUrl: "lochte", category: Category.Sports.rawValue)
-        update(item: event2)
-        let event3 = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", url: "", photoUrl: "donald-trump", category: Category.Politics.rawValue)
-        update(item: event3)
-        let event4 = eventFactory.create(title: "Obama Visits Far East", summary: "", url: "", photoUrl: "barack_obama", category: Category.Politics.rawValue)
-        update(item: event4)
+        _ = eventFactory.create(title: "Malaysia Flight 370", summary: "", url: "", photoUrl: "missing-flight", category: Category.World.rawValue)
+        _ = eventFactory.create(title: "Ryan Lochte Robbed?", summary: "", url: "", photoUrl: "lochte", category: Category.Sports.rawValue)
+        _ = eventFactory.create(title: "Donald Trump Tax Returns", summary: "", url: "", photoUrl: "donald-trump", category: Category.Politics.rawValue)
+        _ = eventFactory.create(title: "Obama Visits Far East", summary: "", url: "", photoUrl: "barack_obama", category: Category.Politics.rawValue)
     }
 }

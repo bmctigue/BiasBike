@@ -18,9 +18,9 @@ class EventControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        EventController.sharedInstance.clear()
         testEvent = eventFactory.create(title: "Test", summary: "Test Summary", url: "", photoUrl: "", category: Category.World.rawValue)
         testEvent2 = eventFactory.create(title: "Test2", summary: "Test Summary2", url: "", photoUrl: "", category: Category.Sports.rawValue)
-        EventController.sharedInstance.clear()
     }
     
     func testEventInit() {
@@ -29,28 +29,18 @@ class EventControllerTests: XCTestCase {
     }
     
     func testClearEvents() {
-        EventController.sharedInstance.update(item: testEvent!)
         EventController.sharedInstance.clear()
         events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 0)
     }
     
-    func testAddEvent() {
-        EventController.sharedInstance.update(item: testEvent!)
-        events = EventController.sharedInstance.all()
-        XCTAssertTrue(events.count == 1)
-        EventController.sharedInstance.update(item: testEvent2!)
-        events = EventController.sharedInstance.all()
-        XCTAssertTrue(events.count == 2)
-    }
-    
     func testFindEvent() {
-        EventController.sharedInstance.update(item: testEvent!)
         let foundEvent = EventController.sharedInstance.find(key: (testEvent?.eventId)!)
         XCTAssertTrue(foundEvent?.title == "Test")
     }
     
     func testLoadDefaultEvents() {
+        EventController.sharedInstance.clear()
         EventController.sharedInstance.loadDefault()
         events = EventController.sharedInstance.all()
         XCTAssertTrue(events.count == 4)
@@ -73,5 +63,4 @@ class EventControllerTests: XCTestCase {
         let hash = EventController.sharedInstance.categoryHash()
         XCTAssertEqual(Array(hash.keys).count, 3)
     }
-    
 }

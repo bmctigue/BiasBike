@@ -25,12 +25,6 @@ final class UserController: ModelController {
         return realm.object(ofType: User.self, forPrimaryKey: key)
     }
     
-    func update(item: User) {
-        try! self.realm.write {
-            self.realm.add(item, update: true)
-        }
-    }
-    
     func userRatingsHash() -> [String:Int] {
         let items = all()
         var hash: [String:Int] = [:]
@@ -54,9 +48,7 @@ final class UserController: ModelController {
     func loadDefault() {
         clear()
         let userFactory = UserFactory()
-        let user1 = userFactory.create(firstName: "Bruce", lastName: "McTigue", url: "bruce")
-        update(item: user1)
-        let user2 = userFactory.create(firstName: "Karen", lastName: "Knisely", url: "karen")
-        update(item: user2)
+        _ = userFactory.create(firstName: "Bruce", lastName: "McTigue", url: "bruce")
+        _ = userFactory.create(firstName: "Karen", lastName: "Knisely", url: "karen")
     }
 }

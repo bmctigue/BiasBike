@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol EventFactoryProtocol {
     func create(title: String, summary: String, url: String, photoUrl: String, category: String) -> Event
@@ -14,6 +15,11 @@ protocol EventFactoryProtocol {
 
 struct EventFactory: EventFactoryProtocol {
     func create(title: String, summary: String, url: String, photoUrl: String, category: String) -> Event {
-        return Event(value: ["title": title, "summary": summary, "url": url, "photoUrl": photoUrl, "category": category])
+        let event = Event(value: ["title": title, "summary": summary, "url": url, "photoUrl": photoUrl, "category": category])
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(event)
+        }
+        return event
     }
 }

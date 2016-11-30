@@ -19,6 +19,7 @@ struct ClaimFactory: ClaimFactoryProtocol {
         claim.event = event
         let realm = try! Realm()
         try! realm.write {
+            realm.add(claim)
             event.claims.append(claim)
         }
         return claim

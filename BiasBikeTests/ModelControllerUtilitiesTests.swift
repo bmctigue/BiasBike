@@ -42,5 +42,4 @@ class ModelControllerUtilitiesTests: XCTestCase {
         XCTAssertEqual(events.count, 1)
         XCTAssertTrue(true)
     }
-    
 }

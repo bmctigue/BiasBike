@@ -16,5 +16,4 @@ class ModelControllerTests: XCTestCase {
         modelController.clear()
         XCTAssertTrue(true)
     }
-    
 }
