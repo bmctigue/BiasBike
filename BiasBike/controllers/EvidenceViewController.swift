@@ -32,7 +32,7 @@ class EvidenceViewController: UIViewController {
         self.evidenceImageView?.image = UIImage(named: (evidence?.url)!)
         
         if let evidence = evidence {
-            let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
+            let storyboard = FallacyStoryboardFactory().create()
             fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
             if let fallacyCollectionViewController = fallacyCollectionViewController {
                 fallacyCollectionViewController.fallacies = Array(evidence.fallacies)
@@ -74,7 +74,7 @@ class EvidenceViewController: UIViewController {
     
     @IBAction func fallacyButtonPressed(_ sender: AnyObject) {
         if let evidence = evidence {
-            let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
+            let storyboard = FallacyStoryboardFactory().create()
             let controller: FallaciesTableViewController = storyboard.instantiateViewController(withIdentifier: "FallaciesTableViewController") as! FallaciesTableViewController
             controller.evidence = evidence
             self.present(controller, animated: true, completion: nil)

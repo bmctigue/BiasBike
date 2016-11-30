@@ -53,7 +53,7 @@ extension FallacyCollectionViewDelegateFlowLayout: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let fallacy = fallacies[indexPath.row]
-        let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
+        let storyboard = FallacyStoryboardFactory().create()
         let controller: FallacyViewController = storyboard.instantiateViewController(withIdentifier: "FallacyViewController") as! FallacyViewController
         controller.fallacy = fallacy
         fallacyCollectionViewController?.show(controller, sender: nil)

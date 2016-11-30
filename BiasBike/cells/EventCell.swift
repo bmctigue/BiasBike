@@ -37,7 +37,7 @@ class EventCell: UITableViewCell {
 //            fallacyContainerView.addSubview(fallacyView)
 //        }
         if let fallacies = fallacies {
-            let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
+            let storyboard = FallacyStoryboardFactory().create()
             let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
             if let fallacyCollectionViewController = fallacyCollectionViewController {
                 fallacyCollectionViewController.fallacies = fallacies
