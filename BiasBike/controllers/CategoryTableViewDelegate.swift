@@ -53,7 +53,7 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            let storyboard = UIStoryboard(name: "Claim", bundle: nil)
+            let storyboard = ClaimStoryboardFactory().create()
             let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
             controller.event = event
             categoryTableViewController?.show(controller, sender: nil)

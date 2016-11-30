@@ -64,7 +64,7 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
     
     @IBAction func rateButtonPressed(_ sender: AnyObject) {
         if let claim = claim {
-            let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+            let storyboard = ModalsStoryboardFactory().create()
             let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
             controller.claim = claim
             self.present(controller, animated: true, completion: nil)
@@ -72,7 +72,7 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
     }
     
     func rateButtonPressed(evidence: Evidence) {
-        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let storyboard = ModalsStoryboardFactory().create()
         let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
         controller.evidence = evidence
         self.present(controller, animated: true, completion: nil)

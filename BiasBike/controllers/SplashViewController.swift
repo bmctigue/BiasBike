@@ -45,7 +45,7 @@ class SplashViewController: UIViewController {
     
     private func openMainView() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = MainStoryboardFactory().create()
         let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
         appDelegate.window?.rootViewController = controller
         

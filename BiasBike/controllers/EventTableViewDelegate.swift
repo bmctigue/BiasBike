@@ -70,7 +70,7 @@ extension EventTableViewDelegate: UITableViewDelegate {
         let category = sortedCategories[indexPath.section]
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            let storyboard = UIStoryboard(name: "Claim", bundle: nil)
+            let storyboard = ClaimStoryboardFactory().create()
             let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
             controller.event = event
             eventTableViewController?.show(controller, sender: nil)
@@ -81,7 +81,7 @@ extension EventTableViewDelegate: UITableViewDelegate {
 extension EventTableViewDelegate: EventHeaderCellDelegate {
     
     func headerButtonPressed(category: Category) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = MainStoryboardFactory().create()
         let controller: CategoryTableViewController = storyboard.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
         controller.category = category
         eventTableViewController?.show(controller, sender: nil)

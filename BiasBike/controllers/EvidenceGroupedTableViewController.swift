@@ -61,7 +61,7 @@ class EvidenceGroupedTableViewController: UITableViewController, EvidenceCellDel
     }
     
     func rateButtonPressed(evidence: Evidence) {
-        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let storyboard = ModalsStoryboardFactory().create()
         let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
         controller.evidence = evidence
         self.present(controller, animated: true, completion: nil)

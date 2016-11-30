@@ -65,7 +65,7 @@ class EvidenceViewController: UIViewController {
 
     @IBAction func rateButtonPressed(_ sender: AnyObject) {
         if let evidence = evidence {
-            let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+            let storyboard = ModalsStoryboardFactory().create()
             let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
             controller.evidence = evidence
             self.present(controller, animated: true, completion: nil)

@@ -16,6 +16,7 @@
 		A81F47071D79CF910025F918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47061D79CF910025F918 /* User.swift */; };
 		A81F47091D79D1630025F918 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F47081D79D1630025F918 /* UserController.swift */; };
 		A81F470B1D79D3880025F918 /* UserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F470A1D79D3880025F918 /* UserControllerTests.swift */; };
+		A823957B1DEF5C7400541A70 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823957A1DEF5C7400541A70 /* StoryboardFactory.swift */; };
 		A8267B281D97199F0012EF62 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8267B251D97199F0012EF62 /* UserTableViewController.swift */; };
 		A8267B291D97199F0012EF62 /* UserTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8267B261D97199F0012EF62 /* UserTableViewDataSource.swift */; };
 		A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8267B271D97199F0012EF62 /* UserTableViewDelegate.swift */; };
@@ -159,6 +160,7 @@
 		A81F47061D79CF910025F918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = User.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A81F47081D79D1630025F918 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A81F470A1D79D3880025F918 /* UserControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserControllerTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A823957A1DEF5C7400541A70 /* StoryboardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFactory.swift; sourceTree = "<group>"; };
 		A8267B251D97199F0012EF62 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8267B261D97199F0012EF62 /* UserTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8267B271D97199F0012EF62 /* UserTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				A807DB051DA00C0200FBC077 /* FallacyFactory.swift */,
 				A83041C71D91893E0084EDEA /* RatingFactory.swift */,
 				A83FA6F71D7E113200B9BD0C /* UserFactory.swift */,
+				A823957A1DEF5C7400541A70 /* StoryboardFactory.swift */,
 			);
 			path = factories;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				A85992031DA414BE00E459C9 /* FallacyTableViewController.swift in Sources */,
 				A8B0808F1D8898B400D793AC /* CategoryTableViewDataSource.swift in Sources */,
 				A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */,
+				A823957B1DEF5C7400541A70 /* StoryboardFactory.swift in Sources */,
 				A85992041DA414BE00E459C9 /* FallacyTableViewDataSource.swift in Sources */,
 				A8267B2A1D97199F0012EF62 /* UserTableViewDelegate.swift in Sources */,
 				A879CDEA1D9430DE00D57BF9 /* SplashViewController.swift in Sources */,

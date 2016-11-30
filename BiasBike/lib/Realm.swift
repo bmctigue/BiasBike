@@ -14,8 +14,8 @@ private var realm: Realm!
 
 func logIn(animated: Bool = true) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let loginStoryboard = UIStoryboard(name: "RealmSyncLogin", bundle: nil)
-    let logInViewController = loginStoryboard.instantiateInitialViewController() as! LogInViewController
+    let storyboard = RealmSyncLoginStoryboardFactory().create()
+    let logInViewController = storyboard.instantiateInitialViewController() as! LogInViewController
     logInViewController.completionHandler = { username, password, returnCode in
         guard returnCode != .Cancel, let username = username, let password = password else {
             // FIXME: handle cancellation properly or just restrict it
@@ -45,7 +45,7 @@ func logIn(animated: Bool = true) {
 
 func loadMainView() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let storyboard = MainStoryboardFactory().create()
     let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
     appDelegate.window?.rootViewController = controller
     

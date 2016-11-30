@@ -63,15 +63,14 @@ extension UserTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = EvidenceStoryboardFactory().create()
         if indexPath.section == 0 {
             let claim = claims[indexPath.row]
-            let storyboard = UIStoryboard(name: "Evidence", bundle: nil)
             let controller: EvidenceTableViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceTableViewController") as! EvidenceTableViewController
             controller.claim = claim
             userTableViewController?.show(controller, sender: nil)
         } else {
             let evidence = evidenceItems[indexPath.row]
-            let storyboard = UIStoryboard(name: "Evidence", bundle: nil)
             let controller: EvidenceViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceViewController") as! EvidenceViewController
             controller.evidence = evidence
             userTableViewController?.show(controller, sender: nil)

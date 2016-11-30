@@ -48,7 +48,7 @@ extension EvidenceTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let evidenceItem = evidence[indexPath.row]
-        let storyboard = UIStoryboard(name: "Evidence", bundle: nil)
+        let storyboard = EvidenceStoryboardFactory().create()
         let controller: EvidenceViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceViewController") as! EvidenceViewController
         controller.evidence = evidenceItem
         evidenceTableViewController?.show(controller, sender: nil)

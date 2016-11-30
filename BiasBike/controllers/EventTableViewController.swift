@@ -59,7 +59,7 @@ class EventTableViewController: UITableViewController, CategoriesTableViewContro
     }
     
     @IBAction func categoriesEditButtonPressed(_ sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let storyboard = ModalsStoryboardFactory().create()
         let controller: CategoriesTableViewController = storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
         controller.delegate = self
         self.present(controller, animated: true, completion: nil)

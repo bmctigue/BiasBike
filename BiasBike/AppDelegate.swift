@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let storyboard = UIStoryboard(name: "Splash", bundle: nil)
+        let storyboard = SplashStoryboardFactory().create()
         let controller: SplashViewController = storyboard.instantiateInitialViewController() as! SplashViewController
         self.window?.rootViewController = controller
         

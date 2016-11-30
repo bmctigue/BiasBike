@@ -56,7 +56,7 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
     }
     
     func rateButtonPressed(claim: Claim) {
-        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+        let storyboard = ModalsStoryboardFactory().create()
         let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
         controller.claim = claim
         self.present(controller, animated: true, completion: nil)
