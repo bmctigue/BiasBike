@@ -26,12 +26,6 @@ final class ReliabilityRatingController: ModelController {
         return realm.object(ofType: ReliabilityRating.self, forPrimaryKey: key)
     }
     
-    func update(item: ReliabilityRating) {
-        try! self.realm.write {
-            self.realm.add(item, update: true)
-        }
-    }
-    
     func all(modelId: String) -> [ReliabilityRating] {
         let items = all()
         return items.filter{$0.modelId == modelId}
@@ -41,7 +35,6 @@ final class ReliabilityRatingController: ModelController {
         let items = all()
         return items.filter{$0.userId == userId}
     }
-    
 }
 
 

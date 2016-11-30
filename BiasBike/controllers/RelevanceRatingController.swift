@@ -26,12 +26,6 @@ final class RelevanceRatingController: ModelController {
         return realm.object(ofType: RelevanceRating.self, forPrimaryKey: key)
     }
     
-    func update(item: RelevanceRating) {
-        try! self.realm.write {
-            self.realm.add(item, update: true)
-        }
-    }
-    
     func all(modelId: String) -> [RelevanceRating] {
         let items = all()
         return items.filter{$0.modelId == modelId}
@@ -41,5 +35,4 @@ final class RelevanceRatingController: ModelController {
         let items = all()
         return items.filter{$0.userId == userId}
     }
-    
 }

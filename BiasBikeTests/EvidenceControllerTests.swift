@@ -97,8 +97,6 @@ class EvidenceControllerTests: XCTestCase {
     func commonRelevanceRatings() {
         testRelevanceRating = relevanceRatingFactory.create(rating: 10, modelId: testEvidence!.evidenceId, userId: "2") as? RelevanceRating
         testRelevanceRating2 = relevanceRatingFactory.create(rating: 90, modelId: testEvidence!.evidenceId, userId: "2")  as? RelevanceRating
-        RelevanceRatingController.sharedInstance.update(item: testRelevanceRating!)
-        RelevanceRatingController.sharedInstance.update(item: testRelevanceRating2!)
     }
     
     func testReliabilityRatingsHash() {
@@ -134,7 +132,5 @@ class EvidenceControllerTests: XCTestCase {
     func commonReliabilityRatings() {
         testReliabilityRating = reliabilityRatingFactory.create(rating: 10, modelId: testEvidence!.evidenceId, userId: "2") as? ReliabilityRating
         testReliabilityRating2 = reliabilityRatingFactory.create(rating: 90, modelId: testEvidence!.evidenceId, userId: "2")  as? ReliabilityRating
-        ReliabilityRatingController.sharedInstance.update(item: testReliabilityRating!)
-        ReliabilityRatingController.sharedInstance.update(item: testReliabilityRating2!)
     }
 }

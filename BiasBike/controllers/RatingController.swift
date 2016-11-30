@@ -26,12 +26,6 @@ class RatingController: ModelController {
         return realm.object(ofType: Rating.self, forPrimaryKey: key)
     }
     
-    func update(item: Rating) {
-        try! self.realm.write {
-            self.realm.add(item, update: true)
-        }
-    }
-    
     func all(modelId: String) -> [Rating] {
         let items = all()
         return items.filter{$0.modelId == modelId}
@@ -86,5 +80,4 @@ class RatingController: ModelController {
         }
         return eventRatingsHash
     }
-    
 }

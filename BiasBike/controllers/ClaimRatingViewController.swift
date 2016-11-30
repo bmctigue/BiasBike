@@ -62,8 +62,7 @@ class ClaimRatingViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
         let users = UserController.sharedInstance.all()
         let user = users.first!
-        let newRating = RatingFactory().create(rating: rating, modelId: (claim?.claimId)!, userId: user.userId)
-        RatingController.sharedInstance.update(item: newRating)
+        _ = RatingFactory().create(rating: rating, modelId: (claim?.claimId)!, userId: user.userId)
         self.dismiss(animated: true, completion: nil)
     }
     
