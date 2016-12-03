@@ -40,7 +40,7 @@ extension UsersTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let storyboard = MainStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Main")
         let controller: UserTableViewController = storyboard.instantiateViewController(withIdentifier: "UserTableViewController") as! UserTableViewController
         controller.user = user
         usersTableViewController?.show(controller, sender: nil)

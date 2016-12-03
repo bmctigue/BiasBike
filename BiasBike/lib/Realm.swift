@@ -14,7 +14,7 @@ private var realm: Realm!
 
 func logIn(animated: Bool = true) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let storyboard = RealmSyncLoginStoryboardFactory().create()
+    let storyboard = StoryboardFactory().create(name: "RealmSyncLogin")
     let logInViewController = storyboard.instantiateInitialViewController() as! LogInViewController
     logInViewController.completionHandler = { username, password, returnCode in
         guard returnCode != .Cancel, let username = username, let password = password else {
@@ -45,7 +45,7 @@ func logIn(animated: Bool = true) {
 
 func loadMainView() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let storyboard = MainStoryboardFactory().create()
+    let storyboard = StoryboardFactory().create(name: "Main")
     let controller: UITabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
     appDelegate.window?.rootViewController = controller
     

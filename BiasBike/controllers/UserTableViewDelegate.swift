@@ -63,7 +63,7 @@ extension UserTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = EvidenceStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Evidence")
         if indexPath.section == 0 {
             let claim = claims[indexPath.row]
             let controller: EvidenceTableViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceTableViewController") as! EvidenceTableViewController

@@ -10,54 +10,12 @@ import Foundation
 import UIKit
 
 protocol StoryboardFactoryProtocol {
-    func create() -> UIStoryboard
+    func create(name: String) -> UIStoryboard
 }
 
-struct SplashStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Splash", bundle: nil)
-        return storyboard
-    }
-}
-
-struct MainStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard
-    }
-}
-
-struct ClaimStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Claim", bundle: nil)
-        return storyboard
-    }
-}
-
-struct EvidenceStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Evidence", bundle: nil)
-        return storyboard
-    }
-}
-
-struct FallacyStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Fallacy", bundle: nil)
-        return storyboard
-    }
-}
-
-struct ModalsStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Modals", bundle: nil)
-        return storyboard
-    }
-}
-
-struct RealmSyncLoginStoryboardFactory: StoryboardFactoryProtocol {
-    func create() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "RealmSyncLogin", bundle: nil)
+struct StoryboardFactory: StoryboardFactoryProtocol {
+    func create(name: String) -> UIStoryboard {
+        let storyboard = UIStoryboard(name: name, bundle: nil)
         return storyboard
     }
 }

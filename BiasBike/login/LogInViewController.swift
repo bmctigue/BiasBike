@@ -46,7 +46,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func register(sender: AnyObject?) {
-        let storyboard = RealmSyncLoginStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "RealmSyncLogin")
         let viewController: RegisterViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
         viewController.initialUserName = self.userNameTextField.text
         viewController.completionHandler = { userName, password, returnCode in

@@ -41,7 +41,7 @@ extension ClaimsTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let claim = claims[indexPath.row]
-        let storyboard = EvidenceStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Evidence")
         let controller: EvidenceTableViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceTableViewController") as! EvidenceTableViewController
         controller.claim = claim
         claimsTableViewController?.show(controller, sender: nil)

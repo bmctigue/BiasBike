@@ -52,14 +52,16 @@ class EventTableViewController: UITableViewController, CategoriesTableViewContro
     }
     
     func refreshData() {
+        let uniqueFallaciesPerEventHash = FallacyController.sharedInstance.uniqueFallaciesPerEventHash()
+        let fallacyViewPerEventHash =  FallacyController.sharedInstance.fallacyViewPerEventHash(uniquesFallaciesHash: uniqueFallaciesPerEventHash)
         self.categoryHash = EventController.sharedInstance.categoryHash()
-        self.tableViewDataSource?.updateDataSource(categoryHash: categoryHash)
-        self.tableViewDelegate?.updateDataSource(categoryHash: categoryHash)
+        self.tableViewDataSource?.updateDataSource(categoryHash: self.categoryHash)
+        self.tableViewDelegate?.updateDataSource(categoryHash: self.categoryHash, fallacyViewPerEventHash: fallacyViewPerEventHash)
         self.tableView.reloadData()
     }
     
     @IBAction func categoriesEditButtonPressed(_ sender: AnyObject) {
-        let storyboard = ModalsStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Modals")
         let controller: CategoriesTableViewController = storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
         controller.delegate = self
         self.present(controller, animated: true, completion: nil)

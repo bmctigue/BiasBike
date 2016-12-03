@@ -43,9 +43,9 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
             let fallacies = uniqueFallaciesPerEventHash[event.eventId]
             let aggRating = aggRatingsPerEventHash[event.eventId]
             if let fallacies = fallacies {
-                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: fallacies)
+//                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: fallacies)
             } else {
-                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: [])
+//                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: [])
             }
         }
     }
@@ -53,7 +53,7 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            let storyboard = ClaimStoryboardFactory().create()
+            let storyboard = StoryboardFactory().create(name: "Claim")
             let controller: ClaimsTableViewController = storyboard.instantiateViewController(withIdentifier: "ClaimsTableViewController") as! ClaimsTableViewController
             controller.event = event
             categoryTableViewController?.show(controller, sender: nil)

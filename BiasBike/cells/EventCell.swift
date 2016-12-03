@@ -17,38 +17,26 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var aggRatingLabel: UILabel!
     
-    var fallacies: [Fallacy]?
+    var fallacyView: UIView?
     var aggRating: Int = 0
 
-    func updateCell(title: String, photoUrl: String, aggRating: Int, fallacies: [Fallacy]?) {
+    func updateCell(title: String, photoUrl: String, aggRating: Int, fallacyView: UIView?) {
         titleLabel.text = title
         eventImage.image = UIImage(named: photoUrl)
-        self.fallacies = fallacies
+        self.fallacyView = fallacyView
         self.aggRating = aggRating
-        
     }
     
     override func layoutSubviews() {
         for currentFallacyView in fallacyContainerView.subviews {
             currentFallacyView.removeFromSuperview()
         }
-//        if let fallacyView = fallacyView {
-//            fallacyView.frame = fallacyContainerView.bounds
-//            fallacyContainerView.addSubview(fallacyView)
-//        }
-        if let fallacies = fallacies {
-            let storyboard = FallacyStoryboardFactory().create()
-            let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
-            if let fallacyCollectionViewController = fallacyCollectionViewController {
-                fallacyCollectionViewController.fallacies = fallacies
-                fallacyCollectionViewController.collectionView?.isUserInteractionEnabled = false
-                fallacyCollectionViewController.view.frame = fallacyContainerView.bounds
-                fallacyContainerView.addSubview(fallacyCollectionViewController.view)
-            }
+        if let fallacyView = fallacyView {
+            fallacyView.frame = fallacyContainerView.bounds
+            fallacyContainerView.addSubview(fallacyView)
         }
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
         self.aggRatingLabel.text = "\(aggRating)"
         self.ratingImageView?.image = UIImage(named: ratingImageName)
     }
-
 }

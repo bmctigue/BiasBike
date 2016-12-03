@@ -61,14 +61,14 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate, Evidenc
     }
     
     func rateButtonPressed(claim: Claim) {
-        let storyboard = ModalsStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Modals")
         let controller: ClaimRatingViewController = storyboard.instantiateViewController(withIdentifier: "ClaimRatingViewController") as! ClaimRatingViewController
         controller.claim = claim
         self.present(controller, animated: true, completion: nil)
     }
     
     func rateButtonPressed(evidence: Evidence) {
-        let storyboard = ModalsStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Modals")
         let controller: EvidenceRatingViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceRatingViewController") as! EvidenceRatingViewController
         controller.evidence = evidence
         self.present(controller, animated: true, completion: nil)

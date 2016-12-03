@@ -54,7 +54,7 @@ extension EvidenceGroupedTableViewDelegate: UITableViewDelegate {
         let claimId = claimIds[indexPath.section]
         let evidenceItems = evidenceHash[claimId]
         let evidence = evidenceItems![indexPath.row]
-        let storyboard = EvidenceStoryboardFactory().create()
+        let storyboard = StoryboardFactory().create(name: "Evidence")
         let controller: EvidenceViewController = storyboard.instantiateViewController(withIdentifier: "EvidenceViewController") as! EvidenceViewController
         controller.evidence = evidence
         evidenceTableViewController?.show(controller, sender: nil)
