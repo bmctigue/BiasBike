@@ -28,6 +28,8 @@ class EventCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.layoutSubviews()
         for currentFallacyView in fallacyContainerView.subviews {
             currentFallacyView.removeFromSuperview()
         }

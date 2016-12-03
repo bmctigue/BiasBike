@@ -21,5 +21,4 @@ class FallacyCollectionViewController: UICollectionViewController {
             self.collectionViewDelegateFlowLayout = FallacyCollectionViewDelegateFlowLayout(collectionView: collectionView!, fallacies: fallacies, fallacyCollectionViewController: self)
         }
     }
-
 }

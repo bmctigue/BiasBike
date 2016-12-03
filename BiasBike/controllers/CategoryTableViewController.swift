@@ -47,9 +47,11 @@ class CategoryTableViewController: UITableViewController {
     }
     
     func refreshData() {
+        let uniqueFallaciesPerEventHash = FallacyController.sharedInstance.uniqueFallaciesPerEventHash()
+        let fallacyViewPerEventHash =  FallacyController.sharedInstance.fallacyViewPerEventHash(uniquesFallaciesHash: uniqueFallaciesPerEventHash)
         self.categoryHash = EventController.sharedInstance.categoryHash()
         self.tableViewDataSource?.updateDataSource(categoryHash: categoryHash)
-        self.tableViewDelegate?.updateDataSource(categoryHash: categoryHash)
+        self.tableViewDelegate?.updateDataSource(categoryHash: categoryHash, fallacyViewPerEventHash: fallacyViewPerEventHash)
         self.tableView.reloadData()
     }
 
