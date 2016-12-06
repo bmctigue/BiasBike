@@ -34,16 +34,6 @@ class EventTableViewDelegateCommon: NSObject {
         self.aggRatingsPerEventHash = RatingController.sharedInstance.aggRatingsPerEventHash(eventRatingsHash: eventRatingsHash)
         self.uniqueFallaciesPerEventHash = uniqueFallaciesPerEventHash
     }
-}
-
-extension EventTableViewDelegateCommon: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cell:EventCell = cell as! EventCell
-        let category = sortedCategories[indexPath.section].rawValue
-        self.updateCell(cell: cell, category: category, indexPath: indexPath)
-        
-    }
     
     func updateCell(cell: EventCell, category: String, indexPath: IndexPath) {
         if let events = self.categoryHash[category] {
@@ -59,6 +49,16 @@ extension EventTableViewDelegateCommon: UITableViewDelegate {
                 cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: [])
             }
         }
+    }
+}
+
+extension EventTableViewDelegateCommon: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell:EventCell = cell as! EventCell
+        let category = sortedCategories[indexPath.section].rawValue
+        self.updateCell(cell: cell, category: category, indexPath: indexPath)
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
