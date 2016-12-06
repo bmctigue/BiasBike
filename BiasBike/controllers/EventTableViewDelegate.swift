@@ -8,9 +8,7 @@
 
 import UIKit
 
-class EventTableViewDelegate: EventTableViewDelegateCommon {
-    
-}
+class EventTableViewDelegate: EventTableViewDelegateCommon {}
 
 extension EventTableViewDelegate {
     
