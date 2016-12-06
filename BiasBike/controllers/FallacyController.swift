@@ -59,20 +59,6 @@ final class FallacyController: ModelController {
         return eventFallacyHash
     }
     
-    func fallacyViewPerEventHash(uniquesFallaciesHash: [String:[Fallacy]]) -> [String:UIView] {
-        var eventFallacyViewHash: [String:UIView] = [:]
-        let storyboard = StoryboardFactory().create(name: "Fallacy")
-        for eventId in uniquesFallaciesHash.keys {
-            let fallacyCollectionViewController = storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController
-            if let fallacyCollectionViewController = fallacyCollectionViewController {
-                fallacyCollectionViewController.fallacies = uniquesFallaciesHash[eventId]
-                fallacyCollectionViewController.collectionView?.isUserInteractionEnabled = false
-                eventFallacyViewHash[eventId] = fallacyCollectionViewController.view
-            }
-        }
-        return eventFallacyViewHash
-    }
-    
     func loadDefault() {
         let fallacyFactory = FallacyFactory()
         _ = fallacyFactory.create(title: FallacyType.Anger.title, summary: FallacyType.Anger.summary, example: FallacyType.Anger.example, url: "", icon: FallacyType.Anger.icon, type: FallacyType.Anger.rawValue)

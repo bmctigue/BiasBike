@@ -17,28 +17,24 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var aggRatingLabel: UILabel!
     
-    var fallacyView: UIView?
+    var fallacyCollectionViewController: FallacyCollectionViewController? = nil
     var aggRating: Int = 0
+    
+    override func awakeFromNib() {
+        let storyboard = StoryboardFactory().create(name: "Fallacy")
+        fallacyCollectionViewController = (storyboard.instantiateViewController(withIdentifier: "FallacyCollectionViewController") as? FallacyCollectionViewController)!
+        fallacyCollectionViewController?.view.frame = fallacyContainerView.bounds
+        fallacyContainerView.addSubview((fallacyCollectionViewController?.view)!)
+    }
 
-    func updateCell(title: String, photoUrl: String, aggRating: Int, fallacyView: UIView?) {
+    func updateCell(title: String, photoUrl: String, aggRating: Int, fallacies: [Fallacy]) {
         titleLabel.text = title
         eventImage.image = UIImage(named: photoUrl)
-        self.fallacyView = fallacyView
         self.aggRating = aggRating
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.contentView.layoutSubviews()
-        for currentFallacyView in fallacyContainerView.subviews {
-            currentFallacyView.removeFromSuperview()
-        }
-        if let fallacyView = fallacyView {
-            fallacyView.frame = fallacyContainerView.bounds
-            fallacyContainerView.addSubview(fallacyView)
-        }
         let ratingImageName = CellUtitilities().ratingImageNameString(rating: aggRating)
-        self.aggRatingLabel.text = "\(aggRating)"
-        self.ratingImageView?.image = UIImage(named: ratingImageName)
+        aggRatingLabel.text = "\(aggRating)"
+        ratingImageView?.image = UIImage(named: ratingImageName)
+        fallacyCollectionViewController?.fallacies = fallacies
+        fallacyCollectionViewController?.updateFallacies()
     }
 }

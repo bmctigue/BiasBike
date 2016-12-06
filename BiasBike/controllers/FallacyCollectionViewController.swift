@@ -16,6 +16,10 @@ class FallacyCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.updateFallacies()
+    }
+    
+    func updateFallacies() {
         if let fallacies = fallacies {
             self.collectionViewDataSource = FallacyCollectionViewDataSource(collectionView: collectionView!, fallacies: fallacies)
             self.collectionViewDelegateFlowLayout = FallacyCollectionViewDelegateFlowLayout(collectionView: collectionView!, fallacies: fallacies, fallacyCollectionViewController: self)

@@ -14,7 +14,7 @@ class CategoryTableViewDelegate: NSObject {
     private(set) var category: Category
     private(set) var eventRatingsHash: [String:[Rating]] = [:]
     private(set) var aggRatingsPerEventHash: [String:Int] = [:]
-    private(set) var fallacyViewPerEventHash: [String:UIView] = [:]
+    private(set) var uniqueFallaciesPerEventHash: [String:[Fallacy]] = [:]
     private(set) weak var categoryTableViewController: CategoryTableViewController?
     private(set) weak var tableView: UITableView!
 
@@ -26,11 +26,11 @@ class CategoryTableViewDelegate: NSObject {
         self.categoryTableViewController = categoryTableViewController
     }
     
-    func updateDataSource(categoryHash: [String:[Event]],fallacyViewPerEventHash: [String:UIView]) {
-        self.categoryHash = categoryHash
+    func updateDataSource(categoryHash: [String:[Event]], uniqueFallaciesPerEventHash: [String:[Fallacy]]) {
+        self.categoryHash = categoryHash 
         self.eventRatingsHash = RatingController.sharedInstance.eventRatingsHash()
         self.aggRatingsPerEventHash = RatingController.sharedInstance.aggRatingsPerEventHash(eventRatingsHash: eventRatingsHash)
-        self.fallacyViewPerEventHash = fallacyViewPerEventHash
+        self.uniqueFallaciesPerEventHash = uniqueFallaciesPerEventHash
     }
 }
 
@@ -40,12 +40,15 @@ extension CategoryTableViewDelegate: UITableViewDelegate {
         let cell:EventCell = cell as! EventCell
         if let events = self.categoryHash[category.rawValue] {
             let event = events[indexPath.row]
-            let fallacyView = fallacyViewPerEventHash[event.eventId]
-            let aggRating = aggRatingsPerEventHash[event.eventId]
-            if let fallacyView = fallacyView {
-                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacyView: fallacyView)
+            let fallacies = uniqueFallaciesPerEventHash[event.eventId]
+            var aggRating = aggRatingsPerEventHash[event.eventId]
+            if aggRating == nil {
+                aggRating = 0
+            }
+            if let fallacies = fallacies {
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: fallacies)
             } else {
-                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacyView: nil)
+                cell.updateCell(title: event.title, photoUrl: event.photoUrl, aggRating: aggRating!, fallacies: [])
             }
         }
     }
