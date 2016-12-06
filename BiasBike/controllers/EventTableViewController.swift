@@ -71,7 +71,6 @@ class EventTableViewController: UITableViewController, CategoriesTableViewContro
         refreshData()
         let alertController = UIAlertController(title: "Data Reset", message:"The app data has been reset", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
-        
         self.present(alertController, animated: true, completion: nil)
     }
     
