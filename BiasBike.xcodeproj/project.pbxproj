@@ -61,6 +61,7 @@
 		A87F2B3D1D9470ED00E7A3AF /* EvidenceGroupedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F2B3A1D9470ED00E7A3AF /* EvidenceGroupedTableViewController.swift */; };
 		A87F2B3E1D9470ED00E7A3AF /* EvidenceGroupedTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F2B3B1D9470ED00E7A3AF /* EvidenceGroupedTableViewDataSource.swift */; };
 		A87F2B3F1D9470ED00E7A3AF /* EvidenceGroupedTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F2B3C1D9470ED00E7A3AF /* EvidenceGroupedTableViewDelegate.swift */; };
+		A88C15661DF72D9A006785A6 /* EventTableViewDelegateCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C15651DF72D9A006785A6 /* EventTableViewDelegateCommon.swift */; };
 		A8965F2E1D787E4300349EC1 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2D1D787E4300349EC1 /* Evidence.swift */; };
 		A8965F301D7882F600349EC1 /* EvidenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F2F1D7882F600349EC1 /* EvidenceController.swift */; };
 		A8965F321D7887FA00349EC1 /* EvidenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */; };
@@ -205,6 +206,7 @@
 		A87F2B3B1D9470ED00E7A3AF /* EvidenceGroupedTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceGroupedTableViewDataSource.swift; sourceTree = "<group>"; };
 		A87F2B3C1D9470ED00E7A3AF /* EvidenceGroupedTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceGroupedTableViewDelegate.swift; sourceTree = "<group>"; };
 		A889A1EF1D9C697200178DEB /* BiasBike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BiasBike.entitlements; path = ../BiasBike.entitlements; sourceTree = "<group>"; };
+		A88C15651DF72D9A006785A6 /* EventTableViewDelegateCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewDelegateCommon.swift; sourceTree = "<group>"; };
 		A8965F2D1D787E4300349EC1 /* Evidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		A8965F2F1D7882F600349EC1 /* EvidenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceController.swift; sourceTree = "<group>"; };
 		A8965F311D7887FA00349EC1 /* EvidenceControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EvidenceControllerTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -351,6 +353,7 @@
 				A8E73E301D777A230098FAC0 /* EventController.swift */,
 				A8C7102D1D85F85C00205144 /* EventTableViewController.swift */,
 				A8C7102E1D85F85C00205144 /* EventTableViewDataSource.swift */,
+				A88C15651DF72D9A006785A6 /* EventTableViewDelegateCommon.swift */,
 				A8C7102F1D85F85C00205144 /* EventTableViewDelegate.swift */,
 			);
 			name = Event;
@@ -804,6 +807,7 @@
 				A8F544581D8F33F7001A9268 /* EvidenceRatingViewController.swift in Sources */,
 				A8E4AC731D848D61007F7C31 /* ModelController.swift in Sources */,
 				A83FA6F81D7E113200B9BD0C /* UserFactory.swift in Sources */,
+				A88C15661DF72D9A006785A6 /* EventTableViewDelegateCommon.swift in Sources */,
 				A8267B281D97199F0012EF62 /* UserTableViewController.swift in Sources */,
 				A87F2B3D1D9470ED00E7A3AF /* EvidenceGroupedTableViewController.swift in Sources */,
 				A857A4761DA4776100FFEB83 /* FallacyCollectionViewController.swift in Sources */,

@@ -32,7 +32,7 @@ class CategoryTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 300
 
         self.tableViewDataSource = CategoryTableViewDataSource(tableView: tableView, category:category)
-        self.tableViewDelegate = CategoryTableViewDelegate(tableView: tableView, category:category, categoryTableViewController:self)
+        self.tableViewDelegate = CategoryTableViewDelegate(tableView: tableView, category:category.rawValue, tableViewController:self)
         refreshData()
     }
     

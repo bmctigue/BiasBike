@@ -37,7 +37,7 @@ class EventTableViewController: UITableViewController, CategoriesTableViewContro
         self.tableView.estimatedRowHeight = 300
 
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
-        self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, eventTableViewController: self)
+        self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, category:"", tableViewController: self)
         
         notificationToken = realm.addNotificationBlock { notification, realm in
             self.refreshData()
