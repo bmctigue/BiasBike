@@ -31,7 +31,7 @@ class EvidenceGroupedTableViewController: UITableViewController, EvidenceCellDel
         self.tableViewDataSource = EvidenceGroupedTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EvidenceGroupedTableViewDelegate(tableView: tableView, evidenceTableViewController: self)
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             self.refreshData()
         }
         
@@ -69,7 +69,7 @@ class EvidenceGroupedTableViewController: UITableViewController, EvidenceCellDel
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 
 }

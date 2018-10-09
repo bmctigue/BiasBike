@@ -36,7 +36,7 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
         self.tableViewDataSource = ClaimsTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = ClaimsTableViewDelegate(tableView: tableView, claimsTableViewController: self)
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             self.refreshData()
         }
         
@@ -64,7 +64,7 @@ class ClaimsTableViewController: UITableViewController, ClaimCellDelegate {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 
 }

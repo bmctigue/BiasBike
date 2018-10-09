@@ -19,14 +19,15 @@
 import Foundation
 
 struct Constants {
-    static let syncHost = localIPAddress
+//    static let syncHost = localIPAddress
+    static let syncHost = "biasbike.us1a.cloud.realm.io"
 
     static let syncRealmPath = "biasbike"
     static let defaultListName = "BiasBike"
     static let defaultListID = "80EB1620-165B-4600-A1B1-D97032FDD121"
 
-    static let syncServerURL = NSURL(string: "realm://\(syncHost):9080/~/\(syncRealmPath)")
-    static let syncAuthURL = NSURL(string: "http://\(syncHost):9080")!
+    static let syncServerURL = NSURL(string: "realms://\(syncHost)/\(syncRealmPath)")
+    static let syncAuthURL = NSURL(string: "https://\(syncHost)")!
 
     static let appID = Bundle.main.bundleIdentifier!
 }

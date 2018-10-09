@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ADDE9F9BEDF4BD9840696A4 /* Pods_BiasBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928A18B1A54001597FF432B9 /* Pods_BiasBike.framework */; };
+		9F57BEBCEFAAE69ACFE6B338 /* Pods_BiasBikeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B265FD71382A83C52DBCC2 /* Pods_BiasBikeTests.framework */; };
 		A807DB011DA00A4100FBC077 /* Fallacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB001DA00A4100FBC077 /* Fallacy.swift */; };
 		A807DB041DA00B0300FBC077 /* FallacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB031DA00B0300FBC077 /* FallacyController.swift */; };
 		A807DB061DA00C0200FBC077 /* FallacyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB051DA00C0200FBC077 /* FallacyFactory.swift */; };
@@ -42,10 +44,6 @@
 		A8586FD31D9ADAD2002C2672 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */; };
 		A8586FD71D9ADB1A002C2672 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */; };
 		A8586FD81D9ADB1A002C2672 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8586FD61D9ADB1A002C2672 /* RegisterViewController.swift */; };
-		A8586FF21D9AE7A8002C2672 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; };
-		A8586FF51D9AE7B2002C2672 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A8586FF61D9AE7B2002C2672 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
-		A8586FF71D9AE7B2002C2672 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A85992031DA414BE00E459C9 /* FallacyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85992001DA414BE00E459C9 /* FallacyTableViewController.swift */; };
 		A85992041DA414BE00E459C9 /* FallacyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85992011DA414BE00E459C9 /* FallacyTableViewDataSource.swift */; };
 		A85992051DA414BE00E459C9 /* FallacyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85992021DA414BE00E459C9 /* FallacyTableViewDelegate.swift */; };
@@ -89,8 +87,6 @@
 		A8CDCAD41DA455EB00635E65 /* FallacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDCAD31DA455EB00635E65 /* FallacyCell.swift */; };
 		A8CDCAD71DA45C0700635E65 /* Evidence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDCAD51DA45C0700635E65 /* Evidence.storyboard */; };
 		A8CDCAD81DA45C0700635E65 /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDCAD61DA45C0700635E65 /* Modals.storyboard */; };
-		A8D13C191D9D82D70072F334 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF01D9AE7A8002C2672 /* Realm.framework */; };
-		A8D13C1A1D9D82DF0072F334 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */; };
 		A8E39AA31D96E47A0075ADD9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA01D96E47A0075ADD9 /* UsersTableViewController.swift */; };
 		A8E39AA41D96E47A0075ADD9 /* UsersTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA11D96E47A0075ADD9 /* UsersTableViewDataSource.swift */; };
 		A8E39AA51D96E47A0075ADD9 /* UsersTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39AA21D96E47A0075ADD9 /* UsersTableViewDelegate.swift */; };
@@ -143,8 +139,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A8586FF71D9AE7B2002C2672 /* RealmSwift.framework in Embed Frameworks */,
-				A8586FF51D9AE7B2002C2672 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +146,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		34B8FA35FB668E55F7B9E44E /* Pods-BiasBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiasBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiasBike/Pods-BiasBike.release.xcconfig"; sourceTree = "<group>"; };
+		48B265FD71382A83C52DBCC2 /* Pods_BiasBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiasBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		499EAD7B125D00CBE8692EC3 /* Pods-BiasBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiasBikeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiasBikeTests/Pods-BiasBikeTests.release.xcconfig"; sourceTree = "<group>"; };
+		928A18B1A54001597FF432B9 /* Pods_BiasBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiasBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A807DB001DA00A4100FBC077 /* Fallacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fallacy.swift; sourceTree = "<group>"; };
 		A807DB031DA00B0300FBC077 /* FallacyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyController.swift; sourceTree = "<group>"; };
 		A807DB051DA00C0200FBC077 /* FallacyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyFactory.swift; sourceTree = "<group>"; };
@@ -187,8 +185,6 @@
 		A8586FCE1D9ADAD2002C2672 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		A8586FD51D9ADB1A002C2672 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A8586FD61D9ADB1A002C2672 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		A8586FF01D9AE7A8002C2672 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A8586FFA1D9B0B3F002C2672 /* BiasBike-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BiasBike-PrefixHeader.pch"; sourceTree = "<group>"; };
 		A85992001DA414BE00E459C9 /* FallacyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyTableViewController.swift; sourceTree = "<group>"; };
 		A85992011DA414BE00E459C9 /* FallacyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -266,6 +262,8 @@
 		A8FD03911D91FF8700447924 /* ReliabilityRatingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReliabilityRatingController.swift; sourceTree = "<group>"; };
 		A8FD03931D9200D400447924 /* RelevanceRatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelevanceRatingControllerTests.swift; sourceTree = "<group>"; };
 		A8FD03971D92011300447924 /* ReliabilityRatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReliabilityRatingControllerTests.swift; sourceTree = "<group>"; };
+		B651B258A2EE27F850302412 /* Pods-BiasBikeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiasBikeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiasBikeTests/Pods-BiasBikeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B87B391EE41842D1630E3FF5 /* Pods-BiasBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiasBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiasBike/Pods-BiasBike.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,8 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8586FF61D9AE7B2002C2672 /* RealmSwift.framework in Frameworks */,
-				A8586FF21D9AE7A8002C2672 /* Realm.framework in Frameworks */,
+				8ADDE9F9BEDF4BD9840696A4 /* Pods_BiasBike.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8D13C1A1D9D82DF0072F334 /* RealmSwift.framework in Frameworks */,
-				A8D13C191D9D82D70072F334 /* Realm.framework in Frameworks */,
+				9F57BEBCEFAAE69ACFE6B338 /* Pods_BiasBikeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +293,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4132DC82E01261CD78E00DBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B87B391EE41842D1630E3FF5 /* Pods-BiasBike.debug.xcconfig */,
+				34B8FA35FB668E55F7B9E44E /* Pods-BiasBike.release.xcconfig */,
+				B651B258A2EE27F850302412 /* Pods-BiasBikeTests.debug.xcconfig */,
+				499EAD7B125D00CBE8692EC3 /* Pods-BiasBikeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A807DB021DA00AEC00FBC077 /* Fallacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,8 +393,8 @@
 		A8586FE51D9AE411002C2672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A8586FF01D9AE7A8002C2672 /* Realm.framework */,
-				A8586FF11D9AE7A8002C2672 /* RealmSwift.framework */,
+				928A18B1A54001597FF432B9 /* Pods_BiasBike.framework */,
+				48B265FD71382A83C52DBCC2 /* Pods_BiasBikeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -486,6 +493,7 @@
 				A8E4D8671D74E56A00AFA1FE /* BiasBikeUITests */,
 				A8E4D8441D74E56900AFA1FE /* Products */,
 				A8586FE51D9AE411002C2672 /* Frameworks */,
+				4132DC82E01261CD78E00DBA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -624,11 +632,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8E4D86D1D74E56A00AFA1FE /* Build configuration list for PBXNativeTarget "BiasBike" */;
 			buildPhases = (
+				15042B3FA00C162E737BDDE7 /* [CP] Check Pods Manifest.lock */,
 				A8E4D83F1D74E56900AFA1FE /* Sources */,
 				A8E4D8401D74E56900AFA1FE /* Frameworks */,
 				A8E4D8411D74E56900AFA1FE /* Resources */,
 				A8586FF81D9AE7B2002C2672 /* Embed Frameworks */,
 				A8586FF91D9AEBD3002C2672 /* ShellScript */,
+				456E22ECBD5F0E678AF41B24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -643,6 +653,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8E4D8701D74E56A00AFA1FE /* Build configuration list for PBXNativeTarget "BiasBikeTests" */;
 			buildPhases = (
+				8CD4E2AB854DA65B76CF0DD5 /* [CP] Check Pods Manifest.lock */,
 				A8E4D8551D74E56A00AFA1FE /* Sources */,
 				A8E4D8561D74E56A00AFA1FE /* Frameworks */,
 				A8E4D8571D74E56A00AFA1FE /* Resources */,
@@ -682,7 +693,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = tiguer;
 				TargetAttributes = {
 					A8E4D8421D74E56900AFA1FE = {
@@ -767,6 +778,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15042B3FA00C162E737BDDE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BiasBike-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		456E22ECBD5F0E678AF41B24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BiasBike/Pods-BiasBike-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiasBike/Pods-BiasBike-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CD4E2AB854DA65B76CF0DD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BiasBikeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A8586FF91D9AEBD3002C2672 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -778,7 +845,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -934,15 +1002,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -989,15 +1065,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1029,6 +1113,7 @@
 		};
 		A8E4D86E1D74E56A00AFA1FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87B391EE41842D1630E3FF5 /* Pods-BiasBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BiasBike/BiasBike.entitlements;
@@ -1049,6 +1134,7 @@
 		};
 		A8E4D86F1D74E56A00AFA1FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34B8FA35FB668E55F7B9E44E /* Pods-BiasBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BiasBike/BiasBike.entitlements;
@@ -1069,6 +1155,7 @@
 		};
 		A8E4D8711D74E56A00AFA1FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B651B258A2EE27F850302412 /* Pods-BiasBikeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1090,6 +1177,7 @@
 		};
 		A8E4D8721D74E56A00AFA1FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 499EAD7B125D00CBE8692EC3 /* Pods-BiasBikeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

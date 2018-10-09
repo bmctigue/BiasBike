@@ -67,8 +67,8 @@ class LogInViewController: UIViewController {
 
     private func userInputValid() -> Bool {
         guard
-            let userName = userNameTextField.text , userName.characters.count > 0,
-            let password = passwordTextField.text , password.characters.count > 0
+            let userName = userNameTextField.text , userName.count > 0,
+            let password = passwordTextField.text , password.count > 0
         else {
             return false
         }

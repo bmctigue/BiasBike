@@ -36,7 +36,7 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
         self.tableViewDataSource = EvidenceTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EvidenceTableViewDelegate(tableView: tableView, evidenceTableViewController: self)
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             self.refreshData()
         }
         
@@ -80,7 +80,7 @@ class EvidenceTableViewController: UITableViewController, EvidenceCellDelegate {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 
 }

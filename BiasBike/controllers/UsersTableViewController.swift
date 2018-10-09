@@ -31,7 +31,7 @@ class UsersTableViewController: UITableViewController {
         self.tableViewDataSource = UsersTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = UsersTableViewDelegate(tableView: tableView, usersTableViewController: self)
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             self.refreshData()
         }
         
@@ -52,6 +52,6 @@ class UsersTableViewController: UITableViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 }

@@ -39,7 +39,7 @@ class EventTableViewController: UITableViewController, CategoriesTableViewContro
         self.tableViewDataSource = EventTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = EventTableViewDelegate(tableView: tableView, category:"", tableViewController: self)
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             self.refreshData()
         }
         
@@ -80,6 +80,6 @@ class EventTableViewController: UITableViewController, CategoriesTableViewContro
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 }

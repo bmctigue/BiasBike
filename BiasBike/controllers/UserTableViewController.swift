@@ -35,7 +35,7 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate, Evidenc
         self.tableViewDataSource = UserTableViewDataSource(tableView: tableView)
         self.tableViewDelegate = UserTableViewDelegate(tableView: tableView, userTableViewController: self)
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             self.refreshData()
         }
         
@@ -76,7 +76,7 @@ class UserTableViewController: UITableViewController, ClaimCellDelegate, Evidenc
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 
 }

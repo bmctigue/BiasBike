@@ -67,9 +67,7 @@ func presentError(error: NSError) {
 }
 
 private func setDefaultRealmConfigurationWithUser(user: SyncUser) {
-    var config = Realm.Configuration()
-    config.syncConfiguration = SyncConfiguration(user: user, realmURL: Constants.syncServerURL! as URL)
-    Realm.Configuration.defaultConfiguration = config
+    Realm.Configuration.defaultConfiguration = user.configuration(realmURL: Constants.syncServerURL! as URL, fullSynchronization: true, enableSSLValidation: true, urlPrefix: nil)
     
     do {
         realm = try Realm()

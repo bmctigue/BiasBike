@@ -42,7 +42,7 @@ class EvidenceViewController: UIViewController {
             }
         }
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
+        notificationToken = realm.observe { notification, realm in
             if let evidence = self.evidence {
                 self.fallacyCollectionViewController?.collectionViewDataSource?.updateData(fallacies: Array(evidence.fallacies))
                 self.fallacyCollectionViewController?.collectionViewDelegateFlowLayout?.updateData(fallacies: Array(evidence.fallacies))
@@ -83,7 +83,7 @@ class EvidenceViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 
 }
