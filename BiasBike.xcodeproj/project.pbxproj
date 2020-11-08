@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8ADDE9F9BEDF4BD9840696A4 /* Pods_BiasBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928A18B1A54001597FF432B9 /* Pods_BiasBike.framework */; };
 		9F57BEBCEFAAE69ACFE6B338 /* Pods_BiasBikeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B265FD71382A83C52DBCC2 /* Pods_BiasBikeTests.framework */; };
+		A806D3C921FDF92E0079F616 /* BiasBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A806D3C821FDF92E0079F616 /* BiasBikeUITests.swift */; };
 		A807DB011DA00A4100FBC077 /* Fallacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB001DA00A4100FBC077 /* Fallacy.swift */; };
 		A807DB041DA00B0300FBC077 /* FallacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB031DA00B0300FBC077 /* FallacyController.swift */; };
 		A807DB061DA00C0200FBC077 /* FallacyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807DB051DA00C0200FBC077 /* FallacyFactory.swift */; };
@@ -150,6 +151,8 @@
 		48B265FD71382A83C52DBCC2 /* Pods_BiasBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiasBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		499EAD7B125D00CBE8692EC3 /* Pods-BiasBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiasBikeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiasBikeTests/Pods-BiasBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		928A18B1A54001597FF432B9 /* Pods_BiasBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiasBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A806D3C721FDF92E0079F616 /* BiasBikeUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BiasBikeUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		A806D3C821FDF92E0079F616 /* BiasBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiasBikeUITests.swift; sourceTree = "<group>"; };
 		A807DB001DA00A4100FBC077 /* Fallacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fallacy.swift; sourceTree = "<group>"; };
 		A807DB031DA00B0300FBC077 /* FallacyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyController.swift; sourceTree = "<group>"; };
 		A807DB051DA00C0200FBC077 /* FallacyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallacyFactory.swift; sourceTree = "<group>"; };
@@ -551,6 +554,8 @@
 			isa = PBXGroup;
 			children = (
 				A8E4D86A1D74E56A00AFA1FE /* Info.plist */,
+				A806D3C821FDF92E0079F616 /* BiasBikeUITests.swift */,
+				A806D3C721FDF92E0079F616 /* BiasBikeUITests-Bridging-Header.h */,
 			);
 			path = BiasBikeUITests;
 			sourceTree = "<group>";
@@ -693,7 +698,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = tiguer;
 				TargetAttributes = {
 					A8E4D8421D74E56900AFA1FE = {
@@ -716,7 +721,7 @@
 					A8E4D8631D74E56A00AFA1FE = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 462PHCYTGY;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A8E4D8421D74E56900AFA1FE;
 					};
@@ -724,7 +729,7 @@
 			};
 			buildConfigurationList = A8E4D83E1D74E56900AFA1FE /* Build configuration list for PBXProject "BiasBike" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -962,6 +967,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A806D3C921FDF92E0079F616 /* BiasBikeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +1003,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1017,6 +1024,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1044,7 +1052,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "8933738c-ed1a-47cf-8fb2-a26e23ef0f32";
@@ -1060,6 +1068,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1080,6 +1089,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1101,7 +1111,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "8933738c-ed1a-47cf-8fb2-a26e23ef0f32";
 				SDKROOT = iphoneos;
@@ -1206,6 +1216,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tiguer.BiasBikeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiasBikeUITests/BiasBikeUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = BiasBike;
@@ -1222,6 +1233,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tiguer.BiasBikeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiasBikeUITests/BiasBikeUITests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = BiasBike;
 			};
